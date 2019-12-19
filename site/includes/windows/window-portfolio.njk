@@ -1,0 +1,23 @@
+{% extends "components/window.njk" %}
+
+{% block content %}
+
+<div class="overflow-y-auto">
+    <div class="p-8 overflow-y-auto">
+        <ul class="project-grid">
+            {% for post in data %}
+            <li class="px-2 py-4 rounded hover:bg-purple-100 focus-within:bg-purple-100">
+                <a href="#" class="flex flex-col items-center text-center focus:outline-none">
+                    <svg class="block w-32" role="presentation" aria-hidden="true" viewbox="0 0 128 100">
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                             xlink:href="/images/icons/icon-library.svg#icon-project-folder"></use>
+                    </svg>
+                    <h3 class="mt-4 leading-snug">{{ post.data.title }}</h3>
+                    <span class="block mt-1 text-sm leading-snug text-grey-600">{{ post.data.subtitle }}</span>
+                </a>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+{% endblock %}

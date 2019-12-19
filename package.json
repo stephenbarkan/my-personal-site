@@ -29,5 +29,11 @@
 		"gulp-uglify": "^3.0.2",
 		"html-minifier": "^4.0.0",
 		"tailwindcss": "^1.0.5"
+	},
+	"dependencies": {
+		"howler": "^2.1.2",
+		"interactjs": "^1.8.0-alpha.6",
+		"markdown-it": "^10.0.0",
+		"tailwindcss-interaction-variants": "^2.3.0"
 	}
 }

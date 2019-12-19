@@ -1,34 +1,72 @@
 ---
 layout: default
 meta_title: Home
-meta_description: Homepage description
+meta_description: The Personal Site of Stephen barkan
 body_class: home
-title: Welcome to Skeleventy!
+title: Home
 ---
+{% set ig_images = ig_images %}
+{% set posts = collections.blog %}
+{% set songs = playlist %}
+{% import "windows/window-me.njk" as me %}
+{% import "windows/window-music.njk" as music %}
+{% import "windows/window-about.njk" as about %}
+{% import "windows/window-portfolio.njk" as portfolio %}
 
-<main id="main" class="main container m-auto flex flex-1 flex-col md:flex-row py-10 px-6 lg:px-0 lg:py-20">
+<main id="main" class="relative flex flex-col items-center justify-between w-full min-h-full sm:justify-center">
+    {# text content #}
+    <div class="flex flex-col items-center px-6 py-16 text-4xl leading-tight sm:text-6xl serif">
+        <h1 class="max-w-headline">
+            This is the personal site of
+            <a id="me" href="#" class="text-black no-underline group focus:outline-none">
+                <span class="text-red-500 group-hocus:underline">Stephen Barkan</span>.
+            </a>
+        </h1>
 
-    <section id="container-centre" class="flex-1">
+        <nav class="mt-12 max-w-headline">
+            See <a id="portfolio" href="#"
+               class="text-black no-underline group focus:outline-none">
+                <span class="text-purple-500 group-hocus:underline">his design portfolio</span>,
+            </a>
+            read about <a id="about" href="#"
+               class="text-black no-underline group focus:outline-none">
+                <span class="text-yellow-500 group-hocus:underline"> his interests</span>,
+            </a>
+            listen to <a id="music" href="#"
+               class="text-black no-underline group focus:outline-none">
+                <span class="text-green-500 group-hocus:underline">music he wrote</span>,
+            </a>
+            or send him <a id="contact" href="#"
+               class="text-black no-underline group focus:outline-none">
+                <span class="text-blue-500 group-hocus:underline">a message</span>.
+            </a>
+        </nav>
+    </div>
 
-        <h1 class="page-title text-5xl">{{ title }}</h1>
+    {# window wrapper #}
+    <div class="fixed items-center justify-center p-1 pointer-events-none windows-container">
 
-        <div class="content">
-            <p>A skeleton boilerplate built with <a href="https://www.11ty.io">Eleventy</a> and <a href="https://tailwindcss.com">Tailwind CSS</a>.</p>
+        {{ me.windowFrame( 'me', 'red', false, ig_images) }}
+        {{ music.windowFrame( 'music', 'green', true, songs) }}
+        {{ about.windowFrame( 'about', 'yellow', false) }}
+        {{ portfolio.windowFrame( 'portfolio', 'purple', false, posts) }}
 
-            <h2 class="text-3xl">Features</h2>
+    </div>
 
-            <ul class="mb-12 list-disc pl-4">
-                <li>Tailwind CSS for beautiful and fast UI styling</li>
-                <li>Gulp to watch and compile your Tailwind, SCSS &amp; JS files</li>
-                <li><a href="https://www.purgecss.com/">Purgecss</a> to remove any unused CSS</li>
-                <li>HTML minifier</li>
-                <li>A simple blog, with categories and featured images</li>
-            </ul>
+    {% include "components/footer.njk" %}
 
-        </div>
+    <div class="fixed bottom-0 right-0 hidden p-6 sm:block">
+        <button
+                class="block px-3 py-3 text-xs tracking-wider uppercase border border-grey-600 text-grey-700 hover:bg-black hover:text-white hover:border-black focus:outline-none focus:text-white focus:border-black focus:bg-black close-all transition">
+            Close All
+        </button>
+    </div>
 
-    </section>
+    <div class="fixed inset-0 fade-overlay bg-neutral-100"></div>
+
+    <div
+         class="fixed inset-0 items-center justify-center p-4 font-serif text-5xl leading-snug text-center text-white bg-black border-8 md:text-6xl border-neutral-100 rotate-pls">
+        Please rotate your phone!
+    </div>
 
 </main>
-
-

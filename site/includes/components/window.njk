@@ -1,0 +1,65 @@
+{% macro windowFrame(title, color, inverted, data) %}
+
+<div class="overflow-hidden flex flex-col bg-white rounded-sm shadow-lg pointer-events-auto window-wrapper sm:absolute draggable
+{% if title != "music" %}
+closed
+{% endif %}" id="{{title}}Window">
+    <div class="draggable-handle">
+        <div class="h-2 bg-{{color}}-500
+            {% if inverted %}
+                bg-{{color}}-700
+            {% endif %}">
+        </div>
+        <div class="relative flex justify-center px-4 py-5 xs:py-3
+            {% if inverted %}
+                bg-{{color}}-800
+            {% else %}
+                bg-{{color}}-100
+            {% endif %}">
+            <div class="absolute inset-y-0 left-0 flex items-center mx-4">
+                <button class="relative flex focus:outline-none window-close">
+                    <span class="sr-only">Close Window</span>
+                    <div class="w-4 h-4 bg-red-500 border rounded-full
+                        {% if inverted %}
+                            border-{{color}}-800
+                        {% else %}
+                             border-{{color}}-100
+                        {% endif %}
+                    ">
+                    </div>
+                    <div class="w-4 h-4 ml-2 bg-yellow-500 border border-{{color}}-100 rounded-full
+                        {% if inverted %}
+                            border-{{color}}-800
+                        {% else %}
+                             border-{{color}}-100
+                        {% endif %}
+                    ">
+                    </div>
+                    <div class="w-4 h-4 ml-2 bg-green-500 border border-{{color}}-100 rounded-full
+                        {% if inverted %}
+                            border-{{color}}-800
+                        {% else %}
+                             border-{{color}}-100
+                        {% endif %}
+                    ">
+                    </div>
+                </button>
+            </div>
+            <h2 class="text-2xl leading-none serif hidden xs:block
+            {% if inverted %}
+                text-grey-100
+            {% endif %}
+            ">{{ title | capitalize }}</h2>
+        </div>
+    </div>
+    <div class="flex flex-1 flex-col overflow-hidden 
+        {% if inverted %}
+            bg-grey-900 text-grey-100
+        {% endif %}">
+        {% block content %}
+        {# window content goes here #}
+        {% endblock %}
+    </div>
+</div>
+
+{% endmacro %}

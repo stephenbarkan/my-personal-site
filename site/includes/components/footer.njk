@@ -1,15 +1,27 @@
-<div class="footer-wrapper">
+<header id="header" class="top-0 right-0 p-6 sm:absolute">
 
-    <footer id="footer" class="footer bg-gray-200" role="contentinfo">
+	<ul class="flex justify-center align-center">
 
-        <div class="footer-inner container m-auto md:flex justify-between items-center px-6 py-10">
+		{% for icon, link in site.social_links %}
 
-            <p class="text-purple-900 pb-8 md:pb-0">© 2019 Skeleventy: A skeleton boilerplate built with <a href="https://www.11ty.io/">Eleventy.</a></p>
+		<li class="ml-3 first:ml-0">
 
-            {% include 'components/social-icons.njk' %}
+			<a href="{{ link | safe }}"
+				 class="block rounded-sm text-grey-200 hocus:text-grey-600 focus:outline-none focus:shadow-outline"
+				 aria-label="{{ icon | capitalize }}"
+				 target="_blank" rel="noopener">
 
-        </div>
+				<svg class="block w-8 h-8" fill="currentColor" role="img" aria-hidden="true">
+					<use xmlns:xlink="http://www.w3.org/1999/xlink"
+							 xlink:href="/images/icons/icon-library.svg#icon-{{ icon }}"></use>
+				</svg>
 
-    </footer>
+			</a>
 
-</div>
+		</li>
+
+		{% endfor %}
+
+	</ul>
+
+</header>

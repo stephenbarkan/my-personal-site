@@ -1,25 +1,16 @@
+@import url("//hello.myfonts.net/count/3aa46c");
+@import url("https://fonts.googleapis.com/css?family=IBM+Plex+Mono|IBM+Plex+Sans:400,500&display=swap");
 
-//==========  Typography ==========//
-
-// headings
-h1, h2, h3, h4, h5, h6 {
-    @apply font-bold leading-tight mt-0 mb-6;
+@font-face {
+	font-family: "ClearfaceStd-Regular";
+	src: url("/webfonts/3AA46C_0_0.eot");
+	src: url("/webfonts/3AA46C_0_0.eot?#iefix") format("embedded-opentype"),
+		url("/webfonts/3AA46C_0_0.woff2") format("woff2"),
+		url("/webfonts/3AA46C_0_0.woff") format("woff"),
+		url("/webfonts/3AA46C_0_0.ttf") format("truetype");
 }
 
-// content
-.content {
-
-	// paragraph
-	p {
-		@apply mb-8;
-
-        // intro paragraph
-		&.intro {
-			@apply border-b border-gray-200 text-2xl pb-10 mb-10 font-light text-gray-500;
-
-			@screen md {
-                @apply text-3xl;
-            }
-		}
-    }
+.serif {
+	@apply font-serif;
+	@apply tracking-tight;
 }

@@ -1,0 +1,87 @@
+{% extends "components/window.njk" %}
+
+{% block content %}
+<div id="music-state-wrapper" data-state="paused" class="flex flex-col flex-1 overflow-hidden">
+    <div class="flex flex-col items-center flex-shrink-0 p-4 pb-6 xs:pb-4 xs:flex-row">
+        <div class="flex-shrink-0 w-56 h-56 xs:w-32 xs:h-32 bg-grey-800">
+            <img id="music-thumbnail" class="w-full transition" src="" alt="">
+        </div>
+        <div class="flex flex-col flex-shrink-0 w-full max-w-xs mt-4 xs:max-w-full xs:mt-0 xs:ml-4">
+            <div class="flex flex-col items-center xs:flex-row">
+                <h3 id="music-title"
+                    class="text-xl leading-snug text-center text-gray-100 xs:ml-4 xs:text-left serif transition">
+                    Select a track below to listen!
+                </h3>
+                <button id="music-play-button" disabled
+                        class="mt-4 rounded-full xs:mt-0 xs:order-first focus:shadow-outline focus:outline-none">
+                    <svg id="music-play-icon" class="flex-shrink-0 block w-16 h-16 xs:w-14 xs:h-14" role="button"
+                         aria-hidden="true">
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                             xlink:href="/images/icons/icon-library.svg#icon-music-play"></use>
+                    </svg>
+                    <svg id="music-pause-icon" class="flex-shrink-0 hidden block w-16 h-16 xs:w-14 xs:h-14"
+                         role="button"
+                         aria-hidden="true">
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                             xlink:href="/images/icons/icon-library.svg#icon-music-pause"></use>
+                    </svg>
+                </button>
+            </div>
+            <div class="relative flex-shrink-0 mt-6">
+                <input type="range" id="music-slider" name="music-progress" class="relative z-10 block w-full" min="0"
+                       max="100" value="0" step=".25" disabled>
+                <label for="music-progress" class="sr-only">Scrub through song</label>
+                <div class="absolute left-0 right-0 z-0 h-1 -mt-1 overflow-hidden rounded-full bg-grey-700">
+                    <div id="music-progress-bar" class="w-full h-full bg-green-700"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="flex-shrink overflow-y-auto border-t border-grey-700">
+        <ul class="border-b border-grey-700">
+            {% for obj in data %}
+            <li class="border-t border-grey-700 first:border-t-0">
+                <button data-src="/songs/{{ obj.src }}"
+                        data-thumbnail="/images/songs/{{ obj.thumbnail }}"
+                        data-title="{{ obj.title }}"
+                        class="flex items-center w-full px-4 py-3 hocus:bg-grey-800 hocus:text-white text-grey-200 focus:outline-none playlist-item">
+
+                    <div class="flex-shrink-0">
+                        <svg class="flex-shrink-0 block w-4 h-4 stroke-current icon-music-song" role="presentation"
+                             aria-hidden="true">
+                            <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                                 xlink:href="/images/icons/icon-library.svg#icon-music-song"></use>
+                        </svg>
+                        <svg class="flex-shrink-0 hidden w-4 h-4 stroke-current icon-music-queue"
+                             role="presentation"
+                             aria-hidden="true">
+                            <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                                 xlink:href="/images/icons/icon-library.svg#icon-music-queue"></use>
+                        </svg>
+                    </div>
+
+                    <h4 class="ml-4 text-sm leading-tight text-left">
+                        {{obj.title}}
+                    </h4>
+                </button>
+            </li>
+            {% endfor %}
+        </ul>
+        <div class="flex justify-center">
+            <a href="https://soundcloud.com/stephenbarkan"
+               class="flex items-center justify-center w-full px-4 py-2 text-sm leading-tight focus:outline-none text-grey-200 hocus:bg-grey-800 hocus:text-white"
+               target="_blank"
+               ref="noopener">
+                <svg class="w-6 h-6"
+                     role="presentation"
+                     aria-hidden="true">
+                    <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                         xlink:href="/images/icons/icon-library.svg#icon-soundcloud">
+                    </use>
+                </svg>
+                <span class="ml-2">Listen more on SoundCloud</span>
+            </a>
+        </div>
+    </div>
+</div>
+{% endblock %}

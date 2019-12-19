@@ -1,10 +1,10 @@
 {
-    "name": "Skeleventy",
-    "url": "https://skeleventy.netlify.com",
+    "name": "Stephen Barkan",
+    "url": "https://stephenbarkan.com",
     "author": {
-        "name": "Max Power",
-        "email": "hello@maxpower.com",
-        "handle": "@maxpower",
+        "name": "Stephen barkan",
+        "email": "stephenbarkan@gmail.com",
+        "handle": "@stephen_barkan",
         "avatar": "/images/blog/author.jpg"
     },
     "images": {
@@ -13,8 +13,8 @@
         "og": "/images/meta/og.jpg"
     },
     "social_links": {
-        "facebook": "https://www.facebook.com",
-        "twitter": "https://twitter.com/joe_dyer1",
-        "linkedin": "https://www.linkedin.com"
+        "instagram": "https://www.instagram.com/stephen_barkan",
+        "twitter": "https://twitter.com/stephen_barkan",
+        "arena": "https://www.are.na/stephen-barkan"
     }
 }

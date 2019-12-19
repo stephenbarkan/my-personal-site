@@ -1,0 +1,57 @@
+.ig-heart {
+    svg {
+        stroke: theme('colors.grey.900');
+        fill: theme('colors.transparent');
+    }
+
+    &.liked {
+        svg {
+            stroke: theme('colors.red.500');
+            fill: theme('colors.red.500');
+        }
+    }
+
+    &:focus {
+        outline: auto 5px -webkit-focus-ring-color;
+    }
+
+    &.animating {
+        animation: ig-heart-animation .45s ease-in-out;
+
+        @keyframes ig-heart-animation {
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            25% {
+                transform: scale(1.2);
+            }
+
+            50% {
+                transform: scale(.95);
+            }
+        }
+    }
+
+}
+
+.ig-dot {
+    &.current {
+        @apply bg-red-500;
+    }
+}
+
+.ig-caption,
+.ig-date {
+    display: none;
+
+    &.current {
+        display: inline;
+    }
+}
+
+.ig-slider {
+    transition: transform .4s cubic-bezier(.5, 0, .5, 1);
+}

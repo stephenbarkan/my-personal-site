@@ -1,0 +1,13 @@
+{% extends "components/window.njk" %}
+
+{% block content %}
+
+{% set about %}
+{% include 'about.md' %}
+{% endset %}
+<div class="overflow-y-auto">
+    <div class="p-4">
+        {{ about | markdownify | safe }}
+    </div>
+</div>
+{% endblock %}

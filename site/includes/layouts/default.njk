@@ -1,14 +1,16 @@
 <!doctype html>
-<html lang="en" class="min-h-full antialiased">
+<html lang="en" class="h-full antialiased">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% if meta_title %}{{ meta_title }}{% else %}{{ title }}{% endif %} | {{ site.name }}</title>
-    <meta name="description" content="{% if meta_description %}{{ meta_description }}{% else %}{{ excerpt }}{% endif %}">
+    <meta name="description"
+          content="{% if meta_description %}{{ meta_description }}{% else %}{{ excerpt }}{% endif %}">
     <link rel="canonical" href="{{ site.url }}{{ page.url }}">
 
     {% if page.fileSlug === "blog" %}
-        <meta name="robots" content="noindex,follow" />
+    <meta name="robots" content="noindex,follow" />
     {% endif %}
 
     {# for performance gains over the network, if your site's entire CSS comes in under 16kb, you may want to consider just having it inlined in the head #}
@@ -25,22 +27,17 @@
     <link rel="icon" type="image/png" href="{{ site.images.favicon }}">
 </head>
 
-<body {% if body_class %} id="{{ body_class }}"{% endif %} class="min-h-full font-sans text-lg text-purple-darkest leading-normal">
+<body {% if body_class %} id="{{ body_class }}" {% endif %}
+      class="flex justify-center min-h-full font-sans leading-normal text-black text-default bg-neutral-100">
 
-    <a class="visually-hidden" href="#main">Skip to content</a>
+    <a class="sr-only" href="#main">Skip to content</a>
 
-    <div id="wrapper" class="wrapper flex flex-col relative min-h-screen">
-
-        {# include header #}
-        {% include "components/header.njk" %}
-
-        {# include content #}
+    <div id="wrapper" class="relative flex flex-col items-center w-full">
         {{ content | safe }}
-
-        {# include footer #}
-        {% include "components/footer.njk" %}
-
     </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.1.2/howler.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/interactjs/dist/interact.min.js"></script>
 
     {# include scripts #}
     {% if helpers.environment == "development" %}
@@ -50,4 +47,5 @@
     {% endif %}
 
 </body>
+
 </html>
