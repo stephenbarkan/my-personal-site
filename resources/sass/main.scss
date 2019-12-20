@@ -1,5 +1,5 @@
 //==========  Imports  ==========//
-
+/* purgecss start ignore */
 // Import Tailwind preflight
 @tailwind base;
 
@@ -14,6 +14,8 @@
 @import "base/ig-stuff";
 @import "base/music-stuff";
 @import "base/portfolio-stuff";
+
+/* purgecss end ignore */
 
 // Import Tailwind utilities
 // TailwindCSS recommends leaving utilities till last to ensure they aren't overwritten.
