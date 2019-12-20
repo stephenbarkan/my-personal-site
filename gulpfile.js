@@ -150,7 +150,7 @@ const compileCSSPreflight = done => {
       postcss([
         tailwindcss("./tailwind.config.js"),
         purgecss({
-          content: ["site/*.njk", "site/includes/**/*.njk", "resources/sass/*.scss"],
+          content: ["site/*.njk", "site/includes/**/*.njk", "resources/sass/**/*.scss"],
           extractors: [{
             extractor: TailwindExtractor,
             extensions: ["html", "njk", "scss"]
