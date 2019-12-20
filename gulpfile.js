@@ -1,5 +1,12 @@
 //  General
-const { gulp, src, dest, watch, series, parallel } = require("gulp");
+const {
+  gulp,
+  src,
+  dest,
+  watch,
+  series,
+  parallel
+} = require("gulp");
 const rename = require("gulp-rename");
 const notify = require("gulp-notify");
 const plumber = require("gulp-plumber");
@@ -33,7 +40,7 @@ const paths = {
 /**
  * Errors function
  */
-var onError = function(err) {
+var onError = function (err) {
   notify.onError({
     title: "Gulp Error - Compile Failed",
     message: "Error: <%= error.message %>"
@@ -47,7 +54,7 @@ var onError = function(err) {
  */
 class TailwindExtractor {
   static extract(content) {
-    return content.match(/[A-z0-9-:\/]+/g) || [];
+    return content.match(/[\w-/:]+(?<!:)/g) || [];
   }
 }
 
@@ -56,7 +63,9 @@ class TailwindExtractor {
  */
 const compileCSS = done => {
   return src(paths.sass.source)
-    .pipe(plumber({ errorHandler: onError }))
+    .pipe(plumber({
+      errorHandler: onError
+    }))
     .pipe(sass())
     .pipe(postcss([tailwindcss("./tailwind.config.js")]))
     .pipe(
@@ -78,7 +87,9 @@ const compileCSS = done => {
  */
 const compileJS = done => {
   return src(paths.javascript.source)
-    .pipe(plumber({ errorHandler: onError }))
+    .pipe(plumber({
+      errorHandler: onError
+    }))
     .pipe(
       babel({
         presets: ["@babel/env"],
@@ -140,12 +151,10 @@ const compileCSSPreflight = done => {
         tailwindcss("./tailwind.config.js"),
         purgecss({
           content: ["site/*.njk", "site/includes/**/*.njk"],
-          extractors: [
-            {
-              extractor: TailwindExtractor,
-              extensions: ["html", "njk"]
-            }
-          ],
+          extractors: [{
+            extractor: TailwindExtractor,
+            extensions: ["html", "njk"]
+          }],
           /**
            * You can whitelist selectors to stop purgecss from removing them from your CSS.
            * see: https://www.purgecss.com/whitelisting

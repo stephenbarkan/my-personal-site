@@ -829,6 +829,29 @@ body.window-open {
   user-select: none;
 }
 
+.storage {
+  background-color: #eef7f0;
+  background-color: #0fbda8;
+  background-color: #219c8d;
+  background-color: #0c554c;
+  background-color: #ffede4;
+  background-color: #fc664f;
+  background-color: #c85646;
+  background-color: #6e302b;
+  background-color: #fff5dd;
+  background-color: #ffad0e;
+  background-color: #cf9b3a;
+  background-color: #785d2b;
+  background-color: #EEEDFD;
+  background-color: #5547ec;
+  background-color: #675ec9;
+  background-color: #373460;
+  background-color: #edf6f6;
+  background-color: #15a6f8;
+  background-color: #1379b4;
+  background-color: #034063;
+}
+
 .ig-heart svg {
   stroke: #16151e;
   fill: transparent;
