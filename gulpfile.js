@@ -150,10 +150,10 @@ const compileCSSPreflight = done => {
       postcss([
         tailwindcss("./tailwind.config.js"),
         purgecss({
-          content: ["site/*.njk", "site/includes/**/*.njk"],
+          content: ["site/*.njk", "site/includes/**/*.njk", "site/resources/sass/*.scss"],
           extractors: [{
             extractor: TailwindExtractor,
-            extensions: ["html", "njk"]
+            extensions: ["html", "njk", "scss"]
           }],
           /**
            * You can whitelist selectors to stop purgecss from removing them from your CSS.
