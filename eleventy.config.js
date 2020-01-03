@@ -39,9 +39,14 @@ module.exports = eleventyConfig => {
     return collection.getFilteredByTag("blog").reverse();
   });
 
+  eleventyConfig.addCollection("note", collection => {
+    return collection.getFilteredByTag("note").reverse();
+  });
+
   // Layout aliases
   eleventyConfig.addLayoutAlias("default", "layouts/default.njk");
   eleventyConfig.addLayoutAlias("post", "layouts/post.njk");
+  eleventyConfig.addLayoutAlias("test", "layouts/test.njk");
 
   // Include our static assets
   eleventyConfig.addPassthroughCopy("css");

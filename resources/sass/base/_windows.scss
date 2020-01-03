@@ -12,19 +12,31 @@
   width: 32rem;
 
   @screen sm {
-    bottom: 6rem;
+    bottom: 2rem;
     top: unset;
     left: 12%;
   }
 }
 
 #aboutWindow {
-  --width: 38rem;
+  --width: 50rem;
   width: var(--width);
+  height: 34rem;
 
   @screen sm {
     left: calc(100% - var(--width) - 1rem);
     top: 15%;
+  }
+}
+
+#contactWindow {
+  --width: 21rem;
+  width: var(--width);
+  height: 36rem;
+
+  @screen sm {
+    left: calc(65% - var(--width) - 1rem);
+    top: 20%;
   }
 }
 
@@ -34,7 +46,7 @@
 
   @screen sm {
     left: 0.5rem;
-    top: 20%;
+    top: 4rem;
   }
 }
 

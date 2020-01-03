@@ -7,11 +7,13 @@ title: Home
 ---
 {% set ig_images = ig_images %}
 {% set posts = collections.blog %}
+{% set notes = collections.note %}
 {% set songs = playlist %}
 {% import "windows/window-me.njk" as me %}
 {% import "windows/window-music.njk" as music %}
 {% import "windows/window-about.njk" as about %}
 {% import "windows/window-portfolio.njk" as portfolio %}
+{% import "windows/window-contact.njk" as contact %}
 
 <main id="main" class="relative flex flex-col items-center justify-between w-full min-h-full sm:justify-center">
     {# text content #}
@@ -28,9 +30,9 @@ title: Home
                class="text-black no-underline group focus:outline-none">
                 <span class="text-purple-500 group-hocus:underline">his design portfolio</span>,
             </a>
-            read about <a id="about" href="#"
+            read more <a id="about" href="#"
                class="text-black no-underline group focus:outline-none">
-                <span class="text-yellow-500 group-hocus:underline"> his interests</span>,
+                <span class="text-yellow-500 group-hocus:underline"> about him</span>,
             </a>
             listen to <a id="music" href="#"
                class="text-black no-underline group focus:outline-none">
@@ -43,12 +45,15 @@ title: Home
         </nav>
     </div>
 
+
+
     {# window wrapper #}
     <div class="fixed items-center justify-center p-1 pointer-events-none windows-container">
 
         {{ me.windowFrame( 'me', 'red', false, ig_images) }}
         {{ music.windowFrame( 'music', 'green', true, songs) }}
-        {{ about.windowFrame( 'about', 'yellow', false) }}
+        {{ about.windowFrame( 'about', 'yellow', false, notes) }}
+        {{ contact.windowFrame( 'contact', 'blue', false) }}
         {{ portfolio.windowFrame( 'portfolio', 'purple', false, posts) }}
 
     </div>

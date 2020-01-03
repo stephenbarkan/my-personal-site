@@ -62,7 +62,7 @@
             </p>
             <date class="block mt-2 text-xs leading-none tracking-wider uppercase text-grey-600">
                 {% for obj in data %}
-                <span class="ig-date">{{obj.date}}</span>
+                <span class="ig-date">{{obj.date  | dateDisplay }}</span>
                 {% endfor %}
             </date>
         </div>

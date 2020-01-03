@@ -72,11 +72,13 @@ const moveSlider = function () {
     igSlider.style.transform = `translateX(${current * -100}%)`
 }
 
-igLeft.addEventListener('click', function () {
+igLeft.addEventListener('click', function (e) {
+    e.preventDefault()
     previous()
 })
 
-igRight.addEventListener('click', function () {
+igRight.addEventListener('click', function (e) {
+    e.preventDefault()
     next()
 })
 

@@ -2,24 +2,24 @@
         "src": "me.png",
         "alt": "It's me",
         "caption": "A pic of me!",
-        "date": "July 18, 2018"
+        "date": "2018-07-18"
     },
     {
         "src": "queens-night-market.jpg",
         "alt": "Eugenia and I at Queens Night Market",
         "caption": "Me and my partner, Eugenia",
-        "date": "May 27, 2019"
+        "date": "2019-05-27"
     },
     {
         "src": "goat.jpg",
         "alt": "me with a goat",
         "caption": "Me with a goat",
-        "date": "December 4, 2019"
+        "date": "2019-12-04"
     },
     {
         "src": "jam.gif",
         "alt": "rockin' out",
         "caption": "🤘",
-        "date": "July 18, 2018"
+        "date": "2018-07-18"
     }
 ]

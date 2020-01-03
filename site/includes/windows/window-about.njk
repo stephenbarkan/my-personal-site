@@ -2,12 +2,36 @@
 
 {% block content %}
 
-{% set about %}
-{% include 'about.md' %}
-{% endset %}
-<div class="overflow-y-auto">
-    <div class="p-4">
-        {{ about | markdownify | safe }}
+<div class="flex flex-1 overflow-y-auto">
+    <div class="flex-shrink-0 border-r w-44 w bg-grey-100 border-grey-200">
+        <ul class="h-full overflow-y-auto">
+            {% for note in data %}
+            <li class="border-b border-grey-200">
+                <a href="#" class="block py-4 pl-4 pr-2 hover:bg-white about-note-link" data-note="{{loop.index}}">
+                    <h4 class="font-medium truncate">
+                        {{ note.data.title }}
+                    </h4>
+
+                    <date class="block mt-1 text-xs leading-none tracking-wider uppercase text-grey-600">
+                        {{ note.data.date | dateDisplay }}
+                        {% if note.data.enddate %}
+                        - {{ note.data.enddate | dateDisplay }}
+                        {% endif %}
+                    </date>
+                </a>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+    <div class="flex-grow h-full p-6 overflow-y-auto">
+        {% for note in data %}
+        <article class="hidden max-w-xl mx-auto about-note" data-note="{{loop.index}}">
+            <h3 class="font-serif text-4xl leading-tight">{{note.data.title}}</h3>
+            <div class="mt-4 text-grey-900 markdown">
+                {{ note.templateContent | markdownify | safe }}
+            </div>
+        </article>
+        {% endfor %}
     </div>
 </div>
 {% endblock %}

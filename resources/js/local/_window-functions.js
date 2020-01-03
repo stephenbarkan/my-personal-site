@@ -59,6 +59,11 @@ const windowFunctions = function () {
     windowOpen(e, "portfolioWindow");
   });
 
+  const linkContact = document.getElementById("contact");
+  linkContact.addEventListener("click", function (e) {
+    windowOpen(e, "contactWindow");
+  });
+
   windowWrappers.forEach(function (wrapper) {
     wrapper.addEventListener("mousedown", function () {
       bringToFront(wrapper);

@@ -12,6 +12,7 @@ module.exports = {
 			none: "1",
 			tight: "1.2",
 			snug: "1.3",
+			quote: "1.5",
 			normal: "1.7"
 		},
 
@@ -130,6 +131,7 @@ module.exports = {
 			spacing: {
 				"1-5": "0.375rem",
 				"14": "3.5rem",
+				"44": "11rem",
 				"96": "24rem",
 				full: "100%"
 			},

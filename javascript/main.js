@@ -156,10 +156,12 @@ var moveSlider = function moveSlider() {
   igSlider.style.transform = "translateX(".concat(current * -100, "%)");
 };
 
-igLeft.addEventListener('click', function () {
+igLeft.addEventListener('click', function (e) {
+  e.preventDefault();
   previous();
 });
-igRight.addEventListener('click', function () {
+igRight.addEventListener('click', function (e) {
+  e.preventDefault();
   next();
 });
 igLeft.style.visibility = "hidden";
@@ -174,6 +176,7 @@ var playIcon = playButton.querySelector("#music-play-icon");
 var pauseIcon = playButton.querySelector("#music-pause-icon");
 var musicWindowWrapper = musicWrapper.closest(".window-wrapper");
 var musicWindowCloseButton = musicWindowWrapper.querySelector('.window-close');
+var closeAllButton = document.querySelector(".close-all");
 var song;
 var currentTimeSec;
 var durationSeconds;
@@ -187,6 +190,9 @@ var tracks = document.querySelectorAll('.playlist-item');
 var musicThumbnail = document.getElementById('music-thumbnail');
 var musicTitle = document.getElementById('music-title');
 musicWindowCloseButton.addEventListener('click', function () {
+  pause();
+});
+closeAllButton.addEventListener('click', function () {
   pause();
 });
 musicSlider.addEventListener("input", function () {
@@ -337,6 +343,27 @@ var resetMusic = function resetMusic() {
     track.classList.remove('current');
   });
 };
+var aboutSidebarLinks = document.querySelectorAll('.about-note-link');
+var aboutNotes = document.querySelectorAll('.about-note');
+
+var displayNote = function displayNote(link) {
+  var currentItem = link.getAttribute('data-note');
+  aboutNotes.forEach(function (item) {
+    if (item.getAttribute('data-note') == currentItem) {
+      item.classList.add('visible');
+    } else {
+      item.classList.remove('visible');
+    }
+  });
+};
+
+aboutSidebarLinks.forEach(function (link) {
+  link.addEventListener('click', function (e) {
+    e.preventDefault();
+    displayNote(link);
+  });
+});
+displayNote(aboutSidebarLinks[0]);
 var closedWindows = document.querySelectorAll(".closed");
 var closeAllButton = document.querySelector(".close-all");
 var windowWrappers = document.querySelectorAll(".window-wrapper");
@@ -392,6 +419,10 @@ var windowFunctions = function windowFunctions() {
   var linkPortfolio = document.getElementById("portfolio");
   linkPortfolio.addEventListener("click", function (e) {
     windowOpen(e, "portfolioWindow");
+  });
+  var linkContact = document.getElementById("contact");
+  linkContact.addEventListener("click", function (e) {
+    windowOpen(e, "contactWindow");
   });
   windowWrappers.forEach(function (wrapper) {
     wrapper.addEventListener("mousedown", function () {

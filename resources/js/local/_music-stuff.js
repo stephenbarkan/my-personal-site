@@ -9,6 +9,7 @@ const playIcon = playButton.querySelector("#music-play-icon");
 const pauseIcon = playButton.querySelector("#music-pause-icon");
 const musicWindowWrapper = musicWrapper.closest(".window-wrapper");
 const musicWindowCloseButton = musicWindowWrapper.querySelector('.window-close')
+const closeAllButton = document.querySelector(".close-all");
 
 let song
 let currentTimeSec
@@ -25,6 +26,10 @@ const musicThumbnail = document.getElementById('music-thumbnail')
 const musicTitle = document.getElementById('music-title')
 
 musicWindowCloseButton.addEventListener('click', function () {
+  pause()
+})
+
+closeAllButton.addEventListener('click', function () {
   pause()
 })
 
