@@ -12,14 +12,15 @@ module.exports = {
 			none: "1",
 			tight: "1.2",
 			snug: "1.3",
-			quote: "1.5",
+			loose: "1.5",
 			normal: "1.7"
 		},
 
 		borderRadius: {
 			none: '0',
-			sm: "0.1875rem",
-			default: '0.25rem',
+			sm: "0.25rem",
+			default: '.375rem',
+			lg: '1.25rem',
 			full: '9999px'
 		},
 
@@ -47,7 +48,8 @@ module.exports = {
 				700: "#514F56",
 				600: "#6f6d74",
 				500: "#959398",
-				200: "#cccccc",
+				300: "#cccccc",
+				200: "#e8e8e8",
 				100: "#f5f5f5"
 			},
 

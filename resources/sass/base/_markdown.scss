@@ -14,7 +14,7 @@
     &::before {
       content: '';
       @apply border;
-      @apply border-grey-200;
+      @apply border-grey-300;
       @apply absolute;
       @apply inset-0;
       @apply rounded-sm;
@@ -25,7 +25,7 @@
 
   pre {
     @apply bg-grey-100;
-    @apply border-grey-200;
+    @apply border-grey-300;
     @apply border;
     @apply rounded-sm;
     @apply py-2;
@@ -186,7 +186,7 @@
 
   hr {
     @apply my-12;
-    @apply text-grey-200;
+    @apply text-grey-300;
   }
 
   blockquote {
@@ -194,7 +194,7 @@
     @apply font-serif;
     @apply text-2xl;
     @apply border-l-4;
-    @apply leading-quote;
+    @apply leading-loose;
     @apply border-yellow-500;
     @apply pl-4;
     @apply max-w-sm;

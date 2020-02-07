@@ -1,0 +1,43 @@
+#chat-messages {
+  >*+* {
+    @apply mt-4;
+  }
+}
+
+.message {
+  max-width: 85%;
+  word-wrap: break-word;
+  @apply relative px-3 py-2 rounded-lg leading-loose;
+}
+
+.fromThem {
+  @apply bg-grey-200;
+
+  &::before {
+    content: "";
+    position: absolute;
+    z-index: 1;
+    bottom: -2px;
+    left: 0;
+    height: 50%;
+    border-left: 10px solid theme('colors.grey.200');
+    border-bottom-right-radius: 16px 14px;
+    transform: translate(0, -2px);
+  }
+}
+
+.fromMe {
+  @apply bg-blue-500 self-end text-white;
+
+  &::before {
+    content: "";
+    position: absolute;
+    z-index: 1;
+    bottom: -2px;
+    right: 0;
+    height: 50%;
+    border-right: 10px solid theme('colors.blue.500');
+    border-bottom-left-radius: 16px 14px;
+    transform: translate(0, -2px);
+  }
+}

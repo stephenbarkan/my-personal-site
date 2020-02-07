@@ -2,6 +2,72 @@
 
 {% block content %}
 
-<div class="overflow-y-auto">
+<div class="flex-1 overflow-y-auto">
+  <div id="chat-window" class="flex flex-col flex-1 h-full">
+    <div id="chat-messages"
+         class="relative flex flex-col flex-grow p-3 overflow-y-auto border-b border-grey-200">
+      <div class="message fromThem">
+        Hi! Want to get in touch with me? First tell me what your name is!
+      </div>
+      <div class="message fromMe">
+        Hi! Want to get in touch with me? First tell me what your name is!
+      </div>
+
+      <div id="confirmModal">
+        <div class="mx-2 text-center bg-white border rounded-sm border-grey-200">
+          <div class="relative p-3 border-b border-grey-200">
+            <h2 class="font-serif text-xl leading-tight">Send Message?</h2>
+          </div>
+
+          <div class="px-3 py-8">
+            <p class="leading-loose">Thank you for your interest in talking with me! Do you want to send your message?
+            </p>
+          </div>
+
+          <div class="flex">
+            <button
+                    class="flex-1 px-2 py-3 text-sm border-t border-r border-grey-200 text-grey-600 focus:outline-none hocus:bg-red-100 hocus:text-red-500">
+              Start Over
+            </button>
+            <button
+                    class="flex-1 px-2 py-3 text-sm text-blue-500 border-t border-grey-200 focus:outline-none hocus:bg-blue-100">
+              Send Message
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="chat-controls">
+      <form name="contact-form" netlify>
+        <p>
+          <label><span class="sr-only">Your Name</span>
+            <input type="text" name="yourName" id="yourName" placeholder="Your Name" />
+          </label>
+        </p>
+        <p>
+          <label><span class="sr-only">Your Message</span>
+            <input type="text" name="yourMessage" id="yourMessage" placeholder="Your Message" />
+          </label>
+        </p>
+        <p>
+          <label><span class="sr-only">Your Email</span>
+            <input type="email" name="yourEmail" id="yourEmail" placeholder="Your Email" />
+          </label>
+        </p>
+        <p>
+          <label>
+            <input type="text" name="empty" id="empty" />
+          </label>
+        </p>
+        <p>
+          <label><span class="sr-only">Submit Message</span>
+            <input type="submit" name="submitButton" id="submitButton" value="Send" />
+          </label>
+        </p>
+      </form>
+    </div>
+  </div>
 </div>
+
+
 {% endblock %}

@@ -1,6 +1,7 @@
 ---
 title: INK Communications
 subtitle: Digital Style Library
+link: https://stylelibrary.ink-co.com/
 date: 2019-10-30
 featured_image: /images/blog/post-2.jpg
 image_caption: Photo by Jonathan Velasquez on Unsplash
