@@ -19,9 +19,11 @@
 }
 
 #aboutWindow {
-  --width: 50rem;
-  width: var(--width);
-  height: 34rem;
+  @screen xs {
+    --width: 50rem;
+    width: var(--width);
+    height: 34rem;
+  }
 
   @screen sm {
     left: calc(100% - var(--width) - 1rem);
@@ -30,9 +32,14 @@
 }
 
 #contactWindow {
-  --width: 21rem;
-  width: var(--width);
-  height: 36rem;
+  width: 100%;
+  height: 100%;
+
+  @screen xs {
+    --width: 21rem;
+    width: var(--width);
+    height: 36rem;
+  }
 
   @screen sm {
     left: calc(65% - var(--width) - 1rem);
@@ -114,6 +121,24 @@
           @apply bg-green-500;
         }
       }
+    }
+  }
+}
+
+.window-bg {
+  background: white;
+
+  &.inverted {
+    @apply bg-grey-900;
+  }
+
+  @supports (backdrop-filter: saturate(100%)) {
+    backdrop-filter: saturate(250%) blur(25px);
+    background: rgba(255, 255, 255, .87);
+
+    &.inverted {
+      background: rgba(5, 5, 12, .87);
+      @apply text-grey-100;
     }
   }
 }

@@ -58,7 +58,7 @@ module.exports = eleventyConfig => {
 
   return {
     templateFormats: ["md", "njk"],
-    markdownTemplateEngine: "liquid",
+    markdownTemplateEngine: "njk",
     htmlTemplateEngine: "njk",
     passthroughFileCopy: true,
 

@@ -17,6 +17,7 @@ const postcss = require("gulp-postcss");
 const cleanCSS = require("gulp-clean-css");
 const tailwindcss = require("tailwindcss");
 const purgecss = require("@fullhuman/postcss-purgecss");
+const autoprefixer = require("gulp-autoprefixer");
 
 // Scripts
 const babel = require("gulp-babel");
@@ -68,6 +69,7 @@ const compileCSS = done => {
     }))
     .pipe(sass())
     .pipe(postcss([tailwindcss("./tailwind.config.js")]))
+    .pipe(autoprefixer())
     .pipe(
       rename({
         extname: ".css"

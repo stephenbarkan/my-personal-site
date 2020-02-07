@@ -3,3 +3,34 @@
     display: block;
   }
 }
+
+#about-note-sidebar {
+  transform: translateX(-100%);
+  transition: transform .25s var(--easing);
+
+  &.open {
+    transform: none;
+
+    &+* .note-area {
+      overflow: hidden;
+      flex-grow: 1;
+    }
+  }
+
+  @screen sm {
+    transform: none;
+  }
+}
+
+#about-note-close {
+
+  &.open {
+    visibility: visible;
+  }
+}
+
+.window-wrapper.closed {
+  .about-note {
+    display: none;
+  }
+}

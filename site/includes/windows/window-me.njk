@@ -13,8 +13,8 @@
                 {% endfor %}
             </div>
             <div class="absolute inset-0 flex items-center justify-between px-2">
-                <a href="#" class="block text-white ig-left"
-                   aria-label="{{ icon | capitalize }}">
+                <a href="#" class="block text-white rounded-sm ig-left focus:outline-none focus:shadow-outline"
+                   aria-label="{{ icon | capitalize }}" title="Previous image">
                     <span class="sr-only">Previous Image</span>
                     <svg class="block w-8 h-8" fill="currentColor" role="button" aria-hidden="true">
                         <use xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -22,8 +22,8 @@
                     </svg>
                 </a>
 
-                <a href="#" class="block text-white ig-right"
-                   aria-label="{{ icon | capitalize }}">
+                <a href="#" class="block text-white rounded-sm ig-right focus:outline-none focus:shadow-outline"
+                   aria-label="{{ icon | capitalize }}" title="Next image">
                     <span class="sr-only">Next Image</span>
                     <svg class="block w-8 h-8" fill="currentColor" role="button" aria-hidden="true">
                         <use xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -33,19 +33,21 @@
             </div>
         </div>
 
-        <div class="relative flex items-center mt-3 -ml-1 -mr-1">
-            <a class="ig-heart" href="#"
+        <div class="relative flex items-center mt-3">
+            <a class="flex items-center text-red-100 btn focus:outline-none ig-heart-btn" href="#" title="Like pictures"
                aria-label="like button">
+                <div class="ig-heart">
+                    <svg class="w-6 h-6" role="img" aria-hidden="true">
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                             xlink:href="/images/icons/icon-library.svg#icon-heart">
+                        </use>
+                    </svg>
+                </div>
 
-                <svg class="w-8 h-8" role="img" aria-hidden="true">
-                    <use xmlns:xlink="http://www.w3.org/1999/xlink"
-                         xlink:href="/images/icons/icon-library.svg#icon-heart">
-                    </use>
-                </svg>
 
+                <span class="ml-2 font-mono text-xs leading-none uppercase text-grey-900 ig-heart-text">0
+                    Likes</span>
             </a>
-            <span class="ml-1 leading-none ig-heart-text text-grey-900">0 Likes</span>
-
             <div class="absolute inset-x-0 inset-y-0 flex items-center justify-center pointer-events-none">
                 {% for obj in data %}
                 <div class="w-2 h-2 rounded-full bg-grey-200 ml-1-5 first:ml-0 ig-dot"></div>
@@ -60,7 +62,7 @@
                 <span class="ig-caption">{{obj.caption}}</span>
                 {% endfor %}
             </p>
-            <date class="block mt-2 text-xs leading-none tracking-wider uppercase text-grey-600">
+            <date class="block mt-2 font-mono text-xs leading-none uppercase text-grey-700">
                 {% for obj in data %}
                 <span class="ig-date">{{obj.date  | dateDisplay }}</span>
                 {% endfor %}

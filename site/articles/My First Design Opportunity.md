@@ -6,4 +6,6 @@ tags:
   - note
 ---
 
-My first opportunity to design professionally was the year after I graduated college as an AmeriCorps at a nonprofit. Designing was my favorite task and I found myself eager to improve, so the following year I started freelancing with other organizations around the city, gaining experience in both design and business. I’m grateful for the people who trusted me to contribute to their organizations – learning as I went, I was lucky to have a caring group of people support my growth. I now am a designer at a marketing communications company where I work on strategy, social media design, and web design and development for our B2B tech clients.
+My first opportunity to design professionally was the year after I graduated college as an AmeriCorps at a nonprofit. Designing was my favorite task and I found myself eager to improve, so the following year I started freelancing with other organizations around the city, gaining experience in both design and business.
+
+I’m grateful for the people who trusted me to contribute to their organizations – learning as I went, I was lucky to have a caring group of people support my growth. I now am a designer at a marketing communications company where I work on strategy, social media design, and web design and development for our B2B tech clients.

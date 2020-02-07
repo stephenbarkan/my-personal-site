@@ -1,6 +1,6 @@
-.ig-heart {
+.ig-heart-btn {
     svg {
-        stroke: theme('colors.grey.900');
+        stroke: theme('colors.grey.800');
         fill: theme('colors.transparent');
     }
 
@@ -11,11 +11,8 @@
         }
     }
 
-    &:focus {
-        outline: auto 5px -webkit-focus-ring-color;
-    }
 
-    &.animating {
+    &.animating svg {
         animation: ig-heart-animation .45s ease-in-out;
 
         @keyframes ig-heart-animation {
@@ -53,5 +50,5 @@
 }
 
 .ig-slider {
-    transition: transform .4s cubic-bezier(.5, 0, .5, 1);
+    transition: transform .4s var(--easing);
 }

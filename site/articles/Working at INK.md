@@ -6,4 +6,4 @@ tags:
   - note
 ---
 
-I worked at INK Communications Co. for a year and a half.
+

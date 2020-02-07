@@ -12,9 +12,20 @@
         "twitter": "/images/meta/twitter.jpg",
         "og": "/images/meta/og.jpg"
     },
-    "social_links": {
-        "instagram": "https://www.instagram.com/stephen_barkan",
-        "twitter": "https://twitter.com/stephen_barkan",
-        "arena": "https://www.are.na/stephen-barkan"
-    }
+    "social_links": [{
+            "title": "instagram",
+            "link": "https://www.instagram.com/stephen_barkan",
+            "color": "red"
+        },
+        {
+            "title": "twitter",
+            "link": "https://twitter.com/stephen_barkan",
+            "color": "blue"
+        },
+        {
+            "title": "arena",
+            "link": "https://www.are.na/stephen-barkan",
+            "color": "grey"
+        }
+    ]
 }

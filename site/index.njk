@@ -17,30 +17,30 @@ title: Home
 
 <main id="main" class="relative flex flex-col items-center justify-between w-full min-h-full sm:justify-center">
     {# text content #}
-    <div class="flex flex-col items-center px-6 py-16 text-4xl leading-tight sm:text-6xl serif">
+    <div class="flex flex-col items-center px-6 py-16 text-4xl leading-tight xs:text-5xl sm:text-6xl serif">
         <h1 class="max-w-headline">
             This is the personal site of
-            <a id="me" href="#" class="text-black no-underline group focus:outline-none">
-                <span class="text-red-500 group-hocus:underline">Stephen Barkan</span>.
+            <a id="me" href="#" class="no-underline group focus:outline-none">
+                <span class="text-red-100 btn"><span class="text-red-500">Stephen Barkan</span></span>.
             </a>
         </h1>
 
         <nav class="mt-12 max-w-headline">
             See <a id="portfolio" href="#"
-               class="text-black no-underline group focus:outline-none">
-                <span class="text-purple-500 group-hocus:underline">his design portfolio</span>,
+               class="no-underline group focus:outline-none">
+                <span class="text-purple-100 btn"><span class="text-purple-500">his design portfolio</span></span>,
             </a>
-            read more <a id="about" href="#"
-               class="text-black no-underline group focus:outline-none">
-                <span class="text-yellow-500 group-hocus:underline"> about him</span>,
+            read things <a id="about" href="#"
+               class="no-underline group focus:outline-none">
+                <span class="text-yellow-100 btn"><span class="text-yellow-500">about him</span></span>,
             </a>
             listen to <a id="music" href="#"
-               class="text-black no-underline group focus:outline-none">
-                <span class="text-green-500 group-hocus:underline">music he wrote</span>,
+               class="no-underline group focus:outline-none">
+                <span class="text-green-100 btn"><span class="text-green-500">music he wrote</span></span>,
             </a>
             or send him <a id="contact" href="#"
-               class="text-black no-underline group focus:outline-none">
-                <span class="text-blue-500 group-hocus:underline">a message</span>.
+               class="no-underline group focus:outline-none">
+                <span class="text-blue-100 btn"><span class="text-blue-500">a message</span></span>.
             </a>
         </nav>
     </div>
@@ -48,7 +48,7 @@ title: Home
 
 
     {# window wrapper #}
-    <div class="fixed items-center justify-center p-1 pointer-events-none windows-container">
+    <div class="fixed items-center justify-center p-1 z-10 pointer-events-none windows-container">
 
         {{ me.windowFrame( 'me', 'red', false, ig_images) }}
         {{ music.windowFrame( 'music', 'green', true, songs) }}
@@ -62,7 +62,7 @@ title: Home
 
     <div class="fixed bottom-0 right-0 hidden p-6 sm:block">
         <button
-                class="block px-3 py-3 text-xs tracking-wider uppercase border border-grey-600 text-grey-700 hover:bg-black hover:text-white hover:border-black focus:outline-none focus:text-white focus:border-black focus:bg-black close-all transition">
+                class="block px-3 py-3 text-xs tracking-wider uppercase border rounded-sm border-grey-600 text-grey-700 hocus:bg-black hocus:text-white hocus:border-black focus:outline-none close-all transition">
             Close All
         </button>
     </div>

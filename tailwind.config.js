@@ -29,8 +29,8 @@ module.exports = {
 		},
 
 		boxShadow: {
-			md: " 0 0px 2px rgba(0, 0, 0, 0.032), 0 0px 6.7px rgba(0, 0, 0, 0.048), 0 0px 30px rgba(0, 0, 0, 0.08)",
-			lg: "0 0.8px 1.6px rgba(0, 0, 0, 0.011),0 3px 4.9px rgba(0, 0, 0, 0.029),0 6.6px 10.4px rgba(0, 0, 0, 0.053),0 12.3px 19.3px rgba(0, 0, 0, 0.084),0 21.3px 34.4px rgba(0, 0, 0, 0.125),0 42px 71px rgba(0, 0, 0, 0.2)",
+			md: "0px 0px 2.16398px rgba(0, 0, 0, 0.0217013), 0px 0px 5.47287px rgba(0, 0, 0, 0.0310596), 0px 0px 11.1641px rgba(0, 0, 0, 0.0389404), 0px 0px 22.996px rgba(0, 0, 0, 0.0482987), 0px 0px 63px rgba(0, 0, 0, 0.07)",
+			lg: "0px 0px 4.15622px rgba(0, 0, 0, 0.034102), 0px 0px 10.5114px rgba(0, 0, 0, 0.048808), 0px 0px 21.4423px rgba(0, 0, 0, 0.061192), 0px 0px 44.167px rgba(0, 0, 0, 0.075898), 0px 0px 121px rgba(0, 0, 0, 0.11)",
 			outline: '0 0 0 3px rgba(21, 166, 248, 0.5)',
 			none: 'none'
 		},
@@ -46,7 +46,7 @@ module.exports = {
 				800: "#333138",
 				700: "#514F56",
 				600: "#6f6d74",
-				400: "#a5a3a8",
+				500: "#959398",
 				200: "#cccccc",
 				100: "#f5f5f5"
 			},
@@ -71,8 +71,8 @@ module.exports = {
 			},
 
 			yellow: {
-				800: "#785d2b",
-				700: "#cf9b3a",
+				800: "#9a6605",
+				700: "#D09525",
 				500: "#ffad0e",
 				100: "#fff5dd"
 			},
@@ -136,6 +136,10 @@ module.exports = {
 				full: "100%"
 			},
 
+			zIndex: {
+				"-1": "-1"
+			},
+
 			maxWidth: {
 				headline: "10em"
 			},
@@ -152,6 +156,7 @@ module.exports = {
 		borderWidth: ["hover", "focus", "first"],
 		backgroundColor: ["hover", "focus", "hocus", "responsive", "focus-within"],
 		textColor: ["hover", "focus", "hocus", "group-hocus"],
+		borderColor: ["hover", "focus", "hocus", "group-hocus"],
 		order: ["responsive"]
 	},
 

@@ -4,21 +4,67 @@
   }
 
 
+  code {
+    font-size: .875em;
+    @apply relative;
+    @apply text-grey-800;
+    @apply p-1;
+
+
+    &::before {
+      content: '';
+      @apply border;
+      @apply border-grey-200;
+      @apply absolute;
+      @apply inset-0;
+      @apply rounded-sm;
+      @apply bg-grey-100;
+      z-index: -1;
+    }
+  }
+
+  pre {
+    @apply bg-grey-100;
+    @apply border-grey-200;
+    @apply border;
+    @apply rounded-sm;
+    @apply py-2;
+    @apply px-4;
+    font-size: 14px;
+
+    code {
+      @apply p-0;
+      font-size: inherit;
+      @apply border-transparent;
+
+    }
+  }
+
+  strong,
+  b {
+    @apply font-medium;
+  }
 
   a {
     @apply relative;
     @apply text-blue-700;
+    @apply inline-block;
+
+    & * {
+      @apply text-blue-700;
+    }
+
+
     @apply underline;
 
     &::before {
       content: '';
       @apply absolute;
-      top: -.25rem;
-      bottom: -.25rem;
+      top: -.125rem;
+      bottom: -.125rem;
       left: -.25rem;
       right: -.25rem;
       @apply rounded-sm;
-      @apply p-1;
       @apply bg-blue-100;
       @apply opacity-0;
       z-index: -1;
@@ -31,33 +77,16 @@
         @apply opacity-100;
       }
 
+      & code::before {
+        @apply bg-transparent;
+      }
+
     }
-  }
 
-  code {
-    font-size: .875em;
-    @apply bg-grey-100;
-    @apply rounded-sm;
-    @apply p-1;
-    @apply text-grey-700;
-  }
-
-  pre {
-    @apply bg-grey-100;
-    @apply rounded-sm;
-    @apply py-2;
-    @apply px-4;
-    font-size: 14px;
-
-    code {
-      @apply p-0;
-      font-size: inherit;
+    &:focus {
+      @apply outline-none;
+      @apply shadow-outline;
     }
-  }
-
-  strong,
-  b {
-    @apply font-medium;
   }
 
   ol {
@@ -65,7 +94,21 @@
   }
 
   ul {
-    list-style-type: disc;
+    li {
+      @apply relative;
+
+      &::before {
+        content: "";
+        @apply absolute;
+        @apply bg-yellow-500;
+        @apply h-1-5;
+        @apply w-1-5;
+        @apply rounded-full;
+        top: .75em;
+        left: -1.25rem;
+        transform: translateY(-25%);
+      }
+    }
   }
 
   ul,
@@ -113,10 +156,13 @@
 
 
   *+h3,
-  *+h4,
+  *+h4 {
+    @apply mt-12;
+  }
+
   *+h5,
   *+h6 {
-    @apply mt-12;
+    @apply mt-8;
   }
 
   // h3+h4,
@@ -146,7 +192,6 @@
   blockquote {
     @apply my-8;
     @apply font-serif;
-    @apply text-grey-600;
     @apply text-2xl;
     @apply border-l-4;
     @apply leading-quote;

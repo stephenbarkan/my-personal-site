@@ -2,7 +2,7 @@ let closedWindows = document.querySelectorAll(".closed");
 const closeAllButton = document.querySelector(".close-all");
 const windowWrappers = document.querySelectorAll(".window-wrapper");
 const closeButtons = document.querySelectorAll(".window-close");
-let windowZ = 10;
+let windowZ = 50;
 
 const windowFunctions = function () {
   closeButtons.forEach(function (button) {

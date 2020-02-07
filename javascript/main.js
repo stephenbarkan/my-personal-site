@@ -64,7 +64,7 @@ window.addEventListener("resize", function () {
 overlayFadeOut();
 onResize();
 //change heart to/from red and change accompanying text
-var igHeart = document.querySelector('.ig-heart');
+var igHeart = document.querySelector('.ig-heart-btn');
 var igHeartSvg = igHeart.querySelector('svg');
 var igHeartText = document.querySelector('.ig-heart-text');
 
@@ -345,6 +345,9 @@ var resetMusic = function resetMusic() {
 };
 var aboutSidebarLinks = document.querySelectorAll('.about-note-link');
 var aboutNotes = document.querySelectorAll('.about-note');
+var aboutSidebarOpenButton = document.getElementById('about-note-open');
+var aboutSidebarCloseButton = document.getElementById('about-note-close');
+var aboutSidebar = document.getElementById('about-note-sidebar');
 
 var displayNote = function displayNote(link) {
   var currentItem = link.getAttribute('data-note');
@@ -361,14 +364,34 @@ aboutSidebarLinks.forEach(function (link) {
   link.addEventListener('click', function (e) {
     e.preventDefault();
     displayNote(link);
+    aboutSidebar.classList.remove('open');
+    aboutSidebarCloseButton.classList.remove('open');
   });
 });
 displayNote(aboutSidebarLinks[0]);
+aboutSidebarOpenButton.addEventListener('click', function () {
+  if (aboutSidebar.classList.contains('open')) {
+    aboutSidebar.classList.remove('open');
+    aboutSidebarCloseButton.classList.remove('open');
+  } else {
+    aboutSidebar.classList.add('open');
+    aboutSidebarCloseButton.classList.add('open');
+  }
+});
+aboutSidebarCloseButton.addEventListener('click', function () {
+  if (aboutSidebar.classList.contains('open')) {
+    aboutSidebar.classList.remove('open');
+    aboutSidebarCloseButton.classList.remove('open');
+  } else {
+    aboutSidebar.classList.add('open');
+    aboutSidebarCloseButton.classList.add('open');
+  }
+});
 var closedWindows = document.querySelectorAll(".closed");
 var closeAllButton = document.querySelector(".close-all");
 var windowWrappers = document.querySelectorAll(".window-wrapper");
 var closeButtons = document.querySelectorAll(".window-close");
-var windowZ = 10;
+var windowZ = 50;
 
 var windowFunctions = function windowFunctions() {
   closeButtons.forEach(function (button) {

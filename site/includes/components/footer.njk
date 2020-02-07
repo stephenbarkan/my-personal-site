@@ -1,19 +1,21 @@
-<header id="header" class="top-0 right-0 p-6 sm:absolute">
+<footer class="top-0 right-0 p-6 sm:absolute">
 
 	<ul class="flex justify-center align-center">
 
-		{% for icon, link in site.social_links %}
+		{% for item in site.social_links %}
 
 		<li class="ml-3 first:ml-0">
 
-			<a href="{{ link | safe }}"
-				 class="block rounded-sm text-grey-200 hocus:text-grey-600 focus:outline-none focus:shadow-outline"
-				 aria-label="{{ icon | capitalize }}"
-				 target="_blank" rel="noopener">
+			<a href="{{ item.link | safe }}"
+				 class="block rounded-sm btn circle text-{{item.color}}-100 group focus:outline-none"
+				 aria-label="{{ item.title | capitalize }}"
+				 target="_blank" rel="noopener"
+				 title="Go to Stephen's profile on {{item.title | capitalize}}">
 
-				<svg class="block w-8 h-8" fill="currentColor" role="img" aria-hidden="true">
+				<svg class="block w-8 h-8 text-grey-200 group-hocus:text-{{item.color}}-500" fill="currentColor" role="img"
+						 aria-hidden="true">
 					<use xmlns:xlink="http://www.w3.org/1999/xlink"
-							 xlink:href="/images/icons/icon-library.svg#icon-{{ icon }}"></use>
+							 xlink:href="/images/icons/icon-library.svg#icon-{{ item.title }}"></use>
 				</svg>
 
 			</a>
@@ -24,4 +26,4 @@
 
 	</ul>
 
-</header>
+</footer>

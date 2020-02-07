@@ -1,5 +1,5 @@
     //change heart to/from red and change accompanying text
-    const igHeart = document.querySelector('.ig-heart')
+    const igHeart = document.querySelector('.ig-heart-btn')
     const igHeartSvg = igHeart.querySelector('svg')
     const igHeartText = document.querySelector('.ig-heart-text')
 

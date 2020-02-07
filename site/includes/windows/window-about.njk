@@ -2,17 +2,20 @@
 
 {% block content %}
 
-<div class="flex flex-1 overflow-y-auto">
-    <div class="flex-shrink-0 border-r w-44 w bg-grey-100 border-grey-200">
+<div class="relative flex flex-1 overflow-x-hidden overflow-y-auto">
+    <div id="about-note-sidebar"
+         class="absolute inset-y-0 left-0 z-20 flex-shrink-0 w-64 border-r sm:w-44 w bg-grey-100 border-grey-200 sm:relative">
         <ul class="h-full overflow-y-auto">
             {% for note in data %}
             <li class="border-b border-grey-200">
-                <a href="#" class="block py-4 pl-4 pr-2 hover:bg-white about-note-link" data-note="{{loop.index}}">
+                <a href="#" title="{{note.data.title}}"
+                   class="block py-4 pl-4 pr-2 hocus:bg-white about-note-link focus:outline-none"
+                   data-note="{{loop.index}}">
                     <h4 class="font-medium truncate">
                         {{ note.data.title }}
                     </h4>
 
-                    <date class="block mt-1 text-xs leading-none tracking-wider uppercase text-grey-600">
+                    <date class="block mt-1 font-mono text-xs leading-none uppercase text-grey-700">
                         {{ note.data.date | dateDisplay }}
                         {% if note.data.enddate %}
                         - {{ note.data.enddate | dateDisplay }}
@@ -23,15 +26,30 @@
             {% endfor %}
         </ul>
     </div>
-    <div class="flex-grow h-full p-6 overflow-y-auto">
-        {% for note in data %}
-        <article class="hidden max-w-xl mx-auto about-note" data-note="{{loop.index}}">
-            <h3 class="font-serif text-4xl leading-tight">{{note.data.title}}</h3>
-            <div class="mt-4 text-grey-900 markdown">
-                {{ note.templateContent | markdownify | safe }}
-            </div>
-        </article>
-        {% endfor %}
+    <div class="flex flex-col flex-grow">
+        <div class="sticky top-0 z-10 px-4 pt-3 pb-3 bg-white border-b sm:hidden border-grey-200">
+            <button id="about-note-open"
+                    class="flex items-center text-yellow-100 btn focus:outline-none">
+                <svg class="flex-shrink-0 block w-4 h-4 text-yellow-700" role="button"
+                     aria-hidden="true">
+                    <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                         xlink:href="/images/icons/icon-library.svg#icon-notes-right"></use>
+                </svg>
+                <span class="ml-1 leading-snug text-yellow-800">Notes</span>
+            </button>
+        </div>
+        <div class="pb-6 overflow-y-auto note-area">
+            <button id="about-note-close" class="absolute inset-y-0 z-10 invisible w-full"></button>
+
+            {% for note in data %}
+            <article class="hidden max-w-xl px-4 pt-3 pt-6 mx-auto xs:px-6 about-note" data-note="{{loop.index}}">
+                <h3 class="max-w-md font-serif text-4xl leading-tight">{{note.data.title}}</h3>
+                <div class="mt-4 text-grey-900 markdown">
+                    {{ note.templateContent | markdownify | safe }}
+                </div>
+            </article>
+            {% endfor %}
+        </div>
     </div>
 </div>
 {% endblock %}

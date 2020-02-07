@@ -1,9 +1,10 @@
 {% macro windowFrame(title, color, inverted, data) %}
 
-<div class="overflow-hidden flex flex-col bg-white rounded-sm shadow-lg pointer-events-auto window-wrapper sm:absolute draggable
-{% if title != "about" %}
+<div class="overflow-hidden flex flex-col rounded-sm shadow-lg pointer-events-auto window-wrapper sm:absolute draggable
+{% if title != "portfolio" %}
 closed
-{% endif %}" id="{{title}}Window">
+{% endif %}
+" id="{{title}}Window">
     <div class="draggable-handle">
         <div class="h-2 bg-{{color}}-500
             {% if inverted %}
@@ -45,16 +46,16 @@ closed
                     </div>
                 </button>
             </div>
-            <h2 class="text-2xl leading-none serif hidden xs:block
+            <h2 class="text-xl leading-none serif hidden xs:block
             {% if inverted %}
                 text-grey-100
             {% endif %}
             ">{{ title | capitalize }}</h2>
         </div>
     </div>
-    <div class="flex flex-1 flex-col overflow-hidden 
+    <div class="flex flex-1 flex-col overflow-hidden window-bg
         {% if inverted %}
-            bg-grey-900 text-grey-100
+            inverted
         {% endif %}">
         {% block content %}
         {# window content goes here #}

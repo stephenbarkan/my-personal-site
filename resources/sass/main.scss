@@ -8,6 +8,45 @@
 // Import Tailwind components
 @tailwind components;
 
+.btn {
+  @apply relative;
+
+  &::before {
+    content: '';
+    @apply absolute;
+    top: -.125rem;
+    bottom: -.125rem;
+    left: -.25rem;
+    right: -.25rem;
+    @apply rounded-sm;
+    background: currentColor;
+    z-index: -1;
+    @apply opacity-0;
+  }
+
+  &:hover,
+  &:focus {
+
+    &::before {
+      @apply opacity-100;
+    }
+  }
+
+  &.circle {
+    &::before {
+      top: -.25rem;
+      bottom: -.25rem;
+      @apply rounded-full;
+    }
+  }
+}
+
+a:focus .btn {
+  &::before {
+    @apply opacity-100;
+  }
+}
+
 @import "base/global";
 @import "base/windows";
 @import "base/ig-stuff";
@@ -21,3 +60,17 @@
 // Import Tailwind utilities
 // TailwindCSS recommends leaving utilities till last to ensure they aren't overwritten.
 @tailwind utilities;
+
+.grid {
+  display: grid;
+}
+
+.grid-absolute {
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+}
+
+.grid-inset-0 {
+  grid-column: 1/-1;
+  grid-row: 1/-1;
+}

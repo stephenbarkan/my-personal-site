@@ -7,11 +7,27 @@
         <ul class="project-grid">
             {% for post in data %}
             <li class="px-2 py-4 rounded hover:bg-purple-100 focus-within:bg-purple-100">
-                <a href="#" class="flex flex-col items-center text-center focus:outline-none">
-                    <svg class="block w-32" role="presentation" aria-hidden="true" viewbox="0 0 128 100">
-                        <use xmlns:xlink="http://www.w3.org/1999/xlink"
-                             xlink:href="/images/icons/icon-library.svg#icon-project-folder"></use>
-                    </svg>
+                <a href="#" title="{{post.data.subtitle}} for {{post.data.title}}"
+                   class="flex flex-col items-center text-center focus:outline-none portfolio-link">
+                    <div class="items-center justify-center grid grid-absolute">
+                        <svg class="block w-32 grid-inset-0" role="presentation" aria-hidden="true"
+                             viewbox="0 0 128 100">
+                            <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                                 xlink:href="/images/icons/icon-library.svg#icon-project-folder-back"></use>
+                        </svg>
+                        {# <div
+                             class="block object-cover w-24 h-16 border-4 border-white shadow-md bg-grey-100 grid-inset-0 portfolio-preview-img">
+                        </div>
+                        <div
+                             class="block object-cover w-24 h-16 border-4 border-white shadow-md bg-grey-100 grid-inset-0 portfolio-preview-img">
+                        </div> #}
+                        <svg class="z-0 block w-32 grid-inset-0 portfolio-folder-front" role="presentation"
+                             aria-hidden="true"
+                             viewbox="0 0 128 100">
+                            <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                                 xlink:href="/images/icons/icon-library.svg#icon-project-folder-front"></use>
+                        </svg>
+                    </div>
                     <h3 class="mt-4 leading-snug">{{ post.data.title }}</h3>
                     <span class="block mt-1 text-sm leading-snug text-grey-600">{{ post.data.subtitle }}</span>
                 </a>
