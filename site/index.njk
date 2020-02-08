@@ -21,26 +21,27 @@ title: Home
         <h1 class="max-w-headline">
             This is the personal site of
             <a id="me" href="#" class="no-underline group focus:outline-none">
-                <span class="text-red-100 btn"><span class="text-red-500">Stephen Barkan</span></span>.
+                <span class="text-red-100 btn large"><span class="text-red-500">Stephen Barkan</span></span>.
             </a>
         </h1>
 
         <nav class="mt-12 max-w-headline">
             See <a id="portfolio" href="#"
                class="no-underline group focus:outline-none">
-                <span class="text-purple-100 btn"><span class="text-purple-500">his design portfolio</span></span>,
+                <span class="text-purple-100 btn large"><span class="text-purple-500">his design
+                        portfolio</span></span>,
             </a>
             read things <a id="about" href="#"
                class="no-underline group focus:outline-none">
-                <span class="text-yellow-100 btn"><span class="text-yellow-500">about him</span></span>,
+                <span class="text-yellow-100 btn large"><span class="text-yellow-500">about him</span></span>,
             </a>
             listen to <a id="music" href="#"
                class="no-underline group focus:outline-none">
-                <span class="text-green-100 btn"><span class="text-green-500">music he wrote</span></span>,
+                <span class="text-green-100 btn large"><span class="text-green-500">music he wrote</span></span>,
             </a>
             or send him <a id="contact" href="#"
                class="no-underline group focus:outline-none">
-                <span class="text-blue-100 btn"><span class="text-blue-500">a message</span></span>.
+                <span class="text-blue-100 btn large"><span class="text-blue-500">a message</span></span>.
             </a>
         </nav>
     </div>
@@ -48,7 +49,7 @@ title: Home
 
 
     {# window wrapper #}
-    <div class="fixed items-center justify-center p-1 z-10 pointer-events-none windows-container">
+    <div class="fixed z-10 items-center justify-center p-1 pointer-events-none windows-container">
 
         {{ me.windowFrame( 'me', 'red', false, ig_images) }}
         {{ music.windowFrame( 'music', 'green', true, songs) }}
@@ -62,7 +63,7 @@ title: Home
 
     <div class="fixed bottom-0 right-0 hidden p-6 sm:block">
         <button
-                class="block px-3 py-3 text-xs tracking-wider uppercase border rounded-sm border-grey-600 text-grey-700 hocus:bg-black hocus:text-white hocus:border-black focus:outline-none close-all transition">
+                class="block px-3 py-2 text-xs tracking-wider uppercase transition border rounded border-grey-600 text-grey-700 hocus:bg-black hocus:text-white hocus:border-black focus:outline-none close-all">
             Close All
         </button>
     </div>

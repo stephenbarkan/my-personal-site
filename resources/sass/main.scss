@@ -14,10 +14,10 @@
   &::before {
     content: '';
     @apply absolute;
-    top: -.125rem;
-    bottom: -.125rem;
-    left: -.25rem;
-    right: -.25rem;
+    top: -.125em;
+    bottom: -.125em;
+    left: -.25em;
+    right: -.25em;
     @apply rounded-sm;
     background: currentColor;
     z-index: -1;
@@ -39,6 +39,13 @@
       @apply rounded-full;
     }
   }
+
+  // &.large {
+  //   &::before {
+
+  //     @apply rounded-lg;
+  //   }
+  // }
 }
 
 a:focus .btn {
