@@ -6,36 +6,23 @@
 
   code {
     font-size: .875em;
-    @apply relative;
-    @apply text-grey-800;
-    @apply p-1;
+    @apply relative text-grey-800 p-1;
 
 
     &::before {
       content: '';
-      @apply border;
-      @apply border-grey-300;
-      @apply absolute;
-      @apply inset-0;
-      @apply rounded-sm;
-      @apply bg-grey-100;
+      @apply border border-grey-300 absolute inset-0 rounded-sm bg-grey-100;
       z-index: -1;
     }
   }
 
   pre {
-    @apply bg-grey-100;
-    @apply border-grey-300;
-    @apply border;
-    @apply rounded-sm;
-    @apply py-2;
-    @apply px-4;
+    @apply bg-grey-100 border-grey-300 border rounded-sm py-2 px-4;
     font-size: 14px;
 
     code {
-      @apply p-0;
+      @apply p-0 border-transparent;
       font-size: inherit;
-      @apply border-transparent;
 
     }
   }
@@ -46,9 +33,7 @@
   }
 
   a {
-    @apply relative;
-    @apply text-blue-700;
-    @apply inline-block;
+    @apply relative text-blue-700 inline-block;
 
     & * {
       @apply text-blue-700;
@@ -59,14 +44,11 @@
 
     &::before {
       content: '';
-      @apply absolute;
+      @apply absolute rounded-sm bg-blue-100 opacity-0;
       top: -.125rem;
       bottom: -.125rem;
       left: -.25rem;
       right: -.25rem;
-      @apply rounded-sm;
-      @apply bg-blue-100;
-      @apply opacity-0;
       z-index: -1;
     }
 
@@ -84,8 +66,7 @@
     }
 
     &:focus {
-      @apply outline-none;
-      @apply shadow-outline;
+      @apply outline-none shadow-outline;
     }
   }
 
@@ -99,11 +80,7 @@
 
       &::before {
         content: "";
-        @apply absolute;
-        @apply bg-yellow-500;
-        @apply h-1-5;
-        @apply w-1-5;
-        @apply rounded-full;
+        @apply absolute bg-yellow-500 h-1-5 w-1-5 rounded-full;
         top: .75em;
         left: -1.25rem;
         transform: translateY(-25%);
@@ -135,10 +112,7 @@
   h4,
   h5,
   h6 {
-    // @apply font-serif;
-    @apply text-black;
-    @apply leading-tight;
-    @apply font-medium;
+    @apply text-black leading-tight font-medium;
   }
 
   h3 {
@@ -165,38 +139,15 @@
     @apply mt-8;
   }
 
-  // h3+h4,
-  // h3+h5,
-  // h3+h6,
-  // h4+h3,
-  // h4+h5,
-  // h4+h6,
-  // h5+h3,
-  // h5+h4,
-  // h5+h6,
-  // h6+h3,
-  // h6+h4,
-  // h6+h5 {
-  //   @apply mt-6;
-  // }
-
   img {
     @apply my-8;
   }
 
   hr {
-    @apply my-12;
-    @apply text-grey-300;
+    @apply my-12 text-grey-300;
   }
 
   blockquote {
-    @apply my-8;
-    @apply font-serif;
-    @apply text-2xl;
-    @apply border-l-4;
-    @apply leading-loose;
-    @apply border-yellow-500;
-    @apply pl-4;
-    @apply max-w-sm;
+    @apply my-8 font-serif text-2xl border-l-4 leading-loose border-yellow-500 pl-4 max-w-sm;
   }
 }

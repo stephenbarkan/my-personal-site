@@ -26,42 +26,62 @@
 
           <div class="flex">
             <button
-                    class="flex-1 px-2 py-3 text-sm border-t border-r border-grey-200 text-grey-600 focus:outline-none hocus:bg-red-100 hocus:text-red-500">
+                    class="flex-1 px-2 py-3 text-sm tracking-wide border-t border-r border-grey-200 text-grey-600 focus:outline-none hocus:bg-red-100 hocus:text-red-500">
               Start Over
             </button>
             <button
-                    class="flex-1 px-2 py-3 text-sm text-blue-500 border-t border-grey-200 focus:outline-none hocus:bg-blue-100">
+                    class="flex-1 px-2 py-3 text-sm tracking-wide text-blue-500 border-t border-grey-200 focus:outline-none hocus:bg-blue-100">
               Send Message
             </button>
           </div>
         </div>
       </div>
+
     </div>
-    <div id="chat-controls">
-      <form name="contact-form" netlify>
-        <p>
-          <label><span class="sr-only">Your Name</span>
-            <input type="text" name="yourName" id="yourName" placeholder="Your Name" />
+    <div id="chat-controls" class="py-3 pl-3 pr-2 bg-white">
+      <form name="contact-form" class="flex items-center" netlify>
+        <p class="flex-grow">
+          <label class="block w-full"><span class="sr-only">Your Name</span>
+            <input class="w-full h-10 px-3 py-1 border border-transparent rounded-full focus:outline-none bg-grey-100 hocus:border-grey-300"
+                   type="text"
+                   name="yourName" id="yourName" placeholder="Your Name" />
           </label>
         </p>
-        <p>
-          <label><span class="sr-only">Your Message</span>
-            <input type="text" name="yourMessage" id="yourMessage" placeholder="Your Message" />
+        <p class="flex-grow hidden">
+          <label class="block w-full"><span class="sr-only">Your Message</span>
+            <input class="w-full h-10 px-3 py-1 border border-transparent rounded-full focus:outline-none bg-grey-100 hocus:border-grey-300"
+                   type="text"
+                   name="yourMessage" id="yourMessage" placeholder="Your Message" />
           </label>
         </p>
-        <p>
-          <label><span class="sr-only">Your Email</span>
-            <input type="email" name="yourEmail" id="yourEmail" placeholder="Your Email" />
+        <p class="flex-grow hidden">
+          <label class="block w-full"><span class="sr-only">Your Email</span>
+            <input class="w-full h-10 px-3 py-1 border border-transparent rounded-full focus:outline-none bg-grey-100 hocus:border-grey-300"
+                   type="email"
+                   name="yourEmail" id="yourEmail" placeholder="Your Email" />
           </label>
         </p>
-        <p>
-          <label>
-            <input type="text" name="empty" id="empty" />
+        <p class="flex-grow hidden">
+          <label class="block w-full">
+            <input class="w-full h-10 px-3 py-1 border border-transparent rounded-full focus:outline-none bg-grey-100 hocus:border-grey-300"
+                   type="text"
+                   name="empty" id="empty" />
           </label>
         </p>
-        <p>
-          <label><span class="sr-only">Submit Message</span>
-            <input type="submit" name="submitButton" id="submitButton" value="Send" />
+        <p class="flex-shrink-0 ml-2">
+          <label class="flex"><span class="sr-only">Send Text</span>
+            <button
+                    class="flex items-center justify-center w-10 h-10 rounded-full group hocus:bg-blue-100 focus:outline-none"
+                    type="button"
+                    name="nextButton"
+                    id="nextButton">
+              <svg class="block w-6 h-6 text-grey-300 group-hocus:text-blue-500" fill="currentColor"
+                   aria-hidden="true">
+                <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                     xlink:href="/images/icons/icon-library.svg#contact-send-icon">
+                </use>
+              </svg>
+            </button>
           </label>
         </p>
       </form>

@@ -41,3 +41,9 @@
     transform: translate(0, -2px);
   }
 }
+
+#chat-controls {
+  input::placeholder {
+    @apply text-grey-500;
+  }
+}

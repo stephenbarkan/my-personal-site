@@ -1,5 +1,5 @@
 #meWindow {
-  --width: 23rem;
+  --width: 22rem;
   width: var(--width);
 
   @screen sm {
@@ -134,7 +134,7 @@
 
   @supports (backdrop-filter: saturate(100%)) {
     backdrop-filter: saturate(250%) blur(25px);
-    background: rgba(255, 255, 255, .87);
+    background: rgba(255, 255, 255, .97);
 
     &.inverted {
       background: rgba(5, 5, 12, .87);

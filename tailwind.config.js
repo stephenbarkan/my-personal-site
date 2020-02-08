@@ -26,6 +26,7 @@ module.exports = {
 
 		letterSpacing: {
 			tight: "-0.02em",
+			wide: ".02em",
 			wider: "0.05em"
 		},
 
@@ -147,7 +148,7 @@ module.exports = {
 			},
 
 			fontSize: {
-				sm: "0.8125rem"
+				sm: "0.84375rem"
 			},
 		}
 	},
