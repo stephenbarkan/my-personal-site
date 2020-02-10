@@ -130,6 +130,10 @@ module.exports = {
 			]
 		},
 
+		transitionTimingFunction: {
+			smooth: 'cubic-bezier(.2,.8,.2,1)'
+		},
+
 		extend: {
 			spacing: {
 				"1-5": "0.375rem",
@@ -150,6 +154,16 @@ module.exports = {
 			fontSize: {
 				sm: "0.84375rem"
 			},
+
+			transitionDuration: {
+				250: "250ms"
+			},
+
+			transitionProperty: {
+				'default': 'background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, visibility'
+
+			}
+
 		}
 	},
 
@@ -158,7 +172,7 @@ module.exports = {
 		margin: ["responsive", "first"],
 		borderWidth: ["hover", "focus", "first"],
 		backgroundColor: ["hover", "focus", "hocus", "responsive", "focus-within"],
-		textColor: ["hover", "focus", "hocus", "group-hocus"],
+		textColor: ["hover", "focus", "hocus", "group-hocus", "group-hover", "group-focus"],
 		borderColor: ["hover", "focus", "hocus", "group-hocus"],
 		order: ["responsive"]
 	},

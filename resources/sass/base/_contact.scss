@@ -1,49 +1,185 @@
 #chat-messages {
-  >*+* {
-    @apply mt-4;
+  >* {
+    @apply pb-4;
   }
 }
 
 .message {
-  max-width: 85%;
   word-wrap: break-word;
   @apply relative px-3 py-2 rounded-lg leading-loose;
+  animation: messageReceive .6s cubic-bezier(.2, .8, .2, 1);
+
+  &.typing {
+    animation: typingBubbleClear 1.75s forwards;
+
+    p {
+      font-size: 1.75rem;
+      line-height: .75;
+      @apply text-grey-600;
+    }
+
+    span {
+      display: inline-block;
+      animation: typingDots 1s infinite linear;
+    }
+
+    @for $i from 1 to 3 {
+      span:nth-child(#{$i}) {
+        animation-delay: $i * -0.33s;
+      }
+    }
+  }
 }
 
 .fromThem {
-  @apply bg-grey-200;
+  max-width: 90%;
 
-  &::before {
-    content: "";
-    position: absolute;
-    z-index: 1;
-    bottom: -2px;
-    left: 0;
-    height: 50%;
-    border-left: 10px solid theme('colors.grey.200');
-    border-bottom-right-radius: 16px 14px;
-    transform: translate(0, -2px);
+  .message {
+    @apply bg-grey-200 text-grey-800;
+
+    &::before {
+      content: "";
+      position: absolute;
+      z-index: 1;
+      bottom: -2px;
+      left: 0;
+      height: 50%;
+      border-left: 10px solid theme('colors.grey.200');
+      border-bottom-right-radius: 16px 14px;
+      transform: translate(0, -2px);
+    }
   }
 }
 
 .fromMe {
-  @apply bg-blue-500 self-end text-white;
+  @apply self-end;
+  max-width: 90%;
 
-  &::before {
-    content: "";
-    position: absolute;
-    z-index: 1;
-    bottom: -2px;
-    right: 0;
-    height: 50%;
-    border-right: 10px solid theme('colors.blue.500');
-    border-bottom-left-radius: 16px 14px;
-    transform: translate(0, -2px);
+  .message {
+    @apply bg-blue-500 text-white;
+
+    &::before {
+      content: "";
+      position: absolute;
+      z-index: 1;
+      bottom: -2px;
+      right: 0;
+      height: 50%;
+      border-right: 10px solid theme('colors.blue.500');
+      border-bottom-left-radius: 16px 14px;
+      transform: translate(0, -2px);
+    }
   }
 }
 
 #chat-controls {
   input::placeholder {
     @apply text-grey-500;
+  }
+}
+
+#nextButton {
+  &.animating {
+    @apply bg-blue-100;
+    animation: next-button-animation .45s ease-in-out;
+
+    svg {
+      fill: theme('colors.blue.500');
+    }
+
+    @keyframes next-button-animation {
+
+      0%,
+      100% {
+        transform: scale(1);
+      }
+
+      25% {
+        transform: scale(1.2);
+      }
+
+      50% {
+        transform: scale(.95);
+      }
+    }
+  }
+}
+
+#next-button-wrapper {
+  &.disabled {
+    pointer-events: none;
+  }
+
+  &:not(.disabled) {
+    svg {
+      fill: theme('colors.blue.500');
+    }
+  }
+}
+
+#chat-window {
+
+  &[data-state="yourName"] {
+    #form-input-name {
+      display: block;
+    }
+
+    #form-input- {
+
+      &message,
+      &email,
+      &empty {
+        display: none;
+      }
+    }
+  }
+
+  &[data-state="yourMessage"] {
+    #form-input-message {
+      display: block;
+    }
+
+    #form-input- {
+
+      &name,
+      &email,
+      &empty {
+        display: none;
+      }
+    }
+  }
+
+  &[data-state="yourEmail"] {
+    #form-input-email {
+      display: block;
+    }
+
+    #form-input- {
+
+      &name,
+      &message,
+      &empty {
+        display: none;
+      }
+    }
+  }
+
+  &[data-state="confirm"] {
+    #form-input-empty {
+      display: block;
+    }
+
+    #form-input- {
+
+      &name,
+      &message,
+      &email {
+        display: none;
+      }
+    }
+
+    #chat-controls {
+      pointer-events: none;
+    }
   }
 }

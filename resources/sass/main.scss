@@ -8,59 +8,15 @@
 // Import Tailwind components
 @tailwind components;
 
-.btn {
-  @apply relative;
-
-  &::before {
-    content: '';
-    @apply absolute;
-    top: -.125em;
-    bottom: -.125em;
-    left: -.25em;
-    right: -.25em;
-    @apply rounded-sm;
-    background: currentColor;
-    z-index: -1;
-    @apply opacity-0;
-  }
-
-  &:hover,
-  &:focus {
-
-    &::before {
-      @apply opacity-100;
-    }
-  }
-
-  &.circle {
-    &::before {
-      top: -.25rem;
-      bottom: -.25rem;
-      @apply rounded-full;
-    }
-  }
-
-  // &.large {
-  //   &::before {
-
-  //     @apply rounded-lg;
-  //   }
-  // }
-}
-
-a:focus .btn {
-  &::before {
-    @apply opacity-100;
-  }
-}
-
 @import "base/global";
+@import "base/links";
 @import "base/windows";
 @import "base/ig-stuff";
 @import "base/music-stuff";
 @import "base/portfolio-stuff";
 @import "base/notes-stuff";
 @import "base/markdown";
+@import "base/contact-animations";
 @import "base/contact";
 
 /* purgecss end ignore */
@@ -68,10 +24,6 @@ a:focus .btn {
 // Import Tailwind utilities
 // TailwindCSS recommends leaving utilities till last to ensure they aren't overwritten.
 @tailwind utilities;
-
-.grid {
-  display: grid;
-}
 
 .grid-absolute {
   grid-template-columns: 1fr;

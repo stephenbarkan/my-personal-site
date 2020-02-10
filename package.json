@@ -29,7 +29,7 @@
 		"gulp-sass": "^4.0.2",
 		"gulp-uglify": "^3.0.2",
 		"html-minifier": "^4.0.0",
-		"tailwindcss": "^1.0.5"
+		"tailwindcss": "^1.2.0"
 	},
 	"dependencies": {
 		"howler": "^2.1.2",

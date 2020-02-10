@@ -4,13 +4,14 @@
 
 <div class="overflow-y-auto">
     <div class="p-8 overflow-y-auto">
-        <ul class="project-grid">
+        <ul class="grid items-start gap-2 project-grid sm:gap-8">
             {% for post in data %}
-            <li class="px-2 py-4 rounded hover:bg-purple-100 focus-within:bg-purple-100">
+            <li
+                class="transition-colors duration-150 ease-smooth">
                 <a href="{{post.data.link}}" target="_blank" ref="noopener"
                    title="{{post.data.subtitle}} for {{post.data.title}}"
-                   class="flex flex-col items-center text-center focus:outline-none portfolio-link">
-                    <div class="items-center justify-center grid grid-absolute">
+                   class="flex flex-col items-center py-6 text-3xl text-center text-purple-100 focus:outline-none portfolio-link btn">
+                    <div class="grid items-center justify-center grid-absolute">
                         <svg class="block w-32 grid-inset-0" role="presentation" aria-hidden="true"
                              viewbox="0 0 128 100">
                             <use xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -23,7 +24,7 @@
                                  xlink:href="/images/icons/icon-library.svg#icon-project-folder-front"></use>
                         </svg>
                     </div>
-                    <h3 class="mt-4 leading-snug">{{ post.data.title }}</h3>
+                    <h3 class="mt-4 text-base leading-snug text-grey-800">{{ post.data.title }}</h3>
                     <span class="block mt-1 text-sm leading-snug text-grey-600">{{ post.data.subtitle }}</span>
                 </a>
             </li>

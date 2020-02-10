@@ -5,77 +5,49 @@
 <div class="flex-1 overflow-y-auto">
   <div id="chat-window" class="flex flex-col flex-1 h-full">
     <div id="chat-messages"
-         class="relative flex flex-col flex-grow p-3 overflow-y-auto border-b border-grey-200">
-      <div class="message fromThem">
-        Hi! Want to get in touch with me? First tell me what your name is!
-      </div>
-      <div class="message fromMe">
-        Hi! Want to get in touch with me? First tell me what your name is!
-      </div>
-
-      <div id="confirmModal">
-        <div class="mx-2 text-center bg-white border rounded-sm border-grey-200">
-          <div class="relative p-3 border-b border-grey-200">
-            <h2 class="font-serif text-xl leading-tight">Send Message?</h2>
-          </div>
-
-          <div class="px-3 py-8">
-            <p class="leading-loose">Thank you for your interest in talking with me! Do you want to send your message?
-            </p>
-          </div>
-
-          <div class="flex">
-            <button
-                    class="flex-1 px-2 py-3 text-sm tracking-wide border-t border-r border-grey-200 text-grey-600 focus:outline-none hocus:bg-red-100 hocus:text-red-500">
-              Start Over
-            </button>
-            <button
-                    class="flex-1 px-2 py-3 text-sm tracking-wide text-blue-500 border-t border-grey-200 focus:outline-none hocus:bg-blue-100">
-              Send Message
-            </button>
-          </div>
-        </div>
-      </div>
+         class="relative flex flex-col items-start flex-grow p-3 pb-0 overflow-y-auto border-b border-grey-200">
 
     </div>
     <div id="chat-controls" class="py-3 pl-3 pr-2 bg-white">
-      <form name="contact-form" class="flex items-center" netlify>
-        <p class="flex-grow">
+      <form name="contact-form" id="contact-form" class="flex items-center" netlify action="/">
+        <p id="form-input-name" class="flex-grow">
           <label class="block w-full"><span class="sr-only">Your Name</span>
-            <input class="w-full h-10 px-3 py-1 border border-transparent rounded-full focus:outline-none bg-grey-100 hocus:border-grey-300"
+            <input class="w-full h-10 px-3 py-1 transition-colors duration-150 border border-transparent rounded-full ease-smooth focus:outline-none bg-grey-100 hocus:border-grey-300"
                    type="text"
                    name="yourName" id="yourName" placeholder="Your Name" />
           </label>
         </p>
-        <p class="flex-grow hidden">
+        <p id="form-input-message" class="flex-grow">
           <label class="block w-full"><span class="sr-only">Your Message</span>
-            <input class="w-full h-10 px-3 py-1 border border-transparent rounded-full focus:outline-none bg-grey-100 hocus:border-grey-300"
+            <input class="w-full h-10 px-3 py-1 transition-colors duration-150 border border-transparent rounded-full ease-smooth focus:outline-none bg-grey-100 hocus:border-grey-300"
                    type="text"
                    name="yourMessage" id="yourMessage" placeholder="Your Message" />
           </label>
         </p>
-        <p class="flex-grow hidden">
+        <p id="form-input-email" class="flex-grow">
           <label class="block w-full"><span class="sr-only">Your Email</span>
-            <input class="w-full h-10 px-3 py-1 border border-transparent rounded-full focus:outline-none bg-grey-100 hocus:border-grey-300"
+            <input class="w-full h-10 px-3 py-1 transition-colors duration-150 border border-transparent rounded-full ease-smooth focus:outline-none bg-grey-100 hocus:border-grey-300"
                    type="email"
                    name="yourEmail" id="yourEmail" placeholder="Your Email" />
           </label>
         </p>
-        <p class="flex-grow hidden">
+        <p id="form-input-empty" class="flex-grow">
           <label class="block w-full">
-            <input class="w-full h-10 px-3 py-1 border border-transparent rounded-full focus:outline-none bg-grey-100 hocus:border-grey-300"
+            <input class="w-full h-10 px-3 py-1 transition-colors duration-150 border border-transparent rounded-full ease-smooth focus:outline-none bg-grey-100 hocus:border-grey-300"
                    type="text"
+                   disabled
                    name="empty" id="empty" />
           </label>
         </p>
-        <p class="flex-shrink-0 ml-2">
+        <p class="flex-shrink-0 ml-2 disabled" id="next-button-wrapper">
           <label class="flex"><span class="sr-only">Send Text</span>
             <button
-                    class="flex items-center justify-center w-10 h-10 rounded-full group hocus:bg-blue-100 focus:outline-none"
+                    class="flex items-center justify-center w-10 h-10 transition-colors duration-150 rounded-full ease-smooth group hocus:bg-blue-100 focus:outline-none"
                     type="button"
                     name="nextButton"
                     id="nextButton">
-              <svg class="block w-6 h-6 text-grey-300 group-hocus:text-blue-500" fill="currentColor"
+              <svg class="block w-6 h-6 transition-colors duration-150 text-grey-300 ease-smooth"
+                   fill="currentColor"
                    aria-hidden="true">
                 <use xmlns:xlink="http://www.w3.org/1999/xlink"
                      xlink:href="/images/icons/icon-library.svg#contact-send-icon">
@@ -89,5 +61,30 @@
   </div>
 </div>
 
+<template id="confirmModal">
+  <div>
+    <div class="mx-2 text-center bg-white border rounded-sm border-grey-200">
+      <div class="relative p-3 border-b border-grey-200">
+        <h2 class="font-serif text-xl leading-tight">Submit Form?</h2>
+      </div>
 
+      <div class="px-3 py-8">
+        <p class="leading-loose">If needed, you can edit any of your messages above by clicking the pencil icon on each
+          blue bubble.
+        </p>
+      </div>
+
+      <div class="flex">
+        <button id="formClear"
+                class="flex-1 px-2 py-3 text-sm tracking-wide transition-colors duration-150 border-t border-r ease-smooth border-grey-200 text-grey-600 focus:outline-none hocus:bg-grey-100 hocus:text-grey-700">
+          Clear Form
+        </button>
+        <button id="formSubmit"
+                class="flex-1 px-2 py-3 text-sm tracking-wide text-blue-500 transition-colors duration-150 border-t ease-smooth border-grey-200 focus:outline-none hocus:bg-blue-100">
+          Submit Form
+        </button>
+      </div>
+    </div>
+  </div>
+</template>
 {% endblock %}

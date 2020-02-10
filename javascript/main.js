@@ -5,6 +5,156 @@ var $body = document.querySelector('body');
 var $header = document.getElementById('#header');
 var $nav = document.getElementById('#nav');
 var $footer = document.getElementById('#footer');
+var chatWindow = document.getElementById("chat-window");
+var messagesList = document.getElementById("chat-messages");
+var chatControls = document.getElementById("chat-controls");
+var nextButton = document.getElementById("nextButton");
+var nextButtonWrapper = document.getElementById("next-button-wrapper");
+var inputFields = document.querySelectorAll("#chat-controls input");
+var form = document.getElementById('contact-form');
+var formSubmit = null;
+var formClear = null;
+var state = 0;
+var states = ["yourName", "yourMessage", "yourEmail", "confirm"];
+var userName = "";
+var typingBubble = document.createElement("div");
+typingBubble.classList.add("typingDots", "fromThem");
+typingBubble.innerHTML = "<div class=\"message typing\"><p><span>\u2022</span><span>\u2022</span><span>\u2022</span></p></div>";
+var confirmModalTemplate = document.getElementById("confirmModal");
+var confirmModal = confirmModalTemplate.content.cloneNode(true);
+chatPush("you", "Hi! Want to get in touch with me? First tell me what your name is!");
+var responses = ["Okay, ".concat(userName, "! What do you want to say to me?"), "Got it\xA0\u2013 and at what email address should I respond to you?", ""];
+nextButton.addEventListener('click', function () {
+  nextButton.classList.add('animating');
+  nextButton.addEventListener('animationend', function () {
+    nextButton.classList.remove('animating');
+    nextButton.blur();
+  });
+});
+chatWindow.setAttribute("data-state", states[0]);
+
+function chatPush(origin, message) {
+  var originClass;
+
+  if (origin == "user") {
+    originClass = "fromMe";
+  } else {
+    originClass = "fromThem";
+  }
+
+  var newBubble = document.createElement("div"); // newBubble.classList.add("message")
+
+  newBubble.classList.add(originClass);
+  newBubble.innerHTML = "<div class=\"message\"><p>" + message + "</p></div>";
+  messagesList.appendChild(newBubble);
+  showLatestMessage();
+}
+
+inputFields.forEach(function (inputField) {
+  inputField.addEventListener("keyup", function (e) {
+    inputValueCheck();
+
+    if (inputField.value) {
+      if (e.which == 13) {
+        nextButton.click();
+        nextButton.classList.add("animating");
+      }
+    }
+  });
+});
+
+function inputValueCheck() {
+  if (inputFields[state].value) {
+    nextButtonWrapper.classList.remove('disabled');
+    nextButton.setAttribute("tabindex", "0");
+  } else {
+    nextButtonWrapper.classList.add('disabled');
+    nextButton.setAttribute("tabindex", "-1");
+  }
+}
+
+inputValueCheck();
+nextButton.addEventListener("click", function (e) {
+  e.preventDefault();
+  message = document.querySelector("#".concat(states[state])).value;
+
+  if (message) {
+    chatPush("user", message);
+    saveName();
+    updateState();
+
+    if (state < states.length - 1) {
+      addTypingBubble();
+      setTimeout(function () {
+        removeTypingBubble();
+        chatPush("you", responses[state % 4 - 1]);
+      }, 2500);
+    } else {
+      addTypingBubble();
+      setTimeout(function () {
+        removeTypingBubble();
+        addConfirmBox();
+      }, 2500);
+    }
+  }
+});
+
+function showLatestMessage() {
+  messagesList.lastChild.scrollIntoView({
+    behavior: 'smooth',
+    block: 'end'
+  });
+}
+
+var addTypingBubble = function addTypingBubble() {
+  inputFields.forEach(function (field) {
+    field.setAttribute("disabled", true);
+  });
+  chatControls.classList.add("pointer-events-none");
+  setTimeout(function () {
+    messagesList.appendChild(typingBubble);
+    showLatestMessage();
+  }, 700);
+};
+
+var removeTypingBubble = function removeTypingBubble() {
+  if (state < states.length - 1) inputFields.forEach(function (field) {
+    field.removeAttribute("disabled");
+  });
+  chatControls.classList.remove("pointer-events-none");
+  messagesList.removeChild(typingBubble);
+  inputFields[state].focus();
+};
+
+var addConfirmBox = function addConfirmBox() {
+  messagesList.appendChild(confirmModal.cloneNode(true));
+  showLatestMessage();
+  formSubmit = document.querySelector("#formSubmit");
+  formClear = document.querySelector("#formClear");
+  formSubmit.addEventListener("click", function (e) {
+    e.preventDefault();
+    form.submit();
+    formSubmit.blur();
+  });
+};
+
+function saveName() {
+  inputFields.forEach(function (field) {
+    if (field.name === "yourName") {
+      var str = field.value;
+      var words = str.split(" ");
+      userName = words[0];
+      responses[0] = "Hi, ".concat(userName, "! What do you want to say to me?");
+    }
+  });
+}
+
+function updateState() {
+  state = (state + 1) % 4;
+  currentState = states[state % 4];
+  chatWindow.setAttribute("data-state", currentState);
+  inputValueCheck();
+}
 var draggableTarget = ".draggable";
 var draggableItems = document.querySelectorAll(draggableTarget);
 

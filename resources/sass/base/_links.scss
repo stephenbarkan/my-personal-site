@@ -1,5 +1,36 @@
-//==========  Links ==========//
+.btn {
+    @apply relative;
 
-.transition {
-    transition: 0.25s var(--easing);
+    &::before {
+        content: '';
+        @apply absolute rounded-sm opacity-0 duration-250 ease-smooth transform transition scale-75;
+        top: -0.0625em;
+        bottom: -0.0625em;
+        left: -.25em;
+        right: -.25em;
+        background: currentColor;
+        z-index: -1;
+    }
+
+    &:hover,
+    &:focus {
+
+        &::before {
+            @apply opacity-100 scale-100;
+        }
+    }
+
+    &.circle {
+        &::before {
+            top: -.25rem;
+            bottom: -.25rem;
+            @apply rounded-full;
+        }
+    }
+}
+
+a:focus .btn {
+    &::before {
+        @apply opacity-100 scale-100;
+    }
 }

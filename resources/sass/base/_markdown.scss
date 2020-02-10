@@ -44,7 +44,7 @@
 
     &::before {
       content: '';
-      @apply absolute rounded-sm bg-blue-100 opacity-0;
+      @apply absolute rounded-sm bg-blue-100 opacity-0 duration-200 ease-smooth transition-opacity;
       top: -.125rem;
       bottom: -.125rem;
       left: -.25rem;
