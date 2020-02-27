@@ -3,11 +3,11 @@
 
     &::before {
         content: '';
-        @apply absolute rounded-sm opacity-0 duration-250 ease-smooth transform transition scale-75;
-        top: -0.0625em;
-        bottom: -0.0625em;
-        left: -.25em;
-        right: -.25em;
+        @apply absolute rounded-sm opacity-0 duration-700 ease-smooth transform transition scale-95;
+        top: -0.0625rem;
+        bottom: -0.0625rem;
+        left: -.25rem;
+        right: -.25rem;
         background: currentColor;
         z-index: -1;
     }
@@ -16,7 +16,7 @@
     &:focus {
 
         &::before {
-            @apply opacity-100 scale-100;
+            @apply opacity-100 scale-100 duration-250;
         }
     }
 

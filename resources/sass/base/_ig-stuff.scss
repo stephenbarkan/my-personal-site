@@ -48,3 +48,14 @@
         display: inline;
     }
 }
+
+.ig-left,
+.ig-right {
+    @apply transform transition-all ease-smooth duration-700;
+
+    &:hover {
+
+        @apply duration-250 scale-110;
+        filter: drop-shadow(2px 0 10px rgba(0, 0, 0, .24));
+    }
+}

@@ -1,0 +1,10 @@
+.home-link-bg {
+  @apply absolute inset-0 transform scale-x-0 duration-300 transition-transform;
+  transform-origin: right;
+  transition-timing-function: cubic-bezier(0.39, 0.58, 0.57, 1);
+}
+
+a:hover .home-link-bg {
+  transform-origin: left;
+  @apply scale-x-100 ease-smooth;
+}

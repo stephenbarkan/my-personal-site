@@ -3,7 +3,18 @@
   --easing: cubic-bezier(0.5, 0, 0.5, 1);
 }
 
+.smooth-transition {
+  @apply duration-700 ease-smooth;
 
+  &:hover {
+    @apply duration-250;
+  }
+
+  &::before,
+  &::after {
+    transition: inherit;
+  }
+}
 
 // @import 'utilities';
 @import 'links';

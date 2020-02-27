@@ -20,29 +20,50 @@ title: Home
     <div class="flex flex-col items-center px-6 py-16 text-4xl leading-tight xs:text-5xl sm:text-6xl serif">
         <h1 class="max-w-headline">
             This is the personal site of
-            <a id="me" href="#" class="no-underline group focus:outline-none">
-                <span class="text-red-100 btn large"><span class="text-red-500">Stephen Barkan</span></span>.
+            <a id="me" href="#"
+               class="relative inline-block text-red-500 no-underlin group focus:outline-none">
+                <span class="absolute inset-0 overflow-hidden">
+                    <span class="bg-red-100 home-link-bg"></span>
+                </span>
+                <span class="relative">Stephen Barkan</span>
             </a>
+            .
+            </span>
         </h1>
 
         <nav class="mt-12 max-w-headline">
             See <a id="portfolio" href="#"
-               class="no-underline group focus:outline-none">
-                <span class="text-purple-100 btn large"><span class="text-purple-500">his design
-                        portfolio</span></span>,
+               class="relative inline-block text-purple-500 no-underlin group focus:outline-none">
+                <span class="absolute inset-0 overflow-hidden">
+                    <span class="bg-purple-100 home-link-bg"></span>
+                </span>
+                <span class="relative">his design portfolio</span>
             </a>
-            read things <a id="about" href="#"
-               class="no-underline group focus:outline-none">
-                <span class="text-yellow-100 btn large"><span class="text-yellow-500">about him</span></span>,
+            , read things
+            <a id="about" href="#"
+               class="relative inline-block text-yellow-500 no-underline group focus:outline-none">
+                <span class="absolute inset-0 overflow-hidden">
+                    <span class="bg-yellow-100 home-link-bg"></span>
+                </span>
+                <span class="relative">about him</span>
             </a>
-            listen to <a id="music" href="#"
-               class="no-underline group focus:outline-none">
-                <span class="text-green-100 btn large"><span class="text-green-500">music he wrote</span></span>,
+            , listen to
+            <a id="music" href="#"
+               class="relative inline-block text-green-500 no-underline group focus:outline-none">
+                <span class="absolute inset-0 overflow-hidden">
+                    <span class="bg-green-100 home-link-bg"></span>
+                </span>
+                <span class="relative">music he wrote</span>
             </a>
-            or send him <a id="contact" href="#"
-               class="no-underline group focus:outline-none">
-                <span class="text-blue-100 btn large"><span class="text-blue-500">a message</span></span>.
+            , or send him
+            <a id="contact" href="#"
+               class="relative inline-block text-blue-500 no-underline group focus:outline-none">
+                <span class="absolute inset-0 overflow-hidden">
+                    <span class="bg-blue-100 home-link-bg"></span>
+                </span>
+                <span class="relative">a message</span>
             </a>
+            .
         </nav>
     </div>
 
@@ -64,7 +85,6 @@ title: Home
     <div class="fixed bottom-0 right-0 hidden p-6 sm:block">
         <button
                 class="block px-3 py-2 text-xs tracking-wider uppercase transition duration-150 transform translate-y-8 border rounded opacity-0 ease-smooth border-grey-300 text-grey-700 hocus:bg-black hocus:text-white hocus:border-black focus:outline-none close-all">
-            Close All
         </button>
     </div>
 

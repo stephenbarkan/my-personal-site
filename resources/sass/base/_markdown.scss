@@ -6,7 +6,7 @@
 
   code {
     font-size: .875em;
-    @apply relative text-grey-800 p-1;
+    @apply relative text-grey-800 p-1 whitespace-pre;
 
 
     &::before {
@@ -34,6 +34,7 @@
 
   a {
     @apply relative text-blue-700 inline-block;
+    @extend .btn;
 
     & * {
       @apply text-blue-700;
@@ -55,9 +56,9 @@
     &:hover,
     &:focus {
 
-      &::before {
-        @apply opacity-100;
-      }
+      // &::before {
+      //   @apply opacity-100;
+      // }
 
       & code::before {
         @apply bg-transparent;
