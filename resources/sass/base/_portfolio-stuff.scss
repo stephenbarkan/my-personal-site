@@ -7,3 +7,11 @@
     @apply rounded;
   }
 }
+
+.project-preview {
+  @apply transition transform ease-smooth duration-500;
+
+  &.closed {
+    @apply invisible scale-75 opacity-0 translate-y-8 duration-300;
+  }
+}

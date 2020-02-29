@@ -1,10 +1,44 @@
 .home-link-bg {
-  @apply absolute inset-0 transform scale-x-0 duration-300 transition-transform;
+  @apply absolute inset-x-0 transform scale-x-0 duration-300 transition-transform;
   transform-origin: right;
   transition-timing-function: cubic-bezier(0.39, 0.58, 0.57, 1);
+  height: 40%;
+  bottom: 10%;
 }
 
-a:hover .home-link-bg {
+a:hover .home-link-bg,
+a:focus .home-link-bg {
   transform-origin: left;
   @apply scale-x-100 ease-smooth;
+}
+
+.rotate-pls {
+  z-index: 9999;
+  display: flex;
+
+  @media (min-height: 450px) {
+    display: none;
+  }
+}
+
+.fade-overlay {
+  transition: all 1s var(--easing);
+  transition-property: opacity, visibility;
+  z-index: 10000;
+
+  &.removed {
+    opacity: 0;
+    pointer-events: none;
+    visibility: hidden;
+  }
+}
+
+.close-all {
+  visibility: hidden;
+
+  &.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+  }
 }

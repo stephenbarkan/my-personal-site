@@ -1,0 +1,43 @@
+{% macro projectPreviewFrame(data) %}
+
+{% for post in data %}
+
+<div data-index="{{loop.index}}"
+     class="absolute flex flex-col items-center max-w-2xl px-8 py-12 overflow-hidden rounded shadow-lg pointer-events-auto sm:px-12 sm:py-20 sm:flex-row closed project-preview bg-grey-100">
+
+  <div class="absolute top-0 left-0 flex mt-2 ml-2">
+    <button
+            class="p-1 rounded-full close-preview text-grey-300 hocus:text-grey-400 focus:outline-none focus:shadow-outline">
+      <span class="sr-only">Close Preview</span>
+      <svg class="" width="14" height="14" viewBox="0 0 14 14" fill="none"
+           xmlns="http://www.w3.org/2000/svg">
+        <circle cx="7" cy="7" r="7" fill="currentColor" />
+        <path opacity="0.5"
+              d="M7.70718 7.00012L10.1821 4.52522L9.47497 3.81812L7.00008 6.29301L4.52523 3.81816L3.81812 4.52527L6.29297 7.00012L3.81812 9.47497L4.52522 10.1821L7.00008 7.70722L9.47498 10.1821L10.1821 9.47502L7.70718 7.00012Z"
+              fill="black" />
+      </svg>
+    </button>
+  </div>
+
+  <div class="max-w-xs shadow-md">
+    <img src="{{post.data.image}}" alt="">
+  </div>
+
+  <div class="mt-12 sm:ml-16 sm:mt-0">
+    <h2 class="font-serif text-3xl leading-snug">{{post.data.title}}</h2>
+    <date class="block mt-2 font-mono text-xs leading-none uppercase text-grey-700">
+      {{post.data.date  | dateDisplay }}
+    </date>
+    <p class="max-w-xs mt-6">{{post.data.excerpt}}</p>
+
+    <a class="relative inline-flex px-3 py-1 mt-12 text-sm leading-normal transition-colors bg-white rounded-sm shadow-sm smooth-transition focus:shadow-outline focus:outline-none hocus:bg-grey-100"
+       href="{{post.data.link}}" target="_blank" ref="noopener">See Project
+      <div class="border-shadow"></div>
+    </a>
+  </div>
+  <div class="border-shadow"></div>
+</div>
+
+{% endfor %}
+
+{% endmacro %}

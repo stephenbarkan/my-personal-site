@@ -1,5 +1,4 @@
 {% extends "components/window.njk" %}
-
 {% block content %}
 
 <div class="overflow-y-auto">
@@ -8,9 +7,11 @@
             {% for post in data %}
             <li
                 class="transition-colors duration-150 ease-smooth">
-                <a href="{{post.data.link}}" target="_blank" ref="noopener"
+                <a
+                   data-index="{{loop.index}}"
+                   href="#"
                    title="{{post.data.subtitle}} for {{post.data.title}}"
-                   class="flex flex-col items-center py-6 text-center text-purple-100 focus:outline-none portfolio-link btn">
+                   class="flex flex-col items-center py-6 text-center text-purple-100 project-link focus:outline-none portfolio-link btn">
                     <div class="grid items-center justify-center grid-absolute">
                         <svg class="block w-32 grid-inset-0" role="presentation" aria-hidden="true"
                              viewbox="0 0 128 100">

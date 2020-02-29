@@ -31,6 +31,7 @@ module.exports = {
 		},
 
 		boxShadow: {
+			sm: "0px 0.5px 3px -1.5px rgba(0, 0, 0, 0.25)",
 			md: "0px 0px 2.16398px rgba(0, 0, 0, 0.0217013), 0px 0px 5.47287px rgba(0, 0, 0, 0.0310596), 0px 0px 11.1641px rgba(0, 0, 0, 0.0389404), 0px 0px 22.996px rgba(0, 0, 0, 0.0482987), 0px 0px 63px rgba(0, 0, 0, 0.07)",
 			lg: "0px 0px 4.15622px rgba(0, 0, 0, 0.034102), 0px 0px 10.5114px rgba(0, 0, 0, 0.048808), 0px 0px 21.4423px rgba(0, 0, 0, 0.061192), 0px 0px 44.167px rgba(0, 0, 0, 0.075898), 0px 0px 121px rgba(0, 0, 0, 0.11)",
 			outline: '0 0 0 3px rgba(21, 166, 248, 0.5)',
@@ -49,6 +50,7 @@ module.exports = {
 				700: "#514F56",
 				600: "#6f6d74",
 				500: "#959398",
+				400: "#AEADAF",
 				300: "#cccccc",
 				200: "#e8e8e8",
 				100: "#f5f5f5"
@@ -148,7 +150,8 @@ module.exports = {
 			},
 
 			maxWidth: {
-				headline: "10em"
+				headline: "10em",
+				"2xl": "45rem"
 			},
 
 			fontSize: {
@@ -174,7 +177,8 @@ module.exports = {
 		backgroundColor: ["hover", "focus", "hocus", "responsive", "focus-within"],
 		textColor: ["hover", "focus", "hocus", "group-hocus", "group-hover", "group-focus"],
 		borderColor: ["hover", "focus", "hocus", "group-hocus"],
-		order: ["responsive"]
+		order: ["responsive"],
+		boxShadow: ["responsive", "hover", "focus", 'hocus']
 	},
 
 	plugins: [

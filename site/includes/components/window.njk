@@ -1,6 +1,6 @@
 {% macro windowFrame(title, color, inverted, data) %}
 
-<div class="overflow-hidden flex flex-col rounded shadow-lg pointer-events-auto window-wrapper sm:absolute draggable
+<div class="relative overflow-hidden flex flex-col rounded shadow-lg pointer-events-auto window-wrapper sm:absolute draggable
 {% if title != "sd" %}
 closed
 {% endif %}
@@ -62,6 +62,8 @@ closed
         {# window content goes here #}
         {% endblock %}
     </div>
+    <div class="absolute inset-0 rounded pointer-events-none border-shadow"></div>
+
 </div>
 
 {% endmacro %}

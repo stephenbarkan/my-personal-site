@@ -14,6 +14,8 @@ title: Home
 {% import "windows/window-about.njk" as about %}
 {% import "windows/window-portfolio.njk" as portfolio %}
 {% import "windows/window-contact.njk" as contact %}
+{% import "components/project-preview.njk" as preview %}
+
 
 <main id="main" class="relative flex flex-col items-center justify-between w-full min-h-full sm:justify-center">
     {# text content #}
@@ -80,12 +82,21 @@ title: Home
 
     </div>
 
+    <div class="fixed z-10 items-center justify-center p-1 pointer-events-none windows-container">
+        {{ preview.projectPreviewFrame( posts ) }}
+    </div>
+
+
     {% include "components/footer.njk" %}
 
     <div class="fixed bottom-0 right-0 hidden p-6 sm:block">
-        <button
-                class="block px-3 py-2 text-xs tracking-wider uppercase transition duration-150 transform translate-y-8 border rounded opacity-0 ease-smooth border-grey-300 text-grey-700 hocus:bg-black hocus:text-white hocus:border-black focus:outline-none close-all">
-        </button>
+        <div class="transition duration-150 transform translate-y-8 opacity-0 close-all ease-smooth">
+            <button
+                    class="relative block px-4 py-2 text-sm transition-colors bg-white rounded-sm shadow-sm hocus:bg-grey-100 smooth-transition focus:shadow-outline focus:outline-none">
+                Close All
+                <div class="border-shadow"></div>
+            </button>
+        </div>
     </div>
 
     <div class="fixed inset-0 transition-all duration-1000 fade-overlay bg-neutral-100"></div>

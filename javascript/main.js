@@ -537,9 +537,39 @@ aboutSidebarCloseButton.addEventListener('click', function () {
     aboutSidebarCloseButton.classList.add('open');
   }
 });
+var projects = document.querySelectorAll(".project-link");
+var projectPreviews = document.querySelectorAll(".project-preview");
+var closeButtons = document.querySelectorAll(".close-preview");
+var portfolioWindowCloseButtons = document.querySelector("#portfolioWindow .window-close");
+projects.forEach(function (project) {
+  project.addEventListener("click", function (e) {
+    e.preventDefault();
+    index = project.getAttribute("data-index");
+    projectPreviews.forEach(function (preview) {
+      if (preview.getAttribute("data-index") === index) {
+        preview.classList.remove("closed");
+      } else {
+        preview.classList.add("closed");
+      }
+    });
+  });
+});
+closeButtons.forEach(function (button) {
+  button.addEventListener("click", function () {
+    var wrapper = button.closest(".project-preview");
+    wrapper.classList.add("closed");
+  });
+});
+portfolioWindowCloseButtons.addEventListener("click", function () {
+  projectPreviews.forEach(function (preview) {
+    preview.classList.add("closed");
+  });
+});
 var closedWindows = document.querySelectorAll(".closed");
-var closeAllButton = document.querySelector(".close-all");
+var closeAll = document.querySelector(".close-all");
+var closeAllButton = document.querySelector(".close-all button");
 var windowWrappers = document.querySelectorAll(".window-wrapper");
+var projectPreviews = document.querySelectorAll(".project-preview");
 var closeButtons = document.querySelectorAll(".window-close");
 var windowZ = 50;
 
@@ -605,12 +635,12 @@ var windowFunctions = function windowFunctions() {
 };
 
 var checkClosedList = function checkClosedList() {
-  closedWindows = document.querySelectorAll(".closed");
+  closedWindows = document.querySelectorAll(".window-wrapper.closed");
 
   if (closedWindows.length < windowWrappers.length - 1) {
-    closeAllButton.classList.add("visible");
+    closeAll.classList.add("visible");
   } else {
-    closeAllButton.classList.remove("visible");
+    closeAll.classList.remove("visible");
   }
 
   if (closedWindows.length < windowWrappers.length) {
@@ -625,6 +655,9 @@ var checkClosedList = function checkClosedList() {
 closeAllButton.addEventListener("click", function () {
   windowWrappers.forEach(function (wrapper) {
     wrapper.classList.add("closed");
+  });
+  projectPreviews.forEach(function (preview) {
+    preview.classList.add("closed");
   });
   checkClosedList();
 });

@@ -7,34 +7,3 @@ body.window-open {
     overflow: auto;
   }
 }
-
-.rotate-pls {
-  z-index: 9999;
-  display: flex;
-
-  @media (min-height: 450px) {
-    display: none;
-  }
-}
-
-.fade-overlay {
-  transition: all 1s var(--easing);
-  transition-property: opacity, visibility;
-  z-index: 10000;
-
-  &.removed {
-    opacity: 0;
-    pointer-events: none;
-    visibility: hidden;
-  }
-}
-
-.close-all {
-  visibility: hidden;
-
-  &.visible {
-    opacity: 1;
-    visibility: visible;
-    transform: none;
-  }
-}

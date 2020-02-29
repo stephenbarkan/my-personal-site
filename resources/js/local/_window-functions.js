@@ -1,6 +1,8 @@
 let closedWindows = document.querySelectorAll(".closed");
-const closeAllButton = document.querySelector(".close-all");
+const closeAll = document.querySelector(".close-all");
+const closeAllButton = document.querySelector(".close-all button");
 const windowWrappers = document.querySelectorAll(".window-wrapper");
+const projectPreviews = document.querySelectorAll(".project-preview");
 const closeButtons = document.querySelectorAll(".window-close");
 let windowZ = 50;
 
@@ -72,12 +74,12 @@ const windowFunctions = function () {
 };
 
 const checkClosedList = function () {
-  closedWindows = document.querySelectorAll(".closed");
+  closedWindows = document.querySelectorAll(".window-wrapper.closed");
 
   if (closedWindows.length < windowWrappers.length - 1) {
-    closeAllButton.classList.add("visible");
+    closeAll.classList.add("visible");
   } else {
-    closeAllButton.classList.remove("visible");
+    closeAll.classList.remove("visible");
   }
 
   if (closedWindows.length < windowWrappers.length) {
@@ -92,6 +94,9 @@ const checkClosedList = function () {
 closeAllButton.addEventListener("click", function () {
   windowWrappers.forEach(function (wrapper) {
     wrapper.classList.add("closed");
+  });
+  projectPreviews.forEach(function (preview) {
+    preview.classList.add("closed");
   });
   checkClosedList();
 });
