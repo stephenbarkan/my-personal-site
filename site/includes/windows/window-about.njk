@@ -9,13 +9,13 @@
             {% for note in data %}
             <li class="border-b border-grey-300">
                 <a href="#" title="{{note.data.title}}"
-                   class="block py-4 pl-4 pr-2 transition-colors smooth-transition hocus:bg-white ease-smooth about-note-link focus:outline-none"
+                   class="block py-4 pl-4 pr-2 transition-colors smooth-transition hocus:bg-white ease-smooth about-note-link"
                    data-note="{{loop.index}}">
                     <h4 class="font-medium truncate">
                         {{ note.data.title }}
                     </h4>
 
-                    <date class="block mt-1 font-mono text-xs leading-none uppercase text-grey-700">
+                    <date class="block mt-1 font-mono leading-none uppercase text-xxs text-grey-700">
                         {{ note.data.date | dateDisplay }}
                         {% if note.data.enddate %}
                         - {{ note.data.enddate | dateDisplay }}
@@ -29,7 +29,7 @@
     <div class="flex flex-col flex-grow">
         <div class="sticky top-0 z-10 px-4 pt-3 pb-3 bg-white border-b sm:hidden border-grey-300">
             <button id="about-note-open"
-                    class="flex items-center text-yellow-100 btn focus:outline-none">
+                    class="flex items-center text-yellow-100 btn">
                 <svg class="flex-shrink-0 block w-4 h-4 text-yellow-700" role="button"
                      aria-hidden="true">
                     <use xmlns:xlink="http://www.w3.org/1999/xlink"

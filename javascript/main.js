@@ -540,6 +540,7 @@ aboutSidebarCloseButton.addEventListener('click', function () {
 var projects = document.querySelectorAll(".project-link");
 var projectPreviews = document.querySelectorAll(".project-preview");
 var closeButtons = document.querySelectorAll(".close-preview");
+var previewOverlays = document.querySelectorAll(".preview-overlay");
 var portfolioWindowCloseButtons = document.querySelector("#portfolioWindow .window-close");
 projects.forEach(function (project) {
   project.addEventListener("click", function (e) {
@@ -563,6 +564,13 @@ closeButtons.forEach(function (button) {
 portfolioWindowCloseButtons.addEventListener("click", function () {
   projectPreviews.forEach(function (preview) {
     preview.classList.add("closed");
+  });
+});
+previewOverlays.forEach(function (overlay) {
+  overlay.addEventListener("click", function () {
+    projectPreviews.forEach(function (preview) {
+      preview.classList.add("closed");
+    });
   });
 });
 var closedWindows = document.querySelectorAll(".closed");

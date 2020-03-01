@@ -1,3 +1,19 @@
+.preview-container {
+  display: grid;
+
+  &>* {
+    grid-column: -1/1;
+    grid-row: -1/1;
+  }
+
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  justify-items: center;
+
+  width: 100vh;
+  height: 100vh;
+}
+
 .project-grid {
   grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr));
 }
@@ -9,9 +25,17 @@
 }
 
 .project-preview {
-  @apply transition transform ease-smooth duration-500;
+  @apply duration-500;
+
+  &+.preview-overlay {
+    @apply duration-500;
+  }
 
   &.closed {
-    @apply invisible scale-75 opacity-0 translate-y-8 duration-300;
+    @apply invisible scale-75 opacity-0 translate-y-2 duration-300;
+
+    &+.preview-overlay {
+      @apply opacity-0 duration-300 pointer-events-none;
+    }
   }
 }

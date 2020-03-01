@@ -33,7 +33,7 @@
   }
 
   a {
-    @apply relative text-blue-700 inline-block;
+    @apply relative text-blue-700 rounded-sm inline-block;
     @extend .btn;
 
     & * {
@@ -64,10 +64,6 @@
         @apply bg-transparent;
       }
 
-    }
-
-    &:focus {
-      @apply outline-none shadow-outline;
     }
   }
 

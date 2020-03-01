@@ -4,10 +4,10 @@
 
 		{% for item in site.social_links %}
 
-		<li class="ml-3 first:ml-0">
+		<li class="ml-1 first:ml-0">
 
 			<a href="{{ item.link | safe }}"
-				 class="block btn circle text-{{item.color}}-100 group focus:outline-none"
+				 class="block btn p-1 circle text-{{item.color}}-100 group rounded-full"
 				 aria-label="{{ item.title | capitalize }}"
 				 target="_blank" rel="noopener"
 				 title="Go to Stephen's profile on {{item.title | capitalize}}">

@@ -1,7 +1,10 @@
 //==========  Import all base partials ==========//
-:root {
-  --easing: cubic-bezier(0.5, 0, 0.5, 1);
+
+*:focus,
+button:focus {
+  @apply outline-none shadow-outline;
 }
+
 
 .smooth-transition {
   @apply duration-700 ease-smooth;

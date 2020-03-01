@@ -13,7 +13,7 @@
                 {% endfor %}
             </div>
             <div class="absolute inset-0 flex items-center justify-between px-2">
-                <a href="#" class="block text-white rounded-full ig-left focus:outline-none focus:shadow-outline"
+                <a href="#" class="block text-white rounded-full ig-left"
                    aria-label="{{ icon | capitalize }}" title="Previous image">
                     <span class="sr-only">Previous Image</span>
                     <svg class="block w-8 h-8" fill="currentColor" role="button" aria-hidden="true">
@@ -22,7 +22,7 @@
                     </svg>
                 </a>
 
-                <a href="#" class="block text-white rounded-full ig-right focus:outline-none focus:shadow-outline"
+                <a href="#" class="block text-white rounded-full ig-right"
                    aria-label="{{ icon | capitalize }}" title="Next image">
                     <span class="sr-only">Next Image</span>
                     <svg class="block w-8 h-8" fill="currentColor" role="button" aria-hidden="true">
@@ -34,7 +34,9 @@
         </div>
 
         <div class="relative flex items-center mt-3">
-            <a class="flex items-center text-red-100 btn focus:outline-none ig-heart-btn" href="#" title="Like pictures"
+            <a class="flex items-center p-1 -m-1 text-red-100 rounded-sm ig-heart-btn"
+               href="#"
+               title="Like pictures"
                aria-label="like button">
                 <div class="ig-heart">
                     <svg class="w-6 h-6" role="img" aria-hidden="true">
@@ -45,7 +47,7 @@
                 </div>
 
 
-                <span class="ml-2 font-mono text-xs leading-none uppercase text-grey-900 ig-heart-text">0
+                <span class="ml-2 font-mono leading-none uppercase text-xxs text-grey-900 ig-heart-text">0
                     Likes</span>
             </a>
             <div class="absolute inset-x-0 inset-y-0 flex items-center justify-center pointer-events-none">
@@ -62,7 +64,7 @@
                 <span class="ig-caption">{{obj.caption}}</span>
                 {% endfor %}
             </p>
-            <date class="block mt-2 font-mono text-xs leading-none uppercase text-grey-700">
+            <date class="block mt-2 font-mono leading-none uppercase text-xxs text-grey-700">
                 {% for obj in data %}
                 <span class="ig-date">{{obj.date  | dateDisplay }}</span>
                 {% endfor %}

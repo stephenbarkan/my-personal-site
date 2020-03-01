@@ -6,8 +6,7 @@
   bottom: 10%;
 }
 
-a:hover .home-link-bg,
-a:focus .home-link-bg {
+a:hover .home-link-bg {
   transform-origin: left;
   @apply scale-x-100 ease-smooth;
 }

@@ -34,6 +34,7 @@ module.exports = {
 			sm: "0px 0.5px 3px -1.5px rgba(0, 0, 0, 0.25)",
 			md: "0px 0px 2.16398px rgba(0, 0, 0, 0.0217013), 0px 0px 5.47287px rgba(0, 0, 0, 0.0310596), 0px 0px 11.1641px rgba(0, 0, 0, 0.0389404), 0px 0px 22.996px rgba(0, 0, 0, 0.0482987), 0px 0px 63px rgba(0, 0, 0, 0.07)",
 			lg: "0px 0px 4.15622px rgba(0, 0, 0, 0.034102), 0px 0px 10.5114px rgba(0, 0, 0, 0.048808), 0px 0px 21.4423px rgba(0, 0, 0, 0.061192), 0px 0px 44.167px rgba(0, 0, 0, 0.075898), 0px 0px 121px rgba(0, 0, 0, 0.11)",
+			xl: "0px 0.239565px 23.6407px rgba(0, 0, 0, 0.0334698), 0px 1.17993px 38.8132px rgba(0, 0, 0, 0.045558), 0px 3.48778px 47.6491px rgba(0, 0, 0, 0.0578826), 0px 9.34215px 55.2599px rgba(0, 0, 0, 0.076608), 0px 33px 92px rgba(0, 0, 0, 0.11)",
 			outline: '0 0 0 3px rgba(21, 166, 248, 0.5)',
 			none: 'none'
 		},
@@ -155,7 +156,9 @@ module.exports = {
 			},
 
 			fontSize: {
-				sm: "0.84375rem"
+				xxs: ".75rem",
+				xs: "0.8125rem",
+				sm: "0.9375rem"
 			},
 
 			transitionDuration: {

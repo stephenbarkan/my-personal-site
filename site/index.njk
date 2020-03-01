@@ -23,7 +23,7 @@ title: Home
         <h1 class="max-w-headline">
             This is the personal site of
             <a id="me" href="#"
-               class="relative inline-block text-red-500 no-underlin group focus:outline-none">
+               class="relative inline-block text-red-500 rounded-sm group">
                 <span class="absolute inset-0 overflow-hidden">
                     <span class="bg-red-100 home-link-bg"></span>
                 </span>
@@ -35,7 +35,7 @@ title: Home
 
         <nav class="mt-12 max-w-headline">
             See <a id="portfolio" href="#"
-               class="relative inline-block text-purple-500 no-underlin group focus:outline-none">
+               class="relative inline-block text-purple-500 rounded-sm group">
                 <span class="absolute inset-0 overflow-hidden">
                     <span class="bg-purple-100 home-link-bg"></span>
                 </span>
@@ -43,7 +43,7 @@ title: Home
             </a>
             , read things
             <a id="about" href="#"
-               class="relative inline-block text-yellow-500 no-underline group focus:outline-none">
+               class="relative inline-block text-yellow-500 rounded-sm group">
                 <span class="absolute inset-0 overflow-hidden">
                     <span class="bg-yellow-100 home-link-bg"></span>
                 </span>
@@ -51,7 +51,7 @@ title: Home
             </a>
             , listen to
             <a id="music" href="#"
-               class="relative inline-block text-green-500 no-underline group focus:outline-none">
+               class="relative inline-block text-green-500 rounded-sm group">
                 <span class="absolute inset-0 overflow-hidden">
                     <span class="bg-green-100 home-link-bg"></span>
                 </span>
@@ -59,7 +59,7 @@ title: Home
             </a>
             , or send him
             <a id="contact" href="#"
-               class="relative inline-block text-blue-500 no-underline group focus:outline-none">
+               class="relative inline-block text-blue-500 rounded-sm group">
                 <span class="absolute inset-0 overflow-hidden">
                     <span class="bg-blue-100 home-link-bg"></span>
                 </span>
@@ -82,22 +82,13 @@ title: Home
 
     </div>
 
-    <div class="fixed z-10 items-center justify-center p-1 pointer-events-none windows-container">
-        {{ preview.projectPreviewFrame( posts ) }}
-    </div>
 
-
+    {% include "components/project-previews.njk" %}
     {% include "components/footer.njk" %}
 
-    <div class="fixed bottom-0 right-0 hidden p-6 sm:block">
-        <div class="transition duration-150 transform translate-y-8 opacity-0 close-all ease-smooth">
-            <button
-                    class="relative block px-4 py-2 text-sm transition-colors bg-white rounded-sm shadow-sm hocus:bg-grey-100 smooth-transition focus:shadow-outline focus:outline-none">
-                Close All
-                <div class="border-shadow"></div>
-            </button>
-        </div>
-    </div>
+    {% include "components/close-all-button.njk" %}
+
+
 
     <div class="fixed inset-0 transition-all duration-1000 fade-overlay bg-neutral-100"></div>
 

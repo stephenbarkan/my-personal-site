@@ -13,7 +13,7 @@
                     Select a track below to listen
                 </h3>
                 <button id="music-play-button" disabled
-                        class="mt-4 rounded-full xs:mt-0 xs:order-first focus:shadow-outline focus:outline-none">
+                        class="mt-4 rounded-full xs:mt-0 xs:order-first">
                     <svg id="music-play-icon" class="flex-shrink-0 block w-16 h-16 xs:w-14 xs:h-14" role="button"
                          aria-hidden="true">
                         <use xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -45,7 +45,7 @@
                         data-thumbnail="/images/songs/{{ obj.thumbnail }}"
                         data-title="{{ obj.title }}"
                         title="Play &ldquo;{{obj.title}}&rdquo;"
-                        class="flex items-center w-full px-4 py-3 transition-colors hocus:bg-grey-800 smooth-transition hocus:text-white text-grey-300 focus:outline-none playlist-item">
+                        class="flex items-center w-full px-4 py-3 transition-colors hocus:bg-grey-800 smooth-transition hocus:text-white text-grey-300 focus:z-1 playlist-item">
 
                     <div class="flex-shrink-0">
                         <svg class="flex-shrink-0 block w-4 h-4 stroke-current icon-music-song" role="presentation"
@@ -61,7 +61,7 @@
                         </svg>
                     </div>
 
-                    <h4 class="ml-4 text-sm leading-tight text-left">
+                    <h4 class="ml-4 text-xs leading-tight text-left">
                         {{obj.title}}
                     </h4>
                 </button>
@@ -70,7 +70,7 @@
         </ul>
         <div class="flex justify-center">
             <a href="https://soundcloud.com/stephenbarkan"
-               class="flex items-center w-full px-4 py-3 text-sm leading-tight focus:outline-none text-grey-300 hocus:bg-grey-800 hocus:text-white focus:shadow-outline"
+               class="flex items-center w-full px-4 py-3 text-xs leading-tight focus:z-1 text-grey-300 hocus:bg-grey-800 hocus:text-white"
                target="_blank"
                ref="noopener">
                 <svg class="w-4 h-4"

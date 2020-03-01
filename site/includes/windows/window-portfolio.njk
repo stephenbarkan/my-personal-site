@@ -11,7 +11,7 @@
                    data-index="{{loop.index}}"
                    href="#"
                    title="{{post.data.subtitle}} for {{post.data.title}}"
-                   class="flex flex-col items-center py-6 text-center text-purple-100 project-link focus:outline-none portfolio-link btn">
+                   class="flex flex-col items-center py-6 text-center text-purple-100 rounded-sm project-link portfolio-link btn">
                     <div class="grid items-center justify-center grid-absolute">
                         <svg class="block w-32 grid-inset-0" role="presentation" aria-hidden="true"
                              viewbox="0 0 128 100">
@@ -26,7 +26,7 @@
                         </svg>
                     </div>
                     <h3 class="mt-4 text-base leading-snug text-grey-800">{{ post.data.title }}</h3>
-                    <span class="block mt-1 text-sm leading-snug text-grey-600">{{ post.data.subtitle }}</span>
+                    <span class="block mt-1 text-xs leading-snug text-grey-600">{{ post.data.subtitle }}</span>
                 </a>
             </li>
             {% endfor %}

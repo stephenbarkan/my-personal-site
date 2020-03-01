@@ -36,9 +36,9 @@
   height: 100%;
 
   @screen xs {
-    --width: 20rem;
+    --width: 21rem;
     width: var(--width);
-    height: 37rem;
+    height: 38rem;
   }
 
   @screen sm {
@@ -148,7 +148,10 @@
   &::after {
     content: "";
     position: absolute;
-    @apply inset-0;
+    top: .25rem;
+    left: .25rem;
+    right: .25rem;
+    bottom: .25rem;
     background-image: url(/images/icons/window-lights-overlay.svg);
     background-size: 100%;
     background-repeat: no-repeat;

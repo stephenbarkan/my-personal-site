@@ -12,28 +12,28 @@
       <form name="contact-form" id="contact-form" class="flex items-center" netlify action="/">
         <p id="form-input-name" class="flex-grow">
           <label class="block w-full"><span class="sr-only">Your Name</span>
-            <input class="w-full h-10 px-3 py-1 transition-colors border border-transparent rounded-full smooth-transition ease-smooth focus:outline-none bg-grey-100 hocus:border-grey-300"
+            <input class="w-full h-10 px-3 py-1 transition-colors border border-transparent rounded-full smooth-transition ease-smooth bg-grey-100 hocus:border-grey-300"
                    type="text"
                    name="yourName" id="yourName" placeholder="Your Name" />
           </label>
         </p>
         <p id="form-input-message" class="flex-grow">
           <label class="block w-full"><span class="sr-only">Your Message</span>
-            <input class="w-full h-10 px-3 py-1 transition-colors border border-transparent rounded-full smooth-transition ease-smooth focus:outline-none bg-grey-100 hocus:border-grey-300"
+            <input class="w-full h-10 px-3 py-1 transition-colors border border-transparent rounded-full smooth-transition ease-smooth bg-grey-100 hocus:border-grey-300"
                    type="text"
                    name="yourMessage" id="yourMessage" placeholder="Your Message" />
           </label>
         </p>
         <p id="form-input-email" class="flex-grow">
           <label class="block w-full"><span class="sr-only">Your Email</span>
-            <input class="w-full h-10 px-3 py-1 transition-colors border border-transparent rounded-full smooth-transition ease-smooth focus:outline-none bg-grey-100 hocus:border-grey-300"
+            <input class="w-full h-10 px-3 py-1 transition-colors border border-transparent rounded-full smooth-transition ease-smooth bg-grey-100 hocus:border-grey-300"
                    type="email"
                    name="yourEmail" id="yourEmail" placeholder="Your Email" />
           </label>
         </p>
         <p id="form-input-empty" class="flex-grow">
           <label class="block w-full">
-            <input class="w-full h-10 px-3 py-1 transition-colors border border-transparent rounded-full smooth-transition ease-smooth focus:outline-none bg-grey-100 hocus:border-grey-300"
+            <input class="w-full h-10 px-3 py-1 transition-colors border border-transparent rounded-full smooth-transition ease-smooth bg-grey-100 hocus:border-grey-300"
                    type="text"
                    disabled
                    name="empty" id="empty" />
@@ -42,7 +42,7 @@
         <p class="flex-shrink-0 ml-2 disabled" id="next-button-wrapper">
           <label class="flex"><span class="sr-only">Send Text</span>
             <button
-                    class="flex items-center justify-center w-10 h-10 transition-colors rounded-full smooth-transition ease-smooth group hocus:bg-blue-100 focus:outline-none"
+                    class="flex items-center justify-center w-10 h-10 transition-colors rounded-full smooth-transition ease-smooth group hocus:bg-blue-100"
                     type="button"
                     name="nextButton"
                     id="nextButton">
@@ -63,27 +63,30 @@
 
 <template id="confirmModal">
   <div>
-    <div class="mx-2 text-center bg-white border rounded-sm border-grey-200">
+    <div class="relative mx-2 text-center bg-white rounded-sm shadow-sm">
       <div class="relative p-3 border-b border-grey-200">
         <h2 class="font-serif text-xl leading-tight">Submit Form?</h2>
       </div>
 
       <div class="px-3 py-8">
-        <p class="leading-loose">If needed, you can edit any of your messages above by clicking the pencil icon on each
+        <p class="text-sm leading-loose">If needed, you can edit any of your messages above by clicking the pencil icon
+          on each
           blue bubble.
         </p>
       </div>
 
       <div class="flex">
         <button id="formClear"
-                class="flex-1 px-2 py-3 text-sm tracking-wide transition-colors border-t border-r smooth-transition ease-smooth border-grey-200 text-grey-600 focus:outline-none hocus:bg-grey-100 hocus:text-grey-700">
+                class="flex-1 px-2 py-3 text-xs tracking-wide transition-colors border-t border-r smooth-transition ease-smooth border-grey-200 text-grey-600 hocus:bg-grey-100 hocus:text-grey-700">
           Clear Form
         </button>
         <button id="formSubmit"
-                class="flex-1 px-2 py-3 text-sm tracking-wide text-blue-500 transition-colors border-t smooth-transition ease-smooth border-grey-200 focus:outline-none hocus:bg-blue-100">
+                class="flex-1 px-2 py-3 text-xs tracking-wide text-blue-500 transition-colors border-t smooth-transition ease-smooth border-grey-200 hocus:bg-blue-100">
           Submit Form
         </button>
       </div>
+
+      <div class="border-shadow"></div>
     </div>
   </div>
 </template>
