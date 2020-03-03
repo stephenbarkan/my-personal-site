@@ -20,9 +20,8 @@ button:focus {
 }
 
 .border-shadow {
-  @apply absolute inset-0 pointer-events-none;
+  @apply absolute inset-0 pointer-events-none shadow-inset;
   border-radius: inherit;
-  box-shadow: inset 0 0 0 .5px rgba(0, 0, 0, .175);
 }
 
 // @import 'utilities';

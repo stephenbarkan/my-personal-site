@@ -14,7 +14,6 @@ title: Home
 {% import "windows/window-about.njk" as about %}
 {% import "windows/window-portfolio.njk" as portfolio %}
 {% import "windows/window-contact.njk" as contact %}
-{% import "components/project-preview.njk" as preview %}
 
 
 <main id="main" class="relative flex flex-col items-center justify-between w-full min-h-full sm:justify-center">
@@ -75,7 +74,7 @@ title: Home
     <div class="fixed z-10 items-center justify-center p-1 pointer-events-none windows-container">
 
         {{ me.windowFrame( 'me', 'red', false, ig_images) }}
-        {{ music.windowFrame( 'music', 'green', true, songs) }}
+        {{ music.windowFrame( 'music', 'green', false, songs) }}
         {{ about.windowFrame( 'about', 'yellow', false, notes) }}
         {{ contact.windowFrame( 'contact', 'blue', false) }}
         {{ portfolio.windowFrame( 'portfolio', 'purple', false, posts) }}

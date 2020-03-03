@@ -3,17 +3,17 @@
 {% block content %}
 <div id="music-state-wrapper" data-state="paused" class="flex flex-col flex-1 overflow-hidden">
     <div class="flex flex-col items-center flex-shrink-0 p-4 pb-6 xs:pb-4 xs:flex-row">
-        <div class="flex-shrink-0 w-56 h-56 xs:w-32 xs:h-32 bg-grey-800">
+        <div class="flex-shrink-0 w-56 h-56 xs:w-32 xs:h-32 bg-grey-200 shadow-inset">
             <img id="music-thumbnail" class="w-full transition" src="" alt="">
         </div>
         <div class="flex flex-col flex-shrink-0 w-full max-w-xs mt-4 xs:flex-shrink xs:max-w-full xs:mt-0 xs:ml-4">
             <div class="flex flex-col items-center xs:flex-row">
                 <h3 id="music-title"
-                    class="text-xl leading-snug text-center transition text-grey-100 xs:ml-4 xs:text-left serif">
+                    class="text-xl leading-snug text-center transition text-grey-900 xs:ml-4 xs:text-left serif">
                     Select a track below to listen
                 </h3>
                 <button id="music-play-button" disabled
-                        class="relative mt-4 rounded-full xs:mt-0 xs:order-first">
+                        class="relative mt-4 rounded-full shadow-sm xs:mt-0 xs:order-first">
                     <svg id="music-play-icon" class="flex-shrink-0 block w-16 h-16 xs:w-14 xs:h-14" role="button"
                          aria-hidden="true">
                         <use xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -32,21 +32,22 @@
                 <input type="range" id="music-slider" name="music-progress" class="relative z-10 block w-full" min="0"
                        max="100" value="0" step=".25" disabled>
                 <label for="music-progress" class="sr-only">Scrub through song</label>
-                <div class="absolute left-0 right-0 z-0 h-1 -mt-1 overflow-hidden rounded-full bg-grey-700">
-                    <div id="music-progress-bar" class="w-full h-full bg-green-700"></div>
+                <div
+                     class="absolute left-0 right-0 z-0 h-1 -mt-1 overflow-hidden rounded-full bg-grey-200">
+                    <div id="music-progress-bar" class="w-full h-full bg-green-500"></div>
                 </div>
             </div>
         </div>
     </div>
-    <div class="flex-shrink overflow-y-auto border-t border-grey-700">
-        <ul class="border-b border-grey-700">
+    <div class="flex-shrink overflow-y-auto border-t border-grey-300">
+        <ul class="border-b border-grey-300">
             {% for obj in data %}
-            <li class="border-t border-grey-700 first:border-t-0">
+            <li class="border-t border-grey-300 bg-grey-100 first:border-t-0">
                 <button data-src="/songs/{{ obj.src }}"
                         data-thumbnail="/images/songs/{{ obj.thumbnail }}"
                         data-title="{{ obj.title }}"
                         title="Play &ldquo;{{obj.title}}&rdquo;"
-                        class="flex items-center w-full px-4 py-3 transition-colors hocus:bg-grey-800 smooth-transition hocus:text-white text-grey-300 focus:z-1 playlist-item">
+                        class="relative flex items-center w-full px-4 py-3 transition-colors focus:z-10 hocus:bg-white smooth-transition group hocus:text-grey-800 text-grey-600 focus:z-1 playlist-item">
 
                     <div class="flex-shrink-0">
                         <svg class="flex-shrink-0 block w-4 h-4 stroke-current icon-music-song" role="presentation"
@@ -62,26 +63,27 @@
                         </svg>
                     </div>
 
-                    <h4 class="ml-4 text-xs leading-tight text-left">
+                    <h4 class="ml-4 text-xs leading-tight text-left text-grey-700 group-hocus:text-grey-900">
                         {{obj.title}}
                     </h4>
                 </button>
             </li>
             {% endfor %}
         </ul>
-        <div class="flex justify-center">
+        <div class="flex justify-center bg-grey-100">
             <a href="https://soundcloud.com/stephenbarkan"
-               class="flex items-center w-full px-4 py-3 text-xs leading-tight focus:z-1 text-grey-300 hocus:bg-grey-800 hocus:text-white"
+               class="flex items-center w-full px-4 py-3 text-xs leading-tight focus:z-1 group hocus:text-grey-800 text-grey-600 hocus:bg-white"
                target="_blank"
                ref="noopener">
                 <svg class="w-4 h-4"
                      role="presentation"
-                     aria-hidden="true">
+                     aria-hidden="true"
+                     fill="currentColor">
                     <use xmlns:xlink="http://www.w3.org/1999/xlink"
                          xlink:href="/images/icons/icon-library.svg#icon-soundcloud">
                     </use>
                 </svg>
-                <span class="ml-4">Listen to more on SoundCloud!</span>
+                <span class="ml-4 group-hocus:text-grey-900 text-grey-700">Listen to more on SoundCloud!</span>
             </a>
         </div>
     </div>

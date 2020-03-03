@@ -3,8 +3,11 @@ input[type="range"]#music-slider {
   width: 100%;
   margin: 0px 0;
   background: transparent;
+  @apply rounded-full;
 
   &:focus {
+    box-shadow: none;
+
     &::-webkit-slider-thumb {
       @apply shadow-outline;
     }
@@ -12,15 +15,15 @@ input[type="range"]#music-slider {
 
   &:disabled {
     &::-webkit-slider-thumb {
-      @apply bg-grey-500;
+      @apply bg-grey-200;
     }
 
     &::-moz-range-thumb {
-      @apply bg-grey-500;
+      @apply bg-grey-200;
     }
 
     &::-ms-thumb {
-      @apply bg-grey-500;
+      @apply bg-grey-200;
     }
   }
 }
@@ -40,14 +43,15 @@ input[type="range"]#music-slider::-webkit-slider-runnable-track {
 
 input[type="range"]#music-slider::-webkit-slider-thumb {
   box-shadow: none;
-  height: 16px;
-  width: 4px;
-  border-radius: 1px;
-  @apply bg-green-100;
+  height: 14px;
+  width: 14px;
+  border-radius: 9999px;
+  @apply bg-white;
+  box-shadow: 0px 0.5px 4px -2px rgba(0, 0, 0, 0.5), inset 0 0 0 .5px rgba(0, 0, 0, .175);
   cursor: pointer;
   -webkit-appearance: none;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-  margin-top: -6.5px;
+  margin-top: -5.5px;
 }
 
 input[type="range"]#music-slider::-moz-range-track {
@@ -63,11 +67,12 @@ input[type="range"]#music-slider::-moz-range-track {
 input[type="range"]#music-slider::-moz-range-thumb {
   box-shadow: none;
   border: none;
-  @apply bg-green-100;
+  @apply bg-white;
+  box-shadow: 0px 0.5px 3px -1.5px rgba(0, 0, 0, 0.25), inset 0 0 0 .5px rgba(0, 0, 0, .175);
   cursor: pointer;
-  height: 16px;
-  width: 4px;
-  border-radius: 1px;
+  height: 14px;
+  width: 14px;
+  border-radius: 9999px;
   transform: translateY(6.5px);
 }
 
@@ -97,12 +102,13 @@ input[type="range"]#music-slider::-ms-fill-upper {
 input[type="range"]#music-slider::-ms-thumb {
   box-shadow: none;
   border: none;
-  @apply bg-green-100;
+  @apply bg-white;
+  box-shadow: 0px 0.5px 3px -1.5px rgba(0, 0, 0, 0.25), inset 0 0 0 .5px rgba(0, 0, 0, .175);
   cursor: pointer;
-  height: 16px;
-  width: 4px;
-  border-radius: 1px;
-  margin-top: -6.5px;
+  height: 14px;
+  width: 14px;
+  border-radius: 9999px;
+  margin-top: -5.5px;
 }
 
 #music-progress-bar {
@@ -163,6 +169,8 @@ input[type="range"]#music-slider::-ms-thumb {
   }
 
   &.current {
+    @apply bg-white;
+
     .icon-music-queue {
       stroke: theme('colors.green.500');
       fill: theme('colors.green.500');
