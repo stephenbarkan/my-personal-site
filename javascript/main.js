@@ -565,14 +565,13 @@ portfolioWindowCloseButtons.addEventListener("click", function () {
   projectPreviews.forEach(function (preview) {
     preview.classList.add("closed");
   });
-});
-previewOverlays.forEach(function (overlay) {
-  overlay.addEventListener("click", function () {
-    projectPreviews.forEach(function (preview) {
-      preview.classList.add("closed");
-    });
-  });
-});
+}); // previewOverlays.forEach(overlay => {
+//   overlay.addEventListener("click", function () {
+//     projectPreviews.forEach(preview => {
+//       preview.classList.add("closed")
+//     })
+//   })
+// })
 var closedWindows = document.querySelectorAll(".closed");
 var closeAll = document.querySelector(".close-all");
 var closeAllButton = document.querySelector(".close-all button");
