@@ -43,7 +43,7 @@
 
             {% for note in data %}
             <article class="hidden max-w-xl px-4 pt-3 pt-6 mx-auto xs:px-6 about-note" data-note="{{loop.index}}">
-                <h3 class="max-w-md font-serif text-4xl leading-tight">{{note.data.title}}</h3>
+                <h3 class="max-w-md font-serif text-2xl leading-tight md:text-3xl">{{note.data.title}}</h3>
                 <div class="mt-4 text-grey-900 markdown">
                     {{ note.templateContent | markdownify | safe }}
                 </div>

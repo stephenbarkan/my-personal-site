@@ -10,12 +10,26 @@
   grid-template-rows: 1fr;
   justify-items: center;
 
-  width: 100vh;
+  width: 100vw;
   height: 100vh;
 }
 
+.project-grid-wrapper {
+  @screen sm {
+    max-height: var(--inner-height);
+  }
+}
+
 .project-grid {
-  grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(8rem, 1fr));
+
+  @screen xs {
+    grid-template-columns: repeat(2, minmax(10rem, 12rem));
+  }
+
+  @screen sm {
+    grid-template-columns: repeat(3, minmax(10rem, 12rem));
+  }
 }
 
 .portfolio-link {

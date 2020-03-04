@@ -39,13 +39,11 @@
 </symbol>
 
 <symbol id="icon-music-play" viewBox="0 0 48 48">
-  <circle cx="24" cy="24" r="24" fill="#0FBDA8"/>
-  <path d="M18.75 16.093a1 1 0 011.545-.839l12.165 7.908a1 1 0 010 1.676l-12.165 7.908a1 1 0 01-1.545-.839V16.093z" fill="#EEF7F0"/>
+  <path d="M18.75 16.093a1 1 0 011.545-.839l12.165 7.908a1 1 0 010 1.676l-12.165 7.908a1 1 0 01-1.545-.839V16.093z" fill="#ffffff"/>
 </symbol>
 
 <symbol id="icon-music-pause" viewBox="0 0 48 48">
-  <circle cx="24" cy="24" r="24" fill="#0FBDA8"/>
-  <path fill-rule="evenodd" clip-rule="evenodd" d="M20.75 14.25a1 1 0 011 1v17.5a1 1 0 01-1 1h-2.5a1 1 0 01-1-1v-17.5a1 1 0 011-1h2.5zm9 0a1 1 0 011 1v17.5a1 1 0 01-1 1h-2.5a1 1 0 01-1-1v-17.5a1 1 0 011-1h2.5z" fill="#EEF7F0"/>
+  <path fill-rule="evenodd" clip-rule="evenodd" d="M20.75 14.25a1 1 0 011 1v17.5a1 1 0 01-1 1h-2.5a1 1 0 01-1-1v-17.5a1 1 0 011-1h2.5zm9 0a1 1 0 011 1v17.5a1 1 0 01-1 1h-2.5a1 1 0 01-1-1v-17.5a1 1 0 011-1h2.5z" fill="#ffffff"/>
 </symbol>
 
 <symbol id="icon-music-song" viewBox="0 0 32 32">

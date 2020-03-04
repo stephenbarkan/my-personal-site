@@ -3,8 +3,9 @@
 {% block content %}
 <div id="music-state-wrapper" data-state="paused" class="flex flex-col flex-1 overflow-hidden">
     <div class="flex flex-col items-center flex-shrink-0 p-4 pb-6 xs:pb-4 xs:flex-row">
-        <div class="flex-shrink-0 w-56 h-56 xs:w-32 xs:h-32 bg-grey-200 shadow-inset">
+        <div class="relative flex-shrink-0 w-56 h-56 xs:w-32 xs:h-32 bg-grey-200">
             <img id="music-thumbnail" class="w-full transition" src="" alt="">
+            <div class="border-shadow"></div>
         </div>
         <div class="flex flex-col flex-shrink-0 w-full max-w-xs mt-4 xs:flex-shrink xs:max-w-full xs:mt-0 xs:ml-4">
             <div class="flex flex-col items-center xs:flex-row">
@@ -13,7 +14,7 @@
                     Select a track below to listen
                 </h3>
                 <button id="music-play-button" disabled
-                        class="relative mt-4 rounded-full shadow-sm xs:mt-0 xs:order-first">
+                        class="relative mt-4 transition-colors bg-green-500 rounded-full shadow-sm smooth-transition group xs:mt-0 xs:order-first hover:bg-green-700">
                     <svg id="music-play-icon" class="flex-shrink-0 block w-16 h-16 xs:w-14 xs:h-14" role="button"
                          aria-hidden="true">
                         <use xmlns:xlink="http://www.w3.org/1999/xlink"

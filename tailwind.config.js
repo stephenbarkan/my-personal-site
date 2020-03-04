@@ -5,7 +5,7 @@ module.exports = {
 			sm: "640px",
 			md: "768px",
 			lg: "1024px",
-			xl: "1280px"
+			xl: "1152px"
 		},
 
 		lineHeight: {
@@ -55,7 +55,7 @@ module.exports = {
 				400: "#AEADAF",
 				300: "#cccccc",
 				200: "#e8e8e8",
-				100: "#f5f5f5"
+				100: "#F7F7F7"
 			},
 
 			neutral: {
@@ -72,7 +72,7 @@ module.exports = {
 
 			purple: {
 				800: "#373460",
-				700: "#675ec9",
+				700: "#6258D5",
 				500: "#5547ec",
 				100: "#EEEDFD"
 			},
@@ -95,7 +95,7 @@ module.exports = {
 				800: "#034063",
 				700: "#1379b4",
 				500: "#15a6f8",
-				100: "#edf6f6"
+				100: "#ECF6FE"
 			}
 		},
 
@@ -152,14 +152,18 @@ module.exports = {
 			},
 
 			maxWidth: {
-				headline: "10em",
+				headline: "18em",
 				"2xl": "45rem"
 			},
 
 			fontSize: {
 				xxs: ".75rem",
 				xs: "0.8125rem",
-				sm: "0.9375rem"
+				sm: "0.9375rem",
+				"2xl": "1.75rem",
+				"3xl": "2.25rem",
+				"4xl": "2.5rem",
+				"5xl": "3.5rem"
 			},
 
 			transitionDuration: {
@@ -179,6 +183,7 @@ module.exports = {
 		margin: ["responsive", "first"],
 		borderWidth: ["hover", "focus", "first"],
 		backgroundColor: ["hover", "focus", "hocus", "responsive", "focus-within"],
+		opacity: ["hover", "focus", "hocus", "responsive", "focus-within", "group-hover"],
 		textColor: ["hover", "focus", "hocus", "group-hocus", "group-hover", "group-focus"],
 		borderColor: ["hover", "focus", "hocus", "group-hocus"],
 		order: ["responsive"],

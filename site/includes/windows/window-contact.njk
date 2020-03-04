@@ -11,29 +11,31 @@
     <div id="chat-controls" class="py-3 pl-3 pr-2 bg-white">
       <form name="contact-form" id="contact-form" class="flex items-center" netlify action="/">
         <p id="form-input-name" class="flex-grow">
-          <label class="block w-full"><span class="sr-only">Your Name</span>
-            <input class="w-full h-10 px-3 py-1 transition-colors border border-transparent rounded-full smooth-transition ease-smooth bg-grey-100 hocus:border-grey-300"
+          <label class="block w-full rounded-full hover:shadow-inset bg-grey-100"><span class="sr-only">Your Name</span>
+            <input class="w-full h-10 px-3 py-1 transition-colors bg-transparent border border-transparent rounded-full text-grey-800 smooth-transition ease-smooth"
                    type="text"
                    name="yourName" id="yourName" placeholder="Your Name" />
           </label>
         </p>
         <p id="form-input-message" class="flex-grow">
-          <label class="block w-full"><span class="sr-only">Your Message</span>
-            <input class="w-full h-10 px-3 py-1 transition-colors border border-transparent rounded-full smooth-transition ease-smooth bg-grey-100 hocus:border-grey-300"
+          <label class="block w-full rounded-full hover:shadow-inset bg-grey-100"><span class="sr-only">Your
+              Message</span>
+            <input class="w-full h-10 px-3 py-1 transition-colors bg-transparent border border-transparent rounded-full text-grey-800 smooth-transition ease-smooth"
                    type="text"
                    name="yourMessage" id="yourMessage" placeholder="Your Message" />
           </label>
         </p>
         <p id="form-input-email" class="flex-grow">
-          <label class="block w-full"><span class="sr-only">Your Email</span>
-            <input class="w-full h-10 px-3 py-1 transition-colors border border-transparent rounded-full smooth-transition ease-smooth bg-grey-100 hocus:border-grey-300"
+          <label class="block w-full rounded-full hover:shadow-inset bg-grey-100"><span class="sr-only">Your
+              Email</span>
+            <input class="w-full h-10 px-3 py-1 transition-colors bg-transparent border border-transparent rounded-full text-grey-800 smooth-transition ease-smooth"
                    type="email"
                    name="yourEmail" id="yourEmail" placeholder="Your Email" />
           </label>
         </p>
         <p id="form-input-empty" class="flex-grow">
-          <label class="block w-full">
-            <input class="w-full h-10 px-3 py-1 transition-colors border border-transparent rounded-full smooth-transition ease-smooth bg-grey-100 hocus:border-grey-300"
+          <label class="block w-full rounded-full hover:shadow-inset bg-grey-100">
+            <input class="w-full h-10 px-3 py-1 transition-colors bg-transparent border border-transparent rounded-full text-grey-800 smooth-transition ease-smooth"
                    type="text"
                    disabled
                    name="empty" id="empty" />
@@ -63,7 +65,7 @@
 
 <template id="confirmModal">
   <div>
-    <div class="relative mx-2 text-center bg-white rounded-sm shadow-sm">
+    <div class="relative mx-2 text-center bg-white border rounded-sm border-grey-200">
       <div class="relative p-3 border-b border-grey-200">
         <h2 class="font-serif text-xl leading-tight">Submit Form?</h2>
       </div>
@@ -77,7 +79,7 @@
 
       <div class="flex">
         <button id="formClear"
-                class="flex-1 px-2 py-3 text-xs tracking-wide transition-colors border-t border-r smooth-transition ease-smooth border-grey-200 text-grey-600 hocus:bg-grey-100 hocus:text-grey-700">
+                class="flex-1 px-2 py-3 text-xs tracking-wide transition-colors border-t border-r smooth-transition ease-smooth border-grey-200 text-grey-600 hocus:bg-grey-100 hocus:text-red-500">
           Clear Form
         </button>
         <button id="formSubmit"
@@ -85,8 +87,6 @@
           Submit Form
         </button>
       </div>
-
-      <div class="border-shadow"></div>
     </div>
   </div>
 </template>
