@@ -874,6 +874,11 @@ a:focus .btn::before, a:focus .markdown a::before, .markdown a:focus a::before {
   }
 }
 
+#aboutWindow {
+  width: 100%;
+  height: 100%;
+}
+
 @media (min-width: 450px) {
   #aboutWindow {
     --width: 50rem;
@@ -910,7 +915,16 @@ a:focus .btn::before, a:focus .markdown a::before, .markdown a:focus a::before {
 }
 
 #portfolioWindow {
+  width: 100%;
+  height: 100%;
   --inner-height: 20rem;
+}
+
+@media (min-width: 450px) {
+  #portfolioWindow {
+    width: unset;
+    height: unset;
+  }
 }
 
 @media (min-width: 640px) {
@@ -1340,7 +1354,7 @@ input[type="range"]#music-slider::-ms-thumb {
 }
 
 .project-grid {
-  grid-template-columns: repeat(auto-fill, minmax(8rem, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(9rem, 1fr));
 }
 
 @media (min-width: 450px) {
@@ -1362,21 +1376,25 @@ input[type="range"]#music-slider::-ms-thumb {
 .project-preview {
   -webkit-transition-duration: 500ms;
           transition-duration: 500ms;
+  -webkit-transition-delay: 150ms;
+          transition-delay: 150ms;
 }
 
 .project-preview + .preview-overlay {
   -webkit-transition-duration: 500ms;
           transition-duration: 500ms;
+  -webkit-transition-delay: 0ms;
+          transition-delay: 0ms;
 }
 
 .project-preview.closed {
   visibility: hidden;
-  --transform-scale-x: .75;
-  --transform-scale-y: .75;
   opacity: 0;
   --transform-translate-y: 0.5rem;
   -webkit-transition-duration: 300ms;
           transition-duration: 300ms;
+  -webkit-transition-delay: 0ms;
+          transition-delay: 0ms;
 }
 
 .project-preview.closed + .preview-overlay {
@@ -1384,6 +1402,8 @@ input[type="range"]#music-slider::-ms-thumb {
   -webkit-transition-duration: 300ms;
           transition-duration: 300ms;
   pointer-events: none;
+  -webkit-transition-delay: 150ms;
+          transition-delay: 150ms;
 }
 
 .about-note.visible {

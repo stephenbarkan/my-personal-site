@@ -33,10 +33,10 @@ portfolioWindowCloseButtons.addEventListener("click", function () {
   })
 })
 
-// previewOverlays.forEach(overlay => {
-//   overlay.addEventListener("click", function () {
-//     projectPreviews.forEach(preview => {
-//       preview.classList.add("closed")
-//     })
-//   })
-// })
+previewOverlays.forEach(overlay => {
+  overlay.addEventListener("click", function () {
+    projectPreviews.forEach(preview => {
+      preview.classList.add("closed")
+    })
+  })
+})

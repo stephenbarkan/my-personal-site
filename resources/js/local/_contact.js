@@ -74,7 +74,7 @@ function inputValueCheck() {
   }
 }
 
-inputValueCheck()
+// inputValueCheck()
 
 nextButton.addEventListener("click", function (e) {
   e.preventDefault()

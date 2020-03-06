@@ -21,7 +21,7 @@
 }
 
 .project-grid {
-  grid-template-columns: repeat(auto-fill, minmax(8rem, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(9rem, 1fr));
 
   @screen xs {
     grid-template-columns: repeat(2, minmax(10rem, 12rem));
@@ -40,16 +40,24 @@
 
 .project-preview {
   @apply duration-500;
+  transition-delay: 150ms;
+
 
   &+.preview-overlay {
     @apply duration-500;
+    transition-delay: 0ms;
+
   }
 
   &.closed {
-    @apply invisible scale-75 opacity-0 translate-y-2 duration-300;
+    @apply invisible opacity-0 translate-y-2 duration-300;
+    transition-delay: 0ms;
+
 
     &+.preview-overlay {
       @apply opacity-0 duration-300 pointer-events-none;
+      transition-delay: 150ms;
+
     }
   }
 }
