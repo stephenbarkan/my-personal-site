@@ -2,17 +2,59 @@
 
 	<ul class="flex justify-center align-center">
 
+		<div id="homeMusicButtons"
+				 class="flex items-center px-1 transition duration-150 transform translate-y-8 rounded opacity-0 bg-black-100 ease-smooth">
+			<button class="transition-colors rounded-full group smooth-transition" id="homePrev">
+				<svg class="block group-hover:text-grey-500 transition-inherit w-8 h-8 text-grey-300 group-hocus:text-{{item.color}}-500"
+						 fill="currentColor" role="img"
+						 aria-hidden="true">
+					<use xmlns:xlink="http://www.w3.org/1999/xlink"
+							 xlink:href="/images/icons/icon-library.svg#icon-prev-song"></use>
+				</svg>
+			</button>
+			<button class="hidden transition-colors rounded-full group smooth-transition" id="homePlay">
+				<svg class="block group-hover:text-grey-500 transition-inherit w-8 h-8 text-grey-300 group-hocus:text-{{item.color}}-500"
+						 fill="currentColor"
+						 role="img"
+						 aria-hidden="true">
+					<use xmlns:xlink="http://www.w3.org/1999/xlink"
+							 xlink:href="/images/icons/icon-library.svg#icon-play-song"></use>
+				</svg>
+			</button>
+			<button class="transition-colors rounded-full group smooth-transition" id="homePause">
+				<svg class="block group-hover:text-grey-500 transition-inherit w-8 h-8 text-grey-300 group-hocus:text-{{item.color}}-500"
+						 fill="currentColor" role="img"
+						 aria-hidden="true">
+					<use xmlns:xlink="http://www.w3.org/1999/xlink"
+							 xlink:href="/images/icons/icon-library.svg#icon-pause-song"></use>
+				</svg>
+			</button>
+			<button class="transition-colors rounded-full group smooth-transition" id="homeNext">
+				<svg class="block group-hover:text-grey-500 transition-inherit w-8 h-8 text-grey-300 group-hocus:text-{{item.color}}-500"
+						 fill="currentColor" role="img"
+						 aria-hidden="true">
+					<use xmlns:xlink="http://www.w3.org/1999/xlink"
+							 xlink:href="/images/icons/icon-library.svg#icon-next-song"></use>
+				</svg>
+			</button>
+		</div>
+
+		<div
+				 class="self-center h-8 ml-4 transition-opacity duration-150 border-r opacity-0 border-grey-200 pipe ease-smooth">
+		</div>
+
 		{% for item in site.social_links %}
 
 		<li class="ml-2 first:ml-0">
 
 			<a href="{{ item.link | safe }}"
-				 class="block btn p-1 circle text-{{item.color}}-100 group rounded-full"
+				 class="block btn p-1 circle text-{{item.color}}-100 group rounded-full smooth-transition transition-colors"
 				 aria-label="{{ item.title | capitalize }}"
 				 target="_blank" rel="noopener"
 				 title="Go to Stephen's profile on {{item.title | capitalize}}">
 
-				<svg class="block w-8 h-8 text-grey-300 group-hocus:text-{{item.color}}-500" fill="currentColor" role="img"
+				<svg class="block w-8 h-8 text-grey-300 group-hocus:text-{{item.color}}-500 inherit-trans"
+						 fill="currentColor" role="img"
 						 aria-hidden="true">
 					<use xmlns:xlink="http://www.w3.org/1999/xlink"
 							 xlink:href="/images/icons/icon-library.svg#icon-{{ item.title }}"></use>

@@ -42,9 +42,7 @@ module.exports = {
 
 		colors: {
 			transparent: "transparent",
-
-			black: "#000",
-			white: "#fff",
+			white: "#ffffff",
 
 			grey: {
 				900: "#16151e",
@@ -56,6 +54,19 @@ module.exports = {
 				300: "#cccccc",
 				200: "#e8e8e8",
 				100: "#F7F7F7"
+			},
+
+			black: {
+				900: "rgba(0,0,0, .91)",
+				800: "rgba(0,0,0, .81)",
+				700: "rgba(0,0,0, .69)",
+				600: "rgba(0,0,0, .57)",
+				500: "rgba(0,0,0, .42)",
+				400: "rgba(0,0,0, .32)",
+				300: "rgba(0,0,0, .20)",
+				200: "rgba(0,0,0, .09)",
+				100: "rgba(0,0,0, .03)",
+				default: "#000000"
 			},
 
 			neutral: {
@@ -172,7 +183,6 @@ module.exports = {
 
 			transitionProperty: {
 				'default': 'background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, visibility'
-
 			}
 
 		}

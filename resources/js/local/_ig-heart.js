@@ -2,6 +2,7 @@
     const igHeart = document.querySelector('.ig-heart-btn')
     const igHeartSvg = igHeart.querySelector('svg')
     const igHeartText = document.querySelector('.ig-heart-text')
+    const igCaptions = document.querySelectorAll('.ig-caption-container')
 
     const instagramHeart = function () {
         if (igHeart.classList.contains('liked')) {
@@ -21,4 +22,14 @@
     igHeart.addEventListener('click', function (e) {
         e.preventDefault()
         instagramHeart()
+    })
+
+    igCaptions.forEach(caption => {
+        caption.addEventListener('click', function () {
+            if (caption.classList.contains('reveal')) {
+                caption.classList.remove('reveal')
+            } else {
+                caption.classList.add('reveal')
+            }
+        })
     })

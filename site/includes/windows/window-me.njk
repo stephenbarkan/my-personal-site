@@ -15,7 +15,8 @@
 
             </div>
             <div class="absolute inset-0 flex items-center justify-between px-2">
-                <a href="#" class="block text-white rounded-full ig-left"
+                <a href="#"
+                   class="block text-white transition-transform transform rounded-full ig-left smooth-transition"
                    aria-label="{{ icon | capitalize }}" title="Previous image">
                     <span class="sr-only">Previous Image</span>
                     <svg class="block w-8 h-8" fill="currentColor" role="button" aria-hidden="true">
@@ -24,7 +25,8 @@
                     </svg>
                 </a>
 
-                <a href="#" class="block text-white rounded-full ig-right"
+                <a href="#"
+                   class="block text-white transition-transform transform rounded-full ig-right smooth-transition"
                    aria-label="{{ icon | capitalize }}" title="Next image">
                     <span class="sr-only">Next Image</span>
                     <svg class="block w-8 h-8" fill="currentColor" role="button" aria-hidden="true">
@@ -33,7 +35,7 @@
                     </svg>
                 </a>
             </div>
-            <div class="border-shadow"></div>
+            <div class="shadow-border"></div>
         </div>
 
         <div class="relative flex items-center mt-3">
@@ -55,13 +57,15 @@
             </a>
             <div class="absolute inset-x-0 inset-y-0 flex items-center justify-center pointer-events-none">
                 {% for obj in data %}
-                <div class="w-2 h-2 rounded-full bg-grey-300 ml-1-5 first:ml-0 ig-dot"></div>
+                <div
+                     class="w-2 h-2 transition-colors duration-300 rounded-full bg-grey-300 ml-1-5 first:ml-0 ig-dot ease-smooth">
+                </div>
                 {% endfor %}
             </div>
         </div>
 
         <div class="mt-3">
-            <p class="leading-snug text-grey-900">
+            <p class="text-sm leading-loose cursor-pointer text-grey-900 ig-caption-container">
                 <span class="font-medium text-black">stephen_barkan </span>
                 {% for obj in data %}
                 <span class="ig-caption">{{obj.caption}}</span>

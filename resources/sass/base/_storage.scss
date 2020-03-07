@@ -1,33 +1,3 @@
-//==========  Import all base partials ==========//
-
-*:focus,
-button:focus {
-  @apply outline-none shadow-outline;
-}
-
-
-.smooth-transition {
-  @apply duration-700 ease-smooth;
-
-  &:hover {
-    @apply duration-300;
-  }
-
-  &::before,
-  &::after {
-    transition: inherit;
-  }
-}
-
-.border-shadow {
-  @apply absolute inset-0 pointer-events-none shadow-inset z-50;
-  border-radius: inherit;
-}
-
-// @import 'utilities';
-@import 'links';
-@import 'typography';
-
 .storage {
   @apply bg-green-500;
   @apply bg-green-100;

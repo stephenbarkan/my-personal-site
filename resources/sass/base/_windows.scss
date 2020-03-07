@@ -136,24 +136,6 @@
   }
 }
 
-.window-bg {
-  background: white;
-
-  &.inverted {
-    @apply bg-grey-900;
-  }
-
-  @supports (backdrop-filter: saturate(100%)) {
-    backdrop-filter: saturate(250%) blur(25px);
-    background: rgba(255, 255, 255, .97);
-
-    &.inverted {
-      background: rgba(5, 5, 12, .87);
-      @apply text-grey-100;
-    }
-  }
-}
-
 .window-close {
   &::after {
     content: "";

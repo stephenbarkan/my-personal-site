@@ -51,10 +51,21 @@
 
 .ig-left,
 .ig-right {
-    @apply transform transition-all ease-smooth duration-700;
     filter: drop-shadow(2px 0 10px rgba(0, 0, 0, .24));
 
     &:hover {
-        @apply duration-250 scale-110;
+        @apply scale-110;
+    }
+}
+
+.ig-caption-container {
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    overflow: hidden;
+
+    &.reveal {
+        -webkit-line-clamp: unset;
     }
 }

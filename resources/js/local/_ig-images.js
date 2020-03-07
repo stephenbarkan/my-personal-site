@@ -41,7 +41,7 @@ const igUpdate = function () {
     })
 }
 
-const next = function () {
+const nextImage = function () {
     current = current + 1
     igLeft.style.visibility = `visible`
     if (current >= totalImages - 1) {
@@ -53,7 +53,7 @@ const next = function () {
     igUpdate()
 }
 
-const previous = function () {
+const prevImage = function () {
     current = current - 1
     igRight.style.visibility = `visible`
     if (current <= 0) {
@@ -74,12 +74,12 @@ const moveSlider = function () {
 
 igLeft.addEventListener('click', function (e) {
     e.preventDefault()
-    previous()
+    prevImage()
 })
 
 igRight.addEventListener('click', function (e) {
     e.preventDefault()
-    next()
+    nextImage()
 })
 
 igLeft.style.visibility = `hidden`

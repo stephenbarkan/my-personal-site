@@ -217,6 +217,7 @@ onResize();
 var igHeart = document.querySelector('.ig-heart-btn');
 var igHeartSvg = igHeart.querySelector('svg');
 var igHeartText = document.querySelector('.ig-heart-text');
+var igCaptions = document.querySelectorAll('.ig-caption-container');
 
 var instagramHeart = function instagramHeart() {
   if (igHeart.classList.contains('liked')) {
@@ -236,6 +237,15 @@ var instagramHeart = function instagramHeart() {
 igHeart.addEventListener('click', function (e) {
   e.preventDefault();
   instagramHeart();
+});
+igCaptions.forEach(function (caption) {
+  caption.addEventListener('click', function () {
+    if (caption.classList.contains('reveal')) {
+      caption.classList.remove('reveal');
+    } else {
+      caption.classList.add('reveal');
+    }
+  });
 });
 var current = 0;
 var igImages = document.querySelectorAll('.ig-image');
@@ -274,7 +284,7 @@ var igUpdate = function igUpdate() {
   });
 };
 
-var next = function next() {
+var nextImage = function nextImage() {
   current = current + 1;
   igLeft.style.visibility = "visible";
 
@@ -288,7 +298,7 @@ var next = function next() {
   igUpdate();
 };
 
-var previous = function previous() {
+var prevImage = function prevImage() {
   current = current - 1;
   igRight.style.visibility = "visible";
 
@@ -308,11 +318,11 @@ var moveSlider = function moveSlider() {
 
 igLeft.addEventListener('click', function (e) {
   e.preventDefault();
-  previous();
+  prevImage();
 });
 igRight.addEventListener('click', function (e) {
   e.preventDefault();
-  next();
+  nextImage();
 });
 igLeft.style.visibility = "hidden";
 igUpdate();
@@ -339,12 +349,6 @@ var src;
 var tracks = document.querySelectorAll('.playlist-item');
 var musicThumbnail = document.getElementById('music-thumbnail');
 var musicTitle = document.getElementById('music-title');
-musicWindowCloseButton.addEventListener('click', function () {
-  pause();
-});
-closeAllButton.addEventListener('click', function () {
-  pause();
-});
 musicSlider.addEventListener("input", function () {
   window.requestAnimationFrame(function () {
     musicProgressBar.style.transform = "scaleX(".concat(musicSlider.value / 100, ")");
@@ -412,6 +416,7 @@ var songLoading = function songLoading(target, index) {
   Howler.unload();
   musicSlider.setAttribute('disabled', "");
   playButton.setAttribute('disabled', "");
+  homeMusicButtons.classList.add('pointer-events-none');
   setProgressBar(0);
   src = target.getAttribute('data-src');
   thumbnail = target.getAttribute('data-thumbnail');
@@ -431,11 +436,14 @@ var songLoaded = function songLoaded() {
   play();
   musicSlider.removeAttribute('disabled');
   playButton.removeAttribute('disabled');
+  homeMusicButtons.classList.add('active');
+  homeMusicButtons.classList.remove('pointer-events-none');
 };
 
 var play = function play() {
   playState = "playing";
   musicWrapper.setAttribute("data-state", playState);
+  revealPauseButton();
   song.play();
   updateProgressBar();
 };
@@ -443,8 +451,31 @@ var play = function play() {
 var pause = function pause() {
   playState = "paused";
   musicWrapper.setAttribute("data-state", playState);
+  revealPlayButton();
   song.pause();
   cancelAnimationFrame(request);
+};
+
+var nextSong = function nextSong() {
+  if (currentSong < tracks.length - 1) {
+    pause();
+    tracks[currentSong + 1].click();
+  } else {
+    pause();
+    song.stop();
+    resetMusic();
+  }
+};
+
+var prevSong = function prevSong() {
+  if (currentSong > 0) {
+    pause();
+    tracks[currentSong - 1].click();
+  } else {
+    pause();
+    song.stop();
+    resetMusic();
+  }
 };
 
 var playSong = function playSong(target, index) {
@@ -453,14 +484,7 @@ var playSong = function playSong(target, index) {
     songLoaded();
   });
   song.on('end', function () {
-    if (currentSong < tracks.length - 1) {
-      pause();
-      tracks[currentSong + 1].click();
-    } else {
-      pause();
-      song.stop();
-      resetMusic();
-    }
+    next();
   });
 };
 
@@ -484,14 +508,44 @@ tracks.forEach(function (track, index) {
 });
 
 var resetMusic = function resetMusic() {
-  currentSong = tracks.length;
+  currentSong = null;
   musicTitle.innerHTML = "Thanks for listening! ❤️";
   musicThumbnail.src = "";
+  setProgressBar(0);
   musicSlider.setAttribute('disabled', "");
   playButton.setAttribute('disabled', "");
   tracks.forEach(function (track) {
     track.classList.remove('current');
   });
+  homeMusicButtons.classList.remove('active');
+};
+
+var homeMusicButtons = document.getElementById("homeMusicButtons");
+var homePlay = document.getElementById("homePlay");
+var homePause = document.getElementById("homePause");
+var homeNext = document.getElementById("homeNext");
+var homePrev = document.getElementById("homePrev");
+homePause.addEventListener('click', function () {
+  pause();
+});
+homePlay.addEventListener('click', function () {
+  play();
+});
+homeNext.addEventListener('click', function () {
+  nextSong();
+});
+homePrev.addEventListener('click', function () {
+  prevSong();
+});
+
+var revealPlayButton = function revealPlayButton() {
+  homePause.classList.add('hidden');
+  homePlay.classList.remove('hidden');
+};
+
+var revealPauseButton = function revealPauseButton() {
+  homePause.classList.remove('hidden');
+  homePlay.classList.add('hidden');
 };
 var aboutSidebarLinks = document.querySelectorAll('.about-note-link');
 var aboutNotes = document.querySelectorAll('.about-note');

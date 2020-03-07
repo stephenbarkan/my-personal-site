@@ -3,13 +3,17 @@
 /* purgecss start ignore */
 @tailwind base;
 
-@import "base/all";
+@import "base/storage";
+@import "base/typography";
+@import "utilities/grid";
+@import "utilities/shadows";
+@import "utilities/transitions";
+@import "utilities/buttons";
 
 // Import Tailwind components
 @tailwind components;
 
 @import "base/global";
-@import "base/links";
 @import "base/windows";
 @import "base/ig-stuff";
 @import "base/music-stuff";
@@ -20,18 +24,10 @@
 @import "base/contact";
 @import "base/home";
 
+
+
 /* purgecss end ignore */
 
 // Import Tailwind utilities
 // TailwindCSS recommends leaving utilities till last to ensure they aren't overwritten.
 @tailwind utilities;
-
-.grid-absolute {
-  grid-template-columns: 1fr;
-  grid-template-rows: 1fr;
-}
-
-.grid-inset-0 {
-  grid-column: 1/-1;
-  grid-row: 1/-1;
-}

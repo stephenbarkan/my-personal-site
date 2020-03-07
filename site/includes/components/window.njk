@@ -1,6 +1,6 @@
 {% macro windowFrame(title, color, inverted, data) %}
 
-<div class="relative overflow-hidden flex flex-col rounded shadow-lg pointer-events-auto window-wrapper sm:absolute draggable
+<div class="relative overflow-hidden flex flex-col rounded shadow-lg pointer-events-auto bg-white window-wrapper sm:absolute draggable
 {% if title != "music" %}
 closed
 {% endif %}
@@ -42,15 +42,12 @@ closed
             <h2 class="hidden text-xl leading-none serif xs:block text-grey-900 ">{{ title | capitalize }}</h2>
         </div>
     </div>
-    <div class="flex flex-1 flex-col overflow-hidden window-bg
-        {% if inverted %}
-            inverted
-        {% endif %}">
+    <div class="flex flex-col flex-1 overflow-hidden">
         {% block content %}
         {# window content goes here #}
         {% endblock %}
     </div>
-    <div class="border-shadow"></div>
+    <div class="shadow-border"></div>
 
 </div>
 

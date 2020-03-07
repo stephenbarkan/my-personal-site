@@ -3,7 +3,7 @@
 
     &::before {
         content: '';
-        @apply absolute rounded-sm opacity-0 duration-700 ease-smooth transform transition scale-95;
+        @apply absolute rounded-sm opacity-0 transform transition scale-95;
         top: -0.0625rem;
         bottom: -0.0625rem;
         left: -.25rem;
@@ -16,7 +16,7 @@
     &:focus {
 
         &::before {
-            @apply opacity-100 scale-100 duration-250;
+            @apply opacity-100 scale-100;
         }
     }
 
