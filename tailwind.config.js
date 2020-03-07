@@ -178,11 +178,17 @@ module.exports = {
 			},
 
 			transitionDuration: {
-				250: "250ms"
+				250: "250ms",
+				'inherit': 'inherit'
 			},
 
 			transitionProperty: {
-				'default': 'background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, visibility'
+				'default': 'background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, visibility',
+				'inherit': 'inherit'
+			},
+
+			transitionTimingFunction: {
+				'inherit': 'inherit'
 			}
 
 		}

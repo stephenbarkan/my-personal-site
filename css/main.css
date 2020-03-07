@@ -685,11 +685,10 @@ button:focus {
   border-radius: inherit;
 }
 
-.inherit-trans, input#music-slider[type="range"]::-webkit-slider-thumb, input#music-slider[type="range"]::-moz-range-thumb {
+.inherit-trans {
   -webkit-transition-duration: inherit;
           transition-duration: inherit;
   -webkit-transition-property: inherit;
-  -moz-transition-property: inherit;
   transition-property: inherit;
   -webkit-transition-timing-function: inherit;
           transition-timing-function: inherit;
@@ -697,19 +696,19 @@ button:focus {
           transition-delay: inherit;
 }
 
-.smooth-transition, input#music-slider[type="range"] {
+.smooth-transition {
   -webkit-transition-duration: 700ms;
           transition-duration: 700ms;
   -webkit-transition-timing-function: cubic-bezier(.2,.8,.2,1);
           transition-timing-function: cubic-bezier(.2,.8,.2,1);
 }
 
-.smooth-transition:hover, input#music-slider:hover[type="range"] {
+.smooth-transition:hover {
   -webkit-transition-duration: 300ms;
           transition-duration: 300ms;
 }
 
-.smooth-transition::before, input#music-slider[type="range"]::before, .smooth-transition::after, input#music-slider[type="range"]::after {
+.smooth-transition::before, .smooth-transition::after {
   -webkit-transition: inherit;
   transition: inherit;
 }
@@ -1097,20 +1096,23 @@ body.window-open {
 
 input[type="range"]#music-slider {
   -webkit-appearance: none;
-  width: 100%;
-  margin: 0px 0;
+  margin: 0;
   background: transparent;
   border-radius: 9999px;
-  -webkit-transition-property: -webkit-transform;
-  transition-property: -webkit-transform;
-  transition-property: transform;
-  transition-property: transform, -webkit-transform;
 }
 
 input[type="range"]#music-slider::-webkit-slider-thumb {
   background-color: #0fbda8;
   box-shadow: inset 0 0 0 .5px rgba(0, 0, 0, .175);
   border-radius: 9999px;
+  -webkit-transition-property: -webkit-transform;
+  transition-property: -webkit-transform;
+  transition-property: transform;
+  transition-property: transform, -webkit-transform;
+  -webkit-transition-timing-function: cubic-bezier(.2,.8,.2,1);
+          transition-timing-function: cubic-bezier(.2,.8,.2,1);
+  -webkit-transition-duration: 300ms;
+          transition-duration: 300ms;
   -webkit-appearance: none;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   margin-top: -5.5px;
@@ -1124,6 +1126,10 @@ input[type="range"]#music-slider::-moz-range-thumb {
   background-color: #0fbda8;
   box-shadow: inset 0 0 0 .5px rgba(0, 0, 0, .175);
   border-radius: 9999px;
+  -moz-transition-property: transform;
+  transition-property: transform;
+  transition-timing-function: cubic-bezier(.2,.8,.2,1);
+  transition-duration: 300ms;
   -webkit-appearance: none;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   margin-top: -5.5px;
@@ -1136,6 +1142,10 @@ input[type="range"]#music-slider::-moz-range-thumb {
   background-color: #0fbda8;
   box-shadow: inset 0 0 0 .5px rgba(0, 0, 0, .175);
   border-radius: 9999px;
+  -moz-transition-property: transform;
+  transition-property: transform;
+  transition-timing-function: cubic-bezier(.2,.8,.2,1);
+  transition-duration: 300ms;
   -webkit-appearance: none;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   margin-top: -5.5px;
@@ -1409,8 +1419,7 @@ input[type="range"]#music-slider::-ms-fill-upper {
 
 .markdown code::before {
   content: '';
-  border-width: 1px;
-  border-color: #cccccc;
+  box-shadow: inset 0 0 0 .5px rgba(0, 0, 0, .175);
   position: absolute;
   top: 0;
   right: 0;
@@ -1423,8 +1432,7 @@ input[type="range"]#music-slider::-ms-fill-upper {
 
 .markdown pre {
   background-color: #F7F7F7;
-  border-color: #cccccc;
-  border-width: 1px;
+  box-shadow: inset 0 0 0 .5px rgba(0, 0, 0, .175);
   border-radius: 0.25rem;
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
@@ -15440,9 +15448,19 @@ a:hover .home-link-bg {
   transition-property: transform, -webkit-transform;
 }
 
+.transition-inherit{
+  -webkit-transition-property: inherit;
+  transition-property: inherit;
+}
+
 .ease-smooth{
   -webkit-transition-timing-function: cubic-bezier(.2,.8,.2,1);
           transition-timing-function: cubic-bezier(.2,.8,.2,1);
+}
+
+.ease-inherit{
+  -webkit-transition-timing-function: inherit;
+          transition-timing-function: inherit;
 }
 
 .duration-75{
@@ -15488,6 +15506,11 @@ a:hover .home-link-bg {
 .duration-1000{
   -webkit-transition-duration: 1000ms;
           transition-duration: 1000ms;
+}
+
+.duration-inherit{
+  -webkit-transition-duration: inherit;
+          transition-duration: inherit;
 }
 
 @media (min-width: 450px){
@@ -26463,9 +26486,19 @@ a:hover .home-link-bg {
     transition-property: transform, -webkit-transform;
   }
 
+  .xs\:transition-inherit{
+    -webkit-transition-property: inherit;
+    transition-property: inherit;
+  }
+
   .xs\:ease-smooth{
     -webkit-transition-timing-function: cubic-bezier(.2,.8,.2,1);
             transition-timing-function: cubic-bezier(.2,.8,.2,1);
+  }
+
+  .xs\:ease-inherit{
+    -webkit-transition-timing-function: inherit;
+            transition-timing-function: inherit;
   }
 
   .xs\:duration-75{
@@ -26511,6 +26544,11 @@ a:hover .home-link-bg {
   .xs\:duration-1000{
     -webkit-transition-duration: 1000ms;
             transition-duration: 1000ms;
+  }
+
+  .xs\:duration-inherit{
+    -webkit-transition-duration: inherit;
+            transition-duration: inherit;
   }
 }
 
@@ -37487,9 +37525,19 @@ a:hover .home-link-bg {
     transition-property: transform, -webkit-transform;
   }
 
+  .sm\:transition-inherit{
+    -webkit-transition-property: inherit;
+    transition-property: inherit;
+  }
+
   .sm\:ease-smooth{
     -webkit-transition-timing-function: cubic-bezier(.2,.8,.2,1);
             transition-timing-function: cubic-bezier(.2,.8,.2,1);
+  }
+
+  .sm\:ease-inherit{
+    -webkit-transition-timing-function: inherit;
+            transition-timing-function: inherit;
   }
 
   .sm\:duration-75{
@@ -37535,6 +37583,11 @@ a:hover .home-link-bg {
   .sm\:duration-1000{
     -webkit-transition-duration: 1000ms;
             transition-duration: 1000ms;
+  }
+
+  .sm\:duration-inherit{
+    -webkit-transition-duration: inherit;
+            transition-duration: inherit;
   }
 }
 
@@ -48511,9 +48564,19 @@ a:hover .home-link-bg {
     transition-property: transform, -webkit-transform;
   }
 
+  .md\:transition-inherit{
+    -webkit-transition-property: inherit;
+    transition-property: inherit;
+  }
+
   .md\:ease-smooth{
     -webkit-transition-timing-function: cubic-bezier(.2,.8,.2,1);
             transition-timing-function: cubic-bezier(.2,.8,.2,1);
+  }
+
+  .md\:ease-inherit{
+    -webkit-transition-timing-function: inherit;
+            transition-timing-function: inherit;
   }
 
   .md\:duration-75{
@@ -48559,6 +48622,11 @@ a:hover .home-link-bg {
   .md\:duration-1000{
     -webkit-transition-duration: 1000ms;
             transition-duration: 1000ms;
+  }
+
+  .md\:duration-inherit{
+    -webkit-transition-duration: inherit;
+            transition-duration: inherit;
   }
 }
 
@@ -59535,9 +59603,19 @@ a:hover .home-link-bg {
     transition-property: transform, -webkit-transform;
   }
 
+  .lg\:transition-inherit{
+    -webkit-transition-property: inherit;
+    transition-property: inherit;
+  }
+
   .lg\:ease-smooth{
     -webkit-transition-timing-function: cubic-bezier(.2,.8,.2,1);
             transition-timing-function: cubic-bezier(.2,.8,.2,1);
+  }
+
+  .lg\:ease-inherit{
+    -webkit-transition-timing-function: inherit;
+            transition-timing-function: inherit;
   }
 
   .lg\:duration-75{
@@ -59583,6 +59661,11 @@ a:hover .home-link-bg {
   .lg\:duration-1000{
     -webkit-transition-duration: 1000ms;
             transition-duration: 1000ms;
+  }
+
+  .lg\:duration-inherit{
+    -webkit-transition-duration: inherit;
+            transition-duration: inherit;
   }
 }
 
@@ -70559,9 +70642,19 @@ a:hover .home-link-bg {
     transition-property: transform, -webkit-transform;
   }
 
+  .xl\:transition-inherit{
+    -webkit-transition-property: inherit;
+    transition-property: inherit;
+  }
+
   .xl\:ease-smooth{
     -webkit-transition-timing-function: cubic-bezier(.2,.8,.2,1);
             transition-timing-function: cubic-bezier(.2,.8,.2,1);
+  }
+
+  .xl\:ease-inherit{
+    -webkit-transition-timing-function: inherit;
+            transition-timing-function: inherit;
   }
 
   .xl\:duration-75{
@@ -70607,5 +70700,10 @@ a:hover .home-link-bg {
   .xl\:duration-1000{
     -webkit-transition-duration: 1000ms;
             transition-duration: 1000ms;
+  }
+
+  .xl\:duration-inherit{
+    -webkit-transition-duration: inherit;
+            transition-duration: inherit;
   }
 }

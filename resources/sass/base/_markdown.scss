@@ -11,13 +11,13 @@
 
     &::before {
       content: '';
-      @apply border border-grey-300 absolute inset-0 rounded-sm bg-grey-100;
+      @apply shadow-inset absolute inset-0 rounded-sm bg-grey-100;
       z-index: -1;
     }
   }
 
   pre {
-    @apply bg-grey-100 border-grey-300 border rounded-sm py-2 px-4;
+    @apply bg-grey-100 shadow-inset rounded-sm py-2 px-4;
     font-size: 14px;
 
     code {

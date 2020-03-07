@@ -9,6 +9,7 @@ const playIcon = playButton.querySelector("#music-play-icon");
 const pauseIcon = playButton.querySelector("#music-pause-icon");
 const musicWindowWrapper = musicWrapper.closest(".window-wrapper");
 const musicWindowCloseButton = musicWindowWrapper.querySelector('.window-close')
+const musicLink = document.getElementById('music')
 const closeAllButton = document.querySelector(".close-all");
 
 let song
@@ -123,9 +124,7 @@ const songLoaded = function () {
   play()
   musicSlider.removeAttribute('disabled')
   playButton.removeAttribute('disabled')
-  homeMusicButtons.classList.add('active')
   homeMusicButtons.classList.remove('pointer-events-none')
-
 }
 
 const play = function () {
@@ -244,4 +243,32 @@ const revealPlayButton = function () {
 const revealPauseButton = function () {
   homePause.classList.remove('hidden')
   homePlay.classList.add('hidden')
+}
+closeAllButton.addEventListener('click', function () {
+  revealHomeButtons()
+})
+
+musicWindowCloseButton.addEventListener('click', function () {
+  revealHomeButtons()
+})
+
+musicLink.addEventListener('click', function () {
+  revealHomeButtons()
+})
+
+const revealHomeButtons = function () {
+  if (currentSong >= 0) {
+    if (playState != "paused") {
+      setTimeout(function () {
+        if (musicWindowWrapper.classList.contains('closed')) {
+          homeMusicButtons.classList.add('active')
+        } else {
+          homeMusicButtons.classList.remove('active')
+        }
+      }, 100);
+
+    } else {
+      homeMusicButtons.classList.remove('active')
+    }
+  }
 }

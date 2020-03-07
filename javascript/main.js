@@ -336,6 +336,7 @@ var playIcon = playButton.querySelector("#music-play-icon");
 var pauseIcon = playButton.querySelector("#music-pause-icon");
 var musicWindowWrapper = musicWrapper.closest(".window-wrapper");
 var musicWindowCloseButton = musicWindowWrapper.querySelector('.window-close');
+var musicLink = document.getElementById('music');
 var closeAllButton = document.querySelector(".close-all");
 var song;
 var currentTimeSec;
@@ -436,7 +437,6 @@ var songLoaded = function songLoaded() {
   play();
   musicSlider.removeAttribute('disabled');
   playButton.removeAttribute('disabled');
-  homeMusicButtons.classList.add('active');
   homeMusicButtons.classList.remove('pointer-events-none');
 };
 
@@ -546,6 +546,32 @@ var revealPlayButton = function revealPlayButton() {
 var revealPauseButton = function revealPauseButton() {
   homePause.classList.remove('hidden');
   homePlay.classList.add('hidden');
+};
+
+closeAllButton.addEventListener('click', function () {
+  revealHomeButtons();
+});
+musicWindowCloseButton.addEventListener('click', function () {
+  revealHomeButtons();
+});
+musicLink.addEventListener('click', function () {
+  revealHomeButtons();
+});
+
+var revealHomeButtons = function revealHomeButtons() {
+  if (currentSong >= 0) {
+    if (playState != "paused") {
+      setTimeout(function () {
+        if (musicWindowWrapper.classList.contains('closed')) {
+          homeMusicButtons.classList.add('active');
+        } else {
+          homeMusicButtons.classList.remove('active');
+        }
+      }, 100);
+    } else {
+      homeMusicButtons.classList.remove('active');
+    }
+  }
 };
 var aboutSidebarLinks = document.querySelectorAll('.about-note-link');
 var aboutNotes = document.querySelectorAll('.about-note');
