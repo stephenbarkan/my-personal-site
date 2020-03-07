@@ -188,11 +188,17 @@ input[type="range"]#music-slider::-ms-fill-upper {
 
 #homeMusicButtons {
   visibility: hidden;
+  transition-property: opacity, transform, visibility;
+  transition-duration: theme('transitionDuration.300'), theme('transitionDuration.300'), 0ms;
+  transition-timing-function: theme('transitionTimingFunction.smooth'), theme('transitionTimingFunction.smooth'), linear;
+  transition-delay: 0ms, 0ms, 1000ms;
 
   &.active {
-    opacity: 1;
     visibility: visible;
+    opacity: 1;
     transform: none;
+    transition-delay: 0ms, 0ms, 0ms;
+
 
     &+.pipe {
       opacity: 1;

@@ -1,9 +1,9 @@
-<footer class="top-0 right-0 p-6 sm:absolute">
+<footer class="right-0 self-end p-6 sm:absolute sm:top-0">
 
-	<ul class="flex justify-center align-center">
+	<div class="flex justify-center align-center">
 
 		<div id="homeMusicButtons"
-				 class="flex items-center px-1 transition duration-300 transform translate-x-8 rounded opacity-0 bg-black-100 ease-smooth">
+				 class="flex items-center px-1 transform translate-x-8 rounded opacity-0 bg-black-100">
 			<button class="transition-colors rounded-full group smooth-transition" id="homePrev">
 				<svg class="block group-hover:text-grey-500 transition-inherit w-8 h-8 text-grey-300 group-hocus:text-{{item.color}}-500"
 						 fill="currentColor" role="img"
@@ -40,32 +40,32 @@
 		</div>
 
 		<div
-				 class="self-center h-8 ml-4 transition-opacity duration-150 border-r opacity-0 border-grey-200 pipe ease-smooth">
+				 class="self-center h-8 ml-4 mr-2 transition-opacity duration-150 border-r opacity-0 border-grey-200 pipe ease-smooth">
 		</div>
+		<ul class="flex align-center">
+			{% for item in site.social_links %}
 
-		{% for item in site.social_links %}
+			<li class="ml-2 first:ml-0">
 
-		<li class="ml-2 first:ml-0">
+				<a href="{{ item.link | safe }}"
+					 class="block btn p-1 circle text-{{item.color}}-100 group rounded-full smooth-transition transition-colors"
+					 aria-label="{{ item.title | capitalize }}"
+					 target="_blank" rel="noopener"
+					 title="Go to Stephen's profile on {{item.title | capitalize}}">
 
-			<a href="{{ item.link | safe }}"
-				 class="block btn p-1 circle text-{{item.color}}-100 group rounded-full smooth-transition transition-colors"
-				 aria-label="{{ item.title | capitalize }}"
-				 target="_blank" rel="noopener"
-				 title="Go to Stephen's profile on {{item.title | capitalize}}">
+					<svg class="block w-8 h-8 text-grey-300 group-hocus:text-{{item.color}}-500 transition-colors duration-inherit ease-inherit"
+							 fill="currentColor" role="img"
+							 aria-hidden="true">
+						<use xmlns:xlink="http://www.w3.org/1999/xlink"
+								 xlink:href="/images/icons/icon-library.svg#icon-{{ item.title }}"></use>
+					</svg>
 
-				<svg class="block w-8 h-8 text-grey-300 group-hocus:text-{{item.color}}-500 transition-colors duration-inherit ease-inherit"
-						 fill="currentColor" role="img"
-						 aria-hidden="true">
-					<use xmlns:xlink="http://www.w3.org/1999/xlink"
-							 xlink:href="/images/icons/icon-library.svg#icon-{{ item.title }}"></use>
-				</svg>
+				</a>
 
-			</a>
+			</li>
 
-		</li>
-
-		{% endfor %}
-
-	</ul>
+			{% endfor %}
+		</ul>
+	</div>
 
 </footer>
