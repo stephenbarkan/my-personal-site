@@ -72,6 +72,10 @@
   }
 }
 
+.typingDots {
+  margin-top: auto;
+}
+
 #chat-controls {
   input::placeholder {
     @apply text-grey-500;
@@ -181,5 +185,38 @@
     #chat-controls {
       pointer-events: none;
     }
+  }
+}
+
+
+.input-sizer {
+  position: relative;
+  max-height: 200px;
+  overflow-y: auto;
+  align-items: stretch;
+
+  &::after,
+  textarea,
+  input {
+    width: 100%;
+    min-height: 40px;
+    height: auto;
+    grid-area: 2 / 1;
+    resize: none;
+    background: none;
+    appearance: none;
+    border: none;
+    word-wrap: break-word;
+    padding-top: 7px;
+    @apply leading-loose;
+    overflow-y: hidden;
+  }
+
+  &::after {
+    content: attr(data-value) ' ';
+    visibility: hidden;
+    white-space: pre-wrap;
+    padding: .25rem .75rem;
+
   }
 }

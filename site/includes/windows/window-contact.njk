@@ -9,36 +9,47 @@
 
     </div>
     <div id="chat-controls" class="py-3 pl-3 pr-2 bg-white">
-      <form name="contact-form" id="contact-form" class="flex items-center" netlify action="/">
+      <form name="contact-form" id="contact-form" class="flex items-end" netlify action="/">
         <p id="form-input-name" class="flex-grow">
-          <label class="block w-full rounded-full hover:shadow-inset bg-grey-100"><span class="sr-only">Your Name</span>
-            <input class="w-full h-10 px-3 py-1 transition-colors bg-transparent border border-transparent rounded-full text-grey-800 smooth-transition ease-smooth"
-                   type="text"
-                   name="yourName" id="yourName" placeholder="Your Name" />
+          <label class="grid w-full rounded-lg input-sizer hover:shadow-inset bg-grey-100"><span
+                  class="sr-only">Your Name</span>
+            <textarea class="w-full h-10 px-3 py-1 leading-loose transition-colors bg-transparent border border-transparent rounded-lg resize-none text-grey-800 smooth-transition ease-smooth"
+                      name="yourName"
+                      id="yourName"
+                      placeholder="Your name"
+                      oninput="this.parentNode.dataset.value = this.value"
+                      rows="1"></textarea>
           </label>
         </p>
         <p id="form-input-message" class="flex-grow">
-          <label class="block w-full rounded-full hover:shadow-inset bg-grey-100"><span class="sr-only">Your
+          <label class="grid w-full rounded-lg input-sizer hover:shadow-inset bg-grey-100"><span class="sr-only">Your
               Message</span>
-            <input class="w-full h-10 px-3 py-1 transition-colors bg-transparent border border-transparent rounded-full text-grey-800 smooth-transition ease-smooth"
-                   type="text"
-                   name="yourMessage" id="yourMessage" placeholder="Your Message" />
+            <textarea class="w-full h-10 px-3 py-1 leading-loose transition-colors bg-transparent border border-transparent rounded-lg resize-none text-grey-800 smooth-transition ease-smooth"
+                      name="yourMessage"
+                      id="yourMessage"
+                      placeholder="Your Text"
+                      oninput="this.parentNode.dataset.value = this.value"
+                      rows="1"></textarea>
           </label>
         </p>
         <p id="form-input-email" class="flex-grow">
-          <label class="block w-full rounded-full hover:shadow-inset bg-grey-100"><span class="sr-only">Your
+          <label class="grid w-full rounded-lg input-sizer hover:shadow-inset bg-grey-100"><span class="sr-only">Your
               Email</span>
-            <input class="w-full h-10 px-3 py-1 transition-colors bg-transparent border border-transparent rounded-full text-grey-800 smooth-transition ease-smooth"
-                   type="email"
-                   name="yourEmail" id="yourEmail" placeholder="Your Email" />
+            <textarea class="w-full h-10 px-3 py-1 leading-loose transition-colors bg-transparent border border-transparent rounded-lg resize-none text-grey-800 smooth-transition ease-smooth"
+                      name="yourEmail"
+                      id="yourEmail"
+                      placeholder="Your e-mail"
+                      oninput="this.parentNode.dataset.value = this.value"
+                      rows="1"></textarea>
           </label>
         </p>
         <p id="form-input-empty" class="flex-grow">
-          <label class="block w-full rounded-full hover:shadow-inset bg-grey-100">
-            <input class="w-full h-10 px-3 py-1 transition-colors bg-transparent border border-transparent rounded-full text-grey-800 smooth-transition ease-smooth"
-                   type="text"
-                   disabled
-                   name="empty" id="empty" />
+          <label class="grid w-full rounded-full input-sizer hover:shadow-inset bg-grey-100">
+            <textarea class="w-full h-10 px-3 py-1 leading-loose transition-colors bg-transparent border border-transparent rounded-lg resize-none text-grey-800 smooth-transition ease-smooth"
+                      name="empty"
+                      id="empty"
+                      oninput="this.parentNode.dataset.value = this.value"
+                      rows="1"></textarea>
           </label>
         </p>
         <p class="flex-shrink-0 ml-2 disabled" id="next-button-wrapper">

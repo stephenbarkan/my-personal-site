@@ -1,9 +1,10 @@
+const contactLink = document.getElementById("contact");
 const chatWindow = document.getElementById("chat-window")
 const messagesList = document.getElementById("chat-messages")
 const chatControls = document.getElementById("chat-controls")
 const nextButton = document.getElementById("nextButton")
 const nextButtonWrapper = document.getElementById("next-button-wrapper")
-const inputFields = document.querySelectorAll(`#chat-controls input`)
+const inputFields = document.querySelectorAll(`#chat-controls textarea`)
 const form = document.getElementById('contact-form')
 let formSubmit = null
 let formClear = null
@@ -19,7 +20,6 @@ typingBubble.innerHTML = `<div class="message typing"><p><span>•</span><span>�
 const confirmModalTemplate = document.getElementById("confirmModal")
 var confirmModal = confirmModalTemplate.content.cloneNode(true)
 
-chatPush("you", "Hi! Want to get in touch with me? First tell me what your name is!")
 let responses = [
   `Okay, ${userName}! What do you want to say to me?`,
   `Got it – and at what email address should I respond to you?`,
@@ -57,6 +57,7 @@ inputFields.forEach(inputField => {
     inputValueCheck()
     if (inputField.value) {
       if (e.which == 13) {
+        e.preventDefault()
         nextButton.click()
         nextButton.classList.add("animating")
       }
@@ -164,3 +165,14 @@ function updateState() {
   chatWindow.setAttribute("data-state", currentState)
   inputValueCheck()
 }
+
+
+contactLink.addEventListener("click", function () {
+  addTypingBubble()
+  setTimeout(function () {
+    removeTypingBubble()
+    chatPush("you", "Hi! Want to get in touch with me? First tell me what your name is!")
+  }, 2500)
+}, {
+  once: true
+})

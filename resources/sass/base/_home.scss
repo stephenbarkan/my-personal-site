@@ -2,8 +2,8 @@
   @apply absolute inset-x-0 transform scale-x-0 duration-300 transition-transform;
   transform-origin: right;
   transition-timing-function: cubic-bezier(0.39, 0.58, 0.57, 1);
-  height: 40%;
-  bottom: 10%;
+  height: 80%;
+  bottom: 15%;
 }
 
 a:hover .home-link-bg {

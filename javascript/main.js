@@ -5,12 +5,13 @@ var $body = document.querySelector('body');
 var $header = document.getElementById('#header');
 var $nav = document.getElementById('#nav');
 var $footer = document.getElementById('#footer');
+var contactLink = document.getElementById("contact");
 var chatWindow = document.getElementById("chat-window");
 var messagesList = document.getElementById("chat-messages");
 var chatControls = document.getElementById("chat-controls");
 var nextButton = document.getElementById("nextButton");
 var nextButtonWrapper = document.getElementById("next-button-wrapper");
-var inputFields = document.querySelectorAll("#chat-controls input");
+var inputFields = document.querySelectorAll("#chat-controls textarea");
 var form = document.getElementById('contact-form');
 var formSubmit = null;
 var formClear = null;
@@ -22,7 +23,6 @@ typingBubble.classList.add("typingDots", "fromThem");
 typingBubble.innerHTML = "<div class=\"message typing\"><p><span>\u2022</span><span>\u2022</span><span>\u2022</span></p></div>";
 var confirmModalTemplate = document.getElementById("confirmModal");
 var confirmModal = confirmModalTemplate.content.cloneNode(true);
-chatPush("you", "Hi! Want to get in touch with me? First tell me what your name is!");
 var responses = ["Okay, ".concat(userName, "! What do you want to say to me?"), "Got it\xA0\u2013 and at what email address should I respond to you?", ""];
 nextButton.addEventListener('click', function () {
   nextButton.classList.add('animating');
@@ -56,6 +56,7 @@ inputFields.forEach(function (inputField) {
 
     if (inputField.value) {
       if (e.which == 13) {
+        e.preventDefault();
         nextButton.click();
         nextButton.classList.add("animating");
       }
@@ -155,6 +156,16 @@ function updateState() {
   chatWindow.setAttribute("data-state", currentState);
   inputValueCheck();
 }
+
+contactLink.addEventListener("click", function () {
+  addTypingBubble();
+  setTimeout(function () {
+    removeTypingBubble();
+    chatPush("you", "Hi! Want to get in touch with me? First tell me what your name is!");
+  }, 2500);
+}, {
+  once: true
+});
 var draggableTarget = ".draggable";
 var draggableItems = document.querySelectorAll(draggableTarget);
 

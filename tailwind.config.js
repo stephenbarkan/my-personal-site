@@ -178,7 +178,11 @@ module.exports = {
 			},
 
 			transitionDuration: {
-				250: "250ms",
+				150: "150ms",
+				300: "300ms",
+				500: "500ms",
+				700: "700ms",
+				1000: "1000ms",
 				'inherit': 'inherit'
 			},
 
@@ -203,7 +207,9 @@ module.exports = {
 		textColor: ["hover", "focus", "hocus", "group-hocus", "group-hover", "group-focus"],
 		borderColor: ["hover", "focus", "hocus", "group-hocus"],
 		order: ["responsive"],
-		boxShadow: ["responsive", "hover", "focus", 'hocus']
+		boxShadow: ["responsive", "hover", "focus", 'hocus'],
+		skew: ["responsive", "hover", "hocus", 'group-focus'],
+		translate: ["responsive", "hover", "hocus", 'group-focus']
 	},
 
 	plugins: [

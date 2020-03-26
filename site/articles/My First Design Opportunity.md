@@ -1,11 +1,12 @@
 ---
-title: My First Design Opportunity
-date: 2016-08-01
-enddate: 2017-07-01
+title: Moved to Chicago
+date: 2020-01-16
 tags:
   - note
 ---
 
-My first opportunity to design professionally was the year after I graduated college as an AmeriCorps at a nonprofit. Designing was my favorite task and I found myself eager to improve, so the following year I started freelancing with other organizations around the city, gaining experience in both design and business.
+I moved to Chicago in January 2020. Eugenia flew to Austin and we packed up all my things into the car. We drove up over a long weekend and stopped in Mt. Pleasant TX, Memphis TN, St. Louis MO, and finally arrived in Chicago!
 
-I’m grateful for the people who trusted me to contribute to their organizations – learning as I went, I was lucky to have a caring group of people support my growth. I now am a designer at a marketing communications company where I work on strategy, social media design, and web design and development for our B2B tech clients.
+I love it here and am so happy. Here are some pics from my first two months here.
+
+![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 1")

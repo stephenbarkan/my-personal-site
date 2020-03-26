@@ -5,20 +5,20 @@
     <div class="p-6 overflow-y-auto project-grid-wrapper">
         <ul class="grid items-start gap-8 project-grid sm:col-gap-8 sm:row-gap-0">
             {% for post in data %}
-            <li
-                class="transition-colors duration-150 ease-smooth">
+            <li>
                 <a
                    data-index="{{loop.index}}"
                    href="#"
                    title="{{post.data.subtitle}} for {{post.data.title}}"
-                   class="flex flex-col items-center py-6 text-center text-purple-100 rounded-sm project-link portfolio-link btn">
+                   class="flex flex-col items-center py-6 text-center text-purple-100 rounded-sm group project-link smooth-transition portfolio-link btn">
                     <div class="grid items-center justify-center grid-absolute">
                         <svg class="block w-32 grid-inset-0" role="presentation" aria-hidden="true"
                              viewbox="0 0 128 100">
                             <use xmlns:xlink="http://www.w3.org/1999/xlink"
                                  xlink:href="/images/icons/icon-library.svg#icon-project-folder-back"></use>
                         </svg>
-                        <svg class="z-0 block w-32 grid-inset-0 portfolio-folder-front" role="presentation"
+                        <svg class="z-0 block w-32 transition-transform duration-700 transform grid-inset-0 portfolio-folder-front ease-smooth"
+                             role="presentation"
                              aria-hidden="true"
                              viewbox="0 0 128 100">
                             <use xmlns:xlink="http://www.w3.org/1999/xlink"
