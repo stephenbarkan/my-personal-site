@@ -51,7 +51,7 @@ function chatPush(origin, message) {
 }
 
 inputFields.forEach(function (inputField) {
-  inputField.addEventListener("keyup", function (e) {
+  inputField.addEventListener("keydown", function (e) {
     inputValueCheck();
 
     if (inputField.value) {

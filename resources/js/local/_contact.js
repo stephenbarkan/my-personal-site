@@ -53,7 +53,7 @@ function chatPush(origin, message) {
   showLatestMessage()
 }
 inputFields.forEach(inputField => {
-  inputField.addEventListener("keyup", function (e) {
+  inputField.addEventListener("keydown", function (e) {
     inputValueCheck()
     if (inputField.value) {
       if (e.which == 13) {
