@@ -644,6 +644,10 @@ video {
   border-color: #9a6605;
 }
 
+.storage:hover, .storage:focus {
+  color: #fc664f;
+}
+
 @font-face {
   font-family: "ClearfaceStd-Regular";
 
