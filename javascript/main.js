@@ -133,9 +133,22 @@ var addConfirmBox = function addConfirmBox() {
   formSubmit = document.querySelector("#formSubmit");
   formClear = document.querySelector("#formClear");
   formSubmit.addEventListener("click", function (e) {
-    e.preventDefault();
-    form.submit();
-    formSubmit.blur();
+    e.preventDefault(); // form.submit()
+    // formSubmit.blur()
+
+    var formData = new FormData(form);
+    fetch(form.getAttribute('action'), {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/x-www-form-urlencoded;charset=UTF-8',
+        'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
+      },
+      body: new URLSearchParams(formData).toString()
+    }).then(function (res) {
+      if (res) {
+        alert('worked');
+      }
+    });
   });
 };
 

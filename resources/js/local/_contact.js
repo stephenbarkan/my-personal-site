@@ -143,9 +143,25 @@ const addConfirmBox = function () {
 
   formSubmit.addEventListener("click", (e) => {
     e.preventDefault()
-    form.submit()
-    formSubmit.blur()
-  })
+    // form.submit()
+    // formSubmit.blur()
+
+
+    const formData = new FormData(form);
+    fetch(form.getAttribute('action'), {
+        method: 'POST',
+        headers: {
+          'Accept': 'application/x-www-form-urlencoded;charset=UTF-8',
+          'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
+        },
+        body: new URLSearchParams(formData).toString()
+      })
+      .then(res => {
+        if (res) {
+          alert('worked');
+        }
+      });
+  });
 }
 
 function saveName() {
