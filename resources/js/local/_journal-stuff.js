@@ -1,18 +1,18 @@
 const aboutSidebarLinks = document.querySelectorAll('.about-note-link')
-const aboutNotes = document.querySelectorAll('.about-note')
+const aboutNote = document.querySelector('.about-note')
+const journalContent = document.getElementById('journal-content')
 const aboutSidebarOpenButton = document.getElementById('about-note-open')
 const aboutSidebarCloseButton = document.getElementById('about-note-close')
 const aboutSidebar = document.getElementById('about-note-sidebar')
 
 const displayNote = function (link) {
   const currentItem = link.getAttribute('data-note')
-  aboutNotes.forEach(item => {
-    if (item.getAttribute('data-note') == currentItem) {
-      item.classList.add('visible')
-    } else {
-      item.classList.remove('visible')
-    }
-  })
+
+  fetch(currentItem)
+    .then(response => response.text())
+    .then(text => {
+      aboutNote.innerHTML = text
+    })
 }
 
 aboutSidebarLinks.forEach(link => {

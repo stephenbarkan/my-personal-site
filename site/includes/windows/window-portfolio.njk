@@ -7,7 +7,7 @@
             {% for post in data %}
             <li>
                 <a
-                   data-index="{{loop.index}}"
+                   data-project="{{post.outputPath | replace("dist/", "")}}"
                    href="#"
                    title="{{post.data.subtitle}} for {{post.data.title}}"
                    class="flex flex-col items-center py-6 text-center text-purple-100 rounded-sm group project-link smooth-transition portfolio-link btn">

@@ -1,8 +1,6 @@
 ---
 title: Sample Typography
 date: 2020-01-02
-tags:
-  - note
 ---
 
 [View on GitHub](https://github.com/tailwindcss/typography)

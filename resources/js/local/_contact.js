@@ -46,18 +46,41 @@ function chatPush(origin, message) {
   }
 
   const newBubble = document.createElement("div")
-  // newBubble.classList.add("message")
   newBubble.classList.add(originClass)
-  newBubble.innerHTML = `<div class="message"><p>` + message + `</p></div>`
+  if (originClass == "fromMe") {
+    newBubble.innerHTML = `<div class="message"><p>` + message + `</p> <div><button onclick="editMessage(this)">Edit</button></div></div>`
+  } else {
+    newBubble.innerHTML = `<div class="message"><p>` + message + `</div>`
+  }
   messagesList.appendChild(newBubble)
   showLatestMessage()
 }
+
+const editMessage = function (el) {
+  const message = el.closest(".message");
+  const editable = message.querySelector("p")
+  let isEditable = editable.getAttribute("contenteditable")
+
+  editable.toggleAttribute("contenteditable")
+  if (isEditable === null) {
+    message.setAttribute("tabindex", "0")
+    message.classList.add("editable")
+    el.innerText = "Save"
+  } else {
+    message.removeAttribute("tabindex")
+    message.classList.remove("editable")
+    el.innerText = "Edit"
+  }
+}
+
+
 inputFields.forEach(inputField => {
   inputField.addEventListener("keydown", function (e) {
     inputValueCheck()
     if (inputField.value) {
       if (e.which == 13) {
         e.preventDefault()
+        event.stopPropagation()
         nextButton.click()
         nextButton.classList.add("animating")
       }
@@ -139,13 +162,11 @@ const addConfirmBox = function () {
   messagesList.appendChild(confirmModal.cloneNode(true))
   showLatestMessage();
   formSubmit = document.querySelector("#formSubmit")
+  confirmBox = document.querySelector("#confirmBox")
   formClear = document.querySelector("#formClear")
 
   formSubmit.addEventListener("click", (e) => {
     e.preventDefault()
-    // form.submit()
-    // formSubmit.blur()
-
 
     const formData = new FormData(form);
     fetch(form.getAttribute('action'), {
@@ -158,10 +179,19 @@ const addConfirmBox = function () {
       })
       .then(res => {
         if (res) {
-          alert('worked');
+          formSubmit.blur()
+          confirmBox.classList.add("opacity-50", "pointer-events-none")
+          addTypingBubble()
+          setTimeout(function () {
+            removeTypingBubble()
+            chatPush("you", `Thanks, ${userName}! I'll get back to you soon.`)
+          }, 2500)
         }
       });
   });
+
+
+
 }
 
 function saveName() {

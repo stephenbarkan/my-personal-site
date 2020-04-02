@@ -5,9 +5,6 @@
 }
 
 #about-note-sidebar {
-  // transform: translateX(-100%);
-  // transition: transform .25s var(--easing);
-
   &.open {
     transform: none;
 

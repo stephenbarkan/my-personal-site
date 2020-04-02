@@ -51,9 +51,9 @@ const windowFunctions = function () {
     windowOpen(e, "musicWindow");
   });
 
-  const linkAbout = document.getElementById("about");
-  linkAbout.addEventListener("click", function (e) {
-    windowOpen(e, "aboutWindow");
+  const linkJournal = document.getElementById("journal");
+  linkJournal.addEventListener("click", function (e) {
+    windowOpen(e, "journalWindow");
   });
 
   const linkPortfolio = document.getElementById("portfolio");

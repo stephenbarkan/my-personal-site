@@ -4,13 +4,13 @@
 
 <div class="relative flex flex-1 overflow-x-hidden overflow-y-auto">
     <div id="about-note-sidebar"
-         class="absolute inset-y-0 left-0 z-20 flex-shrink-0 w-64 transition-transform transform -translate-x-full border-r smooth-transition sm:w-44 w bg-grey-100 border-grey-300 sm:relative">
+         class="absolute inset-y-0 left-0 z-20 flex-shrink-0 w-64 transition-transform duration-300 transform -translate-x-full border-r ease-smooth sm:w-44 w bg-grey-100 border-grey-300 sm:relative">
         <ul class="h-full overflow-y-auto">
             {% for note in data %}
             <li class="border-b border-grey-300">
                 <a href="#" title="{{note.data.title}}"
                    class="block py-4 pl-4 pr-2 transition-colors smooth-transition hocus:bg-white ease-smooth about-note-link"
-                   data-note="{{loop.index}}">
+                   data-note="{{note.outputPath | replace("dist/", "")}}">
                     <h4 class="font-medium truncate">
                         {{ note.data.title }}
                     </h4>
@@ -39,17 +39,10 @@
             </button>
         </div>
         <div class="pb-6 overflow-y-auto note-area">
-            <button id="about-note-close" class="absolute inset-y-0 z-10 invisible w-full"></button>
+            <button id="about-note-close" class="absolute inset-y-0 z-10 invisible w-full cursor-default"></button>
 
-            {% for note in data %}
-            <article class="hidden max-w-xl px-4 pt-3 pt-6 mx-auto xs:px-6 about-note" data-note="{{loop.index}}">
-                <h3 class="max-w-md mx-auto font-serif text-2xl leading-tight text-center md:text-3xl">
-                    {{note.data.title}}</h3>
-                <div class="mt-4 text-grey-900 markdown">
-                    {{ note.templateContent | markdownify | safe }}
-                </div>
+            <article class="max-w-xl px-4 pt-3 pt-6 mx-auto xs:px-6 about-note">
             </article>
-            {% endfor %}
         </div>
     </div>
 </div>

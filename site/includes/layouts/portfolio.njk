@@ -1,0 +1,20 @@
+---
+---
+<div class="max-w-xs shadow-md">
+  <img src="{{post.data.image}}" alt="">
+</div>
+
+<div class="mt-12 sm:ml-16 sm:mt-0">
+  <h2 class="font-serif text-2xl leading-snug">{{title}}</h2>
+  <date class="block mt-2 font-mono leading-none uppercase text-xxs text-grey-700">
+    {{date  | dateDisplay }}
+  </date>
+  <p class="max-w-xs mt-6 text-sm">{{excerpt}}</p>
+
+  <a class="relative inline-flex mt-12 text-xs leading-normal transition-colors bg-white rounded-sm smooth-transition hocus:bg-grey-100"
+     href="{{link}}" target="_blank" ref="noopener">
+    <div class="px-3 py-1 rounded-sm shadow-sm ">See Project</div>
+    <div class="shadow-border"></div>
+  </a>
+</div>
+<div class="shadow-border"></div>

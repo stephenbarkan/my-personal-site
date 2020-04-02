@@ -42,13 +42,35 @@ function chatPush(origin, message) {
     originClass = "fromThem";
   }
 
-  var newBubble = document.createElement("div"); // newBubble.classList.add("message")
-
+  var newBubble = document.createElement("div");
   newBubble.classList.add(originClass);
-  newBubble.innerHTML = "<div class=\"message\"><p>" + message + "</p></div>";
+
+  if (originClass == "fromMe") {
+    newBubble.innerHTML = "<div class=\"message\"><p>" + message + "</p> <div><button onclick=\"editMessage(this)\">Edit</button></div></div>";
+  } else {
+    newBubble.innerHTML = "<div class=\"message\"><p>" + message + "</div>";
+  }
+
   messagesList.appendChild(newBubble);
   showLatestMessage();
 }
+
+var editMessage = function editMessage(el) {
+  var message = el.closest(".message");
+  var editable = message.querySelector("p");
+  var isEditable = editable.getAttribute("contenteditable");
+  editable.toggleAttribute("contenteditable");
+
+  if (isEditable === null) {
+    message.setAttribute("tabindex", "0");
+    message.classList.add("editable");
+    el.innerText = "Save";
+  } else {
+    message.removeAttribute("tabindex");
+    message.classList.remove("editable");
+    el.innerText = "Edit";
+  }
+};
 
 inputFields.forEach(function (inputField) {
   inputField.addEventListener("keydown", function (e) {
@@ -57,6 +79,7 @@ inputFields.forEach(function (inputField) {
     if (inputField.value) {
       if (e.which == 13) {
         e.preventDefault();
+        event.stopPropagation();
         nextButton.click();
         nextButton.classList.add("animating");
       }
@@ -131,11 +154,10 @@ var addConfirmBox = function addConfirmBox() {
   messagesList.appendChild(confirmModal.cloneNode(true));
   showLatestMessage();
   formSubmit = document.querySelector("#formSubmit");
+  confirmBox = document.querySelector("#confirmBox");
   formClear = document.querySelector("#formClear");
   formSubmit.addEventListener("click", function (e) {
-    e.preventDefault(); // form.submit()
-    // formSubmit.blur()
-
+    e.preventDefault();
     var formData = new FormData(form);
     fetch(form.getAttribute('action'), {
       method: 'POST',
@@ -146,7 +168,13 @@ var addConfirmBox = function addConfirmBox() {
       body: new URLSearchParams(formData).toString()
     }).then(function (res) {
       if (res) {
-        alert('worked');
+        formSubmit.blur();
+        confirmBox.classList.add("opacity-50", "pointer-events-none");
+        addTypingBubble();
+        setTimeout(function () {
+          removeTypingBubble();
+          chatPush("you", "Thanks, ".concat(userName, "! I'll get back to you soon."));
+        }, 2500);
       }
     });
   });
@@ -350,6 +378,49 @@ igRight.addEventListener('click', function (e) {
 });
 igLeft.style.visibility = "hidden";
 igUpdate();
+var aboutSidebarLinks = document.querySelectorAll('.about-note-link');
+var aboutNote = document.querySelector('.about-note');
+var journalContent = document.getElementById('journal-content');
+var aboutSidebarOpenButton = document.getElementById('about-note-open');
+var aboutSidebarCloseButton = document.getElementById('about-note-close');
+var aboutSidebar = document.getElementById('about-note-sidebar');
+
+var displayNote = function displayNote(link) {
+  var currentItem = link.getAttribute('data-note');
+  fetch(currentItem).then(function (response) {
+    return response.text();
+  }).then(function (text) {
+    aboutNote.innerHTML = text;
+  });
+};
+
+aboutSidebarLinks.forEach(function (link) {
+  link.addEventListener('click', function (e) {
+    e.preventDefault();
+    displayNote(link);
+    aboutSidebar.classList.remove('open');
+    aboutSidebarCloseButton.classList.remove('open');
+  });
+});
+displayNote(aboutSidebarLinks[0]);
+aboutSidebarOpenButton.addEventListener('click', function () {
+  if (aboutSidebar.classList.contains('open')) {
+    aboutSidebar.classList.remove('open');
+    aboutSidebarCloseButton.classList.remove('open');
+  } else {
+    aboutSidebar.classList.add('open');
+    aboutSidebarCloseButton.classList.add('open');
+  }
+});
+aboutSidebarCloseButton.addEventListener('click', function () {
+  if (aboutSidebar.classList.contains('open')) {
+    aboutSidebar.classList.remove('open');
+    aboutSidebarCloseButton.classList.remove('open');
+  } else {
+    aboutSidebar.classList.add('open');
+    aboutSidebarCloseButton.classList.add('open');
+  }
+});
 var musicSlider = document.querySelector("#music-slider");
 var musicProgressBar = document.querySelector("#music-progress-bar");
 var musicCurrentVal;
@@ -597,85 +668,29 @@ var revealHomeButtons = function revealHomeButtons() {
     }
   }
 };
-var aboutSidebarLinks = document.querySelectorAll('.about-note-link');
-var aboutNotes = document.querySelectorAll('.about-note');
-var aboutSidebarOpenButton = document.getElementById('about-note-open');
-var aboutSidebarCloseButton = document.getElementById('about-note-close');
-var aboutSidebar = document.getElementById('about-note-sidebar');
-
-var displayNote = function displayNote(link) {
-  var currentItem = link.getAttribute('data-note');
-  aboutNotes.forEach(function (item) {
-    if (item.getAttribute('data-note') == currentItem) {
-      item.classList.add('visible');
-    } else {
-      item.classList.remove('visible');
-    }
-  });
-};
-
-aboutSidebarLinks.forEach(function (link) {
-  link.addEventListener('click', function (e) {
-    e.preventDefault();
-    displayNote(link);
-    aboutSidebar.classList.remove('open');
-    aboutSidebarCloseButton.classList.remove('open');
-  });
-});
-displayNote(aboutSidebarLinks[0]);
-aboutSidebarOpenButton.addEventListener('click', function () {
-  if (aboutSidebar.classList.contains('open')) {
-    aboutSidebar.classList.remove('open');
-    aboutSidebarCloseButton.classList.remove('open');
-  } else {
-    aboutSidebar.classList.add('open');
-    aboutSidebarCloseButton.classList.add('open');
-  }
-});
-aboutSidebarCloseButton.addEventListener('click', function () {
-  if (aboutSidebar.classList.contains('open')) {
-    aboutSidebar.classList.remove('open');
-    aboutSidebarCloseButton.classList.remove('open');
-  } else {
-    aboutSidebar.classList.add('open');
-    aboutSidebarCloseButton.classList.add('open');
-  }
-});
 var projects = document.querySelectorAll(".project-link");
-var projectPreviews = document.querySelectorAll(".project-preview");
-var closeButtons = document.querySelectorAll(".close-preview");
-var previewOverlays = document.querySelectorAll(".preview-overlay");
+var closeButton = document.querySelector(".close-preview");
+var preview = document.querySelector(".project-preview");
+var previewOverlay = document.querySelector(".preview-overlay");
 var portfolioWindowCloseButtons = document.querySelector("#portfolioWindow .window-close");
+var previewPopup = document.getElementById("preview-popup");
 projects.forEach(function (project) {
   project.addEventListener("click", function (e) {
     e.preventDefault();
-    index = project.getAttribute("data-index");
-    projectPreviews.forEach(function (preview) {
-      if (preview.getAttribute("data-index") === index) {
-        preview.classList.remove("closed");
-      } else {
-        preview.classList.add("closed");
-      }
+    var currentItem = project.getAttribute('data-project');
+    fetch(currentItem).then(function (response) {
+      return response.text();
+    }).then(function (text) {
+      previewPopup.innerHTML = text;
+      preview.classList.remove("closed");
     });
   });
 });
-closeButtons.forEach(function (button) {
-  button.addEventListener("click", function () {
-    var wrapper = button.closest(".project-preview");
-    wrapper.classList.add("closed");
-  });
+closeButton.addEventListener("click", function () {
+  preview.classList.add("closed");
 });
-portfolioWindowCloseButtons.addEventListener("click", function () {
-  projectPreviews.forEach(function (preview) {
-    preview.classList.add("closed");
-  });
-});
-previewOverlays.forEach(function (overlay) {
-  overlay.addEventListener("click", function () {
-    projectPreviews.forEach(function (preview) {
-      preview.classList.add("closed");
-    });
-  });
+previewOverlay.addEventListener("click", function () {
+  preview.classList.add("closed");
 });
 var closedWindows = document.querySelectorAll(".closed");
 var closeAll = document.querySelector(".close-all");
@@ -727,9 +742,9 @@ var windowFunctions = function windowFunctions() {
   linkMusic.addEventListener("click", function (e) {
     windowOpen(e, "musicWindow");
   });
-  var linkAbout = document.getElementById("about");
-  linkAbout.addEventListener("click", function (e) {
-    windowOpen(e, "aboutWindow");
+  var linkJournal = document.getElementById("journal");
+  linkJournal.addEventListener("click", function (e) {
+    windowOpen(e, "journalWindow");
   });
   var linkPortfolio = document.getElementById("portfolio");
   linkPortfolio.addEventListener("click", function (e) {

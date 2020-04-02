@@ -1,8 +1,6 @@
 ---
 title: Moved to Chicago
 date: 2020-01-16
-tags:
-  - note
 ---
 
 I moved to Chicago in January 2020. Eugenia flew to Austin and we packed up all my things into the car. We drove up over a long weekend and stopped in Mt. Pleasant TX, Memphis TN, St. Louis MO, and finally arrived in Chicago!

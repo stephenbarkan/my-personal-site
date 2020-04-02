@@ -837,13 +837,13 @@ body.window-open {
   }
 }
 
-#aboutWindow {
+#journalWindow {
   width: 100%;
   height: 100%;
 }
 
 @media (min-width: 450px) {
-  #aboutWindow {
+  #journalWindow {
     --width: 50rem;
     width: var(--width);
     height: 34rem;
@@ -851,7 +851,7 @@ body.window-open {
 }
 
 @media (min-width: 640px) {
-  #aboutWindow {
+  #journalWindow {
     left: calc(100% - var(--width) - 10rem);
     top: 15%;
   }
@@ -1319,7 +1319,7 @@ input[type="range"]#music-slider::-ms-fill-upper {
   opacity: 1;
 }
 
-.preview-container {
+#preview-container {
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 1fr;
@@ -1328,7 +1328,7 @@ input[type="range"]#music-slider::-ms-fill-upper {
   height: 100vh;
 }
 
-.preview-container > * {
+#preview-container > * {
   grid-column: -1/1;
   grid-row: -1/1;
 }
@@ -1513,7 +1513,7 @@ input[type="range"]#music-slider::-ms-fill-upper {
 
 .markdown ul,
 .markdown ol {
-  margin-left: 2.5rem;
+  margin-left: 1.25rem;
 }
 
 .markdown ul ul,
@@ -1786,7 +1786,7 @@ input[type="range"]#music-slider::-ms-fill-upper {
 }
 
 .fromThem {
-  max-width: 90%;
+  max-width: 80%;
 }
 
 .fromThem .message {
@@ -1809,12 +1809,39 @@ input[type="range"]#music-slider::-ms-fill-upper {
 
 .fromMe {
   align-self: flex-end;
-  max-width: 90%;
+  max-width: 80%;
 }
 
 .fromMe .message {
   background-color: #15a6f8;
   color: #ffffff;
+  position: relative;
+}
+
+.fromMe .message:hover div, .fromMe .message:focus div {
+  opacity: 1;
+  visibility: visible;
+  --transform-translate-x: 0;
+}
+
+.fromMe .message.editable {
+  box-shadow: inset 0 0 0 .5px rgba(0, 0, 0, .175);
+  background-color: #F7F7F7;
+  color: #333138;
+}
+
+.fromMe .message.editable:before {
+  border-right-color: transparent;
+}
+
+.fromMe .message.editable p:focus {
+  box-shadow: none;
+}
+
+.fromMe .message.editable div {
+  opacity: 1;
+  visibility: visible;
+  --transform-translate-x: 0;
 }
 
 .fromMe .message::before {
@@ -1828,6 +1855,52 @@ input[type="range"]#music-slider::-ms-fill-upper {
   border-bottom-left-radius: 16px 14px;
   -webkit-transform: translate(0, -2px);
           transform: translate(0, -2px);
+}
+
+.fromMe .message div {
+  right: calc(100% - .5rem);
+  position: absolute;
+  -webkit-transition-timing-function: cubic-bezier(.2,.8,.2,1);
+          transition-timing-function: cubic-bezier(.2,.8,.2,1);
+  top: 0;
+  height: 100%;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-align: center;
+          align-items: center;
+  -webkit-transition-duration: 300ms;
+          transition-duration: 300ms;
+  -webkit-transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, visibility, -webkit-transform;
+  transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, visibility, -webkit-transform;
+  transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, visibility;
+  transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, visibility, -webkit-transform;
+  opacity: 0;
+  --transform-translate-x: 0;
+  --transform-translate-y: 0;
+  --transform-rotate: 0;
+  --transform-skew-x: 0;
+  --transform-skew-y: 0;
+  --transform-scale-x: 1;
+  --transform-scale-y: 1;
+  -webkit-transform: translateX(var(--transform-translate-x)) translateY(var(--transform-translate-y)) rotate(var(--transform-rotate)) skewX(var(--transform-skew-x)) skewY(var(--transform-skew-y)) scaleX(var(--transform-scale-x)) scaleY(var(--transform-scale-y));
+          transform: translateX(var(--transform-translate-x)) translateY(var(--transform-translate-y)) rotate(var(--transform-rotate)) skewX(var(--transform-skew-x)) skewY(var(--transform-skew-y)) scaleX(var(--transform-scale-x)) scaleY(var(--transform-scale-y));
+  --transform-translate-x: 0.25rem;
+  padding: 0.5rem;
+  padding-right: 1rem;
+  visibility: hidden;
+}
+
+.fromMe .message div button {
+  background-color: #16151e;
+  border-radius: .375rem;
+  color: #ffffff;
+  font-family: IBM Plex Mono, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-size: .75rem;
+  line-height: 1;
+  text-transform: uppercase;
+  cursor: pointer;
+  letter-spacing: .02em;
+  padding: 0.5rem;
 }
 
 .typingDots {
@@ -1906,42 +1979,6 @@ input[type="range"]#music-slider::-ms-fill-upper {
 
 #next-button-wrapper:not(.disabled) svg {
   fill: #15a6f8;
-}
-
-#chat-window[data-state="yourName"] #form-input-name {
-  display: block;
-}
-
-#chat-window[data-state="yourName"] #form-input-message, #chat-window[data-state="yourName"] #form-input-email, #chat-window[data-state="yourName"] #form-input-empty {
-  display: none;
-}
-
-#chat-window[data-state="yourMessage"] #form-input-message {
-  display: block;
-}
-
-#chat-window[data-state="yourMessage"] #form-input-name, #chat-window[data-state="yourMessage"] #form-input-email, #chat-window[data-state="yourMessage"] #form-input-empty {
-  display: none;
-}
-
-#chat-window[data-state="yourEmail"] #form-input-email {
-  display: block;
-}
-
-#chat-window[data-state="yourEmail"] #form-input-name, #chat-window[data-state="yourEmail"] #form-input-message, #chat-window[data-state="yourEmail"] #form-input-empty {
-  display: none;
-}
-
-#chat-window[data-state="confirm"] #form-input-empty {
-  display: block;
-}
-
-#chat-window[data-state="confirm"] #form-input-name, #chat-window[data-state="confirm"] #form-input-message, #chat-window[data-state="confirm"] #form-input-email {
-  display: none;
-}
-
-#chat-window[data-state="confirm"] #chat-controls {
-  pointer-events: none;
 }
 
 .input-sizer {

@@ -32,7 +32,7 @@
 }
 
 .fromThem {
-  max-width: 90%;
+  max-width: 80%;
 
   .message {
     @apply bg-grey-200 text-grey-800;
@@ -53,10 +53,33 @@
 
 .fromMe {
   @apply self-end;
-  max-width: 90%;
+  max-width: 80%;
 
   .message {
-    @apply bg-blue-500 text-white;
+    @apply bg-blue-500 text-white relative;
+
+    &:hover,
+    &:focus {
+      div {
+        @apply opacity-100 visible translate-x-0;
+      }
+    }
+
+    &.editable {
+      @apply shadow-inset bg-grey-100 text-grey-800;
+
+      &:before {
+        border-right-color: transparent;
+      }
+
+      p:focus {
+        @apply shadow-none;
+      }
+
+      div {
+        @apply opacity-100 visible translate-x-0;
+      }
+    }
 
     &::before {
       content: "";
@@ -68,6 +91,15 @@
       border-right: 10px solid theme('colors.blue.500');
       border-bottom-left-radius: 16px 14px;
       transform: translate(0, -2px);
+    }
+
+    div {
+      right: calc(100% - .5rem);
+      @apply absolute ease-smooth top-0 h-full flex items-center duration-300 transition opacity-0 transform translate-x-1 p-2 pr-4 invisible;
+
+      button {
+        @apply bg-grey-900 rounded text-white font-mono text-xxs leading-none uppercase cursor-pointer tracking-wide p-2;
+      }
     }
   }
 }
@@ -121,72 +153,72 @@
   }
 }
 
-#chat-window {
+// #chat-window {
 
-  &[data-state="yourName"] {
-    #form-input-name {
-      display: block;
-    }
+//   &[data-state="yourName"] {
+//     #form-input-name {
+//       display: block;
+//     }
 
-    #form-input- {
+//     #form-input- {
 
-      &message,
-      &email,
-      &empty {
-        display: none;
-      }
-    }
-  }
+//       &message,
+//       &email,
+//       &empty {
+//         display: none;
+//       }
+//     }
+//   }
 
-  &[data-state="yourMessage"] {
-    #form-input-message {
-      display: block;
-    }
+//   &[data-state="yourMessage"] {
+//     #form-input-message {
+//       display: block;
+//     }
 
-    #form-input- {
+//     #form-input- {
 
-      &name,
-      &email,
-      &empty {
-        display: none;
-      }
-    }
-  }
+//       &name,
+//       &email,
+//       &empty {
+//         display: none;
+//       }
+//     }
+//   }
 
-  &[data-state="yourEmail"] {
-    #form-input-email {
-      display: block;
-    }
+//   &[data-state="yourEmail"] {
+//     #form-input-email {
+//       display: block;
+//     }
 
-    #form-input- {
+//     #form-input- {
 
-      &name,
-      &message,
-      &empty {
-        display: none;
-      }
-    }
-  }
+//       &name,
+//       &message,
+//       &empty {
+//         display: none;
+//       }
+//     }
+//   }
 
-  &[data-state="confirm"] {
-    #form-input-empty {
-      display: block;
-    }
+//   &[data-state="confirm"] {
+//     #form-input-empty {
+//       display: block;
+//     }
 
-    #form-input- {
+//     #form-input- {
 
-      &name,
-      &message,
-      &email {
-        display: none;
-      }
-    }
+//       &name,
+//       &message,
+//       &email {
+//         display: none;
+//       }
+//     }
 
-    #chat-controls {
-      pointer-events: none;
-    }
-  }
-}
+//     #chat-controls {
+//       pointer-events: none;
+//     }
+//   }
+// }
 
 
 .input-sizer {

@@ -9,7 +9,7 @@
 
     </div>
     <div id="chat-controls" class="py-3 pl-3 pr-2 bg-white">
-      <form name="contact-form" id="contact-form" class="flex items-end" netlify>
+      <form name="contact-form" id="contact-form" class="flex items-end" netlify method="post">
         <p id="form-input-name" class="flex-grow">
           <label class="grid w-full rounded-lg input-sizer hover:shadow-inset bg-grey-100"><span
                   class="sr-only">Your Name</span>
@@ -76,23 +76,24 @@
 
 <template id="confirmModal">
   <div>
-    <div class="relative mx-2 text-center bg-white border rounded-sm border-grey-200">
+    <div class="relative mx-2 text-center transition-opacity duration-700 bg-white border rounded-sm border-grey-200 ease-smooth"
+         id="confirmBox">
       <div class="relative p-3 border-b border-grey-200">
         <h2 class="font-serif text-xl leading-tight">Submit Form?</h2>
       </div>
 
       <div class="px-3 py-8">
-        <p class="text-sm leading-loose">If needed, you can edit any of your messages above by clicking the pencil icon
-          on each
-          blue bubble.
+        <p class="text-sm leading-loose">If needed, you can modify any of your messages above by clicking the EDIT
+          button
+          next to each blue bubble.
         </p>
       </div>
 
       <div class="flex">
-        <button id="formClear"
+        {# <button id="formClear"
                 class="flex-1 px-2 py-3 text-xs tracking-wide transition-colors border-t border-r smooth-transition ease-smooth border-grey-200 text-grey-600 hocus:bg-grey-100 hocus:text-red-500">
           Clear Form
-        </button>
+        </button> #}
         <button id="formSubmit"
                 class="flex-1 px-2 py-3 text-xs tracking-wide text-blue-500 transition-colors border-t smooth-transition ease-smooth border-grey-200 hocus:bg-blue-100">
           Submit Form

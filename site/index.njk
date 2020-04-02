@@ -6,12 +6,13 @@ body_class: home
 title: Home
 ---
 {% set ig_images = ig_images %}
-{% set posts = collections.blog %}
-{% set notes = collections.note %}
+{% set projects = collections.portfolio %}
+{% set journals = collections.journal %}
 {% set songs = playlist %}
+
 {% import "windows/window-me.njk" as me %}
 {% import "windows/window-music.njk" as music %}
-{% import "windows/window-about.njk" as about %}
+{% import "windows/window-journal.njk" as journal %}
 {% import "windows/window-portfolio.njk" as portfolio %}
 {% import "windows/window-contact.njk" as contact %}
 
@@ -42,7 +43,7 @@ title: Home
                 <span class="relative">his design portfolio</span>
             </a>
             , read
-            <a id="about" href="#"
+            <a id="journal" href="#"
                class="relative inline-block text-yellow-500 rounded-sm group">
                 <span class="absolute inset-0">
                     <span class="bg-yellow-100 home-link-bg"></span>
@@ -76,9 +77,9 @@ title: Home
 
         {{ me.windowFrame( 'me', 'red', false, ig_images) }}
         {{ music.windowFrame( 'music', 'green', false, songs) }}
-        {{ about.windowFrame( 'about', 'yellow', false, notes) }}
+        {{ journal.windowFrame( 'journal', 'yellow', false, journals) }}
         {{ contact.windowFrame( 'contact', 'blue', false) }}
-        {{ portfolio.windowFrame( 'portfolio', 'purple', false, posts) }}
+        {{ portfolio.windowFrame( 'portfolio', 'purple', false, projects) }}
 
     </div>
 

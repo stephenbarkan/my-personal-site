@@ -1,42 +1,28 @@
 const projects = document.querySelectorAll(".project-link")
-const projectPreviews = document.querySelectorAll(".project-preview")
-const closeButtons = document.querySelectorAll(".close-preview")
-const previewOverlays = document.querySelectorAll(".preview-overlay")
+const closeButton = document.querySelector(".close-preview")
+const preview = document.querySelector(".project-preview")
+const previewOverlay = document.querySelector(".preview-overlay")
 const portfolioWindowCloseButtons = document.querySelector("#portfolioWindow .window-close")
-
+const previewPopup = document.getElementById("preview-popup")
 projects.forEach(project => {
   project.addEventListener("click", function (e) {
     e.preventDefault()
-    index = project.getAttribute("data-index")
+    const currentItem = project.getAttribute('data-project')
 
-    projectPreviews.forEach(preview => {
-      if (preview.getAttribute("data-index") === index) {
+    fetch(currentItem)
+      .then(response => response.text())
+      .then(text => {
+        previewPopup.innerHTML = text
         preview.classList.remove("closed")
-      } else {
-        preview.classList.add("closed")
-      }
-    })
+      })
   })
 })
 
 
-closeButtons.forEach(button => {
-  button.addEventListener("click", function () {
-    const wrapper = button.closest(".project-preview");
-    wrapper.classList.add("closed")
-  })
+closeButton.addEventListener("click", function () {
+  preview.classList.add("closed")
 })
 
-portfolioWindowCloseButtons.addEventListener("click", function () {
-  projectPreviews.forEach(preview => {
-    preview.classList.add("closed")
-  })
-})
-
-previewOverlays.forEach(overlay => {
-  overlay.addEventListener("click", function () {
-    projectPreviews.forEach(preview => {
-      preview.classList.add("closed")
-    })
-  })
+previewOverlay.addEventListener("click", function () {
+  preview.classList.add("closed")
 })
