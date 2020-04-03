@@ -650,9 +650,22 @@ video {
   color: #fc664f;
 }
 
-*:hover .group-hocus\:text-red-500,
-*:focus .group-hocus\:text-red-500 {
+.group:hover .group-hocus\:text-red-500, .group:hover .group-hocus\:text-red-500,
+.group:focus .group-hocus\:text-red-500,
+.group:focus .group-hocus\:text-red-500 {
   color: #fc664f;
+}
+
+.group:hover .group-hocus\:text-blue-500, .group:hover .group-hocus\:text-blue-500,
+.group:focus .group-hocus\:text-blue-500,
+.group:focus .group-hocus\:text-blue-500 {
+  color: #15a6f8;
+}
+
+.group:hover .group-hocus\:text-black-500, .group:hover .group-hocus\:text-black-500,
+.group:focus .group-hocus\:text-black-500,
+.group:focus .group-hocus\:text-black-500 {
+  color: rgba(0,0,0, .42);
 }
 
 @font-face {

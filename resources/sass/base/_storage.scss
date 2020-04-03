@@ -47,7 +47,21 @@
   }
 }
 
-*:hover .group-hocus\:text-red-500,
-*:focus .group-hocus\:text-red-500 {
-  color: theme('colors.red.500');
+.group:hover .group-hocus,
+.group:focus .group-hocus {
+
+  &\:text-red-500,
+  &\:text-red-500 {
+    color: theme('colors.red.500');
+  }
+
+  &\:text-blue-500,
+  &\:text-blue-500 {
+    color: theme('colors.blue.500');
+  }
+
+  &\:text-black-500,
+  &\:text-black-500 {
+    color: theme('colors.black.500');
+  }
 }
