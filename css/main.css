@@ -645,11 +645,6 @@ video {
   border-color: #9a6605;
 }
 
-.storage:hover *,
-  .storage:focus * {
-  color: #fc664f;
-}
-
 .group:hover .group-hocus\:text-red-500, .group:hover .group-hocus\:text-red-500,
 .group:focus .group-hocus\:text-red-500,
 .group:focus .group-hocus\:text-red-500 {

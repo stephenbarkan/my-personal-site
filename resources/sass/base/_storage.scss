@@ -40,11 +40,6 @@
   @apply border-blue-800;
   @apply border-yellow-100;
   @apply border-yellow-800;
-
-  &:hover *,
-  &:focus * {
-    @apply text-red-500;
-  }
 }
 
 .group:hover .group-hocus,

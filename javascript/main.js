@@ -46,9 +46,9 @@ function chatPush(origin, message) {
   newBubble.classList.add(originClass);
 
   if (originClass == "fromMe") {
-    newBubble.innerHTML = "<div class=\"message\"><p>" + message + "</p> <div><button onclick=\"editMessage(this)\">Edit</button></div></div>";
+    newBubble.innerHTML = "<div class='message'><p data-field=\"".concat(states[state], "\"") + ">" + message + "</p> <div><button onclick='editMessage(this)'>Edit</button></div></div>";
   } else {
-    newBubble.innerHTML = "<div class=\"message\"><p>" + message + "</div>";
+    newBubble.innerHTML = "<div class='message'><p>" + message + "</div>";
   }
 
   messagesList.appendChild(newBubble);
@@ -59,6 +59,7 @@ var editMessage = function editMessage(el) {
   var message = el.closest(".message");
   var editable = message.querySelector("p");
   var isEditable = editable.getAttribute("contenteditable");
+  var newContent;
   editable.toggleAttribute("contenteditable");
 
   if (isEditable === null) {
@@ -66,9 +67,17 @@ var editMessage = function editMessage(el) {
     message.classList.add("editable");
     el.innerText = "Save";
   } else {
+    newContent = editable.innerText;
     message.removeAttribute("tabindex");
     message.classList.remove("editable");
     el.innerText = "Edit";
+    console.log(editable.getAttribute("data-field"));
+    console.log(newContent);
+    inputFields.forEach(function (field) {
+      if (field.id == editable.getAttribute("data-field")) {
+        field.innerHTML = newContent;
+      }
+    });
   }
 };
 
@@ -79,6 +88,7 @@ inputFields.forEach(function (inputField) {
     if (inputField.value) {
       if (e.which == 13) {
         e.preventDefault();
+        inputField.innerHTML = inputField.value;
         event.stopPropagation();
         nextButton.click();
         nextButton.classList.add("animating");
