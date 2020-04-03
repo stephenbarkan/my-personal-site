@@ -650,8 +650,8 @@ video {
   color: #fc664f;
 }
 
-.group-hocus\:text-red-500,
-.group-hocus\:text-red-500 {
+*:hover .group-hocus\:text-red-500,
+*:focus .group-hocus\:text-red-500 {
   color: #fc664f;
 }
 

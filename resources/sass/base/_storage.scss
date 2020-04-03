@@ -47,7 +47,7 @@
   }
 }
 
-.group-hocus\:text-red-500,
-.group-hocus\:text-red-500 {
+*:hover .group-hocus\:text-red-500,
+*:focus .group-hocus\:text-red-500 {
   color: theme('colors.red.500');
 }
