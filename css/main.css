@@ -643,6 +643,7 @@ video {
   border-color: #034063;
   border-color: #fff5dd;
   border-color: #9a6605;
+  opacity: 0.5;
 }
 
 .group:hover .group-hocus\:text-red-500, .group:hover .group-hocus\:text-red-500,
@@ -1994,6 +1995,42 @@ input[type="range"]#music-slider::-ms-fill-upper {
 
 #next-button-wrapper:not(.disabled) svg {
   fill: #15a6f8;
+}
+
+#chat-window[data-state="yourName"] #form-input-name {
+  display: block;
+}
+
+#chat-window[data-state="yourName"] #form-input-message, #chat-window[data-state="yourName"] #form-input-email, #chat-window[data-state="yourName"] #form-input-empty {
+  display: none;
+}
+
+#chat-window[data-state="yourMessage"] #form-input-message {
+  display: block;
+}
+
+#chat-window[data-state="yourMessage"] #form-input-name, #chat-window[data-state="yourMessage"] #form-input-email, #chat-window[data-state="yourMessage"] #form-input-empty {
+  display: none;
+}
+
+#chat-window[data-state="yourEmail"] #form-input-email {
+  display: block;
+}
+
+#chat-window[data-state="yourEmail"] #form-input-name, #chat-window[data-state="yourEmail"] #form-input-message, #chat-window[data-state="yourEmail"] #form-input-empty {
+  display: none;
+}
+
+#chat-window[data-state="confirm"] #form-input-empty {
+  display: block;
+}
+
+#chat-window[data-state="confirm"] #form-input-name, #chat-window[data-state="confirm"] #form-input-message, #chat-window[data-state="confirm"] #form-input-email {
+  display: none;
+}
+
+#chat-window[data-state="confirm"] #chat-controls {
+  pointer-events: none;
 }
 
 .input-sizer {

@@ -153,72 +153,72 @@
   }
 }
 
-// #chat-window {
+#chat-window {
 
-//   &[data-state="yourName"] {
-//     #form-input-name {
-//       display: block;
-//     }
+  &[data-state="yourName"] {
+    #form-input-name {
+      display: block;
+    }
 
-//     #form-input- {
+    #form-input- {
 
-//       &message,
-//       &email,
-//       &empty {
-//         display: none;
-//       }
-//     }
-//   }
+      &message,
+      &email,
+      &empty {
+        display: none;
+      }
+    }
+  }
 
-//   &[data-state="yourMessage"] {
-//     #form-input-message {
-//       display: block;
-//     }
+  &[data-state="yourMessage"] {
+    #form-input-message {
+      display: block;
+    }
 
-//     #form-input- {
+    #form-input- {
 
-//       &name,
-//       &email,
-//       &empty {
-//         display: none;
-//       }
-//     }
-//   }
+      &name,
+      &email,
+      &empty {
+        display: none;
+      }
+    }
+  }
 
-//   &[data-state="yourEmail"] {
-//     #form-input-email {
-//       display: block;
-//     }
+  &[data-state="yourEmail"] {
+    #form-input-email {
+      display: block;
+    }
 
-//     #form-input- {
+    #form-input- {
 
-//       &name,
-//       &message,
-//       &empty {
-//         display: none;
-//       }
-//     }
-//   }
+      &name,
+      &message,
+      &empty {
+        display: none;
+      }
+    }
+  }
 
-//   &[data-state="confirm"] {
-//     #form-input-empty {
-//       display: block;
-//     }
+  &[data-state="confirm"] {
+    #form-input-empty {
+      display: block;
+    }
 
-//     #form-input- {
+    #form-input- {
 
-//       &name,
-//       &message,
-//       &email {
-//         display: none;
-//       }
-//     }
+      &name,
+      &message,
+      &email {
+        display: none;
+      }
+    }
 
-//     #chat-controls {
-//       pointer-events: none;
-//     }
-//   }
-// }
+    #chat-controls {
+      pointer-events: none;
+    }
+  }
+}
 
 
 .input-sizer {
