@@ -602,6 +602,7 @@ video {
 }
 
 .storage {
+  color: rgba(0,0,0, .03);
   background-color: #0fbda8;
   background-color: #eef7f0;
   background-color: #219c8d;
@@ -644,7 +645,8 @@ video {
   border-color: #9a6605;
 }
 
-.storage:hover, .storage:focus {
+.storage:hover *,
+  .storage:focus * {
   color: #fc664f;
 }
 

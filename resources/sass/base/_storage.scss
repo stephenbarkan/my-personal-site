@@ -1,4 +1,5 @@
 .storage {
+  @apply text-black-100;
   @apply bg-green-500;
   @apply bg-green-100;
   @apply bg-green-700;
@@ -40,8 +41,8 @@
   @apply border-yellow-100;
   @apply border-yellow-800;
 
-  &:hover,
-  &:focus {
+  &:hover *,
+  &:focus * {
     @apply text-red-500;
   }
 }

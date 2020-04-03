@@ -5,10 +5,11 @@
 </div>
 
 <div class="mt-12 sm:ml-16 sm:mt-0">
-  <h2 class="font-serif text-2xl leading-snug">{{title}}</h2>
-  <date class="block mt-2 font-mono leading-none uppercase text-xxs text-grey-700">
-    {{date  | dateDisplay }}
-  </date>
+  <div class="flex leading-none uppercase blockfont-mono text-xxs text-grey-700">
+    <span class="mr-1">{{title}} • </span>
+    <date> {{date | dateDisplay }}</date>
+  </div>
+  <h2 class="mt-2 font-serif text-2xl leading-snug">{{subtitle}}</h2>
   <p class="max-w-xs mt-6 text-sm">{{excerpt}}</p>
 
   <a class="relative inline-flex mt-12 text-xs leading-normal transition-colors bg-white rounded-sm smooth-transition hocus:bg-grey-100"
