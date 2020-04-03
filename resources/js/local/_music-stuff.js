@@ -109,7 +109,7 @@ const songLoading = function (target, index) {
   title = target.getAttribute('data-title')
 
   song = new Howl({
-    src: [src]
+    src: [`${src}.webm`, `${src}.mp3`]
   });
 
   musicThumbnail.src = thumbnail

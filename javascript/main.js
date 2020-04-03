@@ -518,7 +518,7 @@ var songLoading = function songLoading(target, index) {
   thumbnail = target.getAttribute('data-thumbnail');
   title = target.getAttribute('data-title');
   song = new Howl({
-    src: [src]
+    src: ["".concat(src, ".webm"), "".concat(src, ".mp3")]
   });
   musicThumbnail.src = thumbnail;
   musicTitle.innerHTML = "Loading...";
