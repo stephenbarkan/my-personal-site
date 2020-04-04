@@ -24,13 +24,6 @@ typingBubble.innerHTML = "<div class=\"message typing\"><p><span>\u2022</span><s
 var confirmModalTemplate = document.getElementById("confirmModal");
 var confirmModal = confirmModalTemplate.content.cloneNode(true);
 var responses = ["Okay, ".concat(userName, "! What do you want to say to me?"), "Got it\xA0\u2013 and at what email address should I respond to you?", ""];
-nextButton.addEventListener('click', function () {
-  nextButton.classList.add('animating');
-  nextButton.addEventListener('animationend', function () {
-    nextButton.classList.remove('animating');
-    nextButton.blur();
-  });
-});
 chatWindow.setAttribute("data-state", states[0]);
 
 function chatPush(origin, message) {
@@ -110,6 +103,11 @@ function inputValueCheck() {
 
 nextButton.addEventListener("click", function (e) {
   e.preventDefault();
+  nextButton.classList.add('animating');
+  nextButton.addEventListener('animationend', function () {
+    nextButton.classList.remove('animating');
+    nextButton.blur();
+  });
   message = document.querySelector("#".concat(states[state])).value;
 
   if (message) {
@@ -141,9 +139,6 @@ function showLatestMessage() {
 }
 
 var addTypingBubble = function addTypingBubble() {
-  inputFields.forEach(function (field) {
-    field.setAttribute("disabled", true);
-  });
   chatControls.classList.add("pointer-events-none");
   setTimeout(function () {
     messagesList.appendChild(typingBubble);
@@ -152,9 +147,6 @@ var addTypingBubble = function addTypingBubble() {
 };
 
 var removeTypingBubble = function removeTypingBubble() {
-  if (state < states.length - 1) inputFields.forEach(function (field) {
-    field.removeAttribute("disabled");
-  });
   chatControls.classList.remove("pointer-events-none");
   messagesList.removeChild(typingBubble);
   inputFields[state].focus();

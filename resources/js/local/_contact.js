@@ -26,14 +26,6 @@ let responses = [
   ``
 ]
 
-nextButton.addEventListener('click', () => {
-  nextButton.classList.add('animating')
-  nextButton.addEventListener('animationend', () => {
-    nextButton.classList.remove('animating')
-    nextButton.blur()
-  })
-})
-
 chatWindow.setAttribute("data-state", states[0])
 
 function chatPush(origin, message) {
@@ -112,7 +104,11 @@ function inputValueCheck() {
 
 nextButton.addEventListener("click", function (e) {
   e.preventDefault()
-
+  nextButton.classList.add('animating')
+  nextButton.addEventListener('animationend', () => {
+    nextButton.classList.remove('animating')
+    nextButton.blur()
+  })
   message = document.querySelector(`#${states[state]}`).value
 
   if (message) {
@@ -147,9 +143,6 @@ function showLatestMessage() {
 }
 
 const addTypingBubble = function () {
-  inputFields.forEach(field => {
-    field.setAttribute("disabled", true)
-  })
   chatControls.classList.add("pointer-events-none")
   setTimeout(function () {
     messagesList.appendChild(typingBubble);
@@ -158,11 +151,6 @@ const addTypingBubble = function () {
 }
 
 const removeTypingBubble = function () {
-
-  if (state < states.length - 1)
-    inputFields.forEach(field => {
-      field.removeAttribute("disabled")
-    })
   chatControls.classList.remove("pointer-events-none")
   messagesList.removeChild(typingBubble)
   inputFields[state].focus()
