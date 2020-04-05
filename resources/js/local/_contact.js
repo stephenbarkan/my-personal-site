@@ -81,7 +81,6 @@ inputFields.forEach(inputField => {
     if (inputField.value) {
       if (e.which == 13) {
         e.preventDefault()
-        inputField.innerHTML = inputField.value
         event.stopPropagation()
         nextButton.click()
         nextButton.classList.add("animating")

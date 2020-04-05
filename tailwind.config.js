@@ -27,7 +27,6 @@ module.exports = {
 		letterSpacing: {
 			tight: "-0.02em",
 			wide: ".02em",
-			wider: "0.05em"
 		},
 
 		boxShadow: {

@@ -12556,10 +12556,6 @@ a:hover .home-link-bg {
   letter-spacing: .02em;
 }
 
-.tracking-wider{
-  letter-spacing: 0.05em;
-}
-
 .select-none{
   -webkit-user-select: none;
      -moz-user-select: none;
@@ -24035,10 +24031,6 @@ a:hover .home-link-bg {
 
   .xs\:tracking-wide{
     letter-spacing: .02em;
-  }
-
-  .xs\:tracking-wider{
-    letter-spacing: 0.05em;
   }
 
   .xs\:select-none{
@@ -35519,10 +35511,6 @@ a:hover .home-link-bg {
     letter-spacing: .02em;
   }
 
-  .sm\:tracking-wider{
-    letter-spacing: 0.05em;
-  }
-
   .sm\:select-none{
     -webkit-user-select: none;
        -moz-user-select: none;
@@ -46999,10 +46987,6 @@ a:hover .home-link-bg {
 
   .md\:tracking-wide{
     letter-spacing: .02em;
-  }
-
-  .md\:tracking-wider{
-    letter-spacing: 0.05em;
   }
 
   .md\:select-none{
@@ -58483,10 +58467,6 @@ a:hover .home-link-bg {
     letter-spacing: .02em;
   }
 
-  .lg\:tracking-wider{
-    letter-spacing: 0.05em;
-  }
-
   .lg\:select-none{
     -webkit-user-select: none;
        -moz-user-select: none;
@@ -69963,10 +69943,6 @@ a:hover .home-link-bg {
 
   .xl\:tracking-wide{
     letter-spacing: .02em;
-  }
-
-  .xl\:tracking-wider{
-    letter-spacing: 0.05em;
   }
 
   .xl\:select-none{
