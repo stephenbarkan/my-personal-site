@@ -142,7 +142,7 @@ var addTypingBubble = function addTypingBubble() {
   setTimeout(function () {
     messagesList.appendChild(typingBubble);
     showLatestMessage();
-  }, 700);
+  }, 500);
 };
 
 var removeTypingBubble = function removeTypingBubble() {

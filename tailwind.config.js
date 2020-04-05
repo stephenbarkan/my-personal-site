@@ -166,6 +166,10 @@ module.exports = {
 				"2xl": "45rem"
 			},
 
+			maxHeight: {
+				"64": "16rem"
+			},
+
 			fontSize: {
 				xxs: ".75rem",
 				xs: "0.8125rem",

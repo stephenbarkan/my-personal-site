@@ -131,8 +131,18 @@
     @apply mt-8;
   }
 
-  img {
+  img,
+  video {
     @apply my-8;
+
+    @screen sm {
+      @apply -mx-8;
+      max-width: calc(100% + 64px);
+    }
+
+    &+em {
+      @apply text-xs text-grey-600 text-center not-italic -mt-4 block mb-8;
+    }
   }
 
   hr {

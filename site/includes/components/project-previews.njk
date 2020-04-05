@@ -1,7 +1,7 @@
    <div class="fixed z-10 items-center justify-center p-1 pointer-events-none" id="preview-container">
      <div
-          class="absolute flex flex-col items-center max-w-2xl px-8 py-12 overflow-hidden transition transform rounded shadow-xl pointer-events-auto ease-smooth sm:px-12 sm:py-20 sm:flex-row closed project-preview bg-grey-100">
-       <div class="absolute top-0 left-0 flex mt-2 ml-2">
+          class="absolute flex flex-col max-w-2xl max-h-full overflow-hidden transition transform rounded shadow-xl pointer-events-auto ease-smooth closed project-preview bg-grey-100">
+       <div class="absolute top-0 left-0 flex mt-2 ml-2 sm:mt-3 sm:ml-3">
          <button
                  class="p-1 rounded-full close-preview text-grey-300 hocus:text-grey-400">
            <span class="sr-only">Close Preview</span>
@@ -14,7 +14,10 @@
            </svg>
          </button>
        </div>
-       <div id="preview-popup"></div>
+       <div class="h-full px-10 py-12 overflow-y-auto sm:px-12 sm:py-16">
+         <div id="preview-popup" class="flex flex-col items-start sm:items-center sm:flex-row"></div>
+       </div>
+       <div class="shadow-border"></div>
      </div>
      <button
              class="fixed inset-0 w-full h-full transition transform scale-150 opacity-25 cursor-default pointer-events-auto -z-1 bg-grey-900 preview-overlay">
