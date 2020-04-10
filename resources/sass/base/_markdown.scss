@@ -64,10 +64,14 @@
 
   ol {
     list-style-type: decimal;
+
+    >li {
+      @apply pl-4;
+    }
   }
 
   ul {
-    li {
+    >li {
       @apply relative;
 
       &::before {
@@ -85,11 +89,13 @@
     @apply ml-5;
   }
 
-  ul ul,
-  ul ol,
-  ol ol,
-  ol ul {
-    @apply ml-5;
+  li ul,
+  li ol {
+    @apply mt-4;
+
+    li:last-child {
+      @apply mb-0;
+    }
   }
 
   li p:last-child {
@@ -108,15 +114,11 @@
   }
 
   h3 {
-    @apply text-2xl;
+    @apply text-lg;
   }
 
   h4 {
-    @apply text-xl;
-  }
-
-  h5 {
-    @apply text-lg;
+    @apply text-md;
   }
 
 

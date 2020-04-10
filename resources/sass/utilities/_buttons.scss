@@ -3,13 +3,14 @@
 
     &::before {
         content: '';
-        @apply absolute rounded-sm opacity-0 transform transition scale-95;
+        @apply absolute opacity-0 transform transition scale-95;
         top: -0.0625rem;
         bottom: -0.0625rem;
         left: -.25rem;
         right: -.25rem;
         background: currentColor;
         z-index: -1;
+        border-radius: inherit;
     }
 
     &:hover,
@@ -24,7 +25,6 @@
         &::before {
             top: -.25rem;
             bottom: -.25rem;
-            @apply rounded-full;
         }
     }
 }

@@ -1,0 +1,110 @@
+html[data-theme="light"] {
+
+  --clr-neutral: #fffdf5;
+
+  --clr-white: #ffffff;
+  --clr-black: #000000;
+
+  --clr-grey-900: #16151e;
+  --clr-grey-800: #333138;
+  --clr-grey-700: #514F56;
+  --clr-grey-600: #6f6d74;
+  --clr-grey-500: #959398;
+  --clr-grey-400: #AEADAF;
+  --clr-grey-300: #cccccc;
+  --clr-grey-200: #e8e8e8;
+  --clr-grey-100: #F7F7F7;
+
+  --clr-black-900: rgba(0, 0, 0, .91);
+  --clr-black-800: rgba(0, 0, 0, .81);
+  --clr-black-600: rgba(0, 0, 0, .57);
+  --clr-black-500: rgba(0, 0, 0, .42);
+  --clr-black-300: rgba(0, 0, 0, .20);
+  --clr-black-100: rgba(0, 0, 0, .05);
+
+  --clr-me: #fc664f;
+  --clr-me-light: #ffede4;
+
+  --clr-portfolio: #5547ec;
+  --clr-portfolio-light: #eeedfd;
+  --clr-portfolio-dark: #6258D5;
+  --clr-portfolio-darker: #373460;
+
+  --clr-journal: #ffad0e;
+  --clr-journal-light: #fff5dd;
+
+  --clr-music: #0fbda8;
+  --clr-music-light: #eef7f0;
+  --clr-music-dark: #219c8d;
+
+  --clr-contact: #15a6f8;
+  --clr-contact-light: #ECF6FE;
+
+  --shadow-inset: inset 0 0 0 .5px rgba(0, 0, 0, .175);
+  --shadow-outline: 0 0 0 3px rgba(21, 166, 248, 0.5);
+  --shadow-sm: 0px 0.5px 3px -2px rgba(0, 0, 0, 0.5);
+
+}
+
+html[data-theme="dark"] {
+
+  --clr-neutral: #221e24;
+
+  --clr-white: #2d2b31;
+  --clr-black: #cccccc;
+
+  --clr-black-900: rgba(255, 255, 255, .76);
+  --clr-black-800: rgba(255, 255, 255, .68);
+  --clr-black-600: rgba(255, 255, 255, .52);
+  --clr-black-500: rgba(255, 255, 255, .58);
+  --clr-black-300: rgba(255, 255, 255, .28);
+  --clr-black-100: rgba(255, 255, 255, .15);
+
+
+  --clr-grey-900: #c2c1c7;
+  --clr-grey-800: #acabb0;
+  --clr-grey-700: #8a8891;
+  --clr-grey-600: #88868d;
+  --clr-grey-500: #959398;
+  --clr-grey-400: #6c6c6c;
+  --clr-grey-300: #474649;
+  --clr-grey-200: #3e3c44;
+  --clr-grey-100: #28262b;
+
+  --clr-me-light: #482522;
+  --clr-me: #c75546;
+
+  --clr-portfolio: #675ec9;
+  --clr-portfolio-light: #312f54;
+  --clr-portfolio-dark: #5b51ca;
+  --clr-portfolio-darker: #847ed4;
+
+  --clr-journal: #cf9b3a;
+  --clr-journal-light: #443926;
+
+  --clr-music: #219c8d;
+  --clr-music-light: #1c3b37;
+  --clr-music-dark: #1cab9c;
+
+  --clr-contact: #1379b4;
+  --clr-contact-light: #273e52;
+
+  --shadow-inset: inset 0 0 0 .5px rgba(255, 255, 255, .175);
+  --shadow-outline: 0 0 0 3px rgba(19, 121, 180, 0.5);
+  --shadow-sm: 0px 1px 4px -2px rgba(0, 0, 0, 0.5);
+
+  img {
+    opacity: .85;
+  }
+}
+
+html {
+
+  &.color-theme-in-transition *:not(.theme-switcher-checkbox-ui),
+  &.color-theme-in-transition *:not(.theme-switcher-checkbox-ui):before,
+  &.color-theme-in-transition *:not(.theme-switcher-checkbox-ui):after {
+    transition-duration: 0ms !important;
+    transition-property: color, background-color, border !important;
+    transition-delay: 0 !important;
+  }
+}

@@ -1,9 +1,9 @@
 <footer class="right-0 self-end p-6 sm:absolute sm:top-0">
 
-	<div class="flex justify-center align-center">
+	<div class="flex items-center justify-center">
 
 		<div id="homeMusicButtons"
-				 class="flex items-center px-1 transform translate-x-8 rounded opacity-0 bg-black-100 hover:bg-green-100">
+				 class="flex items-center p-1 transform translate-x-8 rounded opacity-0 bg-black-100 hover:bg-green-100">
 			<button class="transition-colors rounded-full group smooth-transition" id="homePrev">
 				<svg class="block group-hover:text-green-500 transition-inherit duration-inherit ease-inherit w-8 h-8 text-black-300 group-hocus:text-{{item.color}}-500"
 						 fill="currentColor" role="img"
@@ -66,6 +66,18 @@
 
 			{% endfor %}
 		</ul>
+		<div
+				 class="self-center h-8 mx-4 border-r opacity-1 border-grey-200">
+		</div>
+		<label class="theme-switcher">
+			<input
+						 type="checkbox"
+						 class="theme-switcher-input"
+						 id="theme-switcher-input" />
+			<div class="relative z-10 flex items-center w-full h-full rounded-full cursor-pointer theme-switcher-checkbox-ui">
+			</div>
+			{# <span>color theme</span> #}
+		</label>
 	</div>
 
 </footer>

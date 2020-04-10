@@ -1,160 +1,40 @@
 ---
-title: Sample Typography
-date: 2020-01-02
+title: Our DnD Story (so far)
+date: 2020-04-02
 ---
 
-[View on GitHub](https://github.com/tailwindcss/typography)
+### Session 1 
+* The Party convenes at the Seared Rapscallion:
+	* Davey Jonas enters the Seared Rapscallion and witnesses two elves in suits coercing Olric, the bartender, into selling them the bar. They leave after making a vague threat that he’d regret not doing it.
+	* E’dun stops a peacekeeper from taking the medication from a guy, but does so by throwing the pills in the water.
+	* Yselda is peer-pressured into checking out the Seared Rapscallion by her annoying friend Ashley.
+	* Rusty finds out he has lost his job as a pipe mechanic since the shop is closing down. He heads over to the Seared Rapscallion to have one last beer with his boss.
+	* Reniya puts on a controversial performance piece at a nearby warehouse, taking a stand against the gentrification that she’s also a part of. To celebrate after, she heads to the Seared Rapscallion.
+	* Streex is chilling out and is approached by Scary Face McGee and Larry Face McGee, two mobsters, who hire him to help them with a job, where they have to cause a scene at the Seared Rapscallion.
+* Scary Face smashes Street over the head with a bottle and a bar fight breaks out. Eventually two Peacekeepers show up to quell the fight, but E’dun puts everyone to sleep and then convinces them that he’s an undercover cop who has the situation under control and they leave the bar with Scary Face in custody.
 
-A plugin that provides a `rich-text` class you can use to add sensible typographic defaults to any vanilla HTML you don't control (like HTML rendered from Markdown, or pulled from a CMS).
+### Session 2
+* Everyone wakes up the next day confused about what happened. E’dun explains the previous night’s events and the party decides to follow the instructions given to Larry Face to meet in the steam pipes system to retrieve the payment for the job. 
+* While waiting for the meeting to happen, the party splits up to go about their day:
+	* Yselda goes to work at the newspaper and overhears her coworkers talking about how lots of bars in the pirate area of the city are being shut down after being deemed dangerous locations by Mayor Pringlepuff and the Peacekeepers.
+	* Rusty, Streex, and Larry Face head into the steam pipes to scope out the location of the transaction. When they find the location, Rusty stays behind to plant bombs around the room, and Streex and Larry Face go to the Toasty Tuna Towers, where Yselda and Ashley live.
+	* Reniya, E’dun, and Davey create a contraption to lift one of Reniya’s many yachts onto the roof of the Toasty Tuna Towers and into the rooftop pool. They saw off the top level to create the party’s new base of operations.
+* At 6:30, and hour before the designated meeting time, the party grows tired of waiting and decides to head over to the steam tunnels early to hide before the arrival of the others. But their presence is known, and they get ambushed by a shadowy figure who takes the form of Scary Face McGee and three ninjas. A chaotic fight breaks out in the dark of the tunnels – things seem to not be going well.
 
-```html
-<div class="rich-text">
-  content
-</div>
-```
+### Session 3
+* Reniya casts Friends on the shadowy figure, who then agrees to leave the party alone under the condition that they never speak of the events to anyone. Reniya agrees and the enemies vanish.
+* As they’re recovering from the fight, the party discovers that they literally can not talk about what just happened, and then whenever they do, they are afflicted by a curse placed on them by the shadowy figure (who they affectionately refer to as Airy Face McGee).
+* They return to the Toasty Tuna Towers to rest and heal their wounds for the night. While most of the party sleeps, E’dun stays up all night, ruminating over how to release the curse. He realizes that they must seek out his mother, a priestess of the Drow for counsel. 
+* The next morning, the party heads over to the Drow temple in two vehicles. First, one of Reniya’s limos, and second, a small car driven recklessly by Streex. Streex doesn’t know how to get to the temple so it takes him, Rusty, and Ashley much longer to arrive than the rest of the party. 
+* At the temple, Yselda and Kim Chi (Reniya’s pet red panda) help a sacrificial sheep escape from the altar. Streex skids up to the temple at the exact moment the sheep is fleeing and nearly runs it over.
+* With the party reunited, they all head over to the recreation center where they meet E’dun’s mother, Nufkat. She tells them that to perform the spell necessary to break the curse, the party needs to acquire three ingredients from the criminal underbelly of Velon:
+	1. abyssal smoke
+	2. brimstone
+	3. wyrmwood moonshine
+* Reniya, who had a past life in the criminal underworld knows that the entrance to the black market is in the suburbs, so the party heads there.
+* As they approach the entrance to the suburban steam tunnels, Reniya formulates a plan to get what they need. She approaches a mother taking her baby for a walk and requests to borrow the baby. Surprisingly, the mother agrees, and Reniya explains to the party that she will use the baby to trick her ex-boyfriend, Jim, into thinking that she had a child with him, and would use his guilt to make him give her the magical ingredients.
+* When the party reaches the market they find it abandoned. They’re all confused and start to investigate the empty stalls when they hear three Peacekeepers approaching. They all hide – some better than others. Davey and Streex try to hide like mannequins in one of the stalls and manage to get the jump on the Peacekeepers. The party effortlessly destroys the robots, but not before Rusty and Davey deafen everyone by exploding a bunch of bombs.
+* Catching their breath, the party is snuck up on by mysterious masked figures 
 
-What follows is just a big block of example content designed to dogfood the plugin.
-
-It includes every sensible typographic element I could think of, like **bold text**, unordered lists, ordered lists, code blocks, block quotes, _and even italics_.
-
-It's important to cover all of these use cases for a few reasons:
-
-1. We want everything to look good out of the box.
-2. Really just the first reason, that's the whole point of the plugin.
-
-Now we're going to try out a header style.
-
----
-
-#### Typography should be easy
-
-So that's a header for you — with any luck by the time I'm done writing this plugin that will look pretty reasonable.
-
-Something a wise person once told me about typography is:
-
-> Typography is pretty important if you don't want your stuff to look like trash. Make it good then it won't be bad.
-
-It's probably important that images look okay here by default as well:
-
-![Someone paying for something at a check out counter](https://images.unsplash.com/photo-1556740758-90de374c12ad?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=80)
-
-Now I'm going to show you an example of an unordered list to make sure that looks good, too:
-
-- So here is the first item in this list.
-- In this example we're keeping the items short.
-- Later, we'll use longer, more complex list items.
-
-And that's the end of this section.
-
-#### What if we stack headings?
-
-##### We should make sure that looks good, too.
-
-Sometimes you have headings directly underneath each other. In those cases you have to be careful not to use too much margin, because typically the space you need between a heading and a paragraph is more than you want between two headings.
-
-##### When a heading comes after a paragraph...
-
-When a heading comes after a paragraph, we need a bit more space, like I already mentioned above. Now let's see what a more complex list would look like.
-
-- **I often do this thing where list items have headings.**
-
-  For some reason I think this looks cool which is unfortunate because it's pretty annoying to get the styles right.
-
-  I often have two or three paragraphs in these list items too, so the hard part is getting the spacing between the paragraphs, list item heading, and separate list items to all make sense.
-
-  Pretty tough honestly.
-
-- **Since this is a list, I need at least two items.**
-
-  I explained what I'm doing already in the previous list item, but a list wouldn't be a list if it only had one item, and we really want this to look realistic.
-
-  That's why I've added this second list item so I actually have something to look at when writing the styles.
-
-- **It's not a bad idea to add a third item either.**
-
-  I think it probably would've been fine to just use two items but three is definitely not worse, and since I seem to be having no trouble making up arbitrary things to type, I might as well include it.
-
-  With any luck this will make it even easier for me to get the styles right.
-
-After this sort of list I usually have a closing statement or paragraph, because it kinda looks weird jumping right to a heading.
-
-#### Code should look okay by default.
-
-I think most people are going to use highlight.js or Prism or something if they want to style their code blocks but it wouldn't hurt to make them look _okay_ out of the box, even with no syntax highlighting.
-
-Here's the Tailwind config file for this docs site:
-
-```js
-module.exports = {
-  theme: {
-    extend: {},
-  },
-  variants: {},
-  plugins: [
-    require('../src/index.js'),
-  ],
-}
-```
-
-Hopefully that looks good enough to you.
-
-##### What about nested lists?
-
-Nested lists basically always look bad which is why editors like Medium don't even let you do it, but I guess since some of you goofballs are going to do it I have to carry the burden of at least making it work.
-
-1. **Nested lists are rarely a good idea.**
-    + You might feel like you are being really "organized" or something but you are just creating a gross shape on the screen that is hard to read.
-    + Nested navigation in UIs is a bad idea too, keep things as flat as possible.
-    + Nesting tons of folders in your source code is also not helpful.
-2. **Since we need to have more items, here's another one.**
-    + I'm not sure if I'll bother styling more than two levels deep.
-    + Two is already too much, three is guaranteed to be a bad idea.
-    + If you nest four levels deep you belong in prison.
-3. **Two items isn't really a list, three is good though.**
-    + Again please don't nest lists if you want people to actually read your content.
-    + Nobody wants to look at this.
-    + I'm upset that I even have to bother styling this.
-
-The most annoying thing about lists in Markdown is that `<li>` elements aren't given a child `<p>` tag unless there are multiple paragraphs in the list item. That means I have to worry about styling that annoying situation too.
-
-- **For example, here's another nested list.**
-
-  But this time with a second paragraph.
-    - These list items won't have `<p>` tags
-    - Because they are only one line each
-- **But in this second top-level list item, they will.**
-
-  This is especially annoying because of the spacing on this paragraph.
-    - As you can see here, because I've added a second line, this list item now has a `<p>` tag.
-
-      This is the second line I'm talking about by the way.
-    - Finally here's another list item so it's more like a list.
-- A closing list item, but with no nested list, because why not?
-
-And finally a sentence to close off this section.
-
-#### There are other elements we need to style
-
-I almost forgot to style links, like [this link to the Tailwind CSS website](https://tailwindcss.com). How should those look by default, blue I guess? I dunno.
-
-We also need to make sure inline code looks good, like if I wanted to talk about `<span>` elements or tell you the good news about `@tailwindcss/typography`.
-
-##### Sometimes I even use `code` in headings
-
-Even though it's probably a bad idea, and I tend to have a hard time making it look good.
-
-Another thing I've done in the past is make some code a link, like if I wanted to tell you about [`@tailwindcss/custom-forms`](https://github.com/tailwindcss/custom-forms), a useful plugin for making it easier to style form elements in your Tailwind projects.
-
-###### We haven't used an `h4` yet
-
-But now we have. Please don't use `h5` or `h6` in your content, Medium only supports two heading levels for a reason you animals.
-
-##### We still need to think about stacked headings though.
-
-###### Let's make sure we don't screw that up with `h4` elements, either.
-
-Phew, with any luck we have styled the headings above this text and they look pretty good.
-
-Let's add a closing paragraph here so things end with a decently sized block of text. I can't explain why I want things to end that way but I have to assume it's because I think things will look weird or unbalanced if there is a heading too close to the end of the document.
-
-What I've written here is probably long enough, but adding this final sentence can't hurt.
+### Session 4
+* The masked figure reveals herself to be one of Reniya’s old friends. After curing the party’s deafness, she explained that the criminal underworld had to clear out after Mayor Pringlepuff’s Clean Up the Streets initiative forced them out. But the culture lives on, just further underground. The group asked her to take us there, and she brought them down an elevator shaft into what appeared to be a inside bay cave, where many shops were set up in a kind of canals system. 

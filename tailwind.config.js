@@ -20,7 +20,8 @@ module.exports = {
 			none: '0',
 			sm: "0.25rem",
 			default: '.375rem',
-			lg: '1.25rem',
+			lg: '1rem',
+			xl: '1.25rem',
 			full: '9999px'
 		},
 
@@ -30,82 +31,81 @@ module.exports = {
 		},
 
 		boxShadow: {
-			sm: "0px 0.5px 3px -2px rgba(0, 0, 0, 0.5)",
+			sm: "var(--shadow-sm)",
 			md: "0px 0px 2.16398px rgba(0, 0, 0, 0.0217013), 0px 0px 5.47287px rgba(0, 0, 0, 0.0310596), 0px 0px 11.1641px rgba(0, 0, 0, 0.0389404), 0px 0px 22.996px rgba(0, 0, 0, 0.0482987), 0px 0px 63px rgba(0, 0, 0, 0.07)",
 			lg: "0px 0px 4.15622px rgba(0, 0, 0, 0.034102), 0px 0px 10.5114px rgba(0, 0, 0, 0.048808), 0px 0px 21.4423px rgba(0, 0, 0, 0.061192), 0px 0px 44.167px rgba(0, 0, 0, 0.075898), 0px 0px 121px rgba(0, 0, 0, 0.11)",
 			xl: "0px 0.239565px 23.6407px rgba(0, 0, 0, 0.0334698), 0px 1.17993px 38.8132px rgba(0, 0, 0, 0.045558), 0px 3.48778px 47.6491px rgba(0, 0, 0, 0.0578826), 0px 9.34215px 55.2599px rgba(0, 0, 0, 0.076608), 0px 33px 92px rgba(0, 0, 0, 0.11)",
-			outline: '0 0 0 3px rgba(21, 166, 248, 0.5)',
-			inset: 'inset 0 0 0 .5px rgba(0, 0, 0, .175)',
+			outline: 'var(--shadow-outline)',
+			inset: 'var(--shadow-inset)',
 			none: 'none'
 		},
 
 		colors: {
 			transparent: "transparent",
-			white: "#ffffff",
+			white: "var(--clr-white)",
 
 			grey: {
-				900: "#16151e",
-				800: "#333138",
-				700: "#514F56",
-				600: "#6f6d74",
-				500: "#959398",
-				400: "#AEADAF",
-				300: "#cccccc",
-				200: "#e8e8e8",
-				100: "#F7F7F7"
+				900: "var(--clr-grey-900)",
+				800: "var(--clr-grey-800)",
+				700: "var(--clr-grey-700)",
+				600: "var(--clr-grey-600)",
+				500: "var(--clr-grey-500)",
+				400: "var(--clr-grey-400)",
+				300: "var(--clr-grey-300)",
+				200: "var(--clr-grey-200)",
+				100: "var(--clr-grey-100)"
 			},
 
 			black: {
-				900: "rgba(0,0,0, .91)",
-				800: "rgba(0,0,0, .81)",
+				900: "var(--clr-black-900)",
+				800: "var(--clr-black-800)",
 				700: "rgba(0,0,0, .69)",
-				600: "rgba(0,0,0, .57)",
-				500: "rgba(0,0,0, .42)",
+				600: "var(--clr-black-600)",
+				500: "var(--clr-black-500)",
 				400: "rgba(0,0,0, .32)",
-				300: "rgba(0,0,0, .20)",
+				300: "var(--clr-black-300)",
 				200: "rgba(0,0,0, .09)",
-				100: "rgba(0,0,0, .03)",
-				default: "#000000"
+				100: "var(--clr-black-100)",
+				default: "var(--clr-black)"
 			},
 
 			neutral: {
-				100: "#fffdf5",
-				900: "#221e24"
+				default: "var(--clr-neutral)"
 			},
 
 			red: {
 				800: "#6e302b",
 				700: "#c85646",
-				500: "#fc664f",
-				100: "#ffede4"
+				500: "var(--clr-me)",
+				100: "var(--clr-me-light)"
 			},
 
 			purple: {
-				800: "#373460",
-				700: "#6258D5",
-				500: "#5547ec",
-				100: "#EEEDFD"
+				800: "var(--clr-portfolio-darker)",
+				700: "var(--clr-portfolio-dark)",
+				500: "var(--clr-portfolio)",
+				100: "var(--clr-portfolio-light)"
 			},
 
 			yellow: {
 				800: "#9a6605",
 				700: "#D09525",
-				500: "#ffad0e",
-				100: "#fff5dd"
+				500: "var(--clr-journal)",
+				100: "var(--clr-journal-light)"
 			},
 
 			green: {
 				800: "#0c554c",
-				700: "#219c8d",
-				500: "#0fbda8",
-				100: "#eef7f0"
+				700: "var(--clr-music-dark)",
+				500: "var(--clr-music)",
+				100: "var(--clr-music-light)"
 			},
 
 			blue: {
 				800: "#034063",
 				700: "#1379b4",
-				500: "#15a6f8",
-				100: "#ECF6FE"
+				500: "var(--clr-contact)",
+				100: "var(--clr-contact-light)"
 			}
 		},
 
@@ -174,6 +174,7 @@ module.exports = {
 				xxs: ".75rem",
 				xs: "0.8125rem",
 				sm: "0.9375rem",
+				md: "1.125rem",
 				"2xl": "1.75rem",
 				"3xl": "2.25rem",
 				"4xl": "2.5rem",

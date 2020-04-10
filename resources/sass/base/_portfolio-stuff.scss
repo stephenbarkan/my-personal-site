@@ -24,19 +24,14 @@
   grid-template-columns: repeat(auto-fill, minmax(9rem, 1fr));
 
   @screen xs {
-    grid-template-columns: repeat(2, minmax(10rem, 12rem));
+    grid-template-columns: repeat(2, minmax(10rem, 11rem));
   }
 
   @screen sm {
-    grid-template-columns: repeat(3, minmax(10rem, 12rem));
+    grid-template-columns: repeat(3, minmax(10rem, 11rem));
   }
 }
 
-.portfolio-link {
-  &::before {
-    @apply rounded;
-  }
-}
 
 .project-preview {
   @apply duration-500;
