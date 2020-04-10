@@ -1,5 +1,6 @@
 const aboutSidebarLinks = document.querySelectorAll('.about-note-link')
 const aboutNote = document.querySelector('.about-note')
+const noteScroller = document.querySelector('.note-area')
 const journalContent = document.getElementById('journal-content')
 const aboutSidebarOpenButton = document.getElementById('about-note-open')
 const aboutSidebarCloseButton = document.getElementById('about-note-close')
@@ -12,6 +13,7 @@ const displayNote = function (link) {
     .then(response => response.text())
     .then(text => {
       aboutNote.innerHTML = text
+      noteScroller.scrollTop = 0
     })
 }
 

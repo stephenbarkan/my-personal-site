@@ -6,8 +6,13 @@
 
 .message {
   word-wrap: break-word;
-  @apply relative px-3 py-2 rounded-xl leading-loose;
+  @apply relative px-3 py-2 rounded-xl leading-loose transition-colors duration-300 ease-smooth;
   animation: messageReceive .6s cubic-bezier(.2, .8, .2, 1);
+
+  &::before,
+  &::after {
+    @apply transition-colors duration-300 ease-smooth;
+  }
 
   &.typing {
     animation: typingBubbleClear 1.75s forwards;
@@ -66,7 +71,7 @@
     }
 
     &.editable {
-      @apply shadow-inset bg-grey-100 text-grey-800;
+      @apply shadow-inset bg-black-100 text-grey-800;
 
       &:before {
         border-right-color: transparent;

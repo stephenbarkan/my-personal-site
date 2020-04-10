@@ -13,8 +13,7 @@
         border-radius: inherit;
     }
 
-    &:hover,
-    &:focus {
+    &:hover {
 
         &::before {
             @apply opacity-100 scale-100;

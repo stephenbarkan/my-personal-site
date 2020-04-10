@@ -382,6 +382,7 @@ igLeft.style.visibility = "hidden";
 igUpdate();
 var aboutSidebarLinks = document.querySelectorAll('.about-note-link');
 var aboutNote = document.querySelector('.about-note');
+var noteScroller = document.querySelector('.note-area');
 var journalContent = document.getElementById('journal-content');
 var aboutSidebarOpenButton = document.getElementById('about-note-open');
 var aboutSidebarCloseButton = document.getElementById('about-note-close');
@@ -393,6 +394,7 @@ var displayNote = function displayNote(link) {
     return response.text();
   }).then(function (text) {
     aboutNote.innerHTML = text;
+    noteScroller.scrollTop = 0;
   });
 };
 

@@ -7,7 +7,7 @@ After a year and a half of being in long distance relationship, I was finally ab
 But back in October, I stumbled up on the [Doist](https://doist.com) website one night while Eugenia and I were on the phone. I was immediately taken by the design of the site and noticed they had an open remote position for a Marketing Designer, so of course I decided to apply. Fast forward two months and I figured out how I was going to get to Chicago, and six months earlier than expected!
 The day before my birthday, Eugenia flew to Austin and we packed up all my things into the car. We drove up over a long weekend for our second ever road trip.
 
-![Saying goodbye to my apartment in Austin](/images/journal/bye-austin.jpeg)
+![Saying goodbye to my apartment in Austin](/images/journal/bye-austin.jpg)
 *Saying goodbye to my apartment in Austin*
 
 Our first stop was in Mt. Pleasant TX. I really wanted to stop in Texarkana because I always thought it was a funny name but we got too tired and didn’t make it all the way on the first night. I thought it would be fun to stay in a random roadside motel just for the experience of it, but Eugenia had other ideas and we stayed at a bougie Holiday Inn or something. It was really nice though. Those bedsheets ✨
