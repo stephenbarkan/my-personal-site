@@ -1,4 +1,4 @@
-html[data-theme="light"] {
+html {
 
   --clr-neutral: #fffdf5;
 
@@ -20,6 +20,7 @@ html[data-theme="light"] {
   --clr-black-600: rgba(0, 0, 0, .57);
   --clr-black-500: rgba(0, 0, 0, .42);
   --clr-black-300: rgba(0, 0, 0, .20);
+  --clr-black-200: rgba(0, 0, 0, .09);
   --clr-black-100: rgba(0, 0, 0, .05);
 
   --clr-me: #fc664f;
@@ -40,7 +41,7 @@ html[data-theme="light"] {
   --clr-contact: #15a6f8;
   --clr-contact-light: #ECF6FE;
 
-  --shadow-inset: inset 0 0 0 1px rgba(0, 0, 0, .175);
+  --shadow-inset: inset 0 0 0 1px var(--clr-black-200);
   --shadow-outline: 0 0 0 3px rgba(21, 166, 248, 0.5);
   --shadow-sm: 0px 0.5px 3px -2px rgba(0, 0, 0, 0.5);
 
@@ -58,6 +59,7 @@ html[data-theme="dark"] {
   --clr-black-600: rgba(255, 255, 255, .52);
   --clr-black-500: rgba(255, 255, 255, .58);
   --clr-black-300: rgba(255, 255, 255, .28);
+  --clr-black-200: rgba(255, 255, 255, .24);
   --clr-black-100: rgba(255, 255, 255, .10);
 
 
@@ -89,7 +91,7 @@ html[data-theme="dark"] {
   --clr-contact: #1379b4;
   --clr-contact-light: #1379b44d;
 
-  --shadow-inset: inset 0 0 0 1px rgba(255, 255, 255, .175);
+  --shadow-inset: inset 0 0 0 1px var(--clr-black-100);
   --shadow-outline: 0 0 0 3px rgba(19, 121, 180, 0.5);
   --shadow-sm: 0px 1px 4px -2px rgba(0, 0, 0, 0.5);
 
