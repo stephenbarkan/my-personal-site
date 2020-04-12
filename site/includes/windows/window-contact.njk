@@ -11,9 +11,10 @@
     <div id="chat-controls" class="py-3 pl-3 pr-2 bg-white">
       <form name="contact-form" id="contact-form" class="flex items-end" netlify method="post">
         <p id="form-input-name" class="flex-grow">
-          <label class="grid w-full rounded-lg input-sizer hover:shadow-inset bg-black-100"><span
+          <label
+                 class="grid w-full transition rounded-lg input-sizer hover:shadow-inset bg-black-100 smooth-transition"><span
                   class="sr-only">Your Name</span>
-            <textarea class="w-full h-10 px-3 py-1 leading-loose transition-colors bg-transparent border border-transparent resize-none text-grey-800 smooth-transition ease-smooth"
+            <textarea class="w-full h-10 px-3 py-1 leading-loose transition bg-transparent border border-transparent resize-none text-grey-800 "
                       name="yourName"
                       id="yourName"
                       placeholder="Your name"
@@ -22,9 +23,11 @@
           </label>
         </p>
         <p id="form-input-message" class="flex-grow">
-          <label class="grid w-full rounded-lg input-sizer hover:shadow-inset bg-black-100"><span class="sr-only">Your
+          <label
+                 class="grid w-full transition rounded-lg input-sizer hover:shadow-inset bg-black-100 smooth-transition"><span
+                  class="sr-only">Your
               Message</span>
-            <textarea class="w-full h-10 px-3 py-1 leading-loose transition-colors bg-transparent border border-transparent resize-none text-grey-800 smooth-transition ease-smooth"
+            <textarea class="w-full h-10 px-3 py-1 leading-loose transition bg-transparent border border-transparent resize-none text-grey-800 "
                       name="yourMessage"
                       id="yourMessage"
                       placeholder="Your Text"
@@ -33,9 +36,11 @@
           </label>
         </p>
         <p id="form-input-email" class="flex-grow">
-          <label class="grid w-full rounded-lg input-sizer hover:shadow-inset bg-black-100"><span class="sr-only">Your
+          <label
+                 class="grid w-full transition rounded-lg input-sizer hover:shadow-inset bg-black-100 smooth-transition"><span
+                  class="sr-only">Your
               Email</span>
-            <textarea class="w-full h-10 px-3 py-1 leading-loose transition-colors bg-transparent border border-transparent resize-none text-grey-800 smooth-transition ease-smooth"
+            <textarea class="w-full h-10 px-3 py-1 leading-loose bg-transparent border border-transparent resize-none text-grey-800"
                       name="yourEmail"
                       id="yourEmail"
                       placeholder="Your e-mail"
@@ -44,8 +49,9 @@
           </label>
         </p>
         <p id="form-input-empty" class="flex-grow">
-          <label class="grid w-full rounded-lg input-sizer hover:shadow-inset bg-black-100">
-            <textarea class="w-full h-10 px-3 py-1 leading-loose transition-colors bg-transparent border border-transparent resize-none text-grey-800 smooth-transition ease-smooth"
+          <label
+                 class="grid w-full transition rounded-lg input-sizer hover:shadow-inset bg-black-100 smooth-transition">
+            <textarea class="w-full h-10 px-3 py-1 leading-loose bg-transparent border border-transparent resize-none text-grey-800"
                       disabled="true"
                       name="empty"
                       id="empty"
@@ -56,11 +62,11 @@
         <p class="flex-shrink-0 ml-2 disabled" id="next-button-wrapper">
           <label class="flex"><span class="sr-only">Send Text</span>
             <button
-                    class="flex items-center justify-center w-10 h-10 transition-colors rounded-lg smooth-transition group hocus:bg-blue-100"
+                    class="flex items-center justify-center w-10 h-10 transition rounded-lg smooth-transition group hocus:bg-blue-100"
                     type="button"
                     name="nextButton"
                     id="nextButton">
-              <svg class="block w-6 h-6 transition-colors duration-300 ease-smooth text-grey-300"
+              <svg class="block w-6 h-6 transition duration-300 ease-smooth text-grey-300"
                    fill="currentColor"
                    aria-hidden="true">
                 <use xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -80,22 +86,29 @@
     <div class="relative mx-2 text-center transition-opacity duration-700 bg-white border rounded-sm border-grey-200 ease-smooth"
          id="confirmBox">
       <div class="relative p-3 border-b border-grey-200">
-        <h2 class="font-serif text-xl leading-tight">Submit Form?</h2>
+        <h2 class="font-serif text-xl leading-tight">Ready to send?</h2>
       </div>
 
       <div class="px-3 py-8">
-        <p class="text-sm leading-loose">If needed, you can modify any of your messages above by hovering over each blue
-          bubble and clicking the edit button. </p>
+        <p class="text-sm leading-loose">If needed, you can modify your messages above by hovering over each bubble and
+          clicking the edit button.</p>
       </div>
 
       <div class="flex">
         {# <button id="formClear"
-                class="flex-1 px-2 py-3 text-xs tracking-wide transition-colors border-t border-r smooth-transition ease-smooth border-grey-200 text-grey-600 hocus:bg-grey-100 hocus:text-red-500">
+                class="flex-1 px-2 py-3 text-xs tracking-wide transition border-t border-r border-grey-200 text-grey-600 hocus:bg-grey-100 hocus:text-red-500">
           Clear Form
         </button> #}
         <button id="formSubmit"
-                class="flex-1 px-2 py-3 text-xs tracking-wide text-blue-500 transition-colors border-t smooth-transition ease-smooth border-grey-200 hocus:bg-blue-100">
-          Submit Form
+                class="flex items-center justify-center flex-1 px-2 py-4 text-xs tracking-wide text-blue-500 transition-colors border-t smooth-transition border-grey-200 hocus:bg-blue-100">
+          <svg class="flex-shrink-0 block w-4 h-4 text-blue-500" role="button"
+               aria-hidden="true">
+            <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                 xlink:href="/images/icons/icon-library.svg#icon-notes-right"></use>
+          </svg>
+          <span
+                class="font-mono leading-none tracking-wide text-blue-500 uppercase text-xxs ig-heart-text">Yes, send my
+            message!</span>
         </button>
       </div>
     </div>

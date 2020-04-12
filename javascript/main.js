@@ -23,7 +23,7 @@ typingBubble.classList.add("typingDots", "fromThem");
 typingBubble.innerHTML = "<div class=\"message typing\"><p><span>\u2022</span><span>\u2022</span><span>\u2022</span></p></div>";
 var confirmModalTemplate = document.getElementById("confirmModal");
 var confirmModal = confirmModalTemplate.content.cloneNode(true);
-var responses = ["Okay, ".concat(userName, "! What do you want to say to me?"), "That's pretty cool. What email address should I use to respond to you?", ""];
+var responses = ["Okay, ".concat(userName, "! What do you want to say to me?"), "Okay, that's pretty cool. Can you give me your email so I can reply to you?", ""];
 chatWindow.setAttribute("data-state", states[0]);
 
 function chatPush(origin, message) {
@@ -78,8 +78,6 @@ var editMessage = function editMessage(el) {
 
 inputFields.forEach(function (inputField) {
   inputField.addEventListener("keydown", function (e) {
-    inputValueCheck();
-
     if (inputField.value) {
       if (e.which == 13) {
         e.preventDefault();
@@ -88,6 +86,9 @@ inputFields.forEach(function (inputField) {
         nextButton.classList.add("animating");
       }
     }
+  });
+  inputField.addEventListener("keyup", function () {
+    inputValueCheck();
   });
 });
 

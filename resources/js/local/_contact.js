@@ -22,7 +22,7 @@ var confirmModal = confirmModalTemplate.content.cloneNode(true)
 
 let responses = [
   `Okay, ${userName}! What do you want to say to me?`,
-  `That's pretty cool. What email address should I use to respond to you?`,
+  `Okay, that's pretty cool. Can you give me your email so I can reply to you?`,
   ``
 ]
 
@@ -78,7 +78,6 @@ const editMessage = function (el) {
 
 inputFields.forEach(inputField => {
   inputField.addEventListener("keydown", function (e) {
-    inputValueCheck()
     if (inputField.value) {
       if (e.which == 13) {
         e.preventDefault()
@@ -87,6 +86,9 @@ inputFields.forEach(inputField => {
         nextButton.classList.add("animating")
       }
     }
+  })
+  inputField.addEventListener("keyup", () => {
+    inputValueCheck()
   })
 })
 

@@ -134,7 +134,8 @@
   }
 
   img,
-  video {
+  video,
+  iframe {
     @apply my-8;
 
     @screen sm {
