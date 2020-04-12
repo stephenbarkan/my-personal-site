@@ -136,14 +136,20 @@
   }
 }
 
+.traffic-light {
+  height: 14px;
+  width: 14px;
+
+  &:not(:first-of-type) {
+    margin-left: 10px;
+  }
+}
+
 .window-close {
   &::after {
     content: "";
     position: absolute;
-    top: .25rem;
-    left: .25rem;
-    right: .25rem;
-    bottom: .25rem;
+    @apply inset-0;
     background-image: url(/images/icons/window-lights-overlay.svg);
     background-size: 100%;
     background-repeat: no-repeat;

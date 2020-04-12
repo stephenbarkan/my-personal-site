@@ -45,4 +45,51 @@ The story begins in Velon, a bustling skyport city where magic and technology ar
 * Catching their breath, the party is snuck up on by mysterious masked figures 
 
 ### Session 4: 03/15/2020
-* The masked figure reveals herself to be one of Reniya’s old friends. After curing the party’s deafness, she explained that the criminal underworld had to clear out after Mayor Pringlepuff’s Clean Up the Streets initiative forced them out. But the culture lives on, just further underground. The group asked her to take us there, and she brought them down an elevator shaft into what appeared to be a inside bay cave, where many shops were set up in a kind of canals system. 
+* The masked figure reveals herself to be one of Reniya’s old friends, Marienne Macabre. After curing the party’s deafness, she explained that the criminal underworld had to clear out after Mayor Pringlepuff’s *Clean Up the Streets* initiative forced them out. But the culture lives on, just further underground. The group asks her to take them there, and she brings them down an elevator shaft into what appears to be a inside bay cave, where many shops are set up in a kind of canals system.
+* E'dun got a poison for his sword at Yulma's shop
+* Davey and Streex played in the water, splashin' around
+* Brothel Chili's Pirate Bar – Jim's bar and grill
+* Streex and Yselda the dog snuck into the kitched and found the wormwood moonshine
+* Reniya found Jim and kicked him to intimidate him
+* Jim owed some money to Lester Sylvestor the Silver Investor
+* Went to Lester's
+* We had a match against Heckbeard's Frick Bois 
+* Shredded the Hexagon (octagon)
+* Streex bought us Frickbeards hats
+* We got the stuff
+
+### Session 5: 03/22/2020
+* We all got a group tattoo
+* Went underground to the Mustard Plug, Davey got Rhinestone Duster, Streex got rollerblades
+* Streex learned Giant language
+* Rusty builds Yulma-bot and gets married
+* Returned to the temple
+* Each had a extra-planar experience
+	* Reniya met Zanthanar, a giant turtle
+	* Rusty, Streex, and E'dun performed a gem heist
+	* Yselda saw a memory of her parents 
+	* Toothy had one last encounter with Davey's sprit on the Year 3000
+
+### Session 6: 04/04/2020
+* We had a battle with a dementor and a giant slug who possessed Davey and Toothy revealed his secret
+* We had a funeral procession for Davey and walked past the Seared Rapscallion
+* Saw that the Rapscallion had a construction zone set up, decided to investigate
+
+### Session 7: 04/11/2020
+* investigate the bar
+* go to olric's house
+* go to port
+* Herring & Hairing Bing Bong Wallywag
+* Pablo Escojuagar
+* Reniya tries to steal another baby, Yselda stops her
+* Crawfrick Metalgrog
+* Side Quest from Heckbeard Alemon Demandry used to run a high-value shipping route to a port across the desert. ONce it became clear that the pirate shipping industry was getting hamstrung, he cut a deal with Montogmery to sell information about the pirate stuff. We need to retrieve the license so Heckbeard will look for Olrick. He recommends that we intercept the shipping vessel above the forest plateau before it goes into the desert.
+* E'dun does drugs and follows a staircase down into Shadowfell
+* Rusty and Yulma enjoy an ice cream
+* Reniya attempts to steal another baby, Pablo tries to stop her
+* Yselda buys a pillow
+* We send off Davey Jonas
+* Dinner Party
+* Ornithopter - the type of ship we're on called the pterabarnacle 
+* E'dun and Toothy convince the hippos that we're legit and need to check their paperwork
+* 4 Giffs, bipedal hippos

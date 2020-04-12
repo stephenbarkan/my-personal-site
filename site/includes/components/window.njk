@@ -13,29 +13,11 @@ closed
                 <button
                         class="relative flex p-1 -m-1 transition-colors duration-300 rounded-sm window-close ease-smooth">
                     <span class="sr-only">Close Window</span>
-                    <div class="w-4 h-4 bg-red-500 border rounded-full
-                        {% if inverted %}
-                            border-{{color}}-800
-                        {% else %}
-                             border-{{color}}-100
-                        {% endif %}
-                    ">
+                    <div class="bg-red-500 rounded-full traffic-light">
                     </div>
-                    <div class="w-4 h-4 ml-2 bg-yellow-500 border border-{{color}}-100 rounded-full
-                        {% if inverted %}
-                            border-{{color}}-800
-                        {% else %}
-                             border-{{color}}-100
-                        {% endif %}
-                    ">
+                    <div class="bg-yellow-500 rounded-full traffic-light">
                     </div>
-                    <div class="w-4 h-4 ml-2 bg-green-500 border border-{{color}}-100 rounded-full
-                        {% if inverted %}
-                            border-{{color}}-800
-                        {% else %}
-                             border-{{color}}-100
-                        {% endif %}
-                    ">
+                    <div class="bg-green-500 rounded-full traffic-light">
                     </div>
                 </button>
             </div>
