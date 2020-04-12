@@ -13,6 +13,7 @@ var nextButton = document.getElementById("nextButton");
 var nextButtonWrapper = document.getElementById("next-button-wrapper");
 var inputFields = document.querySelectorAll("#chat-controls textarea");
 var form = document.getElementById('contact-form');
+var editButtons = [];
 var formSubmit = null;
 var formClear = null;
 var state = 0;
@@ -39,7 +40,7 @@ function chatPush(origin, message) {
   newBubble.classList.add(originClass);
 
   if (originClass == "fromMe") {
-    newBubble.innerHTML = "<div class='message'><p data-field=\"".concat(states[state], "\"") + ">" + message + "</p> <div><button onclick='editMessage(this)'>Edit</button></div></div>";
+    newBubble.innerHTML = "<div class='message'><div><button class='message-edit'>Edit</button></div><p data-field=\"".concat(states[state], "\"") + ">" + message + "</p></div>";
   } else {
     newBubble.innerHTML = "<div class='message'><p>" + message + "</div>";
   }
@@ -48,12 +49,21 @@ function chatPush(origin, message) {
   showLatestMessage();
 }
 
-var editMessage = function editMessage(el) {
-  var message = el.closest(".message");
-  var editable = message.querySelector("p");
+function updateEditButtons() {
+  editButtons = document.querySelectorAll('.message-edit');
+  editButtons.forEach(function (button) {
+    button.addEventListener("click", function (e) {
+      var el = e.target;
+      var message = el.closest(".message");
+      var editable = message.querySelector("p");
+      editMessage(el, message, editable);
+    });
+  });
+}
+
+var editMessage = function editMessage(el, message, editable) {
   var isEditable = editable.getAttribute("contenteditable");
   var newContent;
-  console.log(editable.innerText);
 
   if (editable.innerText !== "") {
     editable.toggleAttribute("contenteditable");
@@ -100,8 +110,7 @@ function inputValueCheck() {
     nextButtonWrapper.classList.add('disabled');
     nextButton.setAttribute("tabindex", "-1");
   }
-} // inputValueCheck()
-
+}
 
 nextButton.addEventListener("click", function (e) {
   e.preventDefault();
@@ -114,6 +123,7 @@ nextButton.addEventListener("click", function (e) {
 
   if (message) {
     chatPush("user", message);
+    updateEditButtons();
     saveName();
     updateState();
 
@@ -161,6 +171,7 @@ var addConfirmBox = function addConfirmBox() {
   confirmBox = document.querySelector("#confirmBox");
   formClear = document.querySelector("#formClear");
   formSubmit.addEventListener("click", function (e) {
+    formSubmit.setAttribute('disabled', 'true');
     e.preventDefault();
     var formData = new FormData(form);
     fetch(form.getAttribute('action'), {

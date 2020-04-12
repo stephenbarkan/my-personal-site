@@ -6,6 +6,7 @@ const nextButton = document.getElementById("nextButton")
 const nextButtonWrapper = document.getElementById("next-button-wrapper")
 const inputFields = document.querySelectorAll(`#chat-controls textarea`)
 const form = document.getElementById('contact-form')
+let editButtons = []
 let formSubmit = null
 let formClear = null
 let state = 0
@@ -41,7 +42,7 @@ function chatPush(origin, message) {
   newBubble.classList.add(originClass)
 
   if (originClass == "fromMe") {
-    newBubble.innerHTML = `<div class='message'><p data-field="${states[state]}"` + ">" + message + "</p> <div><button onclick='editMessage(this)'>Edit</button></div></div>"
+    newBubble.innerHTML = `<div class='message'><div><button class='message-edit'>Edit</button></div><p data-field="${states[state]}"` + ">" + message + "</p></div>"
   } else {
     newBubble.innerHTML = `<div class='message'><p>` + message + `</div>`
   }
@@ -49,12 +50,26 @@ function chatPush(origin, message) {
   showLatestMessage()
 }
 
-const editMessage = function (el) {
-  const message = el.closest(".message");
-  const editable = message.querySelector("p")
+
+function updateEditButtons() {
+  editButtons = document.querySelectorAll('.message-edit')
+  editButtons.forEach(button => {
+    button.addEventListener("click", (e) => {
+      const el = e.target
+      const message = el.closest(".message");
+      const editable = message.querySelector("p")
+
+
+      editMessage(el, message, editable)
+    })
+  })
+}
+
+const editMessage = function (el, message, editable) {
+
   let isEditable = editable.getAttribute("contenteditable")
   let newContent
-  console.log(editable.innerText)
+
   if (editable.innerText !== "") {
     editable.toggleAttribute("contenteditable")
     if (isEditable === null) {
@@ -74,6 +89,7 @@ const editMessage = function (el) {
     }
   }
 }
+
 
 
 inputFields.forEach(inputField => {
@@ -102,7 +118,6 @@ function inputValueCheck() {
   }
 }
 
-// inputValueCheck()
 
 nextButton.addEventListener("click", function (e) {
   e.preventDefault()
@@ -115,6 +130,7 @@ nextButton.addEventListener("click", function (e) {
 
   if (message) {
     chatPush("user", message)
+    updateEditButtons()
     saveName()
     updateState()
 
@@ -166,6 +182,7 @@ const addConfirmBox = function () {
   formClear = document.querySelector("#formClear")
 
   formSubmit.addEventListener("click", (e) => {
+    formSubmit.setAttribute('disabled', 'true')
     e.preventDefault()
 
     const formData = new FormData(form);
