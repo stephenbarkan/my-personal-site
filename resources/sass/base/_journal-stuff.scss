@@ -4,6 +4,16 @@
   }
 }
 
+.about-note-link {
+  &.active {
+    @apply bg-white;
+
+    h4 {
+      @apply font-medium;
+    }
+  }
+}
+
 #about-note-sidebar {
   &.open {
     transform: none;

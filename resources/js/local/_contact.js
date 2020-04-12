@@ -22,7 +22,7 @@ var confirmModal = confirmModalTemplate.content.cloneNode(true)
 
 let responses = [
   `Okay, ${userName}! What do you want to say to me?`,
-  `Got it – and at what email address should I respond to you?`,
+  `That's pretty cool. What email address should I use to respond to you?`,
   ``
 ]
 
@@ -39,6 +39,7 @@ function chatPush(origin, message) {
 
   const newBubble = document.createElement("div")
   newBubble.classList.add(originClass)
+
   if (originClass == "fromMe") {
     newBubble.innerHTML = `<div class='message'><p data-field="${states[state]}"` + ">" + message + "</p> <div><button onclick='editMessage(this)'>Edit</button></div></div>"
   } else {
@@ -53,24 +54,24 @@ const editMessage = function (el) {
   const editable = message.querySelector("p")
   let isEditable = editable.getAttribute("contenteditable")
   let newContent
-
-  editable.toggleAttribute("contenteditable")
-  if (isEditable === null) {
-    message.setAttribute("tabindex", "0")
-    message.classList.add("editable")
-    el.innerText = "Save"
-  } else {
-    newContent = editable.innerText
-    message.removeAttribute("tabindex")
-    message.classList.remove("editable")
-    el.innerText = "Edit"
-    console.log(editable.getAttribute("data-field"))
-    console.log(newContent)
-    inputFields.forEach(field => {
-      if (field.id == editable.getAttribute("data-field")) {
-        field.innerHTML = newContent
-      }
-    })
+  console.log(editable.innerText)
+  if (editable.innerText !== "") {
+    editable.toggleAttribute("contenteditable")
+    if (isEditable === null) {
+      message.setAttribute("tabindex", "0")
+      message.classList.add("editable")
+      el.innerText = "Save"
+    } else {
+      newContent = editable.innerText
+      message.removeAttribute("tabindex")
+      message.classList.remove("editable")
+      el.innerText = "Edit"
+      inputFields.forEach(field => {
+        if (field.id == editable.getAttribute("data-field")) {
+          field.innerHTML = newContent
+        }
+      })
+    }
   }
 }
 
@@ -198,7 +199,7 @@ function saveName() {
       let str = field.value
       let words = str.split(" ")
       userName = words[0]
-      responses[0] = `Hi, ${userName}! What do you want to say to me?`
+      responses[0] = `Oh, hey, ${userName}! What's up?`
     }
   })
 }
@@ -215,7 +216,7 @@ contactLink.addEventListener("click", function () {
   addTypingBubble()
   setTimeout(function () {
     removeTypingBubble()
-    chatPush("you", "Hi! Want to get in touch with me? First tell me what your name is!")
+    chatPush("you", "Hello, Stephen here! Who are you?")
   }, 2500)
 }, {
   once: true

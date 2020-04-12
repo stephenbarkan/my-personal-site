@@ -8,7 +8,7 @@ const aboutSidebar = document.getElementById('about-note-sidebar')
 
 const displayNote = function (link) {
   const currentItem = link.getAttribute('data-note')
-
+  link.classList.add("active")
   fetch(currentItem)
     .then(response => response.text())
     .then(text => {
@@ -20,6 +20,9 @@ const displayNote = function (link) {
 aboutSidebarLinks.forEach(link => {
   link.addEventListener('click', function (e) {
     e.preventDefault()
+    aboutSidebarLinks.forEach(link => {
+      link.classList.remove("active")
+    })
     displayNote(link)
     aboutSidebar.classList.remove('open')
     aboutSidebarCloseButton.classList.remove('open')

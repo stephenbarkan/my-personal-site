@@ -1,8 +1,14 @@
 [{
-        "src": "me.png",
+        "src": "me.jpg",
         "alt": "It's me",
-        "caption": "A pic of me!",
-        "date": "2018-07-18"
+        "caption": "Me in Chicago. It was very cold there",
+        "date": "2020-02-15"
+    },
+    {
+        "src": "wedding.jpg",
+        "alt": "Eugenia and me dancing at her sister's wedding",
+        "caption": "Eugenia and me dancing at her sister's wedding",
+        "date": "2019-10-26"
     },
     {
         "src": "queens-night-market.jpg",
@@ -19,7 +25,7 @@
     {
         "src": "jam.gif",
         "alt": "rockin' out",
-        "caption": "🤘",
+        "caption": "The GIF we created for my alternate headshot when I started working at INK. It always bothered me that we didn't use any cables to plug the keyboard in so it's obvious I'm not actually playing it. I still think it's cool, though.",
         "date": "2018-07-18"
     }
 ]
