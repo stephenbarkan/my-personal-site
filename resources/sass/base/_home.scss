@@ -21,7 +21,7 @@ a:hover .home-link-bg {
 }
 
 .fade-overlay {
-  transition: all 1s var(--easing);
+  @apply duration-1000 ease-smooth;
   transition-property: opacity, visibility;
   z-index: 10000;
 
