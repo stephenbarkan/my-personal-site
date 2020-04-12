@@ -672,30 +672,30 @@ var revealHomeButtons = function revealHomeButtons() {
     }
   }
 };
-var projects = document.querySelectorAll(".project-link");
-var closeButton = document.querySelector(".close-preview");
-var preview = document.querySelector(".project-preview");
-var previewOverlay = document.querySelector(".preview-overlay");
-var portfolioWindowCloseButtons = document.querySelector("#portfolioWindow .window-close");
-var previewPopup = document.getElementById("preview-popup");
-projects.forEach(function (project) {
-  project.addEventListener("click", function (e) {
-    e.preventDefault();
-    var currentItem = project.getAttribute('data-project');
-    fetch(currentItem).then(function (response) {
-      return response.text();
-    }).then(function (text) {
-      previewPopup.innerHTML = text;
-      preview.classList.remove("closed");
-    });
-  });
-});
-closeButton.addEventListener("click", function () {
-  preview.classList.add("closed");
-});
-previewOverlay.addEventListener("click", function () {
-  preview.classList.add("closed");
-});
+// const projects = document.querySelectorAll(".project-link")
+// const closeButton = document.querySelector(".close-preview")
+// const preview = document.querySelector(".project-preview")
+// const previewOverlay = document.querySelector(".preview-overlay")
+// const portfolioWindowCloseButtons = document.querySelector("#portfolioWindow .window-close")
+// const previewPopup = document.getElementById("preview-popup")
+// projects.forEach(project => {
+//   project.addEventListener("click", function (e) {
+//     e.preventDefault()
+//     const currentItem = project.getAttribute('data-project')
+//     fetch(currentItem)
+//       .then(response => response.text())
+//       .then(text => {
+//         previewPopup.innerHTML = text
+//         preview.classList.remove("closed")
+//       })
+//   })
+// })
+// closeButton.addEventListener("click", function () {
+//   preview.classList.add("closed")
+// })
+// previewOverlay.addEventListener("click", function () {
+//   preview.classList.add("closed")
+// })
 var LOCAL_STORAGE_THEME = "theme.mode";
 var currentTheme;
 

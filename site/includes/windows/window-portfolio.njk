@@ -7,8 +7,12 @@
             {% for post in data %}
             <li>
                 <a
-                   data-project="{{post.outputPath | replace("dist/", "")}}"
-                   href="#"
+                   {# data-project="{{post.outputPath | replace("dist/", "")}}" #}
+
+                   {# remove these two lines if ever want to add the previews back #}
+                   href="{{post.data.link}}"
+                   target="_blank"
+
                    title="{{post.data.subtitle}} for {{post.data.title}}"
                    class="flex flex-col items-center py-6 text-center text-purple-100 rounded-lg group project-link smooth-transition portfolio-link btn">
                     <div class="grid items-center justify-center grid-absolute">
