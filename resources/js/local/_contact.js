@@ -235,7 +235,7 @@ contactLink.addEventListener("click", function () {
   addTypingBubble()
   setTimeout(function () {
     removeTypingBubble()
-    chatPush("you", "Hello, Stephen here! Who are you?")
+    chatPush("you", "Hello, Stephen here! 👋 Who are you?")
   }, 2500)
 }, {
   once: true
