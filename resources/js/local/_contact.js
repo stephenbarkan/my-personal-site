@@ -23,7 +23,7 @@ var confirmModal = confirmModalTemplate.content.cloneNode(true)
 
 let responses = [
   `Okay, ${userName}! What do you want to say to me?`,
-  `Okay, that's pretty cool. Can you give me your email so I can reply to you?`,
+  `Okay, that's pretty cool. Will you give me your email so I can reply to you?`,
   ``
 ]
 
@@ -202,7 +202,7 @@ const addConfirmBox = function () {
           addTypingBubble()
           setTimeout(function () {
             removeTypingBubble()
-            chatPush("you", `Thanks, ${userName}! I'll get back to you soon.`)
+            chatPush("you", `Awesome, thanks, ${userName}! I'll get back to you soon.`)
           }, 2500)
         }
       });

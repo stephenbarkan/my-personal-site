@@ -111,7 +111,6 @@ module.exports = {
 
 		fontFamily: {
 			sans: [
-				"Neue Haas Unica",
 				"IBM Plex Sans",
 				"-apple-system",
 				"BlinkMacSystemFont",

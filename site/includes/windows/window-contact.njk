@@ -83,32 +83,26 @@
 
 <template id="confirmModal">
   <div>
-    <div class="relative mx-2 text-center transition-opacity duration-700 bg-white border rounded-sm border-grey-200 ease-smooth"
+    <div class="relative mx-2 overflow-hidden text-center transition-opacity duration-700 bg-white border rounded border-grey-200 ease-smooth"
          id="confirmBox">
-      <div class="relative p-3 border-b border-grey-200">
+      <div class="px-4 py-4 border-b bg-grey-100 border-grey-200">
         <h2 class="font-serif text-xl leading-tight">Ready to send?</h2>
       </div>
 
-      <div class="px-3 py-8">
+      <div class="px-6 py-6 border-b border-grey-200">
         <p class="text-sm leading-loose">If needed, you can modify your messages above by hovering over each bubble and
           clicking the edit button.</p>
       </div>
 
-      <div class="flex">
+      <div class="flex justify-center px-4 py-4 bg-white">
         {# <button id="formClear"
                 class="flex-1 px-2 py-3 text-xs tracking-wide transition border-t border-r border-grey-200 text-grey-600 hocus:bg-grey-100 hocus:text-red-500">
           Clear Form
         </button> #}
         <button id="formSubmit"
-                class="flex items-center justify-center flex-1 px-2 py-4 text-xs tracking-wide text-blue-500 transition-colors border-t smooth-transition border-grey-200 hocus:bg-blue-100">
-          <svg class="flex-shrink-0 block w-4 h-4 text-blue-500" role="button"
-               aria-hidden="true">
-            <use xmlns:xlink="http://www.w3.org/1999/xlink"
-                 xlink:href="/images/icons/icon-library.svg#icon-notes-right"></use>
-          </svg>
-          <span
-                class="font-mono leading-none tracking-wide text-blue-500 uppercase text-xxs ig-heart-text">Yes, send my
-            message!</span>
+                class="relative block px-4 py-2 text-xs transition-colors bg-white rounded-sm shadow-sm hocus:bg-grey-100 smooth-transition focus:shadow-outline">
+          Yes, send my message!
+          <div class="shadow-border"></div>
         </button>
       </div>
     </div>

@@ -122,6 +122,12 @@ html[data-theme="dark"] {
   textarea::placeholder {
     @apply text-grey-500;
   }
+
+  &.pointer-events-none {
+    textarea::placeholder {
+      @apply text-black-300;
+    }
+  }
 }
 
 #nextButton {
