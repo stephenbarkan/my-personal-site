@@ -83,22 +83,27 @@
 
 <template id="confirmModal">
   <div>
-    <div class="relative mx-2 overflow-hidden text-center transition-opacity duration-700 bg-white border rounded border-grey-200 ease-smooth"
+    <div class="relative px-6 pt-12 pb-6 mx-6 overflow-hidden text-center transition-opacity duration-700 bg-blue-100 rounded-lg ease-smooth"
          id="confirmBox">
-      <div class="px-4 py-4 border-b bg-grey-100 border-grey-200">
-        <h2 class="font-serif text-xl leading-tight">Ready to send?</h2>
+
+
+      <div class="mb-8">
+        <svg class="block w-12 h-12 mx-auto text-blue-500" fill="currentColor" role="presentation" aria-hidden="true"
+             viewBox="0 0 24 24">
+          <path fill="currentColor" fill-rule="evenodd"
+                d="M22.727 1.314a.996.996 0 00-1.079-.25L1.67 8.055a1 1 0 00-.076 1.858l8.648 3.844 3.844 8.648a1 1 0 001.858-.076l6.993-19.979a1.002 1.002 0 00-.21-1.037zM18.194 4.39L4.711 9.111l6.067 2.696 7.416-7.416zm-6.001 8.83l7.415-7.415-4.719 13.483-2.696-6.068z"
+                clip-rule="evenodd" />
+        </svg>
       </div>
 
-      <div class="px-6 py-6 border-b border-grey-200">
-        <p class="text-sm leading-loose">If needed, you can modify your messages above by hovering over each bubble and
+      <div class="mb-4">
+        <h2 class="mb-3 font-serif text-xl leading-tight">Ready to send?</h2>
+        <p class="text-sm leading-loose text-black-600">If needed, you can modify your messages above by hovering over
+          each bubble and
           clicking the edit button.</p>
       </div>
 
-      <div class="flex justify-center px-4 py-4 bg-white">
-        {# <button id="formClear"
-                class="flex-1 px-2 py-3 text-xs tracking-wide transition border-t border-r border-grey-200 text-grey-600 hocus:bg-grey-100 hocus:text-red-500">
-          Clear Form
-        </button> #}
+      <div class="flex justify-center px-4">
         <button id="formSubmit"
                 class="relative block px-4 py-2 text-xs transition-colors bg-white rounded-sm shadow-sm hocus:bg-grey-100 smooth-transition focus:shadow-outline">
           Yes, send my message!
