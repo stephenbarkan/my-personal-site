@@ -157,6 +157,14 @@ module.exports = {
 				full: "100%"
 			},
 
+			inset: {
+				"1/2": "50%",
+			},
+
+			translate: {
+				"-1/2": "-50%",
+			},
+
 			zIndex: {
 				"-1": "-1"
 			},
@@ -203,7 +211,7 @@ module.exports = {
 	},
 
 	variants: {
-		textDecoration: ["responsive", "hover", "focus", "group-hover", 'group-hocus'],
+		textDecoration: ["responsive", "hover", "focus", "group-hover", 'group-hocus', 'hocus'],
 		margin: ["responsive", "first"],
 		borderWidth: ["hover", "focus", "first"],
 		backgroundColor: ["hover", "focus", "hocus", "responsive", "focus-within"],

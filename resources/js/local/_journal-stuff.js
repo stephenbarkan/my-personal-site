@@ -29,7 +29,7 @@ aboutSidebarLinks.forEach(link => {
   })
 })
 
-displayNote(aboutSidebarLinks[0])
+// displayNote(aboutSidebarLinks[0])
 
 
 aboutSidebarOpenButton.addEventListener('click', function () {

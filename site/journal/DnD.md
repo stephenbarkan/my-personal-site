@@ -83,13 +83,26 @@ The story begins in Velon, a bustling skyport city where magic and technology ar
 * Pablo Escojuagar
 * Reniya tries to steal another baby, Yselda stops her
 * Crawfrick Metalgrog
-* Side Quest from Heckbeard Alemon Demandry used to run a high-value shipping route to a port across the desert. ONce it became clear that the pirate shipping industry was getting hamstrung, he cut a deal with Montogmery to sell information about the pirate stuff. We need to retrieve the license so Heckbeard will look for Olrick. He recommends that we intercept the shipping vessel above the forest plateau before it goes into the desert.
+* Side Quest from Heckbeard Aldermon Demandry used to run a high-value shipping route to a port across the desert. ONce it became clear that the pirate shipping industry was getting hamstrung, he cut a deal with Montogmery to sell information about the pirate stuff. We need to retrieve the license so Heckbeard will look for Olrick. He recommends that we intercept the shipping vessel above the forest plateau before it goes into the desert.
 * E'dun does drugs and follows a staircase down into Shadowfell
 * Rusty and Yulma enjoy an ice cream
 * Reniya attempts to steal another baby, Pablo tries to stop her
 * Yselda buys a pillow
 * We send off Davey Jonas
 * Dinner Party
+* Next day we meet at dawn
 * Ornithopter - the type of ship we're on called the pterabarnacle 
 * E'dun and Toothy convince the hippos that we're legit and need to check their paperwork
 * 4 Giffs, bipedal hippos
+* fight breaks out
+
+### Session 8: 04/18/2020
+* we kill the dragon, who it turns out is an illegitemate son, Florence Montgomery of the head of Montgomery Logistics
+* Toothy takes control of his body
+* we kill most of the giffs after interogating them
+* find out that the shadow man coerced them into selling out heckbeard
+* we head home and have a conversation about how the team is getting out of hand, need more team cohesion
+* take a rest and play tabs, the guys do LSD, the girls gossip
+* name the other ship the Feared Rapscallion
+* Heckbeard tells us that he heard a report that somebody saw Olrick getting dragged out of his house by two Velon police officers and peacekeepers, but his men on the inside of the detention center didn't see him. not as many people getting arrested are showing up at the detention center.
+* we decide to visit Yselda's dad in prison, stop by the Toasty Tuna Towers to put Florence on ice and try to get Secretary Face McGee to take care of him. He has become a wizard and casts a spell on the body so it can't decay

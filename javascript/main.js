@@ -88,9 +88,10 @@ var editMessage = function editMessage(el, message, editable) {
 
 inputFields.forEach(function (inputField) {
   inputField.addEventListener("keydown", function (e) {
-    if (inputField.value) {
-      if (e.which == 13) {
-        e.preventDefault();
+    if (e.which == 13) {
+      e.preventDefault();
+
+      if (inputField.value) {
         event.stopPropagation();
         nextButton.click();
         nextButton.classList.add("animating");
@@ -202,7 +203,7 @@ function saveName() {
       var str = field.value;
       var words = str.split(" ");
       userName = words[0];
-      responses[0] = "Oh, hey, ".concat(userName, "! What's up?");
+      responses[0] = "Oh hey, ".concat(userName, "! What's up?");
     }
   });
 }
@@ -423,8 +424,8 @@ aboutSidebarLinks.forEach(function (link) {
     aboutSidebar.classList.remove('open');
     aboutSidebarCloseButton.classList.remove('open');
   });
-});
-displayNote(aboutSidebarLinks[0]);
+}); // displayNote(aboutSidebarLinks[0])
+
 aboutSidebarOpenButton.addEventListener('click', function () {
   if (aboutSidebar.classList.contains('open')) {
     aboutSidebar.classList.remove('open');
@@ -551,6 +552,8 @@ var songLoading = function songLoading(target, index) {
 var songLoaded = function songLoaded() {
   durationSeconds = song.duration();
   musicTitle.innerHTML = title;
+  musicTitle.classList.remove('text-black-600');
+  musicTitle.classList.add('text-black-900');
   play();
   musicSlider.removeAttribute('disabled');
   playButton.removeAttribute('disabled');
@@ -601,7 +604,7 @@ var playSong = function playSong(target, index) {
     songLoaded();
   });
   song.on('end', function () {
-    next();
+    nextSong();
   });
 };
 

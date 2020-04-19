@@ -11196,6 +11196,13 @@ a:hover .home-link-bg {
   left: auto;
 }
 
+.inset-1\/2{
+  top: 50%;
+  right: 50%;
+  bottom: 50%;
+  left: 50%;
+}
+
 .inset-y-0{
   top: 0;
   bottom: 0;
@@ -11214,6 +11221,16 @@ a:hover .home-link-bg {
 .inset-x-auto{
   right: auto;
   left: auto;
+}
+
+.inset-y-1\/2{
+  top: 50%;
+  bottom: 50%;
+}
+
+.inset-x-1\/2{
+  right: 50%;
+  left: 50%;
 }
 
 .top-0{
@@ -11246,6 +11263,22 @@ a:hover .home-link-bg {
 
 .left-auto{
   left: auto;
+}
+
+.top-1\/2{
+  top: 50%;
+}
+
+.right-1\/2{
+  right: 50%;
+}
+
+.bottom-1\/2{
+  bottom: 50%;
+}
+
+.left-1\/2{
+  left: 50%;
 }
 
 .resize-none{
@@ -12725,6 +12758,18 @@ a:hover .home-link-bg {
 }
 
 .group:hover .group-hocus\:no-underline,.group:focus .group-hocus\:no-underline{
+  text-decoration: none;
+}
+
+.hocus\:underline:hover,.hocus\:underline:focus{
+  text-decoration: underline;
+}
+
+.hocus\:line-through:hover,.hocus\:line-through:focus{
+  text-decoration: line-through;
+}
+
+.hocus\:no-underline:hover,.hocus\:no-underline:focus{
   text-decoration: none;
 }
 
@@ -23837,6 +23882,13 @@ a:hover .home-link-bg {
     left: auto;
   }
 
+  .xs\:inset-1\/2{
+    top: 50%;
+    right: 50%;
+    bottom: 50%;
+    left: 50%;
+  }
+
   .xs\:inset-y-0{
     top: 0;
     bottom: 0;
@@ -23855,6 +23907,16 @@ a:hover .home-link-bg {
   .xs\:inset-x-auto{
     right: auto;
     left: auto;
+  }
+
+  .xs\:inset-y-1\/2{
+    top: 50%;
+    bottom: 50%;
+  }
+
+  .xs\:inset-x-1\/2{
+    right: 50%;
+    left: 50%;
   }
 
   .xs\:top-0{
@@ -23887,6 +23949,22 @@ a:hover .home-link-bg {
 
   .xs\:left-auto{
     left: auto;
+  }
+
+  .xs\:top-1\/2{
+    top: 50%;
+  }
+
+  .xs\:right-1\/2{
+    right: 50%;
+  }
+
+  .xs\:bottom-1\/2{
+    bottom: 50%;
+  }
+
+  .xs\:left-1\/2{
+    left: 50%;
   }
 
   .xs\:resize-none{
@@ -24190,6 +24268,18 @@ a:hover .home-link-bg {
   }
 
   .group:hover .xs\:group-hocus\:no-underline,.group:focus .xs\:group-hocus\:no-underline{
+    text-decoration: none;
+  }
+
+  .xs\:hocus\:underline:hover,.xs\:hocus\:underline:focus{
+    text-decoration: underline;
+  }
+
+  .xs\:hocus\:line-through:hover,.xs\:hocus\:line-through:focus{
+    text-decoration: line-through;
+  }
+
+  .xs\:hocus\:no-underline:hover,.xs\:hocus\:no-underline:focus{
     text-decoration: none;
   }
 
@@ -35303,6 +35393,13 @@ a:hover .home-link-bg {
     left: auto;
   }
 
+  .sm\:inset-1\/2{
+    top: 50%;
+    right: 50%;
+    bottom: 50%;
+    left: 50%;
+  }
+
   .sm\:inset-y-0{
     top: 0;
     bottom: 0;
@@ -35321,6 +35418,16 @@ a:hover .home-link-bg {
   .sm\:inset-x-auto{
     right: auto;
     left: auto;
+  }
+
+  .sm\:inset-y-1\/2{
+    top: 50%;
+    bottom: 50%;
+  }
+
+  .sm\:inset-x-1\/2{
+    right: 50%;
+    left: 50%;
   }
 
   .sm\:top-0{
@@ -35353,6 +35460,22 @@ a:hover .home-link-bg {
 
   .sm\:left-auto{
     left: auto;
+  }
+
+  .sm\:top-1\/2{
+    top: 50%;
+  }
+
+  .sm\:right-1\/2{
+    right: 50%;
+  }
+
+  .sm\:bottom-1\/2{
+    bottom: 50%;
+  }
+
+  .sm\:left-1\/2{
+    left: 50%;
   }
 
   .sm\:resize-none{
@@ -35656,6 +35779,18 @@ a:hover .home-link-bg {
   }
 
   .group:hover .sm\:group-hocus\:no-underline,.group:focus .sm\:group-hocus\:no-underline{
+    text-decoration: none;
+  }
+
+  .sm\:hocus\:underline:hover,.sm\:hocus\:underline:focus{
+    text-decoration: underline;
+  }
+
+  .sm\:hocus\:line-through:hover,.sm\:hocus\:line-through:focus{
+    text-decoration: line-through;
+  }
+
+  .sm\:hocus\:no-underline:hover,.sm\:hocus\:no-underline:focus{
     text-decoration: none;
   }
 
@@ -46769,6 +46904,13 @@ a:hover .home-link-bg {
     left: auto;
   }
 
+  .md\:inset-1\/2{
+    top: 50%;
+    right: 50%;
+    bottom: 50%;
+    left: 50%;
+  }
+
   .md\:inset-y-0{
     top: 0;
     bottom: 0;
@@ -46787,6 +46929,16 @@ a:hover .home-link-bg {
   .md\:inset-x-auto{
     right: auto;
     left: auto;
+  }
+
+  .md\:inset-y-1\/2{
+    top: 50%;
+    bottom: 50%;
+  }
+
+  .md\:inset-x-1\/2{
+    right: 50%;
+    left: 50%;
   }
 
   .md\:top-0{
@@ -46819,6 +46971,22 @@ a:hover .home-link-bg {
 
   .md\:left-auto{
     left: auto;
+  }
+
+  .md\:top-1\/2{
+    top: 50%;
+  }
+
+  .md\:right-1\/2{
+    right: 50%;
+  }
+
+  .md\:bottom-1\/2{
+    bottom: 50%;
+  }
+
+  .md\:left-1\/2{
+    left: 50%;
   }
 
   .md\:resize-none{
@@ -47122,6 +47290,18 @@ a:hover .home-link-bg {
   }
 
   .group:hover .md\:group-hocus\:no-underline,.group:focus .md\:group-hocus\:no-underline{
+    text-decoration: none;
+  }
+
+  .md\:hocus\:underline:hover,.md\:hocus\:underline:focus{
+    text-decoration: underline;
+  }
+
+  .md\:hocus\:line-through:hover,.md\:hocus\:line-through:focus{
+    text-decoration: line-through;
+  }
+
+  .md\:hocus\:no-underline:hover,.md\:hocus\:no-underline:focus{
     text-decoration: none;
   }
 
@@ -58235,6 +58415,13 @@ a:hover .home-link-bg {
     left: auto;
   }
 
+  .lg\:inset-1\/2{
+    top: 50%;
+    right: 50%;
+    bottom: 50%;
+    left: 50%;
+  }
+
   .lg\:inset-y-0{
     top: 0;
     bottom: 0;
@@ -58253,6 +58440,16 @@ a:hover .home-link-bg {
   .lg\:inset-x-auto{
     right: auto;
     left: auto;
+  }
+
+  .lg\:inset-y-1\/2{
+    top: 50%;
+    bottom: 50%;
+  }
+
+  .lg\:inset-x-1\/2{
+    right: 50%;
+    left: 50%;
   }
 
   .lg\:top-0{
@@ -58285,6 +58482,22 @@ a:hover .home-link-bg {
 
   .lg\:left-auto{
     left: auto;
+  }
+
+  .lg\:top-1\/2{
+    top: 50%;
+  }
+
+  .lg\:right-1\/2{
+    right: 50%;
+  }
+
+  .lg\:bottom-1\/2{
+    bottom: 50%;
+  }
+
+  .lg\:left-1\/2{
+    left: 50%;
   }
 
   .lg\:resize-none{
@@ -58588,6 +58801,18 @@ a:hover .home-link-bg {
   }
 
   .group:hover .lg\:group-hocus\:no-underline,.group:focus .lg\:group-hocus\:no-underline{
+    text-decoration: none;
+  }
+
+  .lg\:hocus\:underline:hover,.lg\:hocus\:underline:focus{
+    text-decoration: underline;
+  }
+
+  .lg\:hocus\:line-through:hover,.lg\:hocus\:line-through:focus{
+    text-decoration: line-through;
+  }
+
+  .lg\:hocus\:no-underline:hover,.lg\:hocus\:no-underline:focus{
     text-decoration: none;
   }
 
@@ -69701,6 +69926,13 @@ a:hover .home-link-bg {
     left: auto;
   }
 
+  .xl\:inset-1\/2{
+    top: 50%;
+    right: 50%;
+    bottom: 50%;
+    left: 50%;
+  }
+
   .xl\:inset-y-0{
     top: 0;
     bottom: 0;
@@ -69719,6 +69951,16 @@ a:hover .home-link-bg {
   .xl\:inset-x-auto{
     right: auto;
     left: auto;
+  }
+
+  .xl\:inset-y-1\/2{
+    top: 50%;
+    bottom: 50%;
+  }
+
+  .xl\:inset-x-1\/2{
+    right: 50%;
+    left: 50%;
   }
 
   .xl\:top-0{
@@ -69751,6 +69993,22 @@ a:hover .home-link-bg {
 
   .xl\:left-auto{
     left: auto;
+  }
+
+  .xl\:top-1\/2{
+    top: 50%;
+  }
+
+  .xl\:right-1\/2{
+    right: 50%;
+  }
+
+  .xl\:bottom-1\/2{
+    bottom: 50%;
+  }
+
+  .xl\:left-1\/2{
+    left: 50%;
   }
 
   .xl\:resize-none{
@@ -70054,6 +70312,18 @@ a:hover .home-link-bg {
   }
 
   .group:hover .xl\:group-hocus\:no-underline,.group:focus .xl\:group-hocus\:no-underline{
+    text-decoration: none;
+  }
+
+  .xl\:hocus\:underline:hover,.xl\:hocus\:underline:focus{
+    text-decoration: underline;
+  }
+
+  .xl\:hocus\:line-through:hover,.xl\:hocus\:line-through:focus{
+    text-decoration: line-through;
+  }
+
+  .xl\:hocus\:no-underline:hover,.xl\:hocus\:no-underline:focus{
     text-decoration: none;
   }
 

@@ -121,6 +121,8 @@ const songLoading = function (target, index) {
 const songLoaded = function () {
   durationSeconds = song.duration()
   musicTitle.innerHTML = title
+  musicTitle.classList.remove('text-black-600')
+  musicTitle.classList.add('text-black-900')
   play()
   musicSlider.removeAttribute('disabled')
   playButton.removeAttribute('disabled')
@@ -175,7 +177,7 @@ const playSong = function (target, index) {
   })
 
   song.on('end', function () {
-    next()
+    nextSong()
   })
 }
 

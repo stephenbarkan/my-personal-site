@@ -94,9 +94,9 @@ const editMessage = function (el, message, editable) {
 
 inputFields.forEach(inputField => {
   inputField.addEventListener("keydown", function (e) {
-    if (inputField.value) {
-      if (e.which == 13) {
-        e.preventDefault()
+    if (e.which == 13) {
+      e.preventDefault()
+      if (inputField.value) {
         event.stopPropagation()
         nextButton.click()
         nextButton.classList.add("animating")
@@ -218,7 +218,7 @@ function saveName() {
       let str = field.value
       let words = str.split(" ")
       userName = words[0]
-      responses[0] = `Oh, hey, ${userName}! What's up?`
+      responses[0] = `Oh hey, ${userName}! What's up?`
     }
   })
 }

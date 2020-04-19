@@ -41,10 +41,24 @@
                     Entries</span>
             </button>
         </div>
-        <div class="pb-6 overflow-y-auto note-area">
+        <div class="flex-1 overflow-y-auto note-area">
             <button id="about-note-close" class="absolute inset-y-0 z-10 invisible w-full cursor-default"></button>
 
-            <article class="max-w-xl px-4 py-10 mx-auto xs:px-6 about-note"></article>
+            <article class="relative max-w-xl min-h-full px-4 py-10 mx-auto xs:px-6 about-note">
+                <div
+                     class="absolute flex flex-col items-center w-56 transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2">
+                    <div class="p-4 mb-6 bg-yellow-100 rounded-full">
+                        <svg class="block w-12 h-12 text-yellow-500" fill="currentColor" role="presentation"
+                             aria-hidden="true">
+                            <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                                 xlink:href="/images/icons/icon-library.svg#journal-empty-state"></use>
+                        </svg>
+                    </div>
+                    <h3 class="font-serif text-xl leading-tight text-center text-black-600">Click an item in the sidebar
+                        to read</h3>
+                </div>
+
+            </article>
         </div>
     </div>
 </div>
