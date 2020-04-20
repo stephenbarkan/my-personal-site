@@ -3,7 +3,7 @@ title: Our DnD Story
 date: 2020-04-02
 ---
 
-*My friends and I have been playing a DnD campaign lately. Below is an account of the events that have happened thus far:*
+> My friends and I have been playing a DnD campaign lately. Below is an account of the events that have happened thus far:
 
 ### The Setting
 The story begins in Velon, a bustling skyport city where magic and technology are fully intertwined with daily life, which serves as the main shipping artery to the prefectorial capital, Asteria. You’ll regularly catch an Artificer mechanic working on an airship or a Warforged police android patrolling the criminal hotbeds. Being the main port in and out of the capital, Velon gets traffic from political and religious figures, vacationers, and criminals alike.

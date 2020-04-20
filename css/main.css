@@ -963,7 +963,7 @@ body.window-open {
 
 @media (min-width: 640px) {
   #journalWindow {
-    left: calc(100% - var(--width) - 10rem);
+    left: calc(100% - var(--width) - 15rem);
     top: 15%;
   }
 }
@@ -1725,15 +1725,25 @@ input[type="range"]#music-slider::-ms-fill-upper {
 }
 
 .markdown blockquote {
-  margin-top: 2rem;
-  margin-bottom: 2rem;
-  font-family: ClearfaceStd-Regular, Georgia, Cambria, "Times New Roman", Times, serif;
-  font-size: 1.75rem;
-  border-left-width: 4px;
-  line-height: 1.5;
-  border-color: var(--clr-journal);
+  background-color: var(--clr-journal-light);
+  margin-left: -0.5rem;
+  margin-right: -0.5rem;
   padding-left: 1rem;
-  max-width: 24rem;
+  padding-right: 1rem;
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+  border-radius: 1rem;
+  color: var(--clr-black-800);
+  font-style: italic;
+}
+
+@media (min-width: 640px) {
+  .markdown blockquote {
+    margin-left: -1rem;
+    margin-right: -1rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
 }
 
 @-webkit-keyframes messageReceive {

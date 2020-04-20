@@ -153,6 +153,10 @@
   }
 
   blockquote {
-    @apply my-8 font-serif text-2xl border-l-4 leading-loose border-yellow-500 pl-4 max-w-sm;
+    @apply bg-yellow-100 -mx-2 px-4 py-6 rounded-lg text-black-800 italic;
+
+    @screen sm {
+      @apply -mx-4 px-8;
+    }
   }
 }
