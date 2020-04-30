@@ -5,6 +5,7 @@ const journalContent = document.getElementById('journal-content')
 const aboutSidebarOpenButton = document.getElementById('about-note-open')
 const aboutSidebarCloseButton = document.getElementById('about-note-close')
 const aboutSidebar = document.getElementById('about-note-sidebar')
+let $articleImages = null
 
 const displayNote = function (link) {
   const currentItem = link.getAttribute('data-note')
@@ -14,6 +15,8 @@ const displayNote = function (link) {
     .then(text => {
       aboutNote.innerHTML = text
       noteScroller.scrollTop = 0
+      $articleImages = aboutNote.querySelectorAll('img')
+      $imageCheck()
     })
 }
 

@@ -6,6 +6,6 @@ const $body = document.querySelector('body')
 
 const $header = document.getElementById('#header')
 
-const $nav = document.getElementById('#nav')
+const $main = document.getElementById('main')
 
 const $footer = document.getElementById('#footer')

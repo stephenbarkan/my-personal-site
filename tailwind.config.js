@@ -73,6 +73,11 @@ module.exports = {
 				default: "var(--clr-neutral)"
 			},
 
+			always: {
+				white: "#ffffff",
+				dark: "#221e24"
+			},
+
 			red: {
 				800: "#6e302b",
 				700: "#c85646",
@@ -176,6 +181,10 @@ module.exports = {
 
 			maxHeight: {
 				"64": "16rem"
+			},
+
+			cursor: {
+				"zoom-out": "zoom-out"
 			},
 
 			fontSize: {

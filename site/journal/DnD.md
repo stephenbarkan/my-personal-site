@@ -106,3 +106,7 @@ The story begins in Velon, a bustling skyport city where magic and technology ar
 * name the other ship the Feared Rapscallion
 * Heckbeard tells us that he heard a report that somebody saw Olrick getting dragged out of his house by two Velon police officers and peacekeepers, but his men on the inside of the detention center didn't see him. not as many people getting arrested are showing up at the detention center.
 * we decide to visit Yselda's dad in prison, stop by the Toasty Tuna Towers to put Florence on ice and try to get Secretary Face McGee to take care of him. He has become a wizard and casts a spell on the body so it can't decay
+
+
+### Session 9: 04/25/2020
+* go to jail

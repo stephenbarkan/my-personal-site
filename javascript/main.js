@@ -3,7 +3,7 @@
 // store selectors for reference so we only call them once
 var $body = document.querySelector('body');
 var $header = document.getElementById('#header');
-var $nav = document.getElementById('#nav');
+var $main = document.getElementById('main');
 var $footer = document.getElementById('#footer');
 var contactLink = document.getElementById("contact");
 var chatWindow = document.getElementById("chat-window");
@@ -402,6 +402,7 @@ var journalContent = document.getElementById('journal-content');
 var aboutSidebarOpenButton = document.getElementById('about-note-open');
 var aboutSidebarCloseButton = document.getElementById('about-note-close');
 var aboutSidebar = document.getElementById('about-note-sidebar');
+var $articleImages = null;
 
 var displayNote = function displayNote(link) {
   var currentItem = link.getAttribute('data-note');
@@ -411,6 +412,8 @@ var displayNote = function displayNote(link) {
   }).then(function (text) {
     aboutNote.innerHTML = text;
     noteScroller.scrollTop = 0;
+    $articleImages = aboutNote.querySelectorAll('img');
+    $imageCheck();
   });
 };
 
@@ -444,6 +447,38 @@ aboutSidebarCloseButton.addEventListener('click', function () {
     aboutSidebarCloseButton.classList.add('open');
   }
 });
+var flipping = new Flipping({
+  duration: 600
+});
+var lightboxTemplate = document.getElementById("lightbox-template").content.cloneNode(true);
+
+var $imageCheck = function $imageCheck() {
+  $articleImages.forEach(function (img) {
+    img.addEventListener("click", function () {
+      $main.appendChild(lightboxTemplate.cloneNode(true));
+      var lightboxContainer = document.getElementById("lightbox-container");
+      var lightbox = document.getElementById("lightbox");
+      var lightboxOverlay = document.getElementById("lightbox-overlay");
+      img.dataset.flipKey = "lightbox";
+      src = img.getAttribute('src');
+      console.log(src);
+      lightbox.setAttribute('src', src);
+
+      if (lightbox.complete) {
+        setTimeout(function () {
+          lightboxContainer.classList.remove("opacity-0");
+        }, 100);
+      }
+
+      lightboxContainer.addEventListener("click", function () {
+        lightboxContainer.classList.add('opacity-0');
+        lightboxContainer.addEventListener('transitionend', function () {
+          lightboxContainer.remove();
+        });
+      });
+    });
+  });
+};
 var musicSlider = document.querySelector("#music-slider");
 var musicProgressBar = document.querySelector("#music-progress-bar");
 var musicCurrentVal;
