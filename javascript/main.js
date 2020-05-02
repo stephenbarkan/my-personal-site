@@ -463,6 +463,7 @@ var $imageCheck = function $imageCheck() {
       src = img.getAttribute('src');
       console.log(src);
       lightbox.setAttribute('src', src);
+      flipping.read();
 
       if (lightbox.complete) {
         setTimeout(function () {

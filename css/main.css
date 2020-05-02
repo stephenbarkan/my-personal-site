@@ -1436,16 +1436,21 @@ input[type="range"]#music-slider::-ms-fill-upper {
 
 #homeMusicButtons {
   visibility: hidden;
-  -webkit-transition-property: opacity, visibility, -webkit-transform;
-  transition-property: opacity, visibility, -webkit-transform;
-  transition-property: opacity, transform, visibility;
-  transition-property: opacity, transform, visibility, -webkit-transform;
-  -webkit-transition-duration: 300ms, 300ms, 0ms;
-          transition-duration: 300ms, 300ms, 0ms;
+  -webkit-transition-property: opacity, visibility, background-color, -webkit-transform;
+  transition-property: opacity, visibility, background-color, -webkit-transform;
+  transition-property: opacity, transform, visibility, background-color;
+  transition-property: opacity, transform, visibility, background-color, -webkit-transform;
+  -webkit-transition-duration: 300ms, 300ms, 0ms, 700ms;
+          transition-duration: 300ms, 300ms, 0ms, 700ms;
   -webkit-transition-timing-function: cubic-bezier(.2,.8,.2,1), cubic-bezier(.2,.8,.2,1), linear;
           transition-timing-function: cubic-bezier(.2,.8,.2,1), cubic-bezier(.2,.8,.2,1), linear;
   -webkit-transition-delay: 0ms, 0ms, 1000ms;
           transition-delay: 0ms, 0ms, 1000ms;
+}
+
+#homeMusicButtons:hover {
+  -webkit-transition-duration: 300ms, 300ms, 0ms, 300ms;
+          transition-duration: 300ms, 300ms, 0ms, 300ms;
 }
 
 #homeMusicButtons.active {
@@ -1645,7 +1650,11 @@ input[type="range"]#music-slider::-ms-fill-upper {
 }
 
 .markdown ol > li {
-  padding-left: 1rem;
+  padding-left: 0.5rem;
+}
+
+.markdown ol > li + li {
+  margin-top: 0.5rem;
 }
 
 .markdown ul > li {
@@ -1720,6 +1729,7 @@ input[type="range"]#music-slider::-ms-fill-upper {
 .markdown iframe {
   margin-top: 2rem;
   margin-bottom: 2rem;
+  max-width: 100%;
 }
 
 @media (min-width: 640px) {
@@ -1764,17 +1774,33 @@ input[type="range"]#music-slider::-ms-fill-upper {
   padding-top: 1.5rem;
   padding-bottom: 1.5rem;
   border-radius: 1rem;
-  color: var(--clr-black-800);
-  font-style: italic;
+  color: rgba(0,0,0, .69);
 }
 
 @media (min-width: 640px) {
   .markdown blockquote {
-    margin-left: -1rem;
-    margin-right: -1rem;
-    padding-left: 2rem;
-    padding-right: 2rem;
+    margin-left: -1.5rem;
+    margin-right: -1.5rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
   }
+}
+
+.markdown * + blockquote {
+  margin-top: 2rem;
+}
+
+.markdown blockquote + * {
+  margin-top: 2rem;
+}
+
+.markdown > p:first-of-type:first-letter {
+  color: var(--clr-journal);
+  float: left;
+  font-family: ClearfaceStd-Regular, Georgia, Cambria, "Times New Roman", Times, serif;
+  line-height: 1;
+  padding-right: 0.5rem;
+  font-size: calc(3 * 1.7 * 1em);
 }
 
 @-webkit-keyframes messageReceive {

@@ -17,7 +17,7 @@ const $imageCheck = function () {
       console.log(src)
 
       lightbox.setAttribute('src', src)
-
+      flipping.read()
       if (lightbox.complete) {
         setTimeout(function () {
           lightboxContainer.classList.remove("opacity-0")
@@ -34,6 +34,7 @@ const $imageCheck = function () {
         })
 
       })
+
     })
   })
 }
