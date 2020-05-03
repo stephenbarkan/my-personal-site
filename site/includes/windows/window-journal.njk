@@ -8,9 +8,9 @@
         <ul class="h-full overflow-y-auto">
             {% for note in data %}
             <li class="border-b border-grey-300">
-                <a href="#" title="{{note.data.title}}"
-                   class="block py-4 pl-4 pr-2 transition-colors smooth-transition hocus:bg-white ease-smooth about-note-link"
-                   data-note="{{note.outputPath | replace("dist/", "")}}">
+                <a href="{{note.outputPath | replace("dist/journal/", "?journal=") | replace("/index.html", "")}}"
+                   title="{{note.data.title}}"
+                   class="block py-4 pl-4 pr-2 transition-colors smooth-transition hocus:bg-white ease-smooth about-note-link">
                     <h4 class="truncate">
                         {{ note.data.title }}
                     </h4>

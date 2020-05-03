@@ -5,6 +5,11 @@ var $body = document.querySelector('body');
 var $header = document.getElementById('#header');
 var $main = document.getElementById('main');
 var $footer = document.getElementById('#footer');
+
+var $updateURL = function $updateURL(string) {
+  var stateObj;
+  history.replaceState(stateObj, '', string);
+};
 var contactLink = document.getElementById("contact");
 var chatWindow = document.getElementById("chat-window");
 var messagesList = document.getElementById("chat-messages");
@@ -396,25 +401,37 @@ igRight.addEventListener('click', function (e) {
 igLeft.style.visibility = "hidden";
 igUpdate();
 var aboutSidebarLinks = document.querySelectorAll('.about-note-link');
-var aboutNote = document.querySelector('.about-note');
+var journalEntry = document.querySelector('.about-note');
 var noteScroller = document.querySelector('.note-area');
 var journalContent = document.getElementById('journal-content');
 var aboutSidebarOpenButton = document.getElementById('about-note-open');
 var aboutSidebarCloseButton = document.getElementById('about-note-close');
 var aboutSidebar = document.getElementById('about-note-sidebar');
+var journalWindowWrapper = journalEntry.closest(".window-wrapper");
+var journalWindowCloseButton = journalWindowWrapper.querySelector('.window-close');
+var $activeJournalEntry;
 var $articleImages = null;
 
 var displayNote = function displayNote(link) {
-  var currentItem = link.getAttribute('data-note');
   link.classList.add("active");
-  fetch(currentItem).then(function (response) {
+  var query = hrefToQuery(link);
+  $activeJournalEntry = query;
+  fetch("journal/".concat(query, "/index.html")).then(function (response) {
     return response.text();
   }).then(function (text) {
-    aboutNote.innerHTML = text;
+    journalEntry.innerHTML = text;
     noteScroller.scrollTop = 0;
-    $articleImages = aboutNote.querySelectorAll('img');
+    $articleImages = journalEntry.querySelectorAll('img');
     $imageCheck();
   });
+  $updateURL("?journal=".concat(query));
+};
+
+var hrefToQuery = function hrefToQuery(link) {
+  var href = link.getAttribute('href');
+  query = href.split('=');
+  currentItem = query[1];
+  return currentItem;
 };
 
 aboutSidebarLinks.forEach(function (link) {
@@ -427,8 +444,7 @@ aboutSidebarLinks.forEach(function (link) {
     aboutSidebar.classList.remove('open');
     aboutSidebarCloseButton.classList.remove('open');
   });
-}); // displayNote(aboutSidebarLinks[0])
-
+});
 aboutSidebarOpenButton.addEventListener('click', function () {
   if (aboutSidebar.classList.contains('open')) {
     aboutSidebar.classList.remove('open');
@@ -447,6 +463,32 @@ aboutSidebarCloseButton.addEventListener('click', function () {
     aboutSidebarCloseButton.classList.add('open');
   }
 });
+journalWindowCloseButton.addEventListener('click', function () {
+  $updateURL('/');
+}); //open journal based on the url
+
+function getQueryVariable(variable) {
+  var query = window.location.search.substring(1);
+  var vars = query.split('&');
+
+  for (var i = 0; i < vars.length; i++) {
+    var pair = vars[i].split('=');
+
+    if (decodeURIComponent(pair[0]) == variable) {
+      return decodeURIComponent(pair[1]);
+    }
+  }
+}
+
+var $query = getQueryVariable('journal');
+
+var $openJournal = function $openJournal($query) {
+  aboutSidebarLinks.forEach(function (link) {
+    if (hrefToQuery(link) === $query) {
+      displayNote(link);
+    }
+  });
+};
 var flipping = new Flipping({
   duration: 600
 });
@@ -836,7 +878,7 @@ var windowFunctions = function windowFunctions() {
     wrapper.classList.remove("disabled");
   };
 
-  var windowOpen = function windowOpen(e, selector) {
+  var $windowOpen = function $windowOpen(e, selector) {
     e.preventDefault();
     var elWindow = document.getElementById(selector);
     elWindow.classList.remove("closed");
@@ -854,23 +896,33 @@ var windowFunctions = function windowFunctions() {
 
   var linkMe = document.getElementById("me");
   linkMe.addEventListener("click", function (e) {
-    windowOpen(e, "meWindow");
+    $windowOpen(e, "meWindow");
   });
   var linkMusic = document.getElementById("music");
   linkMusic.addEventListener("click", function (e) {
-    windowOpen(e, "musicWindow");
+    $windowOpen(e, "musicWindow");
   });
   var linkJournal = document.getElementById("journal");
   linkJournal.addEventListener("click", function (e) {
-    windowOpen(e, "journalWindow");
+    $windowOpen(e, "journalWindow");
+
+    if ($activeJournalEntry) {
+      $updateURL("?journal=".concat($activeJournalEntry));
+    }
   });
+
+  if ($query) {
+    $openJournal($query);
+    linkJournal.click();
+  }
+
   var linkPortfolio = document.getElementById("portfolio");
   linkPortfolio.addEventListener("click", function (e) {
-    windowOpen(e, "portfolioWindow");
+    $windowOpen(e, "portfolioWindow");
   });
   var linkContact = document.getElementById("contact");
   linkContact.addEventListener("click", function (e) {
-    windowOpen(e, "contactWindow");
+    $windowOpen(e, "contactWindow");
   });
   windowWrappers.forEach(function (wrapper) {
     wrapper.addEventListener("mousedown", function () {
@@ -905,5 +957,6 @@ closeAllButton.addEventListener("click", function () {
     preview.classList.add("closed");
   });
   checkClosedList();
+  $updateURL('/');
 });
 windowFunctions();

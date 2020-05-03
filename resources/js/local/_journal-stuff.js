@@ -1,23 +1,38 @@
 const aboutSidebarLinks = document.querySelectorAll('.about-note-link')
-const aboutNote = document.querySelector('.about-note')
+const journalEntry = document.querySelector('.about-note')
 const noteScroller = document.querySelector('.note-area')
 const journalContent = document.getElementById('journal-content')
 const aboutSidebarOpenButton = document.getElementById('about-note-open')
 const aboutSidebarCloseButton = document.getElementById('about-note-close')
 const aboutSidebar = document.getElementById('about-note-sidebar')
+const journalWindowWrapper = journalEntry.closest(".window-wrapper");
+const journalWindowCloseButton = journalWindowWrapper.querySelector('.window-close')
+let $activeJournalEntry
+
 let $articleImages = null
 
 const displayNote = function (link) {
-  const currentItem = link.getAttribute('data-note')
+
   link.classList.add("active")
-  fetch(currentItem)
+  const query = hrefToQuery(link)
+  $activeJournalEntry = query
+  fetch(`journal/${query}/index.html`)
     .then(response => response.text())
     .then(text => {
-      aboutNote.innerHTML = text
+      journalEntry.innerHTML = text
       noteScroller.scrollTop = 0
-      $articleImages = aboutNote.querySelectorAll('img')
+      $articleImages = journalEntry.querySelectorAll('img')
       $imageCheck()
     })
+  $updateURL(`?journal=${query}`);
+}
+
+const hrefToQuery = function (link) {
+  const href = link.getAttribute('href')
+  query = href.split('=')
+  currentItem = query[1]
+
+  return currentItem
 }
 
 aboutSidebarLinks.forEach(link => {
@@ -31,9 +46,6 @@ aboutSidebarLinks.forEach(link => {
     aboutSidebarCloseButton.classList.remove('open')
   })
 })
-
-// displayNote(aboutSidebarLinks[0])
-
 
 aboutSidebarOpenButton.addEventListener('click', function () {
   if (aboutSidebar.classList.contains('open')) {
@@ -54,3 +66,31 @@ aboutSidebarCloseButton.addEventListener('click', function () {
     aboutSidebarCloseButton.classList.add('open')
   }
 })
+
+
+journalWindowCloseButton.addEventListener('click', function () {
+  $updateURL('/')
+})
+
+//open journal based on the url
+
+function getQueryVariable(variable) {
+  var query = window.location.search.substring(1);
+  var vars = query.split('&');
+  for (var i = 0; i < vars.length; i++) {
+    var pair = vars[i].split('=');
+    if (decodeURIComponent(pair[0]) == variable) {
+      return decodeURIComponent(pair[1]);
+    }
+  }
+}
+
+let $query = getQueryVariable('journal')
+const $openJournal = function ($query) {
+
+  aboutSidebarLinks.forEach(link => {
+    if (hrefToQuery(link) === $query) {
+      displayNote(link)
+    }
+  })
+}

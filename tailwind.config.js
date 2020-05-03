@@ -62,7 +62,7 @@ module.exports = {
 				700: "var(--clr-black-700)",
 				600: "var(--clr-black-600)",
 				500: "var(--clr-black-500)",
-				400: "rgba(0,0,0, .32)",
+				400: "var(--clr-black-400)",
 				300: "var(--clr-black-300)",
 				200: "var(--clr-black-200)",
 				100: "var(--clr-black-100)",

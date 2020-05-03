@@ -25,7 +25,7 @@ const windowFunctions = function () {
     wrapper.classList.remove("disabled");
   };
 
-  const windowOpen = function (e, selector) {
+  const $windowOpen = function (e, selector) {
     e.preventDefault();
     const elWindow = document.getElementById(selector);
     elWindow.classList.remove("closed");
@@ -43,27 +43,36 @@ const windowFunctions = function () {
 
   const linkMe = document.getElementById("me");
   linkMe.addEventListener("click", function (e) {
-    windowOpen(e, "meWindow");
+    $windowOpen(e, "meWindow");
   });
 
   const linkMusic = document.getElementById("music");
   linkMusic.addEventListener("click", function (e) {
-    windowOpen(e, "musicWindow");
+    $windowOpen(e, "musicWindow");
   });
 
   const linkJournal = document.getElementById("journal");
   linkJournal.addEventListener("click", function (e) {
-    windowOpen(e, "journalWindow");
+    $windowOpen(e, "journalWindow");
+    if ($activeJournalEntry) {
+      $updateURL(`?journal=${$activeJournalEntry}`);
+    }
+
   });
+
+  if ($query) {
+    $openJournal($query)
+    linkJournal.click()
+  }
 
   const linkPortfolio = document.getElementById("portfolio");
   linkPortfolio.addEventListener("click", function (e) {
-    windowOpen(e, "portfolioWindow");
+    $windowOpen(e, "portfolioWindow");
   });
 
   const linkContact = document.getElementById("contact");
   linkContact.addEventListener("click", function (e) {
-    windowOpen(e, "contactWindow");
+    $windowOpen(e, "contactWindow");
   });
 
   windowWrappers.forEach(function (wrapper) {
@@ -99,6 +108,7 @@ closeAllButton.addEventListener("click", function () {
     preview.classList.add("closed");
   });
   checkClosedList();
+  $updateURL('/')
 });
 
 windowFunctions();

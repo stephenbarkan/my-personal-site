@@ -819,8 +819,10 @@ html {
   --clr-grey-100: #F7F7F7;
   --clr-black-900: rgba(0, 0, 0, .91);
   --clr-black-800: rgba(0, 0, 0, .81);
+  --clr-black-700: rgba(0, 0, 0, .69);
   --clr-black-600: rgba(0, 0, 0, .57);
   --clr-black-500: rgba(0, 0, 0, .42);
+  --clr-black-400: rgba(0, 0, 0, .32);
   --clr-black-300: rgba(0, 0, 0, .20);
   --clr-black-200: rgba(0, 0, 0, .09);
   --clr-black-100: rgba(0, 0, 0, .05);
@@ -846,21 +848,23 @@ html[data-theme="dark"] {
   --clr-neutral: #221e24;
   --clr-white: #2d2b31;
   --clr-black: #cccccc;
-  --clr-black-900: rgba(255, 255, 255, .76);
-  --clr-black-800: rgba(255, 255, 255, .68);
+  --clr-black-900: rgba(255, 255, 255, .75);
+  --clr-black-800: rgba(255, 255, 255, .66);
+  --clr-black-700: rgba(255, 255, 255, .58);
   --clr-black-600: rgba(255, 255, 255, .52);
-  --clr-black-500: rgba(255, 255, 255, .58);
-  --clr-black-300: rgba(255, 255, 255, .28);
-  --clr-black-200: rgba(255, 255, 255, .24);
-  --clr-black-100: rgba(255, 255, 255, .10);
-  --clr-grey-900: #c2c1c7;
-  --clr-grey-800: #acabb0;
-  --clr-grey-700: #8a8891;
-  --clr-grey-600: #88868d;
-  --clr-grey-500: #959398;
-  --clr-grey-400: #6c6c6c;
-  --clr-grey-300: #474649;
-  --clr-grey-200: #3e3d42;
+  --clr-black-500: rgba(255, 255, 255, .47);
+  --clr-black-400: rgba(255, 255, 255, .37);
+  --clr-black-300: rgba(255, 255, 255, .20);
+  --clr-black-200: rgba(255, 255, 255, .16);
+  --clr-black-100: rgba(255, 255, 255, .06);
+  --clr-grey-900: #C8C7CD;
+  --clr-grey-800: #B2B1B6;
+  --clr-grey-700: #A2A1A5;
+  --clr-grey-600: #949298;
+  --clr-grey-500: #89878B;
+  --clr-grey-400: #727272;
+  --clr-grey-300: #4D4C4F;
+  --clr-grey-200: #444348;
   --clr-grey-100: #28262b;
   --clr-me-light: #c856464d;
   --clr-me: #c75546;
@@ -875,7 +879,6 @@ html[data-theme="dark"] {
   --clr-music-dark: #1cab9c;
   --clr-contact: #1379b4;
   --clr-contact-light: #1379b44d;
-  --shadow-inset: inset 0 0 0 1px var(--clr-black-100);
   --shadow-outline: 0 0 0 3px rgba(19, 121, 180, 0.5);
   --shadow-sm: 0px 1px 4px -2px rgba(0, 0, 0, 0.5);
 }
@@ -3154,7 +3157,7 @@ a:hover .home-link-bg {
 }
 
 .divide-black-400 > :not(template) ~ :not(template){
-  border-color: rgba(0,0,0, .32);
+  border-color: var(--clr-black-400);
 }
 
 .divide-black-500 > :not(template) ~ :not(template){
@@ -3432,7 +3435,7 @@ a:hover .home-link-bg {
 }
 
 .bg-black-400{
-  background-color: rgba(0,0,0, .32);
+  background-color: var(--clr-black-400);
 }
 
 .bg-black-500{
@@ -3626,7 +3629,7 @@ a:hover .home-link-bg {
 }
 
 .hover\:bg-black-400:hover{
-  background-color: rgba(0,0,0, .32);
+  background-color: var(--clr-black-400);
 }
 
 .hover\:bg-black-500:hover{
@@ -3820,7 +3823,7 @@ a:hover .home-link-bg {
 }
 
 .focus\:bg-black-400:focus{
-  background-color: rgba(0,0,0, .32);
+  background-color: var(--clr-black-400);
 }
 
 .focus\:bg-black-500:focus{
@@ -4014,7 +4017,7 @@ a:hover .home-link-bg {
 }
 
 .hocus\:bg-black-400:hover,.hocus\:bg-black-400:focus{
-  background-color: rgba(0,0,0, .32);
+  background-color: var(--clr-black-400);
 }
 
 .hocus\:bg-black-500:hover,.hocus\:bg-black-500:focus{
@@ -4208,7 +4211,7 @@ a:hover .home-link-bg {
 }
 
 .focus-within\:bg-black-400:focus-within{
-  background-color: rgba(0,0,0, .32);
+  background-color: var(--clr-black-400);
 }
 
 .focus-within\:bg-black-500:focus-within{
@@ -4542,7 +4545,7 @@ a:hover .home-link-bg {
 }
 
 .border-black-400{
-  border-color: rgba(0,0,0, .32);
+  border-color: var(--clr-black-400);
 }
 
 .border-black-500{
@@ -4736,7 +4739,7 @@ a:hover .home-link-bg {
 }
 
 .hover\:border-black-400:hover{
-  border-color: rgba(0,0,0, .32);
+  border-color: var(--clr-black-400);
 }
 
 .hover\:border-black-500:hover{
@@ -4930,7 +4933,7 @@ a:hover .home-link-bg {
 }
 
 .focus\:border-black-400:focus{
-  border-color: rgba(0,0,0, .32);
+  border-color: var(--clr-black-400);
 }
 
 .focus\:border-black-500:focus{
@@ -5124,7 +5127,7 @@ a:hover .home-link-bg {
 }
 
 .hocus\:border-black-400:hover,.hocus\:border-black-400:focus{
-  border-color: rgba(0,0,0, .32);
+  border-color: var(--clr-black-400);
 }
 
 .hocus\:border-black-500:hover,.hocus\:border-black-500:focus{
@@ -5318,7 +5321,7 @@ a:hover .home-link-bg {
 }
 
 .group:hover .group-hocus\:border-black-400,.group:focus .group-hocus\:border-black-400{
-  border-color: rgba(0,0,0, .32);
+  border-color: var(--clr-black-400);
 }
 
 .group:hover .group-hocus\:border-black-500,.group:focus .group-hocus\:border-black-500{
@@ -11118,23 +11121,23 @@ a:hover .home-link-bg {
 }
 
 .placeholder-black-400::-webkit-input-placeholder{
-  color: rgba(0,0,0, .32);
+  color: var(--clr-black-400);
 }
 
 .placeholder-black-400::-moz-placeholder{
-  color: rgba(0,0,0, .32);
+  color: var(--clr-black-400);
 }
 
 .placeholder-black-400:-ms-input-placeholder{
-  color: rgba(0,0,0, .32);
+  color: var(--clr-black-400);
 }
 
 .placeholder-black-400::-ms-input-placeholder{
-  color: rgba(0,0,0, .32);
+  color: var(--clr-black-400);
 }
 
 .placeholder-black-400::placeholder{
-  color: rgba(0,0,0, .32);
+  color: var(--clr-black-400);
 }
 
 .placeholder-black-500::-webkit-input-placeholder{
@@ -12088,23 +12091,23 @@ a:hover .home-link-bg {
 }
 
 .focus\:placeholder-black-400:focus::-webkit-input-placeholder{
-  color: rgba(0,0,0, .32);
+  color: var(--clr-black-400);
 }
 
 .focus\:placeholder-black-400:focus::-moz-placeholder{
-  color: rgba(0,0,0, .32);
+  color: var(--clr-black-400);
 }
 
 .focus\:placeholder-black-400:focus:-ms-input-placeholder{
-  color: rgba(0,0,0, .32);
+  color: var(--clr-black-400);
 }
 
 .focus\:placeholder-black-400:focus::-ms-input-placeholder{
-  color: rgba(0,0,0, .32);
+  color: var(--clr-black-400);
 }
 
 .focus\:placeholder-black-400:focus::placeholder{
-  color: rgba(0,0,0, .32);
+  color: var(--clr-black-400);
 }
 
 .focus\:placeholder-black-500:focus::-webkit-input-placeholder{
@@ -13334,7 +13337,7 @@ a:hover .home-link-bg {
 }
 
 .text-black-400{
-  color: rgba(0,0,0, .32);
+  color: var(--clr-black-400);
 }
 
 .text-black-500{
@@ -13528,7 +13531,7 @@ a:hover .home-link-bg {
 }
 
 .hover\:text-black-400:hover{
-  color: rgba(0,0,0, .32);
+  color: var(--clr-black-400);
 }
 
 .hover\:text-black-500:hover{
@@ -13722,7 +13725,7 @@ a:hover .home-link-bg {
 }
 
 .focus\:text-black-400:focus{
-  color: rgba(0,0,0, .32);
+  color: var(--clr-black-400);
 }
 
 .focus\:text-black-500:focus{
@@ -13916,7 +13919,7 @@ a:hover .home-link-bg {
 }
 
 .hocus\:text-black-400:hover,.hocus\:text-black-400:focus{
-  color: rgba(0,0,0, .32);
+  color: var(--clr-black-400);
 }
 
 .hocus\:text-black-500:hover,.hocus\:text-black-500:focus{
@@ -14110,7 +14113,7 @@ a:hover .home-link-bg {
 }
 
 .group:hover .group-hocus\:text-black-400,.group:focus .group-hocus\:text-black-400{
-  color: rgba(0,0,0, .32);
+  color: var(--clr-black-400);
 }
 
 .group:hover .group-hocus\:text-black-500,.group:focus .group-hocus\:text-black-500{
@@ -14304,7 +14307,7 @@ a:hover .home-link-bg {
 }
 
 .group:hover .group-hover\:text-black-400{
-  color: rgba(0,0,0, .32);
+  color: var(--clr-black-400);
 }
 
 .group:hover .group-hover\:text-black-500{
@@ -14498,7 +14501,7 @@ a:hover .home-link-bg {
 }
 
 .group:focus .group-focus\:text-black-400{
-  color: rgba(0,0,0, .32);
+  color: var(--clr-black-400);
 }
 
 .group:focus .group-focus\:text-black-500{
@@ -19073,7 +19076,7 @@ a:hover .home-link-bg {
   }
 
   .xs\:divide-black-400 > :not(template) ~ :not(template){
-    border-color: rgba(0,0,0, .32);
+    border-color: var(--clr-black-400);
   }
 
   .xs\:divide-black-500 > :not(template) ~ :not(template){
@@ -19351,7 +19354,7 @@ a:hover .home-link-bg {
   }
 
   .xs\:bg-black-400{
-    background-color: rgba(0,0,0, .32);
+    background-color: var(--clr-black-400);
   }
 
   .xs\:bg-black-500{
@@ -19545,7 +19548,7 @@ a:hover .home-link-bg {
   }
 
   .xs\:hover\:bg-black-400:hover{
-    background-color: rgba(0,0,0, .32);
+    background-color: var(--clr-black-400);
   }
 
   .xs\:hover\:bg-black-500:hover{
@@ -19739,7 +19742,7 @@ a:hover .home-link-bg {
   }
 
   .xs\:focus\:bg-black-400:focus{
-    background-color: rgba(0,0,0, .32);
+    background-color: var(--clr-black-400);
   }
 
   .xs\:focus\:bg-black-500:focus{
@@ -19933,7 +19936,7 @@ a:hover .home-link-bg {
   }
 
   .xs\:hocus\:bg-black-400:hover,.xs\:hocus\:bg-black-400:focus{
-    background-color: rgba(0,0,0, .32);
+    background-color: var(--clr-black-400);
   }
 
   .xs\:hocus\:bg-black-500:hover,.xs\:hocus\:bg-black-500:focus{
@@ -20127,7 +20130,7 @@ a:hover .home-link-bg {
   }
 
   .xs\:focus-within\:bg-black-400:focus-within{
-    background-color: rgba(0,0,0, .32);
+    background-color: var(--clr-black-400);
   }
 
   .xs\:focus-within\:bg-black-500:focus-within{
@@ -25667,23 +25670,23 @@ a:hover .home-link-bg {
   }
 
   .xs\:placeholder-black-400::-webkit-input-placeholder{
-    color: rgba(0,0,0, .32);
+    color: var(--clr-black-400);
   }
 
   .xs\:placeholder-black-400::-moz-placeholder{
-    color: rgba(0,0,0, .32);
+    color: var(--clr-black-400);
   }
 
   .xs\:placeholder-black-400:-ms-input-placeholder{
-    color: rgba(0,0,0, .32);
+    color: var(--clr-black-400);
   }
 
   .xs\:placeholder-black-400::-ms-input-placeholder{
-    color: rgba(0,0,0, .32);
+    color: var(--clr-black-400);
   }
 
   .xs\:placeholder-black-400::placeholder{
-    color: rgba(0,0,0, .32);
+    color: var(--clr-black-400);
   }
 
   .xs\:placeholder-black-500::-webkit-input-placeholder{
@@ -26637,23 +26640,23 @@ a:hover .home-link-bg {
   }
 
   .xs\:focus\:placeholder-black-400:focus::-webkit-input-placeholder{
-    color: rgba(0,0,0, .32);
+    color: var(--clr-black-400);
   }
 
   .xs\:focus\:placeholder-black-400:focus::-moz-placeholder{
-    color: rgba(0,0,0, .32);
+    color: var(--clr-black-400);
   }
 
   .xs\:focus\:placeholder-black-400:focus:-ms-input-placeholder{
-    color: rgba(0,0,0, .32);
+    color: var(--clr-black-400);
   }
 
   .xs\:focus\:placeholder-black-400:focus::-ms-input-placeholder{
-    color: rgba(0,0,0, .32);
+    color: var(--clr-black-400);
   }
 
   .xs\:focus\:placeholder-black-400:focus::placeholder{
-    color: rgba(0,0,0, .32);
+    color: var(--clr-black-400);
   }
 
   .xs\:focus\:placeholder-black-500:focus::-webkit-input-placeholder{
@@ -32265,7 +32268,7 @@ a:hover .home-link-bg {
   }
 
   .sm\:divide-black-400 > :not(template) ~ :not(template){
-    border-color: rgba(0,0,0, .32);
+    border-color: var(--clr-black-400);
   }
 
   .sm\:divide-black-500 > :not(template) ~ :not(template){
@@ -32543,7 +32546,7 @@ a:hover .home-link-bg {
   }
 
   .sm\:bg-black-400{
-    background-color: rgba(0,0,0, .32);
+    background-color: var(--clr-black-400);
   }
 
   .sm\:bg-black-500{
@@ -32737,7 +32740,7 @@ a:hover .home-link-bg {
   }
 
   .sm\:hover\:bg-black-400:hover{
-    background-color: rgba(0,0,0, .32);
+    background-color: var(--clr-black-400);
   }
 
   .sm\:hover\:bg-black-500:hover{
@@ -32931,7 +32934,7 @@ a:hover .home-link-bg {
   }
 
   .sm\:focus\:bg-black-400:focus{
-    background-color: rgba(0,0,0, .32);
+    background-color: var(--clr-black-400);
   }
 
   .sm\:focus\:bg-black-500:focus{
@@ -33125,7 +33128,7 @@ a:hover .home-link-bg {
   }
 
   .sm\:hocus\:bg-black-400:hover,.sm\:hocus\:bg-black-400:focus{
-    background-color: rgba(0,0,0, .32);
+    background-color: var(--clr-black-400);
   }
 
   .sm\:hocus\:bg-black-500:hover,.sm\:hocus\:bg-black-500:focus{
@@ -33319,7 +33322,7 @@ a:hover .home-link-bg {
   }
 
   .sm\:focus-within\:bg-black-400:focus-within{
-    background-color: rgba(0,0,0, .32);
+    background-color: var(--clr-black-400);
   }
 
   .sm\:focus-within\:bg-black-500:focus-within{
@@ -38859,23 +38862,23 @@ a:hover .home-link-bg {
   }
 
   .sm\:placeholder-black-400::-webkit-input-placeholder{
-    color: rgba(0,0,0, .32);
+    color: var(--clr-black-400);
   }
 
   .sm\:placeholder-black-400::-moz-placeholder{
-    color: rgba(0,0,0, .32);
+    color: var(--clr-black-400);
   }
 
   .sm\:placeholder-black-400:-ms-input-placeholder{
-    color: rgba(0,0,0, .32);
+    color: var(--clr-black-400);
   }
 
   .sm\:placeholder-black-400::-ms-input-placeholder{
-    color: rgba(0,0,0, .32);
+    color: var(--clr-black-400);
   }
 
   .sm\:placeholder-black-400::placeholder{
-    color: rgba(0,0,0, .32);
+    color: var(--clr-black-400);
   }
 
   .sm\:placeholder-black-500::-webkit-input-placeholder{
@@ -39829,23 +39832,23 @@ a:hover .home-link-bg {
   }
 
   .sm\:focus\:placeholder-black-400:focus::-webkit-input-placeholder{
-    color: rgba(0,0,0, .32);
+    color: var(--clr-black-400);
   }
 
   .sm\:focus\:placeholder-black-400:focus::-moz-placeholder{
-    color: rgba(0,0,0, .32);
+    color: var(--clr-black-400);
   }
 
   .sm\:focus\:placeholder-black-400:focus:-ms-input-placeholder{
-    color: rgba(0,0,0, .32);
+    color: var(--clr-black-400);
   }
 
   .sm\:focus\:placeholder-black-400:focus::-ms-input-placeholder{
-    color: rgba(0,0,0, .32);
+    color: var(--clr-black-400);
   }
 
   .sm\:focus\:placeholder-black-400:focus::placeholder{
-    color: rgba(0,0,0, .32);
+    color: var(--clr-black-400);
   }
 
   .sm\:focus\:placeholder-black-500:focus::-webkit-input-placeholder{
@@ -45457,7 +45460,7 @@ a:hover .home-link-bg {
   }
 
   .md\:divide-black-400 > :not(template) ~ :not(template){
-    border-color: rgba(0,0,0, .32);
+    border-color: var(--clr-black-400);
   }
 
   .md\:divide-black-500 > :not(template) ~ :not(template){
@@ -45735,7 +45738,7 @@ a:hover .home-link-bg {
   }
 
   .md\:bg-black-400{
-    background-color: rgba(0,0,0, .32);
+    background-color: var(--clr-black-400);
   }
 
   .md\:bg-black-500{
@@ -45929,7 +45932,7 @@ a:hover .home-link-bg {
   }
 
   .md\:hover\:bg-black-400:hover{
-    background-color: rgba(0,0,0, .32);
+    background-color: var(--clr-black-400);
   }
 
   .md\:hover\:bg-black-500:hover{
@@ -46123,7 +46126,7 @@ a:hover .home-link-bg {
   }
 
   .md\:focus\:bg-black-400:focus{
-    background-color: rgba(0,0,0, .32);
+    background-color: var(--clr-black-400);
   }
 
   .md\:focus\:bg-black-500:focus{
@@ -46317,7 +46320,7 @@ a:hover .home-link-bg {
   }
 
   .md\:hocus\:bg-black-400:hover,.md\:hocus\:bg-black-400:focus{
-    background-color: rgba(0,0,0, .32);
+    background-color: var(--clr-black-400);
   }
 
   .md\:hocus\:bg-black-500:hover,.md\:hocus\:bg-black-500:focus{
@@ -46511,7 +46514,7 @@ a:hover .home-link-bg {
   }
 
   .md\:focus-within\:bg-black-400:focus-within{
-    background-color: rgba(0,0,0, .32);
+    background-color: var(--clr-black-400);
   }
 
   .md\:focus-within\:bg-black-500:focus-within{
@@ -52051,23 +52054,23 @@ a:hover .home-link-bg {
   }
 
   .md\:placeholder-black-400::-webkit-input-placeholder{
-    color: rgba(0,0,0, .32);
+    color: var(--clr-black-400);
   }
 
   .md\:placeholder-black-400::-moz-placeholder{
-    color: rgba(0,0,0, .32);
+    color: var(--clr-black-400);
   }
 
   .md\:placeholder-black-400:-ms-input-placeholder{
-    color: rgba(0,0,0, .32);
+    color: var(--clr-black-400);
   }
 
   .md\:placeholder-black-400::-ms-input-placeholder{
-    color: rgba(0,0,0, .32);
+    color: var(--clr-black-400);
   }
 
   .md\:placeholder-black-400::placeholder{
-    color: rgba(0,0,0, .32);
+    color: var(--clr-black-400);
   }
 
   .md\:placeholder-black-500::-webkit-input-placeholder{
@@ -53021,23 +53024,23 @@ a:hover .home-link-bg {
   }
 
   .md\:focus\:placeholder-black-400:focus::-webkit-input-placeholder{
-    color: rgba(0,0,0, .32);
+    color: var(--clr-black-400);
   }
 
   .md\:focus\:placeholder-black-400:focus::-moz-placeholder{
-    color: rgba(0,0,0, .32);
+    color: var(--clr-black-400);
   }
 
   .md\:focus\:placeholder-black-400:focus:-ms-input-placeholder{
-    color: rgba(0,0,0, .32);
+    color: var(--clr-black-400);
   }
 
   .md\:focus\:placeholder-black-400:focus::-ms-input-placeholder{
-    color: rgba(0,0,0, .32);
+    color: var(--clr-black-400);
   }
 
   .md\:focus\:placeholder-black-400:focus::placeholder{
-    color: rgba(0,0,0, .32);
+    color: var(--clr-black-400);
   }
 
   .md\:focus\:placeholder-black-500:focus::-webkit-input-placeholder{
@@ -58649,7 +58652,7 @@ a:hover .home-link-bg {
   }
 
   .lg\:divide-black-400 > :not(template) ~ :not(template){
-    border-color: rgba(0,0,0, .32);
+    border-color: var(--clr-black-400);
   }
 
   .lg\:divide-black-500 > :not(template) ~ :not(template){
@@ -58927,7 +58930,7 @@ a:hover .home-link-bg {
   }
 
   .lg\:bg-black-400{
-    background-color: rgba(0,0,0, .32);
+    background-color: var(--clr-black-400);
   }
 
   .lg\:bg-black-500{
@@ -59121,7 +59124,7 @@ a:hover .home-link-bg {
   }
 
   .lg\:hover\:bg-black-400:hover{
-    background-color: rgba(0,0,0, .32);
+    background-color: var(--clr-black-400);
   }
 
   .lg\:hover\:bg-black-500:hover{
@@ -59315,7 +59318,7 @@ a:hover .home-link-bg {
   }
 
   .lg\:focus\:bg-black-400:focus{
-    background-color: rgba(0,0,0, .32);
+    background-color: var(--clr-black-400);
   }
 
   .lg\:focus\:bg-black-500:focus{
@@ -59509,7 +59512,7 @@ a:hover .home-link-bg {
   }
 
   .lg\:hocus\:bg-black-400:hover,.lg\:hocus\:bg-black-400:focus{
-    background-color: rgba(0,0,0, .32);
+    background-color: var(--clr-black-400);
   }
 
   .lg\:hocus\:bg-black-500:hover,.lg\:hocus\:bg-black-500:focus{
@@ -59703,7 +59706,7 @@ a:hover .home-link-bg {
   }
 
   .lg\:focus-within\:bg-black-400:focus-within{
-    background-color: rgba(0,0,0, .32);
+    background-color: var(--clr-black-400);
   }
 
   .lg\:focus-within\:bg-black-500:focus-within{
@@ -65243,23 +65246,23 @@ a:hover .home-link-bg {
   }
 
   .lg\:placeholder-black-400::-webkit-input-placeholder{
-    color: rgba(0,0,0, .32);
+    color: var(--clr-black-400);
   }
 
   .lg\:placeholder-black-400::-moz-placeholder{
-    color: rgba(0,0,0, .32);
+    color: var(--clr-black-400);
   }
 
   .lg\:placeholder-black-400:-ms-input-placeholder{
-    color: rgba(0,0,0, .32);
+    color: var(--clr-black-400);
   }
 
   .lg\:placeholder-black-400::-ms-input-placeholder{
-    color: rgba(0,0,0, .32);
+    color: var(--clr-black-400);
   }
 
   .lg\:placeholder-black-400::placeholder{
-    color: rgba(0,0,0, .32);
+    color: var(--clr-black-400);
   }
 
   .lg\:placeholder-black-500::-webkit-input-placeholder{
@@ -66213,23 +66216,23 @@ a:hover .home-link-bg {
   }
 
   .lg\:focus\:placeholder-black-400:focus::-webkit-input-placeholder{
-    color: rgba(0,0,0, .32);
+    color: var(--clr-black-400);
   }
 
   .lg\:focus\:placeholder-black-400:focus::-moz-placeholder{
-    color: rgba(0,0,0, .32);
+    color: var(--clr-black-400);
   }
 
   .lg\:focus\:placeholder-black-400:focus:-ms-input-placeholder{
-    color: rgba(0,0,0, .32);
+    color: var(--clr-black-400);
   }
 
   .lg\:focus\:placeholder-black-400:focus::-ms-input-placeholder{
-    color: rgba(0,0,0, .32);
+    color: var(--clr-black-400);
   }
 
   .lg\:focus\:placeholder-black-400:focus::placeholder{
-    color: rgba(0,0,0, .32);
+    color: var(--clr-black-400);
   }
 
   .lg\:focus\:placeholder-black-500:focus::-webkit-input-placeholder{
@@ -71841,7 +71844,7 @@ a:hover .home-link-bg {
   }
 
   .xl\:divide-black-400 > :not(template) ~ :not(template){
-    border-color: rgba(0,0,0, .32);
+    border-color: var(--clr-black-400);
   }
 
   .xl\:divide-black-500 > :not(template) ~ :not(template){
@@ -72119,7 +72122,7 @@ a:hover .home-link-bg {
   }
 
   .xl\:bg-black-400{
-    background-color: rgba(0,0,0, .32);
+    background-color: var(--clr-black-400);
   }
 
   .xl\:bg-black-500{
@@ -72313,7 +72316,7 @@ a:hover .home-link-bg {
   }
 
   .xl\:hover\:bg-black-400:hover{
-    background-color: rgba(0,0,0, .32);
+    background-color: var(--clr-black-400);
   }
 
   .xl\:hover\:bg-black-500:hover{
@@ -72507,7 +72510,7 @@ a:hover .home-link-bg {
   }
 
   .xl\:focus\:bg-black-400:focus{
-    background-color: rgba(0,0,0, .32);
+    background-color: var(--clr-black-400);
   }
 
   .xl\:focus\:bg-black-500:focus{
@@ -72701,7 +72704,7 @@ a:hover .home-link-bg {
   }
 
   .xl\:hocus\:bg-black-400:hover,.xl\:hocus\:bg-black-400:focus{
-    background-color: rgba(0,0,0, .32);
+    background-color: var(--clr-black-400);
   }
 
   .xl\:hocus\:bg-black-500:hover,.xl\:hocus\:bg-black-500:focus{
@@ -72895,7 +72898,7 @@ a:hover .home-link-bg {
   }
 
   .xl\:focus-within\:bg-black-400:focus-within{
-    background-color: rgba(0,0,0, .32);
+    background-color: var(--clr-black-400);
   }
 
   .xl\:focus-within\:bg-black-500:focus-within{
@@ -78435,23 +78438,23 @@ a:hover .home-link-bg {
   }
 
   .xl\:placeholder-black-400::-webkit-input-placeholder{
-    color: rgba(0,0,0, .32);
+    color: var(--clr-black-400);
   }
 
   .xl\:placeholder-black-400::-moz-placeholder{
-    color: rgba(0,0,0, .32);
+    color: var(--clr-black-400);
   }
 
   .xl\:placeholder-black-400:-ms-input-placeholder{
-    color: rgba(0,0,0, .32);
+    color: var(--clr-black-400);
   }
 
   .xl\:placeholder-black-400::-ms-input-placeholder{
-    color: rgba(0,0,0, .32);
+    color: var(--clr-black-400);
   }
 
   .xl\:placeholder-black-400::placeholder{
-    color: rgba(0,0,0, .32);
+    color: var(--clr-black-400);
   }
 
   .xl\:placeholder-black-500::-webkit-input-placeholder{
@@ -79405,23 +79408,23 @@ a:hover .home-link-bg {
   }
 
   .xl\:focus\:placeholder-black-400:focus::-webkit-input-placeholder{
-    color: rgba(0,0,0, .32);
+    color: var(--clr-black-400);
   }
 
   .xl\:focus\:placeholder-black-400:focus::-moz-placeholder{
-    color: rgba(0,0,0, .32);
+    color: var(--clr-black-400);
   }
 
   .xl\:focus\:placeholder-black-400:focus:-ms-input-placeholder{
-    color: rgba(0,0,0, .32);
+    color: var(--clr-black-400);
   }
 
   .xl\:focus\:placeholder-black-400:focus::-ms-input-placeholder{
-    color: rgba(0,0,0, .32);
+    color: var(--clr-black-400);
   }
 
   .xl\:focus\:placeholder-black-400:focus::placeholder{
-    color: rgba(0,0,0, .32);
+    color: var(--clr-black-400);
   }
 
   .xl\:focus\:placeholder-black-500:focus::-webkit-input-placeholder{

@@ -111,3 +111,15 @@ The story begins in Velon, a bustling skyport city where magic and technology ar
 
 * Pablo tries to awaken the security droids to their oppressed state to no avail and the droids escort him out of the prison. Rusty and Reniya cause a ruckus and a full blown fight breaks out, with the warden and his giant robo-protector and the security droids fighting everyone in the visitation room. Feeling only a minor allegiance to help his new friends, Pablo turns to leave the prison but has a change of heart and returns to help us.
 * Gorgo overpowers the prison warden and is able to shut off the security droids, giving us time to escape. Toothy, Streex, and Yulma-bot show up just in time in a stolen car and we make off into the sewers, narrowly escaping the police chasing us. 
+
+
+### Session 10: 05/03/2020
+* split up, toothy and streex go to toasty tuna to retrieve the boat and nufkat
+* Gronald (armless gnome) toothy transformed into
+* rest of group goes to Pablo's hideout and disguises themselves, cuts hair, trims beard
+* text yulma-bot that yselda has a charm bracelet of her mom's at the Toasty Tuna towers and we need to retrieve it.
+* Geldar, docent at church
+* one group goes to community center, the police are there but at the church, heading to the comm center
+* e'dun gets a familiar owl and goes to see what's going on in the comm center
+* we meet again at the park "the stelven enclosure"
+* fly to Rattler Bay
