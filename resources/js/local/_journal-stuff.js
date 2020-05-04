@@ -1,14 +1,13 @@
-const aboutSidebarLinks = document.querySelectorAll('.about-note-link')
-const journalEntry = document.querySelector('.about-note')
+const journalSidebarLinks = document.querySelectorAll('.journal-link')
+const journalEntry = document.querySelector('.journal')
 const noteScroller = document.querySelector('.note-area')
 const journalContent = document.getElementById('journal-content')
-const aboutSidebarOpenButton = document.getElementById('about-note-open')
-const aboutSidebarCloseButton = document.getElementById('about-note-close')
-const aboutSidebar = document.getElementById('about-note-sidebar')
-const journalWindowWrapper = journalEntry.closest(".window-wrapper");
-const journalWindowCloseButton = journalWindowWrapper.querySelector('.window-close')
-let $activeJournalEntry
+const journalSidebarOpenButton = document.getElementById('journal-open')
+const journalSidebarCloseButton = document.getElementById('journal-close')
+const journalSidebar = document.getElementById('journal-sidebar')
+const journalWindowCloseButton = $journalWindow.querySelector('.window-close')
 
+let $activeJournalEntry
 let $articleImages = null
 
 const displayNote = function (link) {
@@ -35,35 +34,35 @@ const hrefToQuery = function (link) {
   return currentItem
 }
 
-aboutSidebarLinks.forEach(link => {
+journalSidebarLinks.forEach(link => {
   link.addEventListener('click', function (e) {
     e.preventDefault()
-    aboutSidebarLinks.forEach(link => {
+    journalSidebarLinks.forEach(link => {
       link.classList.remove("active")
     })
     displayNote(link)
-    aboutSidebar.classList.remove('open')
-    aboutSidebarCloseButton.classList.remove('open')
+    journalSidebar.classList.remove('open')
+    journalSidebarCloseButton.classList.remove('open')
   })
 })
 
-aboutSidebarOpenButton.addEventListener('click', function () {
-  if (aboutSidebar.classList.contains('open')) {
-    aboutSidebar.classList.remove('open')
-    aboutSidebarCloseButton.classList.remove('open')
+journalSidebarOpenButton.addEventListener('click', function () {
+  if (journalSidebar.classList.contains('open')) {
+    journalSidebar.classList.remove('open')
+    journalSidebarCloseButton.classList.remove('open')
   } else {
-    aboutSidebar.classList.add('open')
-    aboutSidebarCloseButton.classList.add('open')
+    journalSidebar.classList.add('open')
+    journalSidebarCloseButton.classList.add('open')
   }
 })
 
-aboutSidebarCloseButton.addEventListener('click', function () {
-  if (aboutSidebar.classList.contains('open')) {
-    aboutSidebar.classList.remove('open')
-    aboutSidebarCloseButton.classList.remove('open')
+journalSidebarCloseButton.addEventListener('click', function () {
+  if (journalSidebar.classList.contains('open')) {
+    journalSidebar.classList.remove('open')
+    journalSidebarCloseButton.classList.remove('open')
   } else {
-    aboutSidebar.classList.add('open')
-    aboutSidebarCloseButton.classList.add('open')
+    journalSidebar.classList.add('open')
+    journalSidebarCloseButton.classList.add('open')
   }
 })
 
@@ -88,7 +87,7 @@ function getQueryVariable(variable) {
 let $query = getQueryVariable('journal')
 const $openJournal = function ($query) {
 
-  aboutSidebarLinks.forEach(link => {
+  journalSidebarLinks.forEach(link => {
     if (hrefToQuery(link) === $query) {
       displayNote(link)
     }

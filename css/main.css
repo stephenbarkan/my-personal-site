@@ -1539,41 +1539,41 @@ input[type="range"]#music-slider::-ms-fill-upper {
           transition-delay: 0ms;
 }
 
-.about-note.visible {
+.journal.visible {
   display: block;
 }
 
-.about-note-link.active {
+.journal-link.active {
   background-color: var(--clr-white);
 }
 
-.about-note-link.active h4 {
+.journal-link.active h4 {
   font-weight: 500;
 }
 
-#about-note-sidebar.open {
+#journal-sidebar.open {
   -webkit-transform: none;
           transform: none;
 }
 
-#about-note-sidebar.open + * .note-area {
+#journal-sidebar.open + * .note-area {
   overflow: hidden;
   -webkit-box-flex: 1;
           flex-grow: 1;
 }
 
 @media (min-width: 640px) {
-  #about-note-sidebar {
+  #journal-sidebar {
     -webkit-transform: none;
             transform: none;
   }
 }
 
-#about-note-close.open {
+#journal-close.open {
   visibility: visible;
 }
 
-.window-wrapper.closed .about-note {
+.window-wrapper.closed .journal {
   display: none;
 }
 

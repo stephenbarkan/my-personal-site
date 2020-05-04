@@ -2,9 +2,13 @@
 // Selectors
 // store selectors for reference so we only call them once
 var $body = document.querySelector('body');
-var $header = document.getElementById('#header');
 var $main = document.getElementById('main');
-var $footer = document.getElementById('#footer');
+var $meWindow = document.getElementById("meWindow");
+var $musicWindow = document.getElementById("musicWindow");
+var $journalWindow = document.getElementById("journalWindow");
+var $portfolioWindow = document.getElementById("portfolioWindow");
+var $contactWindow = document.getElementById("contactWindow");
+var $closeAll = document.querySelector(".close-all");
 
 var $updateURL = function $updateURL(string) {
   var stateObj;
@@ -400,15 +404,14 @@ igRight.addEventListener('click', function (e) {
 });
 igLeft.style.visibility = "hidden";
 igUpdate();
-var aboutSidebarLinks = document.querySelectorAll('.about-note-link');
-var journalEntry = document.querySelector('.about-note');
+var journalSidebarLinks = document.querySelectorAll('.journal-link');
+var journalEntry = document.querySelector('.journal');
 var noteScroller = document.querySelector('.note-area');
 var journalContent = document.getElementById('journal-content');
-var aboutSidebarOpenButton = document.getElementById('about-note-open');
-var aboutSidebarCloseButton = document.getElementById('about-note-close');
-var aboutSidebar = document.getElementById('about-note-sidebar');
-var journalWindowWrapper = journalEntry.closest(".window-wrapper");
-var journalWindowCloseButton = journalWindowWrapper.querySelector('.window-close');
+var journalSidebarOpenButton = document.getElementById('journal-open');
+var journalSidebarCloseButton = document.getElementById('journal-close');
+var journalSidebar = document.getElementById('journal-sidebar');
+var journalWindowCloseButton = $journalWindow.querySelector('.window-close');
 var $activeJournalEntry;
 var $articleImages = null;
 
@@ -434,33 +437,33 @@ var hrefToQuery = function hrefToQuery(link) {
   return currentItem;
 };
 
-aboutSidebarLinks.forEach(function (link) {
+journalSidebarLinks.forEach(function (link) {
   link.addEventListener('click', function (e) {
     e.preventDefault();
-    aboutSidebarLinks.forEach(function (link) {
+    journalSidebarLinks.forEach(function (link) {
       link.classList.remove("active");
     });
     displayNote(link);
-    aboutSidebar.classList.remove('open');
-    aboutSidebarCloseButton.classList.remove('open');
+    journalSidebar.classList.remove('open');
+    journalSidebarCloseButton.classList.remove('open');
   });
 });
-aboutSidebarOpenButton.addEventListener('click', function () {
-  if (aboutSidebar.classList.contains('open')) {
-    aboutSidebar.classList.remove('open');
-    aboutSidebarCloseButton.classList.remove('open');
+journalSidebarOpenButton.addEventListener('click', function () {
+  if (journalSidebar.classList.contains('open')) {
+    journalSidebar.classList.remove('open');
+    journalSidebarCloseButton.classList.remove('open');
   } else {
-    aboutSidebar.classList.add('open');
-    aboutSidebarCloseButton.classList.add('open');
+    journalSidebar.classList.add('open');
+    journalSidebarCloseButton.classList.add('open');
   }
 });
-aboutSidebarCloseButton.addEventListener('click', function () {
-  if (aboutSidebar.classList.contains('open')) {
-    aboutSidebar.classList.remove('open');
-    aboutSidebarCloseButton.classList.remove('open');
+journalSidebarCloseButton.addEventListener('click', function () {
+  if (journalSidebar.classList.contains('open')) {
+    journalSidebar.classList.remove('open');
+    journalSidebarCloseButton.classList.remove('open');
   } else {
-    aboutSidebar.classList.add('open');
-    aboutSidebarCloseButton.classList.add('open');
+    journalSidebar.classList.add('open');
+    journalSidebarCloseButton.classList.add('open');
   }
 });
 journalWindowCloseButton.addEventListener('click', function () {
@@ -483,7 +486,7 @@ function getQueryVariable(variable) {
 var $query = getQueryVariable('journal');
 
 var $openJournal = function $openJournal($query) {
-  aboutSidebarLinks.forEach(function (link) {
+  journalSidebarLinks.forEach(function (link) {
     if (hrefToQuery(link) === $query) {
       displayNote(link);
     }
@@ -530,10 +533,8 @@ var playState = musicWrapper.getAttribute("data-state");
 var playButton = document.getElementById("music-play-button");
 var playIcon = playButton.querySelector("#music-play-icon");
 var pauseIcon = playButton.querySelector("#music-pause-icon");
-var musicWindowWrapper = musicWrapper.closest(".window-wrapper");
-var musicWindowCloseButton = musicWindowWrapper.querySelector('.window-close');
+var musicWindowCloseButton = $musicWindow.querySelector('.window-close');
 var musicLink = document.getElementById('music');
-var closeAllButton = document.querySelector(".close-all");
 var song;
 var currentTimeSec;
 var durationSeconds;
@@ -746,7 +747,7 @@ var revealPauseButton = function revealPauseButton() {
   homePlay.classList.add('hidden');
 };
 
-closeAllButton.addEventListener('click', function () {
+$closeAll.addEventListener('click', function () {
   revealHomeButtons();
 });
 musicWindowCloseButton.addEventListener('click', function () {
@@ -760,7 +761,7 @@ var revealHomeButtons = function revealHomeButtons() {
   if (currentSong >= 0) {
     if (playState != "paused") {
       setTimeout(function () {
-        if (musicWindowWrapper.classList.contains('closed')) {
+        if ($musicWindow.classList.contains('closed')) {
           homeMusicButtons.classList.add('active');
         } else {
           homeMusicButtons.classList.remove('active');
@@ -853,8 +854,7 @@ window.onload = function () {
   }
 };
 var closedWindows = document.querySelectorAll(".closed");
-var closeAll = document.querySelector(".close-all");
-var closeAllButton = document.querySelector(".close-all button");
+var closeAllButton = $closeAll.querySelector("button");
 var windowWrappers = document.querySelectorAll(".window-wrapper");
 var projectPreviews = document.querySelectorAll(".project-preview");
 var closeButtons = document.querySelectorAll(".window-close");
@@ -878,9 +878,9 @@ var windowFunctions = function windowFunctions() {
     wrapper.classList.remove("disabled");
   };
 
-  var $windowOpen = function $windowOpen(e, selector) {
+  var windowOpen = function windowOpen(e, selector) {
     e.preventDefault();
-    var elWindow = document.getElementById(selector);
+    var elWindow = selector;
     elWindow.classList.remove("closed");
     windowWrappers.forEach(function (wrapper) {
       wrapper.classList.add("disabled");
@@ -888,23 +888,22 @@ var windowFunctions = function windowFunctions() {
     elWindow.classList.remove("disabled");
     windowZ = windowZ + 1;
     elWindow.style.zIndex = windowZ;
-    closeButton = elWindow.querySelector('.window-close');
-    closeButton.focus();
-    closeButton.blur();
+    $closeAll.focus();
+    $closeAll.blur();
     checkClosedList();
   };
 
   var linkMe = document.getElementById("me");
   linkMe.addEventListener("click", function (e) {
-    $windowOpen(e, "meWindow");
+    windowOpen(e, $meWindow);
   });
   var linkMusic = document.getElementById("music");
   linkMusic.addEventListener("click", function (e) {
-    $windowOpen(e, "musicWindow");
+    windowOpen(e, $musicWindow);
   });
   var linkJournal = document.getElementById("journal");
   linkJournal.addEventListener("click", function (e) {
-    $windowOpen(e, "journalWindow");
+    windowOpen(e, $journalWindow);
 
     if ($activeJournalEntry) {
       $updateURL("?journal=".concat($activeJournalEntry));
@@ -918,11 +917,11 @@ var windowFunctions = function windowFunctions() {
 
   var linkPortfolio = document.getElementById("portfolio");
   linkPortfolio.addEventListener("click", function (e) {
-    $windowOpen(e, "portfolioWindow");
+    windowOpen(e, $portfolioWindow);
   });
   var linkContact = document.getElementById("contact");
   linkContact.addEventListener("click", function (e) {
-    $windowOpen(e, "contactWindow");
+    windowOpen(e, $contactWindow);
   });
   windowWrappers.forEach(function (wrapper) {
     wrapper.addEventListener("mousedown", function () {
@@ -935,9 +934,9 @@ var checkClosedList = function checkClosedList() {
   closedWindows = document.querySelectorAll(".window-wrapper.closed");
 
   if (closedWindows.length < windowWrappers.length - 1) {
-    closeAll.classList.add("visible");
+    $closeAll.classList.add("visible");
   } else {
-    closeAll.classList.remove("visible");
+    $closeAll.classList.remove("visible");
   }
 
   if (closedWindows.length < windowWrappers.length) {
@@ -949,7 +948,7 @@ var checkClosedList = function checkClosedList() {
   }
 };
 
-closeAllButton.addEventListener("click", function () {
+$closeAll.addEventListener("click", function () {
   windowWrappers.forEach(function (wrapper) {
     wrapper.classList.add("closed");
   });

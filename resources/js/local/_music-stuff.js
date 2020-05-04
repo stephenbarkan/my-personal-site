@@ -7,10 +7,8 @@ let playState = musicWrapper.getAttribute("data-state");
 const playButton = document.getElementById("music-play-button");
 const playIcon = playButton.querySelector("#music-play-icon");
 const pauseIcon = playButton.querySelector("#music-pause-icon");
-const musicWindowWrapper = musicWrapper.closest(".window-wrapper");
-const musicWindowCloseButton = musicWindowWrapper.querySelector('.window-close')
+const musicWindowCloseButton = $musicWindow.querySelector('.window-close')
 const musicLink = document.getElementById('music')
-const closeAllButton = document.querySelector(".close-all");
 
 let song
 let currentTimeSec
@@ -246,7 +244,7 @@ const revealPauseButton = function () {
   homePause.classList.remove('hidden')
   homePlay.classList.add('hidden')
 }
-closeAllButton.addEventListener('click', function () {
+$closeAll.addEventListener('click', function () {
   revealHomeButtons()
 })
 
@@ -262,7 +260,7 @@ const revealHomeButtons = function () {
   if (currentSong >= 0) {
     if (playState != "paused") {
       setTimeout(function () {
-        if (musicWindowWrapper.classList.contains('closed')) {
+        if ($musicWindow.classList.contains('closed')) {
           homeMusicButtons.classList.add('active')
         } else {
           homeMusicButtons.classList.remove('active')
