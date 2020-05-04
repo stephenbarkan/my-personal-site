@@ -668,21 +668,15 @@ video {
   opacity: 0.5;
 }
 
-.group:hover .group-hover\:text-red-500, .group:hover .group-hover\:text-red-500,
-.group:focus .group-hover\:text-red-500,
-.group:focus .group-hover\:text-red-500 {
+.group:hover .group-hover\:text-red-500, .group:hover .group-hover\:text-red-500 {
   color: var(--clr-me);
 }
 
-.group:hover .group-hover\:text-blue-500, .group:hover .group-hover\:text-blue-500,
-.group:focus .group-hover\:text-blue-500,
-.group:focus .group-hover\:text-blue-500 {
+.group:hover .group-hover\:text-blue-500, .group:hover .group-hover\:text-blue-500 {
   color: var(--clr-contact);
 }
 
-.group:hover .group-hover\:text-black-500, .group:hover .group-hover\:text-black-500,
-.group:focus .group-hover\:text-black-500,
-.group:focus .group-hover\:text-black-500 {
+.group:hover .group-hover\:text-black-500, .group:hover .group-hover\:text-black-500 {
   color: var(--clr-black-500);
 }
 
