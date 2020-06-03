@@ -114,12 +114,22 @@ The story begins in Velon, a bustling skyport city where magic and technology ar
 
 
 ### Session 10: 05/03/2020
-* split up, toothy and streex go to toasty tuna to retrieve the boat and nufkat
-* Gronald (armless gnome) toothy transformed into
-* rest of group goes to Pablo's hideout and disguises themselves, cuts hair, trims beard
-* text yulma-bot that yselda has a charm bracelet of her mom's at the Toasty Tuna towers and we need to retrieve it.
-* Geldar, docent at church
-* one group goes to community center, the police are there but at the church, heading to the comm center
-* e'dun gets a familiar owl and goes to see what's going on in the comm center
-* we meet again at the park "the stelven enclosure"
-* fly to Rattler Bay
+* Pablo shows us to his secret hideout cavern to lay low for a while. Some of us cut our hair and beards to change our appearance.
+* Since Toothy, Streex, and Yulma-bot weren't identified by the police, they leave to go retrieve the Feared Rapscallion from the Toasty Tuna Towers and Nufkat so she could release the curse on Gorgo.
+  * Toothy transforms into Gronald, an armless gnome, to trick the police into investigating the Seared Rapscallion instead of the Toasty Tuna Towers.
+	* Streex sneaks up into the towers to get the ship. We send Yulma-bot a text to ask Streex to break into Yselda's apartment to fetch a charm bracelet that her mom left for her, so he gets that too. 
+	* Once they get the ship, they head over to the Drow temple to find Nufkat.
+* The rest of the group heads to the church too, following a miscommunication of what the plan was. There's tons of police there too, so Yselda disguises herself as a church volunteer and tries to convene with Streex and Toothy. Unfortunately both of them are too ignorant to realize it's her, and they treat her like a new friend they just met. 
+* Speaking through Yulma-bot speaker-phone-style, Rusty and Pablo threaten to blow up the church with a bomb, and the police overhear this and approach Streex and Toothy. They weasel their way out of it and retreat back to the Feared Rapscallion hidden in the Stelven Enclosure Park. We all meet up there and fly out of Velon towards Rattler Bay.
+
+
+### Session 11: 05/09/2020
+* We land in Rattler Bay and get ready for bed. Yselda uses the charm bracelet and has another vision of her mother, this time revealing that she was a devil cop, working for the 9 Hells court to try criminals. One of those criminals was Gorgo, and she sees the next part of her previous vision at the diner. Turns out that Yselda's mom was arresting Gorgo then, not working with him!! She arrests him and Yselda sees him in front of the judges being tried for participating in the lacrima trade and doing something with "the machine." she asks Gorgo about it, but he doesn't say much about it.
+* We all sleep and wake up the next day and head into the port town at Rattler Bay. Toothy wakes up early and goes to find a worm to eat, but instead just finds a slug and eats that instead. The rest of the party goes to town and eats a large egg and drinks magical bottomless mimosas. Everyone gets drunk and has a bit of a heart-to-heart.
+* We decide that, despite Rattler Bay being so nice and peaceful, have a responsibility to Olrick since it's our fault the bar got flagged as dangerous and shut down.
+* Toothy thinks he has a revelation connecting all the dots and realizes that all of our problems are caused by the Illuminati; he rushes to tell us.
+* We leave Rattler Bay and fly over to Montgomery Tower. We land on top of the building and are greeted by the Head of Security and some security guards. Tarol, the leader, has a brass eye that can see through Toothy's necromancy, and she confronts us about who we really are. A fight breaks out but Yselda restrains Tarol and threatens to shoot her in the head if they don't surrender. They do, and we tie them all up and hide them in our ship. Rusty uses her walkie-talkie to tell all the other security guards in the buidling to take the rest of the day off.
+* With the coast clear, we go into the elevator and start our way into the buidling.
+
+### Session 12: 05/23/2020
+* 
