@@ -26,7 +26,7 @@ module.exports = {
 		},
 
 		letterSpacing: {
-			tight: "-0.03em",
+			tight: "-.01em",
 			snug: "-.01em",
 			wide: ".02em",
 		},
@@ -176,7 +176,7 @@ module.exports = {
 			},
 
 			maxWidth: {
-				headline: "18em",
+				headline: "19em",
 				"2xl": "45rem"
 			},
 
@@ -196,7 +196,8 @@ module.exports = {
 				"2xl": "1.75rem",
 				"3xl": "2.25rem",
 				"4xl": "2.5rem",
-				"5xl": "3.5rem"
+				"5xl": "3.5rem",
+				"headline": "max(2.25rem, min(calc(5.5vw), 4rem))"
 			},
 
 			transitionDuration: {

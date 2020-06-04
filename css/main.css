@@ -686,7 +686,7 @@ video {
 
 .serif {
   font-family: Office Times, Georgia, Cambria, Times New Roman, Times, serif;
-  letter-spacing: -0.03em;
+  letter-spacing: -.01em;
 }
 
 .grid-absolute {
@@ -6832,6 +6832,10 @@ a:hover .home-link-bg {
   font-size: 1.125rem;
 }
 
+.text-headline{
+  font-size: max(2.25rem, min(calc(5.5vw), 4rem));
+}
+
 .leading-none{
   line-height: 1;
 }
@@ -9833,7 +9837,7 @@ a:hover .home-link-bg {
 }
 
 .max-w-headline{
-  max-width: 18em;
+  max-width: 19em;
 }
 
 .min-h-0{
@@ -14795,7 +14799,7 @@ a:hover .home-link-bg {
 }
 
 .tracking-tight{
-  letter-spacing: -0.03em;
+  letter-spacing: -.01em;
 }
 
 .tracking-snug{
@@ -21385,6 +21389,10 @@ a:hover .home-link-bg {
     font-size: 1.125rem;
   }
 
+  .xs\:text-headline{
+    font-size: max(2.25rem, min(calc(5.5vw), 4rem));
+  }
+
   .xs\:leading-none{
     line-height: 1;
   }
@@ -24386,7 +24394,7 @@ a:hover .home-link-bg {
   }
 
   .xs\:max-w-headline{
-    max-width: 18em;
+    max-width: 19em;
   }
 
   .xs\:min-h-0{
@@ -27990,7 +27998,7 @@ a:hover .home-link-bg {
   }
 
   .xs\:tracking-tight{
-    letter-spacing: -0.03em;
+    letter-spacing: -.01em;
   }
 
   .xs\:tracking-snug{
@@ -34581,6 +34589,10 @@ a:hover .home-link-bg {
     font-size: 1.125rem;
   }
 
+  .sm\:text-headline{
+    font-size: max(2.25rem, min(calc(5.5vw), 4rem));
+  }
+
   .sm\:leading-none{
     line-height: 1;
   }
@@ -37582,7 +37594,7 @@ a:hover .home-link-bg {
   }
 
   .sm\:max-w-headline{
-    max-width: 18em;
+    max-width: 19em;
   }
 
   .sm\:min-h-0{
@@ -41186,7 +41198,7 @@ a:hover .home-link-bg {
   }
 
   .sm\:tracking-tight{
-    letter-spacing: -0.03em;
+    letter-spacing: -.01em;
   }
 
   .sm\:tracking-snug{
@@ -47777,6 +47789,10 @@ a:hover .home-link-bg {
     font-size: 1.125rem;
   }
 
+  .md\:text-headline{
+    font-size: max(2.25rem, min(calc(5.5vw), 4rem));
+  }
+
   .md\:leading-none{
     line-height: 1;
   }
@@ -50778,7 +50794,7 @@ a:hover .home-link-bg {
   }
 
   .md\:max-w-headline{
-    max-width: 18em;
+    max-width: 19em;
   }
 
   .md\:min-h-0{
@@ -54382,7 +54398,7 @@ a:hover .home-link-bg {
   }
 
   .md\:tracking-tight{
-    letter-spacing: -0.03em;
+    letter-spacing: -.01em;
   }
 
   .md\:tracking-snug{
@@ -60973,6 +60989,10 @@ a:hover .home-link-bg {
     font-size: 1.125rem;
   }
 
+  .lg\:text-headline{
+    font-size: max(2.25rem, min(calc(5.5vw), 4rem));
+  }
+
   .lg\:leading-none{
     line-height: 1;
   }
@@ -63974,7 +63994,7 @@ a:hover .home-link-bg {
   }
 
   .lg\:max-w-headline{
-    max-width: 18em;
+    max-width: 19em;
   }
 
   .lg\:min-h-0{
@@ -67578,7 +67598,7 @@ a:hover .home-link-bg {
   }
 
   .lg\:tracking-tight{
-    letter-spacing: -0.03em;
+    letter-spacing: -.01em;
   }
 
   .lg\:tracking-snug{
@@ -74169,6 +74189,10 @@ a:hover .home-link-bg {
     font-size: 1.125rem;
   }
 
+  .xl\:text-headline{
+    font-size: max(2.25rem, min(calc(5.5vw), 4rem));
+  }
+
   .xl\:leading-none{
     line-height: 1;
   }
@@ -77170,7 +77194,7 @@ a:hover .home-link-bg {
   }
 
   .xl\:max-w-headline{
-    max-width: 18em;
+    max-width: 19em;
   }
 
   .xl\:min-h-0{
@@ -80774,7 +80798,7 @@ a:hover .home-link-bg {
   }
 
   .xl\:tracking-tight{
-    letter-spacing: -0.03em;
+    letter-spacing: -.01em;
   }
 
   .xl\:tracking-snug{
