@@ -26,7 +26,8 @@ module.exports = {
 		},
 
 		letterSpacing: {
-			tight: "-0.02em",
+			tight: "-0.03em",
+			snug: "-.01em",
 			wide: ".02em",
 		},
 
@@ -119,22 +120,22 @@ module.exports = {
 				"IBM Plex Sans",
 				"-apple-system",
 				"BlinkMacSystemFont",
-				'"Segoe UI"',
+				"Segoe UI",
 				"Roboto",
-				'"Helvetica Neue"',
+				"Helvetica Neue",
 				"Arial",
-				'"Noto Sans"',
+				"Noto Sans",
 				"sans-serif",
-				'"Apple Color Emoji"',
-				'"Segoe UI Emoji"',
-				'"Segoe UI Symbol"',
-				'"Noto Color Emoji"'
+				"Apple Color Emoji",
+				"Segoe UI Emoji",
+				"Segoe UI Symbol",
+				"Noto Color Emoji"
 			],
 			serif: [
-				"ClearfaceStd-Regular",
+				"Office Times",
 				"Georgia",
 				"Cambria",
-				'"Times New Roman"',
+				"Times New Roman",
 				"Times",
 				"serif"
 			],
@@ -143,8 +144,8 @@ module.exports = {
 				"Menlo",
 				"Monaco",
 				"Consolas",
-				'"Liberation Mono"',
-				'"Courier New"',
+				"Liberation Mono",
+				"Courier New",
 				"monospace"
 			]
 		},

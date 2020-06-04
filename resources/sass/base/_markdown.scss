@@ -1,191 +1,176 @@
 .markdown {
-  *+* {
-    @apply mt-4;
-  }
+	* + * {
+		@apply mt-4;
+	}
 
+	code {
+		font-size: 0.875em;
+		@apply relative text-grey-800 p-1 whitespace-pre;
 
-  code {
-    font-size: .875em;
-    @apply relative text-grey-800 p-1 whitespace-pre;
+		&::before {
+			content: "";
+			@apply shadow-inset absolute inset-0 rounded-sm bg-grey-100;
+			z-index: -1;
+		}
+	}
 
+	pre {
+		@apply bg-grey-100 shadow-inset rounded-sm py-2 px-4;
+		font-size: 14px;
 
-    &::before {
-      content: '';
-      @apply shadow-inset absolute inset-0 rounded-sm bg-grey-100;
-      z-index: -1;
-    }
-  }
+		code {
+			@apply p-0 border-transparent;
+			font-size: inherit;
+		}
+	}
 
-  pre {
-    @apply bg-grey-100 shadow-inset rounded-sm py-2 px-4;
-    font-size: 14px;
+	strong,
+	b {
+		@apply font-medium;
+	}
 
-    code {
-      @apply p-0 border-transparent;
-      font-size: inherit;
+	a {
+		@apply relative text-blue-700 rounded-sm inline-block;
+		@extend .btn;
+		@extend .smooth-transition;
 
-    }
-  }
+		& * {
+			@apply text-blue-700;
+		}
 
-  strong,
-  b {
-    @apply font-medium;
-  }
+		@apply underline;
 
-  a {
-    @apply relative text-blue-700 rounded-sm inline-block;
-    @extend .btn;
-    @extend .smooth-transition;
+		&::before {
+			@apply bg-blue-100;
+		}
 
-    & * {
-      @apply text-blue-700;
-    }
+		&:hover,
+		&:focus {
+			// &::before {
+			//   @apply opacity-100;
+			// }
 
+			& code::before {
+				@apply bg-transparent;
+			}
+		}
+	}
 
-    @apply underline;
+	ol {
+		list-style-type: decimal;
 
-    &::before {
-      @apply bg-blue-100;
-    }
+		> li {
+			@apply pl-2;
+		}
 
-    &:hover,
-    &:focus {
+		> li + li {
+			@apply mt-2;
+		}
+	}
 
-      // &::before {
-      //   @apply opacity-100;
-      // }
+	ul {
+		> li {
+			@apply relative;
 
-      & code::before {
-        @apply bg-transparent;
-      }
+			&::before {
+				content: "";
+				@apply absolute bg-yellow-500 h-1-5 w-1-5 rounded-full;
+				top: 0.75em;
+				left: -1.25rem;
+				transform: translateY(-25%);
+			}
+		}
+	}
 
-    }
-  }
+	ul,
+	ol {
+		@apply ml-5;
+	}
 
-  ol {
-    list-style-type: decimal;
+	li ul,
+	li ol {
+		@apply mt-4;
 
-    >li {
-      @apply pl-2;
-    }
+		li:last-child {
+			@apply mb-0;
+		}
+	}
 
-    >li+li {
-      @apply mt-2;
-    }
-  }
+	li p:last-child {
+		@apply mb-8;
+	}
 
-  ul {
-    >li {
-      @apply relative;
+	li:last-child {
+		@apply mb-8;
+	}
 
-      &::before {
-        content: "";
-        @apply absolute bg-yellow-500 h-1-5 w-1-5 rounded-full;
-        top: .75em;
-        left: -1.25rem;
-        transform: translateY(-25%);
-      }
-    }
-  }
+	h3,
+	h4,
+	h5,
+	h6 {
+		@apply text-black leading-tight font-medium;
+	}
 
-  ul,
-  ol {
-    @apply ml-5;
-  }
+	h3 {
+		@apply text-lg;
+	}
 
-  li ul,
-  li ol {
-    @apply mt-4;
+	h4 {
+		@apply text-md;
+	}
 
-    li:last-child {
-      @apply mb-0;
-    }
-  }
+	* + h3,
+	* + h4 {
+		@apply mt-12;
+	}
 
-  li p:last-child {
-    @apply mb-8;
-  }
+	* + h5,
+	* + h6 {
+		@apply mt-8;
+	}
 
-  li:last-child {
-    @apply mb-8;
-  }
+	img,
+	video,
+	iframe {
+		@apply my-8 max-w-full;
 
-  h3,
-  h4,
-  h5,
-  h6 {
-    @apply text-black leading-tight font-medium;
-  }
+		@screen sm {
+			@apply -mx-8;
+			max-width: calc(100% + 64px);
+		}
 
-  h3 {
-    @apply text-lg;
-  }
+		& + em {
+			@apply text-xs text-grey-600 text-center not-italic -mt-4 block mb-8;
+		}
+	}
 
-  h4 {
-    @apply text-md;
-  }
+	img {
+		cursor: zoom-in;
+	}
 
+	hr {
+		@apply my-12 text-grey-300;
+	}
 
+	blockquote {
+		@apply bg-yellow-100 -mx-2 px-4 py-6 rounded-lg text-black-700;
 
-  *+h3,
-  *+h4 {
-    @apply mt-12;
-  }
+		@screen sm {
+			@apply -mx-6 px-6;
+		}
+	}
 
-  *+h5,
-  *+h6 {
-    @apply mt-8;
-  }
+	* + blockquote {
+		@apply mt-8;
+	}
 
-  img,
-  video,
-  iframe {
-    @apply my-8 max-w-full;
+	blockquote + * {
+		@apply mt-8;
+	}
 
-    @screen sm {
-      @apply -mx-8;
-      max-width: calc(100% + 64px);
-    }
-
-    &+em {
-      @apply text-xs text-grey-600 text-center not-italic -mt-4 block mb-8;
-    }
-  }
-
-  img {
-    cursor: zoom-in;
-  }
-
-  hr {
-    @apply my-12 text-grey-300;
-  }
-
-  blockquote {
-    @apply bg-yellow-100 -mx-2 px-4 py-6 rounded-lg text-black-700;
-
-    @screen sm {
-      @apply -mx-6 px-6;
-    }
-  }
-
-  *+blockquote {
-    @apply mt-8;
-  }
-
-  blockquote+* {
-    @apply mt-8;
-  }
-
-  &>p:first-of-type:first-letter {
-    @apply text-yellow-500 float-left font-serif leading-none pr-2;
-    font-size: calc(3 * 1.7 * 1em);
-    // color: #903;
-    // float: left;
-    // font-family: Georgia;
-    // font-size: 75px;
-    // line-height: 60px;
-    // padding-top: 4px;
-    // padding-right: 8px;
-    // padding-left: 3px;
-  }
+	& > p:first-of-type:first-letter {
+		@apply text-yellow-500 float-left font-serif pr-2;
+		line-height: 0.9;
+		font-size: calc(3 * 1.7 * 1em);
+	}
 }
