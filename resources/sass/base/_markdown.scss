@@ -1,176 +1,177 @@
 .markdown {
-	* + * {
-		@apply mt-4;
-	}
+  * + * {
+    @apply mt-4;
+  }
 
-	code {
-		font-size: 0.875em;
-		@apply relative text-grey-800 p-1 whitespace-pre;
+  code {
+    font-size: 0.875em;
+    @apply relative text-grey-800 p-1 whitespace-pre;
 
-		&::before {
-			content: "";
-			@apply shadow-inset absolute inset-0 rounded-sm bg-grey-100;
-			z-index: -1;
-		}
-	}
+    &::before {
+      content: "";
+      @apply shadow-inset absolute inset-0 rounded-sm bg-grey-100;
+      z-index: -1;
+    }
+  }
 
-	pre {
-		@apply bg-grey-100 shadow-inset rounded-sm py-2 px-4;
-		font-size: 14px;
+  pre {
+    @apply bg-grey-100 shadow-inset rounded-sm py-2 px-4;
+    font-size: 14px;
 
-		code {
-			@apply p-0 border-transparent;
-			font-size: inherit;
-		}
-	}
+    code {
+      @apply p-0 border-transparent;
+      font-size: inherit;
+    }
+  }
 
-	strong,
-	b {
-		@apply font-medium;
-	}
+  strong,
+  b {
+    @apply font-medium;
+  }
 
-	a {
-		@apply relative text-blue-700 rounded-sm inline-block;
-		@extend .btn;
-		@extend .smooth-transition;
+  a {
+    @apply relative text-blue-700 rounded-sm inline-block;
+    @extend .btn;
+    @extend .smooth-transition;
 
-		& * {
-			@apply text-blue-700;
-		}
+    & * {
+      @apply text-blue-700;
+    }
 
-		@apply underline;
+    @apply underline;
 
-		&::before {
-			@apply bg-blue-100;
-		}
+    &::before {
+      @apply bg-blue-100;
+    }
 
-		&:hover,
-		&:focus {
-			// &::before {
-			//   @apply opacity-100;
-			// }
+    &:hover,
+    &:focus {
+      // &::before {
+      //   @apply opacity-100;
+      // }
 
-			& code::before {
-				@apply bg-transparent;
-			}
-		}
-	}
+      & code::before {
+        @apply bg-transparent;
+      }
+    }
+  }
 
-	ol {
-		list-style-type: decimal;
+  ol {
+    list-style-type: decimal;
 
-		> li {
-			@apply pl-2;
-		}
+    > li {
+      @apply pl-2;
+    }
 
-		> li + li {
-			@apply mt-2;
-		}
-	}
+    > li + li {
+      @apply mt-2;
+    }
+  }
 
-	ul {
-		> li {
-			@apply relative;
+  ul {
+    > li {
+      @apply relative;
 
-			&::before {
-				content: "";
-				@apply absolute bg-yellow-500 h-1-5 w-1-5 rounded-full;
-				top: 0.75em;
-				left: -1.25rem;
-				transform: translateY(-25%);
-			}
-		}
-	}
+      &::before {
+        content: "";
+        @apply absolute bg-yellow-500 h-1-5 w-1-5 rounded-full;
+        top: 0.75em;
+        left: -1.25rem;
+        transform: translateY(-25%);
+      }
+    }
+  }
 
-	ul,
-	ol {
-		@apply ml-5;
-	}
+  ul,
+  ol {
+    @apply ml-5;
+  }
 
-	li ul,
-	li ol {
-		@apply mt-4;
+  li ul,
+  li ol {
+    @apply mt-4;
 
-		li:last-child {
-			@apply mb-0;
-		}
-	}
+    li:last-child {
+      @apply mb-0;
+    }
+  }
 
-	li p:last-child {
-		@apply mb-8;
-	}
+  li p:last-child {
+    @apply mb-8;
+  }
 
-	li:last-child {
-		@apply mb-8;
-	}
+  li:last-child {
+    @apply mb-8;
+  }
 
-	h3,
-	h4,
-	h5,
-	h6 {
-		@apply text-black leading-tight font-medium;
-	}
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply text-black leading-tight font-medium;
+  }
 
-	h3 {
-		@apply text-lg;
-	}
+  h3 {
+    @apply text-lg;
+  }
 
-	h4 {
-		@apply text-md;
-	}
+  h4 {
+    @apply text-md;
+  }
 
-	* + h3,
-	* + h4 {
-		@apply mt-12;
-	}
+  * + h3,
+  * + h4 {
+    @apply mt-12;
+  }
 
-	* + h5,
-	* + h6 {
-		@apply mt-8;
-	}
+  * + h5,
+  * + h6 {
+    @apply mt-8;
+  }
 
-	img,
-	video,
-	iframe {
-		@apply my-8 max-w-full;
+  img,
+  video,
+  iframe {
+    @apply my-8 max-w-full;
 
-		@screen sm {
-			@apply -mx-8;
-			max-width: calc(100% + 64px);
-		}
+    @screen sm {
+      @apply -mx-8;
+      max-width: calc(100% + 64px);
+    }
 
-		& + em {
-			@apply text-xs text-grey-600 text-center not-italic -mt-4 block mb-8;
-		}
-	}
+    & + em {
+      @apply text-xs text-grey-600 text-center not-italic -mt-4 block mb-8;
+    }
+  }
 
-	img {
-		cursor: zoom-in;
-	}
+  img {
+    cursor: zoom-in;
+  }
 
-	hr {
-		@apply my-12 text-grey-300;
-	}
+  hr {
+    @apply my-12 text-grey-300;
+  }
 
-	blockquote {
-		@apply bg-yellow-100 -mx-2 px-4 py-6 rounded-lg text-black-700;
+  blockquote {
+    @apply bg-yellow-100 -mx-2 px-4 py-6 rounded-lg text-black-700 text-center;
 
-		@screen sm {
-			@apply -mx-6 px-6;
-		}
-	}
+    @screen sm {
+      @apply -mx-6 px-6;
+    }
+  }
 
-	* + blockquote {
-		@apply mt-8;
-	}
+  * + blockquote {
+    @apply mt-8;
+  }
 
-	blockquote + * {
-		@apply mt-8;
-	}
+  blockquote + * {
+    @apply mt-8;
+  }
 
-	& > p:first-of-type:first-letter {
-		@apply text-yellow-500 float-left font-serif pr-2;
-		line-height: 0.9;
-		font-size: calc(3 * 1.7 * 1em);
-	}
+  & > *:not(h3) + p:first-of-type:first-letter,
+  & > p:first-child:first-letter {
+    @apply text-yellow-500 float-left font-serif pr-2;
+    line-height: 0.9;
+    font-size: calc(3 * 1.7 * 1em);
+  }
 }

@@ -16,19 +16,18 @@ title: Home
 {% import "windows/window-portfolio.njk" as portfolio %}
 {% import "windows/window-contact.njk" as contact %}
 
-
 <main id="main" class="relative flex flex-col items-center justify-between w-full min-h-full sm:justify-center">
-    <div class="flex flex-col px-12 py-16 leading-snug serif text-headline">
-        <h1 class="max-w-headline">
+    <div class="flex flex-col px-5 py-16 my-auto font-serif leading-none tracking-tight text-center max-w-headline sm:px-12 text-headline sm:m-0">
+        <h1>
             This is the personal site of
             <span class="whitespace-no-wrap">
                 <a id="me" href="#"
                    class="relative text-red-500 rounded-lg group hocus:underline focus:shadow-none">
                    Stephen Barkan</a>.</span>
-            </span>
-        </h1>
+        </span>
+    </h1>
 
-        <nav class="mt-12 max-w-headline">
+    <nav class="mt-12">
             See <a id="portfolio" href="#"
                class="relative text-purple-500 rounded-lg group hocus:underline focus:shadow-none">his design portfolio</a>, read
             <a id="journal" href="#"
@@ -38,33 +37,28 @@ title: Home
             <a id="contact" href="#"
                class="relative text-blue-500 rounded-lg group hocus:underline focus:shadow-none">a text</a>.
         </nav>
-    </div>
+</div>
 
+{# window wrapper #}
+<div class="fixed z-10 items-center justify-center p-1 pointer-events-none windows-container">
 
+    {{ me.windowFrame( 'me', 'red', false, ig_images) }}
+    {{ music.windowFrame( 'music', 'green', false, songs) }}
+    {{ journal.windowFrame( 'journal', 'yellow', false, journals) }}
+    {{ contact.windowFrame( 'contact', 'blue', false) }}
+    {{ portfolio.windowFrame( 'portfolio', 'purple', false, projects) }}
 
-    {# window wrapper #}
-    <div class="fixed z-10 items-center justify-center p-1 pointer-events-none windows-container">
+</div>
 
-        {{ me.windowFrame( 'me', 'red', false, ig_images) }}
-        {{ music.windowFrame( 'music', 'green', false, songs) }}
-        {{ journal.windowFrame( 'journal', 'yellow', false, journals) }}
-        {{ contact.windowFrame( 'contact', 'blue', false) }}
-        {{ portfolio.windowFrame( 'portfolio', 'purple', false, projects) }}
+{% include "components/lightbox.njk" %}
+{% include "components/project-previews.njk" %}
+{% include "components/footer.njk" %}
 
-    </div>
+{% include "components/close-all-button.njk" %}
 
+<div class="fixed inset-0 fade-overlay bg-neutral ease-smooth"></div>
 
-    {% include "components/lightbox.njk" %}
-    {% include "components/project-previews.njk" %}
-    {% include "components/footer.njk" %}
-
-    {% include "components/close-all-button.njk" %}
-
-
-
-    <div class="fixed inset-0 fade-overlay bg-neutral ease-smooth"></div>
-
-    <div
+<div
          class="fixed inset-0 items-center justify-center p-4 font-serif text-5xl leading-snug text-center text-white bg-black border-8 md:text-6xl border-neutral rotate-pls">
         Please rotate your phone!
     </div>

@@ -1,11 +1,6 @@
 @import url("https://fonts.googleapis.com/css?family=IBM+Plex+Mono|IBM+Plex+Sans:400,500&display=swap");
 
 @font-face {
-	font-family: "Office Times";
-	src: url("/webfonts/Office-Times-Trial.ttf");
-}
-
-.serif {
-	@apply font-serif;
-	@apply tracking-tight;
+  font-family: "ITCGaramondSTD";
+  src: url("/webfonts/ITCGaramondStd-LtCond.woff");
 }

@@ -3,7 +3,7 @@
 	<div class="flex items-center justify-center">
 
 		<div id="homeMusicButtons"
-				 class="flex items-center p-1 transition transform translate-x-8 rounded opacity-0 bg-black-100 hover:bg-green-100">
+				 class="flex items-center p-1 transition transform translate-x-8 rounded opacity-0 btn btn-bg-on smooth-transition text-black-100 hover:text-green-100">
 			<button class="transition-colors rounded-full group smooth-transition" id="homePrev">
 				<svg class="block group-hover:text-green-500 transition-inherit duration-inherit ease-inherit w-8 h-8 text-black-300 group-hocus:text-{{item.color}}-500"
 						 fill="currentColor" role="img"
@@ -40,43 +40,41 @@
 		</div>
 
 		<div
-				 class="self-center h-8 ml-4 mr-2 transition-opacity duration-150 border-r opacity-0 border-grey-200 pipe ease-smooth">
-		</div>
+				 class="self-center h-8 ml-4 mr-2 transition-opacity duration-150 border-r opacity-0 border-grey-200 pipe ease-smooth"></div>
 
-		<ul class="flex align-center">
+		{# <ul class="flex align-center">
 			{% for item in site.social_links %}
 
-			<li class="ml-2 first:ml-0">
+				<li class="ml-2 first:ml-0">
 
-				<a href="{{ item.link | safe }}"
-					 class="block btn p-1 circle text-{{item.color}}-100 group rounded-full smooth-transition transition-colors transition-colors"
+					<a href="{{ item.link | safe }}"
+					 class="block wiggle-hover wiggle btn p-1 circle text-{{item.color}}-100 group rounded-full smooth-transition transition-colors transition-colors"
 					 aria-label="{{ item.title | capitalize }}"
 					 target="_blank" rel="noopener"
 					 title="Go to Stephen's profile on {{item.title | capitalize}}">
 
-					<svg class="block w-8 h-8 text-black-300 group-hover:text-{{item.color}}-500 transition-colors duration-inherit ease-inherit"
+						<svg class="block w-8 h-8 text-black-300 group-hover:text-{{item.color}}-500 transition-colors duration-inherit ease-inherit"
 							 fill="currentColor" role="img"
 							 aria-hidden="true">
-						<use xmlns:xlink="http://www.w3.org/1999/xlink"
+							<use xmlns:xlink="http://www.w3.org/1999/xlink"
 								 xlink:href="/images/icons/icon-library.svg#icon-{{ item.title }}"></use>
-					</svg>
+						</svg>
 
-				</a>
+					</a>
 
-			</li>
+				</li>
 
 			{% endfor %}
 		</ul>
 
-		<div class="self-center h-8 mx-4 border-r opacity-1 border-grey-200"></div>
+		<div class="self-center h-8 mx-4 border-r opacity-1 border-grey-200"></div> #}
 
 		<label class="theme-switcher">
 			<input
 						 type="checkbox"
-						 class="theme-switcher-input"
-						 id="theme-switcher-input" />
-			<div class="relative flex items-center w-full h-full rounded-full cursor-pointer theme-switcher-checkbox-ui">
-			</div>
+						 class="wiggle-hover theme-switcher-input"
+						 id="theme-switcher-input"/>
+			<div class="relative flex items-center w-full h-full rounded-full cursor-pointer wiggle theme-switcher-checkbox-ui"></div>
 		</label>
 	</div>
 
