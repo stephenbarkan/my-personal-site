@@ -310,38 +310,28 @@ window.addEventListener("resize", function () {
 overlayFadeOut();
 onResize();
 //change heart to/from red and change accompanying text
-var igHeart = document.querySelector('.ig-heart-btn');
-var igHeartSvg = igHeart.querySelector('svg');
-var igHeartText = document.querySelector('.ig-heart-text');
-var igCaptions = document.querySelectorAll('.ig-caption-container');
+var igHeart = document.querySelector(".ig-heart-btn");
+var igHeartSvg = igHeart.querySelector("svg");
+var igHeartText = document.querySelector(".ig-heart-text");
 
 var instagramHeart = function instagramHeart() {
-  if (igHeart.classList.contains('liked')) {
-    igHeart.classList.remove('liked');
+  if (igHeart.classList.contains("liked")) {
+    igHeart.classList.remove("liked");
     igHeartText.textContent = "0 Likes";
   } else {
-    igHeart.classList.add('liked');
+    igHeart.classList.add("liked");
     igHeartText.textContent = "1 Like!";
   }
 
-  igHeart.classList.add('animating');
-  igHeart.addEventListener('animationend', function () {
-    igHeart.classList.remove('animating');
+  igHeart.classList.add("animating");
+  igHeart.addEventListener("animationend", function () {
+    igHeart.classList.remove("animating");
   });
 };
 
-igHeart.addEventListener('click', function (e) {
+igHeart.addEventListener("click", function (e) {
   e.preventDefault();
   instagramHeart();
-});
-igCaptions.forEach(function (caption) {
-  caption.addEventListener('click', function () {
-    if (caption.classList.contains('reveal')) {
-      caption.classList.remove('reveal');
-    } else {
-      caption.classList.add('reveal');
-    }
-  });
 });
 var current = 0;
 var igImages = document.querySelectorAll('.ig-image');

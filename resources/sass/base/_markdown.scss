@@ -108,7 +108,7 @@
   h4,
   h5,
   h6 {
-    @apply text-black leading-tight font-medium;
+    @apply text-black-900 leading-tight font-medium;
   }
 
   h3 {
@@ -150,6 +150,11 @@
 
   hr {
     @apply my-12 text-grey-300;
+
+    @screen sm {
+      @apply -mx-8;
+      max-width: calc(100% + 64px);
+    }
   }
 
   blockquote {

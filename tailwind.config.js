@@ -161,6 +161,7 @@ module.exports = {
       spacing: {
         "1-5": "0.375rem",
         14: "3.5rem",
+        28: "7rem",
         44: "11rem",
         96: "24rem",
         full: "100%",
@@ -204,6 +205,7 @@ module.exports = {
       },
 
       transitionDuration: {
+        none: "0",
         150: "150ms",
         300: "300ms",
         500: "500ms",
@@ -257,6 +259,7 @@ module.exports = {
     boxShadow: ["responsive", "hover", "focus", "hocus"],
     skew: ["responsive", "hover", "hocus", "group-focus"],
     translate: ["responsive", "hover", "hocus", "group-focus"],
+    transitionDuration: ["hover"],
   },
 
   plugins: [require("tailwindcss-interaction-variants")()],

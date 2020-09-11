@@ -780,7 +780,7 @@ a:focus .btn::before, a:focus .markdown a::before, .markdown a:focus a::before {
 html {
   --clr-neutral: #fffdf5;
   --clr-white: #ffffff;
-  --clr-black: rgba(0, 0, 0, 0.8);
+  --clr-black: rgba(0, 0, 0, 0.75);
   --clr-grey-900: #16151e;
   --clr-grey-800: #333138;
   --clr-grey-700: #514f56;
@@ -828,7 +828,7 @@ html[data-theme="dark"] {
   --clr-black-500: rgba(255, 255, 255, 0.47);
   --clr-black-400: rgba(255, 255, 255, 0.37);
   --clr-black-300: rgba(255, 255, 255, 0.2);
-  --clr-black-200: rgba(255, 255, 255, 0.16);
+  --clr-black-200: rgba(255, 255, 255, 0.09);
   --clr-black-100: rgba(255, 255, 255, 0.06);
   --clr-grey-900: #c8c7cd;
   --clr-grey-800: #b2b1b6;
@@ -985,7 +985,7 @@ body.window-open {
 #portfolioWindow {
   width: 100%;
   height: 100%;
-  --inner-height: 20rem;
+  --inner-height: 22rem;
 }
 
 @media (min-width: 450px) {
@@ -1123,8 +1123,8 @@ body.window-open {
 }
 
 .ig-heart-btn.animating svg {
-  -webkit-animation: ig-heart-animation .45s ease-in-out;
-          animation: ig-heart-animation .45s ease-in-out;
+  -webkit-animation: ig-heart-animation 0.45s ease-in-out;
+          animation: ig-heart-animation 0.45s ease-in-out;
 }
 
 @-webkit-keyframes ig-heart-animation {
@@ -1181,18 +1181,6 @@ body.window-open {
   .ig-right:hover {
   --transform-scale-x: 1.1;
   --transform-scale-y: 1.1;
-}
-
-.ig-caption-container {
-  display: -webkit-box;
-  -webkit-line-clamp: 1;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  overflow: hidden;
-}
-
-.ig-caption-container.reveal {
-  -webkit-line-clamp: unset;
 }
 
 input[type="range"]#music-slider {
@@ -1435,7 +1423,7 @@ input[type="range"]#music-slider::-ms-fill-upper {
 
 @media (min-width: 640px) {
   .project-grid {
-    grid-template-columns: repeat(4, minmax(6rem, 9rem));
+    grid-template-columns: repeat(3, minmax(6rem, 12rem));
   }
 }
 
@@ -1626,7 +1614,7 @@ input[type="range"]#music-slider::-ms-fill-upper {
 .markdown h4,
 .markdown h5,
 .markdown h6 {
-  color: var(--clr-black);
+  color: var(--clr-black-900);
   line-height: 1.2;
   font-weight: 500;
 }
@@ -1687,6 +1675,14 @@ input[type="range"]#music-slider::-ms-fill-upper {
   margin-top: 3rem;
   margin-bottom: 3rem;
   color: var(--clr-grey-300);
+}
+
+@media (min-width: 640px) {
+  .markdown hr {
+    margin-left: -2rem;
+    margin-right: -2rem;
+    max-width: calc(100% + 64px);
+  }
 }
 
 .markdown blockquote {
@@ -1891,7 +1887,7 @@ input[type="range"]#music-slider::-ms-fill-upper {
 
 .message.typing p {
   font-size: 1.75rem;
-  line-height: .75;
+  line-height: 0.75;
   color: var(--clr-grey-600);
 }
 
@@ -1984,7 +1980,7 @@ input[type="range"]#music-slider::-ms-fill-upper {
 }
 
 .fromMe .message div {
-  right: calc(100% - .5rem);
+  right: calc(100% - 0.5rem);
   position: absolute;
   transition-timing-function: cubic-bezier(.2,.8,.2,1);
   top: 0;
@@ -2026,19 +2022,19 @@ input[type="range"]#music-slider::-ms-fill-upper {
 }
 
 #chat-controls textarea::-moz-placeholder {
-  color: var(--clr-grey-500);
+  color: var(--clr-black-500);
 }
 
 #chat-controls textarea:-ms-input-placeholder {
-  color: var(--clr-grey-500);
+  color: var(--clr-black-500);
 }
 
 #chat-controls textarea::-ms-input-placeholder {
-  color: var(--clr-grey-500);
+  color: var(--clr-black-500);
 }
 
 #chat-controls textarea::placeholder {
-  color: var(--clr-grey-500);
+  color: var(--clr-black-500);
 }
 
 #chat-controls.pointer-events-none textarea::-moz-placeholder {
@@ -2059,8 +2055,8 @@ input[type="range"]#music-slider::-ms-fill-upper {
 
 #nextButton.animating {
   background-color: var(--clr-contact-light);
-  -webkit-animation: next-button-animation .45s ease-in-out;
-          animation: next-button-animation .45s ease-in-out;
+  -webkit-animation: next-button-animation 0.45s ease-in-out;
+          animation: next-button-animation 0.45s ease-in-out;
 }
 
 #nextButton.animating svg {
@@ -2171,7 +2167,7 @@ input[type="range"]#music-slider::-ms-fill-upper {
   content: attr(data-value) " ";
   visibility: hidden;
   white-space: pre-wrap;
-  padding: .25rem .75rem .5rem;
+  padding: 0.25rem 0.75rem 0.5rem;
 }
 
 .home-link-bg {
@@ -2484,6 +2480,18 @@ a:hover .home-link-bg {
   margin-left: calc(6rem * calc(1 - var(--space-x-reverse)));
 }
 
+.space-y-28 > :not(template) ~ :not(template){
+  --space-y-reverse: 0;
+  margin-top: calc(7rem * calc(1 - var(--space-y-reverse)));
+  margin-bottom: calc(7rem * var(--space-y-reverse));
+}
+
+.space-x-28 > :not(template) ~ :not(template){
+  --space-x-reverse: 0;
+  margin-right: calc(7rem * var(--space-x-reverse));
+  margin-left: calc(7rem * calc(1 - var(--space-x-reverse)));
+}
+
 .space-y-32 > :not(template) ~ :not(template){
   --space-y-reverse: 0;
   margin-top: calc(8rem * calc(1 - var(--space-y-reverse)));
@@ -2758,6 +2766,18 @@ a:hover .home-link-bg {
   --space-x-reverse: 0;
   margin-right: calc(-6rem * var(--space-x-reverse));
   margin-left: calc(-6rem * calc(1 - var(--space-x-reverse)));
+}
+
+.-space-y-28 > :not(template) ~ :not(template){
+  --space-y-reverse: 0;
+  margin-top: calc(-7rem * calc(1 - var(--space-y-reverse)));
+  margin-bottom: calc(-7rem * var(--space-y-reverse));
+}
+
+.-space-x-28 > :not(template) ~ :not(template){
+  --space-x-reverse: 0;
+  margin-right: calc(-7rem * var(--space-x-reverse));
+  margin-left: calc(-7rem * calc(1 - var(--space-x-reverse)));
 }
 
 .-space-y-32 > :not(template) ~ :not(template){
@@ -6560,6 +6580,10 @@ a:hover .home-link-bg {
   height: 6rem;
 }
 
+.h-28{
+  height: 7rem;
+}
+
 .h-32{
   height: 8rem;
 }
@@ -6756,6 +6780,10 @@ a:hover .home-link-bg {
   margin: 6rem;
 }
 
+.m-28{
+  margin: 7rem;
+}
+
 .m-32{
   margin: 8rem;
 }
@@ -6850,6 +6878,10 @@ a:hover .home-link-bg {
 
 .-m-24{
   margin: -6rem;
+}
+
+.-m-28{
+  margin: -7rem;
 }
 
 .-m-32{
@@ -7030,6 +7062,16 @@ a:hover .home-link-bg {
 .mx-24{
   margin-left: 6rem;
   margin-right: 6rem;
+}
+
+.my-28{
+  margin-top: 7rem;
+  margin-bottom: 7rem;
+}
+
+.mx-28{
+  margin-left: 7rem;
+  margin-right: 7rem;
 }
 
 .my-32{
@@ -7270,6 +7312,16 @@ a:hover .home-link-bg {
 .-mx-24{
   margin-left: -6rem;
   margin-right: -6rem;
+}
+
+.-my-28{
+  margin-top: -7rem;
+  margin-bottom: -7rem;
+}
+
+.-mx-28{
+  margin-left: -7rem;
+  margin-right: -7rem;
 }
 
 .-my-32{
@@ -7594,6 +7646,22 @@ a:hover .home-link-bg {
 
 .ml-24{
   margin-left: 6rem;
+}
+
+.mt-28{
+  margin-top: 7rem;
+}
+
+.mr-28{
+  margin-right: 7rem;
+}
+
+.mb-28{
+  margin-bottom: 7rem;
+}
+
+.ml-28{
+  margin-left: 7rem;
 }
 
 .mt-32{
@@ -7980,6 +8048,22 @@ a:hover .home-link-bg {
   margin-left: -6rem;
 }
 
+.-mt-28{
+  margin-top: -7rem;
+}
+
+.-mr-28{
+  margin-right: -7rem;
+}
+
+.-mb-28{
+  margin-bottom: -7rem;
+}
+
+.-ml-28{
+  margin-left: -7rem;
+}
+
 .-mt-32{
   margin-top: -8rem;
 }
@@ -8196,6 +8280,10 @@ a:hover .home-link-bg {
   margin: 6rem;
 }
 
+.first\:m-28:first-child{
+  margin: 7rem;
+}
+
 .first\:m-32:first-child{
   margin: 8rem;
 }
@@ -8290,6 +8378,10 @@ a:hover .home-link-bg {
 
 .first\:-m-24:first-child{
   margin: -6rem;
+}
+
+.first\:-m-28:first-child{
+  margin: -7rem;
 }
 
 .first\:-m-32:first-child{
@@ -8470,6 +8562,16 @@ a:hover .home-link-bg {
 .first\:mx-24:first-child{
   margin-left: 6rem;
   margin-right: 6rem;
+}
+
+.first\:my-28:first-child{
+  margin-top: 7rem;
+  margin-bottom: 7rem;
+}
+
+.first\:mx-28:first-child{
+  margin-left: 7rem;
+  margin-right: 7rem;
 }
 
 .first\:my-32:first-child{
@@ -8710,6 +8812,16 @@ a:hover .home-link-bg {
 .first\:-mx-24:first-child{
   margin-left: -6rem;
   margin-right: -6rem;
+}
+
+.first\:-my-28:first-child{
+  margin-top: -7rem;
+  margin-bottom: -7rem;
+}
+
+.first\:-mx-28:first-child{
+  margin-left: -7rem;
+  margin-right: -7rem;
 }
 
 .first\:-my-32:first-child{
@@ -9034,6 +9146,22 @@ a:hover .home-link-bg {
 
 .first\:ml-24:first-child{
   margin-left: 6rem;
+}
+
+.first\:mt-28:first-child{
+  margin-top: 7rem;
+}
+
+.first\:mr-28:first-child{
+  margin-right: 7rem;
+}
+
+.first\:mb-28:first-child{
+  margin-bottom: 7rem;
+}
+
+.first\:ml-28:first-child{
+  margin-left: 7rem;
 }
 
 .first\:mt-32:first-child{
@@ -9418,6 +9546,22 @@ a:hover .home-link-bg {
 
 .first\:-ml-24:first-child{
   margin-left: -6rem;
+}
+
+.first\:-mt-28:first-child{
+  margin-top: -7rem;
+}
+
+.first\:-mr-28:first-child{
+  margin-right: -7rem;
+}
+
+.first\:-mb-28:first-child{
+  margin-bottom: -7rem;
+}
+
+.first\:-ml-28:first-child{
+  margin-left: -7rem;
 }
 
 .first\:-mt-32:first-child{
@@ -9994,6 +10138,10 @@ a:hover .home-link-bg {
   padding: 6rem;
 }
 
+.p-28{
+  padding: 7rem;
+}
+
 .p-32{
   padding: 8rem;
 }
@@ -10172,6 +10320,16 @@ a:hover .home-link-bg {
 .px-24{
   padding-left: 6rem;
   padding-right: 6rem;
+}
+
+.py-28{
+  padding-top: 7rem;
+  padding-bottom: 7rem;
+}
+
+.px-28{
+  padding-left: 7rem;
+  padding-right: 7rem;
 }
 
 .py-32{
@@ -10496,6 +10654,22 @@ a:hover .home-link-bg {
 
 .pl-24{
   padding-left: 6rem;
+}
+
+.pt-28{
+  padding-top: 7rem;
+}
+
+.pr-28{
+  padding-right: 7rem;
+}
+
+.pb-28{
+  padding-bottom: 7rem;
+}
+
+.pl-28{
+  padding-left: 7rem;
 }
 
 .pt-32{
@@ -14361,6 +14535,10 @@ a:hover .home-link-bg {
   width: 6rem;
 }
 
+.w-28{
+  width: 7rem;
+}
+
 .w-32{
   width: 8rem;
 }
@@ -14615,6 +14793,11 @@ a:hover .home-link-bg {
   gap: 6rem;
 }
 
+.gap-28{
+  grid-gap: 7rem;
+  gap: 7rem;
+}
+
 .gap-32{
   grid-gap: 8rem;
   gap: 8rem;
@@ -14749,6 +14932,12 @@ a:hover .home-link-bg {
        column-gap: 6rem;
 }
 
+.col-gap-28{
+  grid-column-gap: 7rem;
+  -moz-column-gap: 7rem;
+       column-gap: 7rem;
+}
+
 .col-gap-32{
   grid-column-gap: 8rem;
   -moz-column-gap: 8rem;
@@ -14877,6 +15066,11 @@ a:hover .home-link-bg {
 .row-gap-24{
   grid-row-gap: 6rem;
   row-gap: 6rem;
+}
+
+.row-gap-28{
+  grid-row-gap: 7rem;
+  row-gap: 7rem;
 }
 
 .row-gap-32{
@@ -15862,6 +16056,10 @@ a:hover .home-link-bg {
   --transform-translate-x: 6rem;
 }
 
+.translate-x-28{
+  --transform-translate-x: 7rem;
+}
+
 .translate-x-32{
   --transform-translate-x: 8rem;
 }
@@ -15952,6 +16150,10 @@ a:hover .home-link-bg {
 
 .-translate-x-24{
   --transform-translate-x: -6rem;
+}
+
+.-translate-x-28{
+  --transform-translate-x: -7rem;
 }
 
 .-translate-x-32{
@@ -16058,6 +16260,10 @@ a:hover .home-link-bg {
   --transform-translate-y: 6rem;
 }
 
+.translate-y-28{
+  --transform-translate-y: 7rem;
+}
+
 .translate-y-32{
   --transform-translate-y: 8rem;
 }
@@ -16148,6 +16354,10 @@ a:hover .home-link-bg {
 
 .-translate-y-24{
   --transform-translate-y: -6rem;
+}
+
+.-translate-y-28{
+  --transform-translate-y: -7rem;
 }
 
 .-translate-y-32{
@@ -16254,6 +16464,10 @@ a:hover .home-link-bg {
   --transform-translate-x: 6rem;
 }
 
+.hover\:translate-x-28:hover{
+  --transform-translate-x: 7rem;
+}
+
 .hover\:translate-x-32:hover{
   --transform-translate-x: 8rem;
 }
@@ -16344,6 +16558,10 @@ a:hover .home-link-bg {
 
 .hover\:-translate-x-24:hover{
   --transform-translate-x: -6rem;
+}
+
+.hover\:-translate-x-28:hover{
+  --transform-translate-x: -7rem;
 }
 
 .hover\:-translate-x-32:hover{
@@ -16450,6 +16668,10 @@ a:hover .home-link-bg {
   --transform-translate-y: 6rem;
 }
 
+.hover\:translate-y-28:hover{
+  --transform-translate-y: 7rem;
+}
+
 .hover\:translate-y-32:hover{
   --transform-translate-y: 8rem;
 }
@@ -16540,6 +16762,10 @@ a:hover .home-link-bg {
 
 .hover\:-translate-y-24:hover{
   --transform-translate-y: -6rem;
+}
+
+.hover\:-translate-y-28:hover{
+  --transform-translate-y: -7rem;
 }
 
 .hover\:-translate-y-32:hover{
@@ -16646,6 +16872,10 @@ a:hover .home-link-bg {
   --transform-translate-x: 6rem;
 }
 
+.hocus\:translate-x-28:hover,.hocus\:translate-x-28:focus{
+  --transform-translate-x: 7rem;
+}
+
 .hocus\:translate-x-32:hover,.hocus\:translate-x-32:focus{
   --transform-translate-x: 8rem;
 }
@@ -16736,6 +16966,10 @@ a:hover .home-link-bg {
 
 .hocus\:-translate-x-24:hover,.hocus\:-translate-x-24:focus{
   --transform-translate-x: -6rem;
+}
+
+.hocus\:-translate-x-28:hover,.hocus\:-translate-x-28:focus{
+  --transform-translate-x: -7rem;
 }
 
 .hocus\:-translate-x-32:hover,.hocus\:-translate-x-32:focus{
@@ -16842,6 +17076,10 @@ a:hover .home-link-bg {
   --transform-translate-y: 6rem;
 }
 
+.hocus\:translate-y-28:hover,.hocus\:translate-y-28:focus{
+  --transform-translate-y: 7rem;
+}
+
 .hocus\:translate-y-32:hover,.hocus\:translate-y-32:focus{
   --transform-translate-y: 8rem;
 }
@@ -16932,6 +17170,10 @@ a:hover .home-link-bg {
 
 .hocus\:-translate-y-24:hover,.hocus\:-translate-y-24:focus{
   --transform-translate-y: -6rem;
+}
+
+.hocus\:-translate-y-28:hover,.hocus\:-translate-y-28:focus{
+  --transform-translate-y: -7rem;
 }
 
 .hocus\:-translate-y-32:hover,.hocus\:-translate-y-32:focus{
@@ -17038,6 +17280,10 @@ a:hover .home-link-bg {
   --transform-translate-x: 6rem;
 }
 
+.group:focus .group-focus\:translate-x-28{
+  --transform-translate-x: 7rem;
+}
+
 .group:focus .group-focus\:translate-x-32{
   --transform-translate-x: 8rem;
 }
@@ -17128,6 +17374,10 @@ a:hover .home-link-bg {
 
 .group:focus .group-focus\:-translate-x-24{
   --transform-translate-x: -6rem;
+}
+
+.group:focus .group-focus\:-translate-x-28{
+  --transform-translate-x: -7rem;
 }
 
 .group:focus .group-focus\:-translate-x-32{
@@ -17234,6 +17484,10 @@ a:hover .home-link-bg {
   --transform-translate-y: 6rem;
 }
 
+.group:focus .group-focus\:translate-y-28{
+  --transform-translate-y: 7rem;
+}
+
 .group:focus .group-focus\:translate-y-32{
   --transform-translate-y: 8rem;
 }
@@ -17324,6 +17578,10 @@ a:hover .home-link-bg {
 
 .group:focus .group-focus\:-translate-y-24{
   --transform-translate-y: -6rem;
+}
+
+.group:focus .group-focus\:-translate-y-28{
+  --transform-translate-y: -7rem;
 }
 
 .group:focus .group-focus\:-translate-y-32{
@@ -17670,7 +17928,51 @@ a:hover .home-link-bg {
   transition-duration: 1000ms;
 }
 
+.duration-none{
+  transition-duration: 0;
+}
+
 .duration-inherit{
+  transition-duration: inherit;
+}
+
+.hover\:duration-75:hover{
+  transition-duration: 75ms;
+}
+
+.hover\:duration-100:hover{
+  transition-duration: 100ms;
+}
+
+.hover\:duration-150:hover{
+  transition-duration: 150ms;
+}
+
+.hover\:duration-200:hover{
+  transition-duration: 200ms;
+}
+
+.hover\:duration-300:hover{
+  transition-duration: 300ms;
+}
+
+.hover\:duration-500:hover{
+  transition-duration: 500ms;
+}
+
+.hover\:duration-700:hover{
+  transition-duration: 700ms;
+}
+
+.hover\:duration-1000:hover{
+  transition-duration: 1000ms;
+}
+
+.hover\:duration-none:hover{
+  transition-duration: 0;
+}
+
+.hover\:duration-inherit:hover{
   transition-duration: inherit;
 }
 
@@ -17873,6 +18175,18 @@ a:hover .home-link-bg {
     --space-x-reverse: 0;
     margin-right: calc(6rem * var(--space-x-reverse));
     margin-left: calc(6rem * calc(1 - var(--space-x-reverse)));
+  }
+
+  .xs\:space-y-28 > :not(template) ~ :not(template){
+    --space-y-reverse: 0;
+    margin-top: calc(7rem * calc(1 - var(--space-y-reverse)));
+    margin-bottom: calc(7rem * var(--space-y-reverse));
+  }
+
+  .xs\:space-x-28 > :not(template) ~ :not(template){
+    --space-x-reverse: 0;
+    margin-right: calc(7rem * var(--space-x-reverse));
+    margin-left: calc(7rem * calc(1 - var(--space-x-reverse)));
   }
 
   .xs\:space-y-32 > :not(template) ~ :not(template){
@@ -18149,6 +18463,18 @@ a:hover .home-link-bg {
     --space-x-reverse: 0;
     margin-right: calc(-6rem * var(--space-x-reverse));
     margin-left: calc(-6rem * calc(1 - var(--space-x-reverse)));
+  }
+
+  .xs\:-space-y-28 > :not(template) ~ :not(template){
+    --space-y-reverse: 0;
+    margin-top: calc(-7rem * calc(1 - var(--space-y-reverse)));
+    margin-bottom: calc(-7rem * var(--space-y-reverse));
+  }
+
+  .xs\:-space-x-28 > :not(template) ~ :not(template){
+    --space-x-reverse: 0;
+    margin-right: calc(-7rem * var(--space-x-reverse));
+    margin-left: calc(-7rem * calc(1 - var(--space-x-reverse)));
   }
 
   .xs\:-space-y-32 > :not(template) ~ :not(template){
@@ -20581,6 +20907,10 @@ a:hover .home-link-bg {
     height: 6rem;
   }
 
+  .xs\:h-28{
+    height: 7rem;
+  }
+
   .xs\:h-32{
     height: 8rem;
   }
@@ -20777,6 +21107,10 @@ a:hover .home-link-bg {
     margin: 6rem;
   }
 
+  .xs\:m-28{
+    margin: 7rem;
+  }
+
   .xs\:m-32{
     margin: 8rem;
   }
@@ -20871,6 +21205,10 @@ a:hover .home-link-bg {
 
   .xs\:-m-24{
     margin: -6rem;
+  }
+
+  .xs\:-m-28{
+    margin: -7rem;
   }
 
   .xs\:-m-32{
@@ -21051,6 +21389,16 @@ a:hover .home-link-bg {
   .xs\:mx-24{
     margin-left: 6rem;
     margin-right: 6rem;
+  }
+
+  .xs\:my-28{
+    margin-top: 7rem;
+    margin-bottom: 7rem;
+  }
+
+  .xs\:mx-28{
+    margin-left: 7rem;
+    margin-right: 7rem;
   }
 
   .xs\:my-32{
@@ -21291,6 +21639,16 @@ a:hover .home-link-bg {
   .xs\:-mx-24{
     margin-left: -6rem;
     margin-right: -6rem;
+  }
+
+  .xs\:-my-28{
+    margin-top: -7rem;
+    margin-bottom: -7rem;
+  }
+
+  .xs\:-mx-28{
+    margin-left: -7rem;
+    margin-right: -7rem;
   }
 
   .xs\:-my-32{
@@ -21615,6 +21973,22 @@ a:hover .home-link-bg {
 
   .xs\:ml-24{
     margin-left: 6rem;
+  }
+
+  .xs\:mt-28{
+    margin-top: 7rem;
+  }
+
+  .xs\:mr-28{
+    margin-right: 7rem;
+  }
+
+  .xs\:mb-28{
+    margin-bottom: 7rem;
+  }
+
+  .xs\:ml-28{
+    margin-left: 7rem;
   }
 
   .xs\:mt-32{
@@ -22001,6 +22375,22 @@ a:hover .home-link-bg {
     margin-left: -6rem;
   }
 
+  .xs\:-mt-28{
+    margin-top: -7rem;
+  }
+
+  .xs\:-mr-28{
+    margin-right: -7rem;
+  }
+
+  .xs\:-mb-28{
+    margin-bottom: -7rem;
+  }
+
+  .xs\:-ml-28{
+    margin-left: -7rem;
+  }
+
   .xs\:-mt-32{
     margin-top: -8rem;
   }
@@ -22217,6 +22607,10 @@ a:hover .home-link-bg {
     margin: 6rem;
   }
 
+  .xs\:first\:m-28:first-child{
+    margin: 7rem;
+  }
+
   .xs\:first\:m-32:first-child{
     margin: 8rem;
   }
@@ -22311,6 +22705,10 @@ a:hover .home-link-bg {
 
   .xs\:first\:-m-24:first-child{
     margin: -6rem;
+  }
+
+  .xs\:first\:-m-28:first-child{
+    margin: -7rem;
   }
 
   .xs\:first\:-m-32:first-child{
@@ -22491,6 +22889,16 @@ a:hover .home-link-bg {
   .xs\:first\:mx-24:first-child{
     margin-left: 6rem;
     margin-right: 6rem;
+  }
+
+  .xs\:first\:my-28:first-child{
+    margin-top: 7rem;
+    margin-bottom: 7rem;
+  }
+
+  .xs\:first\:mx-28:first-child{
+    margin-left: 7rem;
+    margin-right: 7rem;
   }
 
   .xs\:first\:my-32:first-child{
@@ -22731,6 +23139,16 @@ a:hover .home-link-bg {
   .xs\:first\:-mx-24:first-child{
     margin-left: -6rem;
     margin-right: -6rem;
+  }
+
+  .xs\:first\:-my-28:first-child{
+    margin-top: -7rem;
+    margin-bottom: -7rem;
+  }
+
+  .xs\:first\:-mx-28:first-child{
+    margin-left: -7rem;
+    margin-right: -7rem;
   }
 
   .xs\:first\:-my-32:first-child{
@@ -23055,6 +23473,22 @@ a:hover .home-link-bg {
 
   .xs\:first\:ml-24:first-child{
     margin-left: 6rem;
+  }
+
+  .xs\:first\:mt-28:first-child{
+    margin-top: 7rem;
+  }
+
+  .xs\:first\:mr-28:first-child{
+    margin-right: 7rem;
+  }
+
+  .xs\:first\:mb-28:first-child{
+    margin-bottom: 7rem;
+  }
+
+  .xs\:first\:ml-28:first-child{
+    margin-left: 7rem;
   }
 
   .xs\:first\:mt-32:first-child{
@@ -23439,6 +23873,22 @@ a:hover .home-link-bg {
 
   .xs\:first\:-ml-24:first-child{
     margin-left: -6rem;
+  }
+
+  .xs\:first\:-mt-28:first-child{
+    margin-top: -7rem;
+  }
+
+  .xs\:first\:-mr-28:first-child{
+    margin-right: -7rem;
+  }
+
+  .xs\:first\:-mb-28:first-child{
+    margin-bottom: -7rem;
+  }
+
+  .xs\:first\:-ml-28:first-child{
+    margin-left: -7rem;
   }
 
   .xs\:first\:-mt-32:first-child{
@@ -24015,6 +24465,10 @@ a:hover .home-link-bg {
     padding: 6rem;
   }
 
+  .xs\:p-28{
+    padding: 7rem;
+  }
+
   .xs\:p-32{
     padding: 8rem;
   }
@@ -24193,6 +24647,16 @@ a:hover .home-link-bg {
   .xs\:px-24{
     padding-left: 6rem;
     padding-right: 6rem;
+  }
+
+  .xs\:py-28{
+    padding-top: 7rem;
+    padding-bottom: 7rem;
+  }
+
+  .xs\:px-28{
+    padding-left: 7rem;
+    padding-right: 7rem;
   }
 
   .xs\:py-32{
@@ -24517,6 +24981,22 @@ a:hover .home-link-bg {
 
   .xs\:pl-24{
     padding-left: 6rem;
+  }
+
+  .xs\:pt-28{
+    padding-top: 7rem;
+  }
+
+  .xs\:pr-28{
+    padding-right: 7rem;
+  }
+
+  .xs\:pb-28{
+    padding-bottom: 7rem;
+  }
+
+  .xs\:pl-28{
+    padding-left: 7rem;
   }
 
   .xs\:pt-32{
@@ -27024,6 +27504,10 @@ a:hover .home-link-bg {
     width: 6rem;
   }
 
+  .xs\:w-28{
+    width: 7rem;
+  }
+
   .xs\:w-32{
     width: 8rem;
   }
@@ -27278,6 +27762,11 @@ a:hover .home-link-bg {
     gap: 6rem;
   }
 
+  .xs\:gap-28{
+    grid-gap: 7rem;
+    gap: 7rem;
+  }
+
   .xs\:gap-32{
     grid-gap: 8rem;
     gap: 8rem;
@@ -27412,6 +27901,12 @@ a:hover .home-link-bg {
          column-gap: 6rem;
   }
 
+  .xs\:col-gap-28{
+    grid-column-gap: 7rem;
+    -moz-column-gap: 7rem;
+         column-gap: 7rem;
+  }
+
   .xs\:col-gap-32{
     grid-column-gap: 8rem;
     -moz-column-gap: 8rem;
@@ -27540,6 +28035,11 @@ a:hover .home-link-bg {
   .xs\:row-gap-24{
     grid-row-gap: 6rem;
     row-gap: 6rem;
+  }
+
+  .xs\:row-gap-28{
+    grid-row-gap: 7rem;
+    row-gap: 7rem;
   }
 
   .xs\:row-gap-32{
@@ -28525,6 +29025,10 @@ a:hover .home-link-bg {
     --transform-translate-x: 6rem;
   }
 
+  .xs\:translate-x-28{
+    --transform-translate-x: 7rem;
+  }
+
   .xs\:translate-x-32{
     --transform-translate-x: 8rem;
   }
@@ -28615,6 +29119,10 @@ a:hover .home-link-bg {
 
   .xs\:-translate-x-24{
     --transform-translate-x: -6rem;
+  }
+
+  .xs\:-translate-x-28{
+    --transform-translate-x: -7rem;
   }
 
   .xs\:-translate-x-32{
@@ -28721,6 +29229,10 @@ a:hover .home-link-bg {
     --transform-translate-y: 6rem;
   }
 
+  .xs\:translate-y-28{
+    --transform-translate-y: 7rem;
+  }
+
   .xs\:translate-y-32{
     --transform-translate-y: 8rem;
   }
@@ -28811,6 +29323,10 @@ a:hover .home-link-bg {
 
   .xs\:-translate-y-24{
     --transform-translate-y: -6rem;
+  }
+
+  .xs\:-translate-y-28{
+    --transform-translate-y: -7rem;
   }
 
   .xs\:-translate-y-32{
@@ -28917,6 +29433,10 @@ a:hover .home-link-bg {
     --transform-translate-x: 6rem;
   }
 
+  .xs\:hover\:translate-x-28:hover{
+    --transform-translate-x: 7rem;
+  }
+
   .xs\:hover\:translate-x-32:hover{
     --transform-translate-x: 8rem;
   }
@@ -29007,6 +29527,10 @@ a:hover .home-link-bg {
 
   .xs\:hover\:-translate-x-24:hover{
     --transform-translate-x: -6rem;
+  }
+
+  .xs\:hover\:-translate-x-28:hover{
+    --transform-translate-x: -7rem;
   }
 
   .xs\:hover\:-translate-x-32:hover{
@@ -29113,6 +29637,10 @@ a:hover .home-link-bg {
     --transform-translate-y: 6rem;
   }
 
+  .xs\:hover\:translate-y-28:hover{
+    --transform-translate-y: 7rem;
+  }
+
   .xs\:hover\:translate-y-32:hover{
     --transform-translate-y: 8rem;
   }
@@ -29203,6 +29731,10 @@ a:hover .home-link-bg {
 
   .xs\:hover\:-translate-y-24:hover{
     --transform-translate-y: -6rem;
+  }
+
+  .xs\:hover\:-translate-y-28:hover{
+    --transform-translate-y: -7rem;
   }
 
   .xs\:hover\:-translate-y-32:hover{
@@ -29309,6 +29841,10 @@ a:hover .home-link-bg {
     --transform-translate-x: 6rem;
   }
 
+  .xs\:hocus\:translate-x-28:hover,.xs\:hocus\:translate-x-28:focus{
+    --transform-translate-x: 7rem;
+  }
+
   .xs\:hocus\:translate-x-32:hover,.xs\:hocus\:translate-x-32:focus{
     --transform-translate-x: 8rem;
   }
@@ -29399,6 +29935,10 @@ a:hover .home-link-bg {
 
   .xs\:hocus\:-translate-x-24:hover,.xs\:hocus\:-translate-x-24:focus{
     --transform-translate-x: -6rem;
+  }
+
+  .xs\:hocus\:-translate-x-28:hover,.xs\:hocus\:-translate-x-28:focus{
+    --transform-translate-x: -7rem;
   }
 
   .xs\:hocus\:-translate-x-32:hover,.xs\:hocus\:-translate-x-32:focus{
@@ -29505,6 +30045,10 @@ a:hover .home-link-bg {
     --transform-translate-y: 6rem;
   }
 
+  .xs\:hocus\:translate-y-28:hover,.xs\:hocus\:translate-y-28:focus{
+    --transform-translate-y: 7rem;
+  }
+
   .xs\:hocus\:translate-y-32:hover,.xs\:hocus\:translate-y-32:focus{
     --transform-translate-y: 8rem;
   }
@@ -29595,6 +30139,10 @@ a:hover .home-link-bg {
 
   .xs\:hocus\:-translate-y-24:hover,.xs\:hocus\:-translate-y-24:focus{
     --transform-translate-y: -6rem;
+  }
+
+  .xs\:hocus\:-translate-y-28:hover,.xs\:hocus\:-translate-y-28:focus{
+    --transform-translate-y: -7rem;
   }
 
   .xs\:hocus\:-translate-y-32:hover,.xs\:hocus\:-translate-y-32:focus{
@@ -29701,6 +30249,10 @@ a:hover .home-link-bg {
     --transform-translate-x: 6rem;
   }
 
+  .group:focus .xs\:group-focus\:translate-x-28{
+    --transform-translate-x: 7rem;
+  }
+
   .group:focus .xs\:group-focus\:translate-x-32{
     --transform-translate-x: 8rem;
   }
@@ -29791,6 +30343,10 @@ a:hover .home-link-bg {
 
   .group:focus .xs\:group-focus\:-translate-x-24{
     --transform-translate-x: -6rem;
+  }
+
+  .group:focus .xs\:group-focus\:-translate-x-28{
+    --transform-translate-x: -7rem;
   }
 
   .group:focus .xs\:group-focus\:-translate-x-32{
@@ -29897,6 +30453,10 @@ a:hover .home-link-bg {
     --transform-translate-y: 6rem;
   }
 
+  .group:focus .xs\:group-focus\:translate-y-28{
+    --transform-translate-y: 7rem;
+  }
+
   .group:focus .xs\:group-focus\:translate-y-32{
     --transform-translate-y: 8rem;
   }
@@ -29987,6 +30547,10 @@ a:hover .home-link-bg {
 
   .group:focus .xs\:group-focus\:-translate-y-24{
     --transform-translate-y: -6rem;
+  }
+
+  .group:focus .xs\:group-focus\:-translate-y-28{
+    --transform-translate-y: -7rem;
   }
 
   .group:focus .xs\:group-focus\:-translate-y-32{
@@ -30301,42 +30865,6 @@ a:hover .home-link-bg {
     transition-timing-function: inherit;
   }
 
-  .xs\:duration-75{
-    transition-duration: 75ms;
-  }
-
-  .xs\:duration-100{
-    transition-duration: 100ms;
-  }
-
-  .xs\:duration-150{
-    transition-duration: 150ms;
-  }
-
-  .xs\:duration-200{
-    transition-duration: 200ms;
-  }
-
-  .xs\:duration-300{
-    transition-duration: 300ms;
-  }
-
-  .xs\:duration-500{
-    transition-duration: 500ms;
-  }
-
-  .xs\:duration-700{
-    transition-duration: 700ms;
-  }
-
-  .xs\:duration-1000{
-    transition-duration: 1000ms;
-  }
-
-  .xs\:duration-inherit{
-    transition-duration: inherit;
-  }
-
   .xs\:delay-75{
     transition-delay: 75ms;
   }
@@ -30537,6 +31065,18 @@ a:hover .home-link-bg {
     --space-x-reverse: 0;
     margin-right: calc(6rem * var(--space-x-reverse));
     margin-left: calc(6rem * calc(1 - var(--space-x-reverse)));
+  }
+
+  .sm\:space-y-28 > :not(template) ~ :not(template){
+    --space-y-reverse: 0;
+    margin-top: calc(7rem * calc(1 - var(--space-y-reverse)));
+    margin-bottom: calc(7rem * var(--space-y-reverse));
+  }
+
+  .sm\:space-x-28 > :not(template) ~ :not(template){
+    --space-x-reverse: 0;
+    margin-right: calc(7rem * var(--space-x-reverse));
+    margin-left: calc(7rem * calc(1 - var(--space-x-reverse)));
   }
 
   .sm\:space-y-32 > :not(template) ~ :not(template){
@@ -30813,6 +31353,18 @@ a:hover .home-link-bg {
     --space-x-reverse: 0;
     margin-right: calc(-6rem * var(--space-x-reverse));
     margin-left: calc(-6rem * calc(1 - var(--space-x-reverse)));
+  }
+
+  .sm\:-space-y-28 > :not(template) ~ :not(template){
+    --space-y-reverse: 0;
+    margin-top: calc(-7rem * calc(1 - var(--space-y-reverse)));
+    margin-bottom: calc(-7rem * var(--space-y-reverse));
+  }
+
+  .sm\:-space-x-28 > :not(template) ~ :not(template){
+    --space-x-reverse: 0;
+    margin-right: calc(-7rem * var(--space-x-reverse));
+    margin-left: calc(-7rem * calc(1 - var(--space-x-reverse)));
   }
 
   .sm\:-space-y-32 > :not(template) ~ :not(template){
@@ -33245,6 +33797,10 @@ a:hover .home-link-bg {
     height: 6rem;
   }
 
+  .sm\:h-28{
+    height: 7rem;
+  }
+
   .sm\:h-32{
     height: 8rem;
   }
@@ -33441,6 +33997,10 @@ a:hover .home-link-bg {
     margin: 6rem;
   }
 
+  .sm\:m-28{
+    margin: 7rem;
+  }
+
   .sm\:m-32{
     margin: 8rem;
   }
@@ -33535,6 +34095,10 @@ a:hover .home-link-bg {
 
   .sm\:-m-24{
     margin: -6rem;
+  }
+
+  .sm\:-m-28{
+    margin: -7rem;
   }
 
   .sm\:-m-32{
@@ -33715,6 +34279,16 @@ a:hover .home-link-bg {
   .sm\:mx-24{
     margin-left: 6rem;
     margin-right: 6rem;
+  }
+
+  .sm\:my-28{
+    margin-top: 7rem;
+    margin-bottom: 7rem;
+  }
+
+  .sm\:mx-28{
+    margin-left: 7rem;
+    margin-right: 7rem;
   }
 
   .sm\:my-32{
@@ -33955,6 +34529,16 @@ a:hover .home-link-bg {
   .sm\:-mx-24{
     margin-left: -6rem;
     margin-right: -6rem;
+  }
+
+  .sm\:-my-28{
+    margin-top: -7rem;
+    margin-bottom: -7rem;
+  }
+
+  .sm\:-mx-28{
+    margin-left: -7rem;
+    margin-right: -7rem;
   }
 
   .sm\:-my-32{
@@ -34279,6 +34863,22 @@ a:hover .home-link-bg {
 
   .sm\:ml-24{
     margin-left: 6rem;
+  }
+
+  .sm\:mt-28{
+    margin-top: 7rem;
+  }
+
+  .sm\:mr-28{
+    margin-right: 7rem;
+  }
+
+  .sm\:mb-28{
+    margin-bottom: 7rem;
+  }
+
+  .sm\:ml-28{
+    margin-left: 7rem;
   }
 
   .sm\:mt-32{
@@ -34665,6 +35265,22 @@ a:hover .home-link-bg {
     margin-left: -6rem;
   }
 
+  .sm\:-mt-28{
+    margin-top: -7rem;
+  }
+
+  .sm\:-mr-28{
+    margin-right: -7rem;
+  }
+
+  .sm\:-mb-28{
+    margin-bottom: -7rem;
+  }
+
+  .sm\:-ml-28{
+    margin-left: -7rem;
+  }
+
   .sm\:-mt-32{
     margin-top: -8rem;
   }
@@ -34881,6 +35497,10 @@ a:hover .home-link-bg {
     margin: 6rem;
   }
 
+  .sm\:first\:m-28:first-child{
+    margin: 7rem;
+  }
+
   .sm\:first\:m-32:first-child{
     margin: 8rem;
   }
@@ -34975,6 +35595,10 @@ a:hover .home-link-bg {
 
   .sm\:first\:-m-24:first-child{
     margin: -6rem;
+  }
+
+  .sm\:first\:-m-28:first-child{
+    margin: -7rem;
   }
 
   .sm\:first\:-m-32:first-child{
@@ -35155,6 +35779,16 @@ a:hover .home-link-bg {
   .sm\:first\:mx-24:first-child{
     margin-left: 6rem;
     margin-right: 6rem;
+  }
+
+  .sm\:first\:my-28:first-child{
+    margin-top: 7rem;
+    margin-bottom: 7rem;
+  }
+
+  .sm\:first\:mx-28:first-child{
+    margin-left: 7rem;
+    margin-right: 7rem;
   }
 
   .sm\:first\:my-32:first-child{
@@ -35395,6 +36029,16 @@ a:hover .home-link-bg {
   .sm\:first\:-mx-24:first-child{
     margin-left: -6rem;
     margin-right: -6rem;
+  }
+
+  .sm\:first\:-my-28:first-child{
+    margin-top: -7rem;
+    margin-bottom: -7rem;
+  }
+
+  .sm\:first\:-mx-28:first-child{
+    margin-left: -7rem;
+    margin-right: -7rem;
   }
 
   .sm\:first\:-my-32:first-child{
@@ -35719,6 +36363,22 @@ a:hover .home-link-bg {
 
   .sm\:first\:ml-24:first-child{
     margin-left: 6rem;
+  }
+
+  .sm\:first\:mt-28:first-child{
+    margin-top: 7rem;
+  }
+
+  .sm\:first\:mr-28:first-child{
+    margin-right: 7rem;
+  }
+
+  .sm\:first\:mb-28:first-child{
+    margin-bottom: 7rem;
+  }
+
+  .sm\:first\:ml-28:first-child{
+    margin-left: 7rem;
   }
 
   .sm\:first\:mt-32:first-child{
@@ -36103,6 +36763,22 @@ a:hover .home-link-bg {
 
   .sm\:first\:-ml-24:first-child{
     margin-left: -6rem;
+  }
+
+  .sm\:first\:-mt-28:first-child{
+    margin-top: -7rem;
+  }
+
+  .sm\:first\:-mr-28:first-child{
+    margin-right: -7rem;
+  }
+
+  .sm\:first\:-mb-28:first-child{
+    margin-bottom: -7rem;
+  }
+
+  .sm\:first\:-ml-28:first-child{
+    margin-left: -7rem;
   }
 
   .sm\:first\:-mt-32:first-child{
@@ -36679,6 +37355,10 @@ a:hover .home-link-bg {
     padding: 6rem;
   }
 
+  .sm\:p-28{
+    padding: 7rem;
+  }
+
   .sm\:p-32{
     padding: 8rem;
   }
@@ -36857,6 +37537,16 @@ a:hover .home-link-bg {
   .sm\:px-24{
     padding-left: 6rem;
     padding-right: 6rem;
+  }
+
+  .sm\:py-28{
+    padding-top: 7rem;
+    padding-bottom: 7rem;
+  }
+
+  .sm\:px-28{
+    padding-left: 7rem;
+    padding-right: 7rem;
   }
 
   .sm\:py-32{
@@ -37181,6 +37871,22 @@ a:hover .home-link-bg {
 
   .sm\:pl-24{
     padding-left: 6rem;
+  }
+
+  .sm\:pt-28{
+    padding-top: 7rem;
+  }
+
+  .sm\:pr-28{
+    padding-right: 7rem;
+  }
+
+  .sm\:pb-28{
+    padding-bottom: 7rem;
+  }
+
+  .sm\:pl-28{
+    padding-left: 7rem;
   }
 
   .sm\:pt-32{
@@ -39688,6 +40394,10 @@ a:hover .home-link-bg {
     width: 6rem;
   }
 
+  .sm\:w-28{
+    width: 7rem;
+  }
+
   .sm\:w-32{
     width: 8rem;
   }
@@ -39942,6 +40652,11 @@ a:hover .home-link-bg {
     gap: 6rem;
   }
 
+  .sm\:gap-28{
+    grid-gap: 7rem;
+    gap: 7rem;
+  }
+
   .sm\:gap-32{
     grid-gap: 8rem;
     gap: 8rem;
@@ -40076,6 +40791,12 @@ a:hover .home-link-bg {
          column-gap: 6rem;
   }
 
+  .sm\:col-gap-28{
+    grid-column-gap: 7rem;
+    -moz-column-gap: 7rem;
+         column-gap: 7rem;
+  }
+
   .sm\:col-gap-32{
     grid-column-gap: 8rem;
     -moz-column-gap: 8rem;
@@ -40204,6 +40925,11 @@ a:hover .home-link-bg {
   .sm\:row-gap-24{
     grid-row-gap: 6rem;
     row-gap: 6rem;
+  }
+
+  .sm\:row-gap-28{
+    grid-row-gap: 7rem;
+    row-gap: 7rem;
   }
 
   .sm\:row-gap-32{
@@ -41189,6 +41915,10 @@ a:hover .home-link-bg {
     --transform-translate-x: 6rem;
   }
 
+  .sm\:translate-x-28{
+    --transform-translate-x: 7rem;
+  }
+
   .sm\:translate-x-32{
     --transform-translate-x: 8rem;
   }
@@ -41279,6 +42009,10 @@ a:hover .home-link-bg {
 
   .sm\:-translate-x-24{
     --transform-translate-x: -6rem;
+  }
+
+  .sm\:-translate-x-28{
+    --transform-translate-x: -7rem;
   }
 
   .sm\:-translate-x-32{
@@ -41385,6 +42119,10 @@ a:hover .home-link-bg {
     --transform-translate-y: 6rem;
   }
 
+  .sm\:translate-y-28{
+    --transform-translate-y: 7rem;
+  }
+
   .sm\:translate-y-32{
     --transform-translate-y: 8rem;
   }
@@ -41475,6 +42213,10 @@ a:hover .home-link-bg {
 
   .sm\:-translate-y-24{
     --transform-translate-y: -6rem;
+  }
+
+  .sm\:-translate-y-28{
+    --transform-translate-y: -7rem;
   }
 
   .sm\:-translate-y-32{
@@ -41581,6 +42323,10 @@ a:hover .home-link-bg {
     --transform-translate-x: 6rem;
   }
 
+  .sm\:hover\:translate-x-28:hover{
+    --transform-translate-x: 7rem;
+  }
+
   .sm\:hover\:translate-x-32:hover{
     --transform-translate-x: 8rem;
   }
@@ -41671,6 +42417,10 @@ a:hover .home-link-bg {
 
   .sm\:hover\:-translate-x-24:hover{
     --transform-translate-x: -6rem;
+  }
+
+  .sm\:hover\:-translate-x-28:hover{
+    --transform-translate-x: -7rem;
   }
 
   .sm\:hover\:-translate-x-32:hover{
@@ -41777,6 +42527,10 @@ a:hover .home-link-bg {
     --transform-translate-y: 6rem;
   }
 
+  .sm\:hover\:translate-y-28:hover{
+    --transform-translate-y: 7rem;
+  }
+
   .sm\:hover\:translate-y-32:hover{
     --transform-translate-y: 8rem;
   }
@@ -41867,6 +42621,10 @@ a:hover .home-link-bg {
 
   .sm\:hover\:-translate-y-24:hover{
     --transform-translate-y: -6rem;
+  }
+
+  .sm\:hover\:-translate-y-28:hover{
+    --transform-translate-y: -7rem;
   }
 
   .sm\:hover\:-translate-y-32:hover{
@@ -41973,6 +42731,10 @@ a:hover .home-link-bg {
     --transform-translate-x: 6rem;
   }
 
+  .sm\:hocus\:translate-x-28:hover,.sm\:hocus\:translate-x-28:focus{
+    --transform-translate-x: 7rem;
+  }
+
   .sm\:hocus\:translate-x-32:hover,.sm\:hocus\:translate-x-32:focus{
     --transform-translate-x: 8rem;
   }
@@ -42063,6 +42825,10 @@ a:hover .home-link-bg {
 
   .sm\:hocus\:-translate-x-24:hover,.sm\:hocus\:-translate-x-24:focus{
     --transform-translate-x: -6rem;
+  }
+
+  .sm\:hocus\:-translate-x-28:hover,.sm\:hocus\:-translate-x-28:focus{
+    --transform-translate-x: -7rem;
   }
 
   .sm\:hocus\:-translate-x-32:hover,.sm\:hocus\:-translate-x-32:focus{
@@ -42169,6 +42935,10 @@ a:hover .home-link-bg {
     --transform-translate-y: 6rem;
   }
 
+  .sm\:hocus\:translate-y-28:hover,.sm\:hocus\:translate-y-28:focus{
+    --transform-translate-y: 7rem;
+  }
+
   .sm\:hocus\:translate-y-32:hover,.sm\:hocus\:translate-y-32:focus{
     --transform-translate-y: 8rem;
   }
@@ -42259,6 +43029,10 @@ a:hover .home-link-bg {
 
   .sm\:hocus\:-translate-y-24:hover,.sm\:hocus\:-translate-y-24:focus{
     --transform-translate-y: -6rem;
+  }
+
+  .sm\:hocus\:-translate-y-28:hover,.sm\:hocus\:-translate-y-28:focus{
+    --transform-translate-y: -7rem;
   }
 
   .sm\:hocus\:-translate-y-32:hover,.sm\:hocus\:-translate-y-32:focus{
@@ -42365,6 +43139,10 @@ a:hover .home-link-bg {
     --transform-translate-x: 6rem;
   }
 
+  .group:focus .sm\:group-focus\:translate-x-28{
+    --transform-translate-x: 7rem;
+  }
+
   .group:focus .sm\:group-focus\:translate-x-32{
     --transform-translate-x: 8rem;
   }
@@ -42455,6 +43233,10 @@ a:hover .home-link-bg {
 
   .group:focus .sm\:group-focus\:-translate-x-24{
     --transform-translate-x: -6rem;
+  }
+
+  .group:focus .sm\:group-focus\:-translate-x-28{
+    --transform-translate-x: -7rem;
   }
 
   .group:focus .sm\:group-focus\:-translate-x-32{
@@ -42561,6 +43343,10 @@ a:hover .home-link-bg {
     --transform-translate-y: 6rem;
   }
 
+  .group:focus .sm\:group-focus\:translate-y-28{
+    --transform-translate-y: 7rem;
+  }
+
   .group:focus .sm\:group-focus\:translate-y-32{
     --transform-translate-y: 8rem;
   }
@@ -42651,6 +43437,10 @@ a:hover .home-link-bg {
 
   .group:focus .sm\:group-focus\:-translate-y-24{
     --transform-translate-y: -6rem;
+  }
+
+  .group:focus .sm\:group-focus\:-translate-y-28{
+    --transform-translate-y: -7rem;
   }
 
   .group:focus .sm\:group-focus\:-translate-y-32{
@@ -42965,42 +43755,6 @@ a:hover .home-link-bg {
     transition-timing-function: inherit;
   }
 
-  .sm\:duration-75{
-    transition-duration: 75ms;
-  }
-
-  .sm\:duration-100{
-    transition-duration: 100ms;
-  }
-
-  .sm\:duration-150{
-    transition-duration: 150ms;
-  }
-
-  .sm\:duration-200{
-    transition-duration: 200ms;
-  }
-
-  .sm\:duration-300{
-    transition-duration: 300ms;
-  }
-
-  .sm\:duration-500{
-    transition-duration: 500ms;
-  }
-
-  .sm\:duration-700{
-    transition-duration: 700ms;
-  }
-
-  .sm\:duration-1000{
-    transition-duration: 1000ms;
-  }
-
-  .sm\:duration-inherit{
-    transition-duration: inherit;
-  }
-
   .sm\:delay-75{
     transition-delay: 75ms;
   }
@@ -43201,6 +43955,18 @@ a:hover .home-link-bg {
     --space-x-reverse: 0;
     margin-right: calc(6rem * var(--space-x-reverse));
     margin-left: calc(6rem * calc(1 - var(--space-x-reverse)));
+  }
+
+  .md\:space-y-28 > :not(template) ~ :not(template){
+    --space-y-reverse: 0;
+    margin-top: calc(7rem * calc(1 - var(--space-y-reverse)));
+    margin-bottom: calc(7rem * var(--space-y-reverse));
+  }
+
+  .md\:space-x-28 > :not(template) ~ :not(template){
+    --space-x-reverse: 0;
+    margin-right: calc(7rem * var(--space-x-reverse));
+    margin-left: calc(7rem * calc(1 - var(--space-x-reverse)));
   }
 
   .md\:space-y-32 > :not(template) ~ :not(template){
@@ -43477,6 +44243,18 @@ a:hover .home-link-bg {
     --space-x-reverse: 0;
     margin-right: calc(-6rem * var(--space-x-reverse));
     margin-left: calc(-6rem * calc(1 - var(--space-x-reverse)));
+  }
+
+  .md\:-space-y-28 > :not(template) ~ :not(template){
+    --space-y-reverse: 0;
+    margin-top: calc(-7rem * calc(1 - var(--space-y-reverse)));
+    margin-bottom: calc(-7rem * var(--space-y-reverse));
+  }
+
+  .md\:-space-x-28 > :not(template) ~ :not(template){
+    --space-x-reverse: 0;
+    margin-right: calc(-7rem * var(--space-x-reverse));
+    margin-left: calc(-7rem * calc(1 - var(--space-x-reverse)));
   }
 
   .md\:-space-y-32 > :not(template) ~ :not(template){
@@ -45909,6 +46687,10 @@ a:hover .home-link-bg {
     height: 6rem;
   }
 
+  .md\:h-28{
+    height: 7rem;
+  }
+
   .md\:h-32{
     height: 8rem;
   }
@@ -46105,6 +46887,10 @@ a:hover .home-link-bg {
     margin: 6rem;
   }
 
+  .md\:m-28{
+    margin: 7rem;
+  }
+
   .md\:m-32{
     margin: 8rem;
   }
@@ -46199,6 +46985,10 @@ a:hover .home-link-bg {
 
   .md\:-m-24{
     margin: -6rem;
+  }
+
+  .md\:-m-28{
+    margin: -7rem;
   }
 
   .md\:-m-32{
@@ -46379,6 +47169,16 @@ a:hover .home-link-bg {
   .md\:mx-24{
     margin-left: 6rem;
     margin-right: 6rem;
+  }
+
+  .md\:my-28{
+    margin-top: 7rem;
+    margin-bottom: 7rem;
+  }
+
+  .md\:mx-28{
+    margin-left: 7rem;
+    margin-right: 7rem;
   }
 
   .md\:my-32{
@@ -46619,6 +47419,16 @@ a:hover .home-link-bg {
   .md\:-mx-24{
     margin-left: -6rem;
     margin-right: -6rem;
+  }
+
+  .md\:-my-28{
+    margin-top: -7rem;
+    margin-bottom: -7rem;
+  }
+
+  .md\:-mx-28{
+    margin-left: -7rem;
+    margin-right: -7rem;
   }
 
   .md\:-my-32{
@@ -46943,6 +47753,22 @@ a:hover .home-link-bg {
 
   .md\:ml-24{
     margin-left: 6rem;
+  }
+
+  .md\:mt-28{
+    margin-top: 7rem;
+  }
+
+  .md\:mr-28{
+    margin-right: 7rem;
+  }
+
+  .md\:mb-28{
+    margin-bottom: 7rem;
+  }
+
+  .md\:ml-28{
+    margin-left: 7rem;
   }
 
   .md\:mt-32{
@@ -47329,6 +48155,22 @@ a:hover .home-link-bg {
     margin-left: -6rem;
   }
 
+  .md\:-mt-28{
+    margin-top: -7rem;
+  }
+
+  .md\:-mr-28{
+    margin-right: -7rem;
+  }
+
+  .md\:-mb-28{
+    margin-bottom: -7rem;
+  }
+
+  .md\:-ml-28{
+    margin-left: -7rem;
+  }
+
   .md\:-mt-32{
     margin-top: -8rem;
   }
@@ -47545,6 +48387,10 @@ a:hover .home-link-bg {
     margin: 6rem;
   }
 
+  .md\:first\:m-28:first-child{
+    margin: 7rem;
+  }
+
   .md\:first\:m-32:first-child{
     margin: 8rem;
   }
@@ -47639,6 +48485,10 @@ a:hover .home-link-bg {
 
   .md\:first\:-m-24:first-child{
     margin: -6rem;
+  }
+
+  .md\:first\:-m-28:first-child{
+    margin: -7rem;
   }
 
   .md\:first\:-m-32:first-child{
@@ -47819,6 +48669,16 @@ a:hover .home-link-bg {
   .md\:first\:mx-24:first-child{
     margin-left: 6rem;
     margin-right: 6rem;
+  }
+
+  .md\:first\:my-28:first-child{
+    margin-top: 7rem;
+    margin-bottom: 7rem;
+  }
+
+  .md\:first\:mx-28:first-child{
+    margin-left: 7rem;
+    margin-right: 7rem;
   }
 
   .md\:first\:my-32:first-child{
@@ -48059,6 +48919,16 @@ a:hover .home-link-bg {
   .md\:first\:-mx-24:first-child{
     margin-left: -6rem;
     margin-right: -6rem;
+  }
+
+  .md\:first\:-my-28:first-child{
+    margin-top: -7rem;
+    margin-bottom: -7rem;
+  }
+
+  .md\:first\:-mx-28:first-child{
+    margin-left: -7rem;
+    margin-right: -7rem;
   }
 
   .md\:first\:-my-32:first-child{
@@ -48383,6 +49253,22 @@ a:hover .home-link-bg {
 
   .md\:first\:ml-24:first-child{
     margin-left: 6rem;
+  }
+
+  .md\:first\:mt-28:first-child{
+    margin-top: 7rem;
+  }
+
+  .md\:first\:mr-28:first-child{
+    margin-right: 7rem;
+  }
+
+  .md\:first\:mb-28:first-child{
+    margin-bottom: 7rem;
+  }
+
+  .md\:first\:ml-28:first-child{
+    margin-left: 7rem;
   }
 
   .md\:first\:mt-32:first-child{
@@ -48767,6 +49653,22 @@ a:hover .home-link-bg {
 
   .md\:first\:-ml-24:first-child{
     margin-left: -6rem;
+  }
+
+  .md\:first\:-mt-28:first-child{
+    margin-top: -7rem;
+  }
+
+  .md\:first\:-mr-28:first-child{
+    margin-right: -7rem;
+  }
+
+  .md\:first\:-mb-28:first-child{
+    margin-bottom: -7rem;
+  }
+
+  .md\:first\:-ml-28:first-child{
+    margin-left: -7rem;
   }
 
   .md\:first\:-mt-32:first-child{
@@ -49343,6 +50245,10 @@ a:hover .home-link-bg {
     padding: 6rem;
   }
 
+  .md\:p-28{
+    padding: 7rem;
+  }
+
   .md\:p-32{
     padding: 8rem;
   }
@@ -49521,6 +50427,16 @@ a:hover .home-link-bg {
   .md\:px-24{
     padding-left: 6rem;
     padding-right: 6rem;
+  }
+
+  .md\:py-28{
+    padding-top: 7rem;
+    padding-bottom: 7rem;
+  }
+
+  .md\:px-28{
+    padding-left: 7rem;
+    padding-right: 7rem;
   }
 
   .md\:py-32{
@@ -49845,6 +50761,22 @@ a:hover .home-link-bg {
 
   .md\:pl-24{
     padding-left: 6rem;
+  }
+
+  .md\:pt-28{
+    padding-top: 7rem;
+  }
+
+  .md\:pr-28{
+    padding-right: 7rem;
+  }
+
+  .md\:pb-28{
+    padding-bottom: 7rem;
+  }
+
+  .md\:pl-28{
+    padding-left: 7rem;
   }
 
   .md\:pt-32{
@@ -52352,6 +53284,10 @@ a:hover .home-link-bg {
     width: 6rem;
   }
 
+  .md\:w-28{
+    width: 7rem;
+  }
+
   .md\:w-32{
     width: 8rem;
   }
@@ -52606,6 +53542,11 @@ a:hover .home-link-bg {
     gap: 6rem;
   }
 
+  .md\:gap-28{
+    grid-gap: 7rem;
+    gap: 7rem;
+  }
+
   .md\:gap-32{
     grid-gap: 8rem;
     gap: 8rem;
@@ -52740,6 +53681,12 @@ a:hover .home-link-bg {
          column-gap: 6rem;
   }
 
+  .md\:col-gap-28{
+    grid-column-gap: 7rem;
+    -moz-column-gap: 7rem;
+         column-gap: 7rem;
+  }
+
   .md\:col-gap-32{
     grid-column-gap: 8rem;
     -moz-column-gap: 8rem;
@@ -52868,6 +53815,11 @@ a:hover .home-link-bg {
   .md\:row-gap-24{
     grid-row-gap: 6rem;
     row-gap: 6rem;
+  }
+
+  .md\:row-gap-28{
+    grid-row-gap: 7rem;
+    row-gap: 7rem;
   }
 
   .md\:row-gap-32{
@@ -53853,6 +54805,10 @@ a:hover .home-link-bg {
     --transform-translate-x: 6rem;
   }
 
+  .md\:translate-x-28{
+    --transform-translate-x: 7rem;
+  }
+
   .md\:translate-x-32{
     --transform-translate-x: 8rem;
   }
@@ -53943,6 +54899,10 @@ a:hover .home-link-bg {
 
   .md\:-translate-x-24{
     --transform-translate-x: -6rem;
+  }
+
+  .md\:-translate-x-28{
+    --transform-translate-x: -7rem;
   }
 
   .md\:-translate-x-32{
@@ -54049,6 +55009,10 @@ a:hover .home-link-bg {
     --transform-translate-y: 6rem;
   }
 
+  .md\:translate-y-28{
+    --transform-translate-y: 7rem;
+  }
+
   .md\:translate-y-32{
     --transform-translate-y: 8rem;
   }
@@ -54139,6 +55103,10 @@ a:hover .home-link-bg {
 
   .md\:-translate-y-24{
     --transform-translate-y: -6rem;
+  }
+
+  .md\:-translate-y-28{
+    --transform-translate-y: -7rem;
   }
 
   .md\:-translate-y-32{
@@ -54245,6 +55213,10 @@ a:hover .home-link-bg {
     --transform-translate-x: 6rem;
   }
 
+  .md\:hover\:translate-x-28:hover{
+    --transform-translate-x: 7rem;
+  }
+
   .md\:hover\:translate-x-32:hover{
     --transform-translate-x: 8rem;
   }
@@ -54335,6 +55307,10 @@ a:hover .home-link-bg {
 
   .md\:hover\:-translate-x-24:hover{
     --transform-translate-x: -6rem;
+  }
+
+  .md\:hover\:-translate-x-28:hover{
+    --transform-translate-x: -7rem;
   }
 
   .md\:hover\:-translate-x-32:hover{
@@ -54441,6 +55417,10 @@ a:hover .home-link-bg {
     --transform-translate-y: 6rem;
   }
 
+  .md\:hover\:translate-y-28:hover{
+    --transform-translate-y: 7rem;
+  }
+
   .md\:hover\:translate-y-32:hover{
     --transform-translate-y: 8rem;
   }
@@ -54531,6 +55511,10 @@ a:hover .home-link-bg {
 
   .md\:hover\:-translate-y-24:hover{
     --transform-translate-y: -6rem;
+  }
+
+  .md\:hover\:-translate-y-28:hover{
+    --transform-translate-y: -7rem;
   }
 
   .md\:hover\:-translate-y-32:hover{
@@ -54637,6 +55621,10 @@ a:hover .home-link-bg {
     --transform-translate-x: 6rem;
   }
 
+  .md\:hocus\:translate-x-28:hover,.md\:hocus\:translate-x-28:focus{
+    --transform-translate-x: 7rem;
+  }
+
   .md\:hocus\:translate-x-32:hover,.md\:hocus\:translate-x-32:focus{
     --transform-translate-x: 8rem;
   }
@@ -54727,6 +55715,10 @@ a:hover .home-link-bg {
 
   .md\:hocus\:-translate-x-24:hover,.md\:hocus\:-translate-x-24:focus{
     --transform-translate-x: -6rem;
+  }
+
+  .md\:hocus\:-translate-x-28:hover,.md\:hocus\:-translate-x-28:focus{
+    --transform-translate-x: -7rem;
   }
 
   .md\:hocus\:-translate-x-32:hover,.md\:hocus\:-translate-x-32:focus{
@@ -54833,6 +55825,10 @@ a:hover .home-link-bg {
     --transform-translate-y: 6rem;
   }
 
+  .md\:hocus\:translate-y-28:hover,.md\:hocus\:translate-y-28:focus{
+    --transform-translate-y: 7rem;
+  }
+
   .md\:hocus\:translate-y-32:hover,.md\:hocus\:translate-y-32:focus{
     --transform-translate-y: 8rem;
   }
@@ -54923,6 +55919,10 @@ a:hover .home-link-bg {
 
   .md\:hocus\:-translate-y-24:hover,.md\:hocus\:-translate-y-24:focus{
     --transform-translate-y: -6rem;
+  }
+
+  .md\:hocus\:-translate-y-28:hover,.md\:hocus\:-translate-y-28:focus{
+    --transform-translate-y: -7rem;
   }
 
   .md\:hocus\:-translate-y-32:hover,.md\:hocus\:-translate-y-32:focus{
@@ -55029,6 +56029,10 @@ a:hover .home-link-bg {
     --transform-translate-x: 6rem;
   }
 
+  .group:focus .md\:group-focus\:translate-x-28{
+    --transform-translate-x: 7rem;
+  }
+
   .group:focus .md\:group-focus\:translate-x-32{
     --transform-translate-x: 8rem;
   }
@@ -55119,6 +56123,10 @@ a:hover .home-link-bg {
 
   .group:focus .md\:group-focus\:-translate-x-24{
     --transform-translate-x: -6rem;
+  }
+
+  .group:focus .md\:group-focus\:-translate-x-28{
+    --transform-translate-x: -7rem;
   }
 
   .group:focus .md\:group-focus\:-translate-x-32{
@@ -55225,6 +56233,10 @@ a:hover .home-link-bg {
     --transform-translate-y: 6rem;
   }
 
+  .group:focus .md\:group-focus\:translate-y-28{
+    --transform-translate-y: 7rem;
+  }
+
   .group:focus .md\:group-focus\:translate-y-32{
     --transform-translate-y: 8rem;
   }
@@ -55315,6 +56327,10 @@ a:hover .home-link-bg {
 
   .group:focus .md\:group-focus\:-translate-y-24{
     --transform-translate-y: -6rem;
+  }
+
+  .group:focus .md\:group-focus\:-translate-y-28{
+    --transform-translate-y: -7rem;
   }
 
   .group:focus .md\:group-focus\:-translate-y-32{
@@ -55629,42 +56645,6 @@ a:hover .home-link-bg {
     transition-timing-function: inherit;
   }
 
-  .md\:duration-75{
-    transition-duration: 75ms;
-  }
-
-  .md\:duration-100{
-    transition-duration: 100ms;
-  }
-
-  .md\:duration-150{
-    transition-duration: 150ms;
-  }
-
-  .md\:duration-200{
-    transition-duration: 200ms;
-  }
-
-  .md\:duration-300{
-    transition-duration: 300ms;
-  }
-
-  .md\:duration-500{
-    transition-duration: 500ms;
-  }
-
-  .md\:duration-700{
-    transition-duration: 700ms;
-  }
-
-  .md\:duration-1000{
-    transition-duration: 1000ms;
-  }
-
-  .md\:duration-inherit{
-    transition-duration: inherit;
-  }
-
   .md\:delay-75{
     transition-delay: 75ms;
   }
@@ -55865,6 +56845,18 @@ a:hover .home-link-bg {
     --space-x-reverse: 0;
     margin-right: calc(6rem * var(--space-x-reverse));
     margin-left: calc(6rem * calc(1 - var(--space-x-reverse)));
+  }
+
+  .lg\:space-y-28 > :not(template) ~ :not(template){
+    --space-y-reverse: 0;
+    margin-top: calc(7rem * calc(1 - var(--space-y-reverse)));
+    margin-bottom: calc(7rem * var(--space-y-reverse));
+  }
+
+  .lg\:space-x-28 > :not(template) ~ :not(template){
+    --space-x-reverse: 0;
+    margin-right: calc(7rem * var(--space-x-reverse));
+    margin-left: calc(7rem * calc(1 - var(--space-x-reverse)));
   }
 
   .lg\:space-y-32 > :not(template) ~ :not(template){
@@ -56141,6 +57133,18 @@ a:hover .home-link-bg {
     --space-x-reverse: 0;
     margin-right: calc(-6rem * var(--space-x-reverse));
     margin-left: calc(-6rem * calc(1 - var(--space-x-reverse)));
+  }
+
+  .lg\:-space-y-28 > :not(template) ~ :not(template){
+    --space-y-reverse: 0;
+    margin-top: calc(-7rem * calc(1 - var(--space-y-reverse)));
+    margin-bottom: calc(-7rem * var(--space-y-reverse));
+  }
+
+  .lg\:-space-x-28 > :not(template) ~ :not(template){
+    --space-x-reverse: 0;
+    margin-right: calc(-7rem * var(--space-x-reverse));
+    margin-left: calc(-7rem * calc(1 - var(--space-x-reverse)));
   }
 
   .lg\:-space-y-32 > :not(template) ~ :not(template){
@@ -58573,6 +59577,10 @@ a:hover .home-link-bg {
     height: 6rem;
   }
 
+  .lg\:h-28{
+    height: 7rem;
+  }
+
   .lg\:h-32{
     height: 8rem;
   }
@@ -58769,6 +59777,10 @@ a:hover .home-link-bg {
     margin: 6rem;
   }
 
+  .lg\:m-28{
+    margin: 7rem;
+  }
+
   .lg\:m-32{
     margin: 8rem;
   }
@@ -58863,6 +59875,10 @@ a:hover .home-link-bg {
 
   .lg\:-m-24{
     margin: -6rem;
+  }
+
+  .lg\:-m-28{
+    margin: -7rem;
   }
 
   .lg\:-m-32{
@@ -59043,6 +60059,16 @@ a:hover .home-link-bg {
   .lg\:mx-24{
     margin-left: 6rem;
     margin-right: 6rem;
+  }
+
+  .lg\:my-28{
+    margin-top: 7rem;
+    margin-bottom: 7rem;
+  }
+
+  .lg\:mx-28{
+    margin-left: 7rem;
+    margin-right: 7rem;
   }
 
   .lg\:my-32{
@@ -59283,6 +60309,16 @@ a:hover .home-link-bg {
   .lg\:-mx-24{
     margin-left: -6rem;
     margin-right: -6rem;
+  }
+
+  .lg\:-my-28{
+    margin-top: -7rem;
+    margin-bottom: -7rem;
+  }
+
+  .lg\:-mx-28{
+    margin-left: -7rem;
+    margin-right: -7rem;
   }
 
   .lg\:-my-32{
@@ -59607,6 +60643,22 @@ a:hover .home-link-bg {
 
   .lg\:ml-24{
     margin-left: 6rem;
+  }
+
+  .lg\:mt-28{
+    margin-top: 7rem;
+  }
+
+  .lg\:mr-28{
+    margin-right: 7rem;
+  }
+
+  .lg\:mb-28{
+    margin-bottom: 7rem;
+  }
+
+  .lg\:ml-28{
+    margin-left: 7rem;
   }
 
   .lg\:mt-32{
@@ -59993,6 +61045,22 @@ a:hover .home-link-bg {
     margin-left: -6rem;
   }
 
+  .lg\:-mt-28{
+    margin-top: -7rem;
+  }
+
+  .lg\:-mr-28{
+    margin-right: -7rem;
+  }
+
+  .lg\:-mb-28{
+    margin-bottom: -7rem;
+  }
+
+  .lg\:-ml-28{
+    margin-left: -7rem;
+  }
+
   .lg\:-mt-32{
     margin-top: -8rem;
   }
@@ -60209,6 +61277,10 @@ a:hover .home-link-bg {
     margin: 6rem;
   }
 
+  .lg\:first\:m-28:first-child{
+    margin: 7rem;
+  }
+
   .lg\:first\:m-32:first-child{
     margin: 8rem;
   }
@@ -60303,6 +61375,10 @@ a:hover .home-link-bg {
 
   .lg\:first\:-m-24:first-child{
     margin: -6rem;
+  }
+
+  .lg\:first\:-m-28:first-child{
+    margin: -7rem;
   }
 
   .lg\:first\:-m-32:first-child{
@@ -60483,6 +61559,16 @@ a:hover .home-link-bg {
   .lg\:first\:mx-24:first-child{
     margin-left: 6rem;
     margin-right: 6rem;
+  }
+
+  .lg\:first\:my-28:first-child{
+    margin-top: 7rem;
+    margin-bottom: 7rem;
+  }
+
+  .lg\:first\:mx-28:first-child{
+    margin-left: 7rem;
+    margin-right: 7rem;
   }
 
   .lg\:first\:my-32:first-child{
@@ -60723,6 +61809,16 @@ a:hover .home-link-bg {
   .lg\:first\:-mx-24:first-child{
     margin-left: -6rem;
     margin-right: -6rem;
+  }
+
+  .lg\:first\:-my-28:first-child{
+    margin-top: -7rem;
+    margin-bottom: -7rem;
+  }
+
+  .lg\:first\:-mx-28:first-child{
+    margin-left: -7rem;
+    margin-right: -7rem;
   }
 
   .lg\:first\:-my-32:first-child{
@@ -61047,6 +62143,22 @@ a:hover .home-link-bg {
 
   .lg\:first\:ml-24:first-child{
     margin-left: 6rem;
+  }
+
+  .lg\:first\:mt-28:first-child{
+    margin-top: 7rem;
+  }
+
+  .lg\:first\:mr-28:first-child{
+    margin-right: 7rem;
+  }
+
+  .lg\:first\:mb-28:first-child{
+    margin-bottom: 7rem;
+  }
+
+  .lg\:first\:ml-28:first-child{
+    margin-left: 7rem;
   }
 
   .lg\:first\:mt-32:first-child{
@@ -61431,6 +62543,22 @@ a:hover .home-link-bg {
 
   .lg\:first\:-ml-24:first-child{
     margin-left: -6rem;
+  }
+
+  .lg\:first\:-mt-28:first-child{
+    margin-top: -7rem;
+  }
+
+  .lg\:first\:-mr-28:first-child{
+    margin-right: -7rem;
+  }
+
+  .lg\:first\:-mb-28:first-child{
+    margin-bottom: -7rem;
+  }
+
+  .lg\:first\:-ml-28:first-child{
+    margin-left: -7rem;
   }
 
   .lg\:first\:-mt-32:first-child{
@@ -62007,6 +63135,10 @@ a:hover .home-link-bg {
     padding: 6rem;
   }
 
+  .lg\:p-28{
+    padding: 7rem;
+  }
+
   .lg\:p-32{
     padding: 8rem;
   }
@@ -62185,6 +63317,16 @@ a:hover .home-link-bg {
   .lg\:px-24{
     padding-left: 6rem;
     padding-right: 6rem;
+  }
+
+  .lg\:py-28{
+    padding-top: 7rem;
+    padding-bottom: 7rem;
+  }
+
+  .lg\:px-28{
+    padding-left: 7rem;
+    padding-right: 7rem;
   }
 
   .lg\:py-32{
@@ -62509,6 +63651,22 @@ a:hover .home-link-bg {
 
   .lg\:pl-24{
     padding-left: 6rem;
+  }
+
+  .lg\:pt-28{
+    padding-top: 7rem;
+  }
+
+  .lg\:pr-28{
+    padding-right: 7rem;
+  }
+
+  .lg\:pb-28{
+    padding-bottom: 7rem;
+  }
+
+  .lg\:pl-28{
+    padding-left: 7rem;
   }
 
   .lg\:pt-32{
@@ -65016,6 +66174,10 @@ a:hover .home-link-bg {
     width: 6rem;
   }
 
+  .lg\:w-28{
+    width: 7rem;
+  }
+
   .lg\:w-32{
     width: 8rem;
   }
@@ -65270,6 +66432,11 @@ a:hover .home-link-bg {
     gap: 6rem;
   }
 
+  .lg\:gap-28{
+    grid-gap: 7rem;
+    gap: 7rem;
+  }
+
   .lg\:gap-32{
     grid-gap: 8rem;
     gap: 8rem;
@@ -65404,6 +66571,12 @@ a:hover .home-link-bg {
          column-gap: 6rem;
   }
 
+  .lg\:col-gap-28{
+    grid-column-gap: 7rem;
+    -moz-column-gap: 7rem;
+         column-gap: 7rem;
+  }
+
   .lg\:col-gap-32{
     grid-column-gap: 8rem;
     -moz-column-gap: 8rem;
@@ -65532,6 +66705,11 @@ a:hover .home-link-bg {
   .lg\:row-gap-24{
     grid-row-gap: 6rem;
     row-gap: 6rem;
+  }
+
+  .lg\:row-gap-28{
+    grid-row-gap: 7rem;
+    row-gap: 7rem;
   }
 
   .lg\:row-gap-32{
@@ -66517,6 +67695,10 @@ a:hover .home-link-bg {
     --transform-translate-x: 6rem;
   }
 
+  .lg\:translate-x-28{
+    --transform-translate-x: 7rem;
+  }
+
   .lg\:translate-x-32{
     --transform-translate-x: 8rem;
   }
@@ -66607,6 +67789,10 @@ a:hover .home-link-bg {
 
   .lg\:-translate-x-24{
     --transform-translate-x: -6rem;
+  }
+
+  .lg\:-translate-x-28{
+    --transform-translate-x: -7rem;
   }
 
   .lg\:-translate-x-32{
@@ -66713,6 +67899,10 @@ a:hover .home-link-bg {
     --transform-translate-y: 6rem;
   }
 
+  .lg\:translate-y-28{
+    --transform-translate-y: 7rem;
+  }
+
   .lg\:translate-y-32{
     --transform-translate-y: 8rem;
   }
@@ -66803,6 +67993,10 @@ a:hover .home-link-bg {
 
   .lg\:-translate-y-24{
     --transform-translate-y: -6rem;
+  }
+
+  .lg\:-translate-y-28{
+    --transform-translate-y: -7rem;
   }
 
   .lg\:-translate-y-32{
@@ -66909,6 +68103,10 @@ a:hover .home-link-bg {
     --transform-translate-x: 6rem;
   }
 
+  .lg\:hover\:translate-x-28:hover{
+    --transform-translate-x: 7rem;
+  }
+
   .lg\:hover\:translate-x-32:hover{
     --transform-translate-x: 8rem;
   }
@@ -66999,6 +68197,10 @@ a:hover .home-link-bg {
 
   .lg\:hover\:-translate-x-24:hover{
     --transform-translate-x: -6rem;
+  }
+
+  .lg\:hover\:-translate-x-28:hover{
+    --transform-translate-x: -7rem;
   }
 
   .lg\:hover\:-translate-x-32:hover{
@@ -67105,6 +68307,10 @@ a:hover .home-link-bg {
     --transform-translate-y: 6rem;
   }
 
+  .lg\:hover\:translate-y-28:hover{
+    --transform-translate-y: 7rem;
+  }
+
   .lg\:hover\:translate-y-32:hover{
     --transform-translate-y: 8rem;
   }
@@ -67195,6 +68401,10 @@ a:hover .home-link-bg {
 
   .lg\:hover\:-translate-y-24:hover{
     --transform-translate-y: -6rem;
+  }
+
+  .lg\:hover\:-translate-y-28:hover{
+    --transform-translate-y: -7rem;
   }
 
   .lg\:hover\:-translate-y-32:hover{
@@ -67301,6 +68511,10 @@ a:hover .home-link-bg {
     --transform-translate-x: 6rem;
   }
 
+  .lg\:hocus\:translate-x-28:hover,.lg\:hocus\:translate-x-28:focus{
+    --transform-translate-x: 7rem;
+  }
+
   .lg\:hocus\:translate-x-32:hover,.lg\:hocus\:translate-x-32:focus{
     --transform-translate-x: 8rem;
   }
@@ -67391,6 +68605,10 @@ a:hover .home-link-bg {
 
   .lg\:hocus\:-translate-x-24:hover,.lg\:hocus\:-translate-x-24:focus{
     --transform-translate-x: -6rem;
+  }
+
+  .lg\:hocus\:-translate-x-28:hover,.lg\:hocus\:-translate-x-28:focus{
+    --transform-translate-x: -7rem;
   }
 
   .lg\:hocus\:-translate-x-32:hover,.lg\:hocus\:-translate-x-32:focus{
@@ -67497,6 +68715,10 @@ a:hover .home-link-bg {
     --transform-translate-y: 6rem;
   }
 
+  .lg\:hocus\:translate-y-28:hover,.lg\:hocus\:translate-y-28:focus{
+    --transform-translate-y: 7rem;
+  }
+
   .lg\:hocus\:translate-y-32:hover,.lg\:hocus\:translate-y-32:focus{
     --transform-translate-y: 8rem;
   }
@@ -67587,6 +68809,10 @@ a:hover .home-link-bg {
 
   .lg\:hocus\:-translate-y-24:hover,.lg\:hocus\:-translate-y-24:focus{
     --transform-translate-y: -6rem;
+  }
+
+  .lg\:hocus\:-translate-y-28:hover,.lg\:hocus\:-translate-y-28:focus{
+    --transform-translate-y: -7rem;
   }
 
   .lg\:hocus\:-translate-y-32:hover,.lg\:hocus\:-translate-y-32:focus{
@@ -67693,6 +68919,10 @@ a:hover .home-link-bg {
     --transform-translate-x: 6rem;
   }
 
+  .group:focus .lg\:group-focus\:translate-x-28{
+    --transform-translate-x: 7rem;
+  }
+
   .group:focus .lg\:group-focus\:translate-x-32{
     --transform-translate-x: 8rem;
   }
@@ -67783,6 +69013,10 @@ a:hover .home-link-bg {
 
   .group:focus .lg\:group-focus\:-translate-x-24{
     --transform-translate-x: -6rem;
+  }
+
+  .group:focus .lg\:group-focus\:-translate-x-28{
+    --transform-translate-x: -7rem;
   }
 
   .group:focus .lg\:group-focus\:-translate-x-32{
@@ -67889,6 +69123,10 @@ a:hover .home-link-bg {
     --transform-translate-y: 6rem;
   }
 
+  .group:focus .lg\:group-focus\:translate-y-28{
+    --transform-translate-y: 7rem;
+  }
+
   .group:focus .lg\:group-focus\:translate-y-32{
     --transform-translate-y: 8rem;
   }
@@ -67979,6 +69217,10 @@ a:hover .home-link-bg {
 
   .group:focus .lg\:group-focus\:-translate-y-24{
     --transform-translate-y: -6rem;
+  }
+
+  .group:focus .lg\:group-focus\:-translate-y-28{
+    --transform-translate-y: -7rem;
   }
 
   .group:focus .lg\:group-focus\:-translate-y-32{
@@ -68293,42 +69535,6 @@ a:hover .home-link-bg {
     transition-timing-function: inherit;
   }
 
-  .lg\:duration-75{
-    transition-duration: 75ms;
-  }
-
-  .lg\:duration-100{
-    transition-duration: 100ms;
-  }
-
-  .lg\:duration-150{
-    transition-duration: 150ms;
-  }
-
-  .lg\:duration-200{
-    transition-duration: 200ms;
-  }
-
-  .lg\:duration-300{
-    transition-duration: 300ms;
-  }
-
-  .lg\:duration-500{
-    transition-duration: 500ms;
-  }
-
-  .lg\:duration-700{
-    transition-duration: 700ms;
-  }
-
-  .lg\:duration-1000{
-    transition-duration: 1000ms;
-  }
-
-  .lg\:duration-inherit{
-    transition-duration: inherit;
-  }
-
   .lg\:delay-75{
     transition-delay: 75ms;
   }
@@ -68529,6 +69735,18 @@ a:hover .home-link-bg {
     --space-x-reverse: 0;
     margin-right: calc(6rem * var(--space-x-reverse));
     margin-left: calc(6rem * calc(1 - var(--space-x-reverse)));
+  }
+
+  .xl\:space-y-28 > :not(template) ~ :not(template){
+    --space-y-reverse: 0;
+    margin-top: calc(7rem * calc(1 - var(--space-y-reverse)));
+    margin-bottom: calc(7rem * var(--space-y-reverse));
+  }
+
+  .xl\:space-x-28 > :not(template) ~ :not(template){
+    --space-x-reverse: 0;
+    margin-right: calc(7rem * var(--space-x-reverse));
+    margin-left: calc(7rem * calc(1 - var(--space-x-reverse)));
   }
 
   .xl\:space-y-32 > :not(template) ~ :not(template){
@@ -68805,6 +70023,18 @@ a:hover .home-link-bg {
     --space-x-reverse: 0;
     margin-right: calc(-6rem * var(--space-x-reverse));
     margin-left: calc(-6rem * calc(1 - var(--space-x-reverse)));
+  }
+
+  .xl\:-space-y-28 > :not(template) ~ :not(template){
+    --space-y-reverse: 0;
+    margin-top: calc(-7rem * calc(1 - var(--space-y-reverse)));
+    margin-bottom: calc(-7rem * var(--space-y-reverse));
+  }
+
+  .xl\:-space-x-28 > :not(template) ~ :not(template){
+    --space-x-reverse: 0;
+    margin-right: calc(-7rem * var(--space-x-reverse));
+    margin-left: calc(-7rem * calc(1 - var(--space-x-reverse)));
   }
 
   .xl\:-space-y-32 > :not(template) ~ :not(template){
@@ -71237,6 +72467,10 @@ a:hover .home-link-bg {
     height: 6rem;
   }
 
+  .xl\:h-28{
+    height: 7rem;
+  }
+
   .xl\:h-32{
     height: 8rem;
   }
@@ -71433,6 +72667,10 @@ a:hover .home-link-bg {
     margin: 6rem;
   }
 
+  .xl\:m-28{
+    margin: 7rem;
+  }
+
   .xl\:m-32{
     margin: 8rem;
   }
@@ -71527,6 +72765,10 @@ a:hover .home-link-bg {
 
   .xl\:-m-24{
     margin: -6rem;
+  }
+
+  .xl\:-m-28{
+    margin: -7rem;
   }
 
   .xl\:-m-32{
@@ -71707,6 +72949,16 @@ a:hover .home-link-bg {
   .xl\:mx-24{
     margin-left: 6rem;
     margin-right: 6rem;
+  }
+
+  .xl\:my-28{
+    margin-top: 7rem;
+    margin-bottom: 7rem;
+  }
+
+  .xl\:mx-28{
+    margin-left: 7rem;
+    margin-right: 7rem;
   }
 
   .xl\:my-32{
@@ -71947,6 +73199,16 @@ a:hover .home-link-bg {
   .xl\:-mx-24{
     margin-left: -6rem;
     margin-right: -6rem;
+  }
+
+  .xl\:-my-28{
+    margin-top: -7rem;
+    margin-bottom: -7rem;
+  }
+
+  .xl\:-mx-28{
+    margin-left: -7rem;
+    margin-right: -7rem;
   }
 
   .xl\:-my-32{
@@ -72271,6 +73533,22 @@ a:hover .home-link-bg {
 
   .xl\:ml-24{
     margin-left: 6rem;
+  }
+
+  .xl\:mt-28{
+    margin-top: 7rem;
+  }
+
+  .xl\:mr-28{
+    margin-right: 7rem;
+  }
+
+  .xl\:mb-28{
+    margin-bottom: 7rem;
+  }
+
+  .xl\:ml-28{
+    margin-left: 7rem;
   }
 
   .xl\:mt-32{
@@ -72657,6 +73935,22 @@ a:hover .home-link-bg {
     margin-left: -6rem;
   }
 
+  .xl\:-mt-28{
+    margin-top: -7rem;
+  }
+
+  .xl\:-mr-28{
+    margin-right: -7rem;
+  }
+
+  .xl\:-mb-28{
+    margin-bottom: -7rem;
+  }
+
+  .xl\:-ml-28{
+    margin-left: -7rem;
+  }
+
   .xl\:-mt-32{
     margin-top: -8rem;
   }
@@ -72873,6 +74167,10 @@ a:hover .home-link-bg {
     margin: 6rem;
   }
 
+  .xl\:first\:m-28:first-child{
+    margin: 7rem;
+  }
+
   .xl\:first\:m-32:first-child{
     margin: 8rem;
   }
@@ -72967,6 +74265,10 @@ a:hover .home-link-bg {
 
   .xl\:first\:-m-24:first-child{
     margin: -6rem;
+  }
+
+  .xl\:first\:-m-28:first-child{
+    margin: -7rem;
   }
 
   .xl\:first\:-m-32:first-child{
@@ -73147,6 +74449,16 @@ a:hover .home-link-bg {
   .xl\:first\:mx-24:first-child{
     margin-left: 6rem;
     margin-right: 6rem;
+  }
+
+  .xl\:first\:my-28:first-child{
+    margin-top: 7rem;
+    margin-bottom: 7rem;
+  }
+
+  .xl\:first\:mx-28:first-child{
+    margin-left: 7rem;
+    margin-right: 7rem;
   }
 
   .xl\:first\:my-32:first-child{
@@ -73387,6 +74699,16 @@ a:hover .home-link-bg {
   .xl\:first\:-mx-24:first-child{
     margin-left: -6rem;
     margin-right: -6rem;
+  }
+
+  .xl\:first\:-my-28:first-child{
+    margin-top: -7rem;
+    margin-bottom: -7rem;
+  }
+
+  .xl\:first\:-mx-28:first-child{
+    margin-left: -7rem;
+    margin-right: -7rem;
   }
 
   .xl\:first\:-my-32:first-child{
@@ -73711,6 +75033,22 @@ a:hover .home-link-bg {
 
   .xl\:first\:ml-24:first-child{
     margin-left: 6rem;
+  }
+
+  .xl\:first\:mt-28:first-child{
+    margin-top: 7rem;
+  }
+
+  .xl\:first\:mr-28:first-child{
+    margin-right: 7rem;
+  }
+
+  .xl\:first\:mb-28:first-child{
+    margin-bottom: 7rem;
+  }
+
+  .xl\:first\:ml-28:first-child{
+    margin-left: 7rem;
   }
 
   .xl\:first\:mt-32:first-child{
@@ -74095,6 +75433,22 @@ a:hover .home-link-bg {
 
   .xl\:first\:-ml-24:first-child{
     margin-left: -6rem;
+  }
+
+  .xl\:first\:-mt-28:first-child{
+    margin-top: -7rem;
+  }
+
+  .xl\:first\:-mr-28:first-child{
+    margin-right: -7rem;
+  }
+
+  .xl\:first\:-mb-28:first-child{
+    margin-bottom: -7rem;
+  }
+
+  .xl\:first\:-ml-28:first-child{
+    margin-left: -7rem;
   }
 
   .xl\:first\:-mt-32:first-child{
@@ -74671,6 +76025,10 @@ a:hover .home-link-bg {
     padding: 6rem;
   }
 
+  .xl\:p-28{
+    padding: 7rem;
+  }
+
   .xl\:p-32{
     padding: 8rem;
   }
@@ -74849,6 +76207,16 @@ a:hover .home-link-bg {
   .xl\:px-24{
     padding-left: 6rem;
     padding-right: 6rem;
+  }
+
+  .xl\:py-28{
+    padding-top: 7rem;
+    padding-bottom: 7rem;
+  }
+
+  .xl\:px-28{
+    padding-left: 7rem;
+    padding-right: 7rem;
   }
 
   .xl\:py-32{
@@ -75173,6 +76541,22 @@ a:hover .home-link-bg {
 
   .xl\:pl-24{
     padding-left: 6rem;
+  }
+
+  .xl\:pt-28{
+    padding-top: 7rem;
+  }
+
+  .xl\:pr-28{
+    padding-right: 7rem;
+  }
+
+  .xl\:pb-28{
+    padding-bottom: 7rem;
+  }
+
+  .xl\:pl-28{
+    padding-left: 7rem;
   }
 
   .xl\:pt-32{
@@ -77680,6 +79064,10 @@ a:hover .home-link-bg {
     width: 6rem;
   }
 
+  .xl\:w-28{
+    width: 7rem;
+  }
+
   .xl\:w-32{
     width: 8rem;
   }
@@ -77934,6 +79322,11 @@ a:hover .home-link-bg {
     gap: 6rem;
   }
 
+  .xl\:gap-28{
+    grid-gap: 7rem;
+    gap: 7rem;
+  }
+
   .xl\:gap-32{
     grid-gap: 8rem;
     gap: 8rem;
@@ -78068,6 +79461,12 @@ a:hover .home-link-bg {
          column-gap: 6rem;
   }
 
+  .xl\:col-gap-28{
+    grid-column-gap: 7rem;
+    -moz-column-gap: 7rem;
+         column-gap: 7rem;
+  }
+
   .xl\:col-gap-32{
     grid-column-gap: 8rem;
     -moz-column-gap: 8rem;
@@ -78196,6 +79595,11 @@ a:hover .home-link-bg {
   .xl\:row-gap-24{
     grid-row-gap: 6rem;
     row-gap: 6rem;
+  }
+
+  .xl\:row-gap-28{
+    grid-row-gap: 7rem;
+    row-gap: 7rem;
   }
 
   .xl\:row-gap-32{
@@ -79181,6 +80585,10 @@ a:hover .home-link-bg {
     --transform-translate-x: 6rem;
   }
 
+  .xl\:translate-x-28{
+    --transform-translate-x: 7rem;
+  }
+
   .xl\:translate-x-32{
     --transform-translate-x: 8rem;
   }
@@ -79271,6 +80679,10 @@ a:hover .home-link-bg {
 
   .xl\:-translate-x-24{
     --transform-translate-x: -6rem;
+  }
+
+  .xl\:-translate-x-28{
+    --transform-translate-x: -7rem;
   }
 
   .xl\:-translate-x-32{
@@ -79377,6 +80789,10 @@ a:hover .home-link-bg {
     --transform-translate-y: 6rem;
   }
 
+  .xl\:translate-y-28{
+    --transform-translate-y: 7rem;
+  }
+
   .xl\:translate-y-32{
     --transform-translate-y: 8rem;
   }
@@ -79467,6 +80883,10 @@ a:hover .home-link-bg {
 
   .xl\:-translate-y-24{
     --transform-translate-y: -6rem;
+  }
+
+  .xl\:-translate-y-28{
+    --transform-translate-y: -7rem;
   }
 
   .xl\:-translate-y-32{
@@ -79573,6 +80993,10 @@ a:hover .home-link-bg {
     --transform-translate-x: 6rem;
   }
 
+  .xl\:hover\:translate-x-28:hover{
+    --transform-translate-x: 7rem;
+  }
+
   .xl\:hover\:translate-x-32:hover{
     --transform-translate-x: 8rem;
   }
@@ -79663,6 +81087,10 @@ a:hover .home-link-bg {
 
   .xl\:hover\:-translate-x-24:hover{
     --transform-translate-x: -6rem;
+  }
+
+  .xl\:hover\:-translate-x-28:hover{
+    --transform-translate-x: -7rem;
   }
 
   .xl\:hover\:-translate-x-32:hover{
@@ -79769,6 +81197,10 @@ a:hover .home-link-bg {
     --transform-translate-y: 6rem;
   }
 
+  .xl\:hover\:translate-y-28:hover{
+    --transform-translate-y: 7rem;
+  }
+
   .xl\:hover\:translate-y-32:hover{
     --transform-translate-y: 8rem;
   }
@@ -79859,6 +81291,10 @@ a:hover .home-link-bg {
 
   .xl\:hover\:-translate-y-24:hover{
     --transform-translate-y: -6rem;
+  }
+
+  .xl\:hover\:-translate-y-28:hover{
+    --transform-translate-y: -7rem;
   }
 
   .xl\:hover\:-translate-y-32:hover{
@@ -79965,6 +81401,10 @@ a:hover .home-link-bg {
     --transform-translate-x: 6rem;
   }
 
+  .xl\:hocus\:translate-x-28:hover,.xl\:hocus\:translate-x-28:focus{
+    --transform-translate-x: 7rem;
+  }
+
   .xl\:hocus\:translate-x-32:hover,.xl\:hocus\:translate-x-32:focus{
     --transform-translate-x: 8rem;
   }
@@ -80055,6 +81495,10 @@ a:hover .home-link-bg {
 
   .xl\:hocus\:-translate-x-24:hover,.xl\:hocus\:-translate-x-24:focus{
     --transform-translate-x: -6rem;
+  }
+
+  .xl\:hocus\:-translate-x-28:hover,.xl\:hocus\:-translate-x-28:focus{
+    --transform-translate-x: -7rem;
   }
 
   .xl\:hocus\:-translate-x-32:hover,.xl\:hocus\:-translate-x-32:focus{
@@ -80161,6 +81605,10 @@ a:hover .home-link-bg {
     --transform-translate-y: 6rem;
   }
 
+  .xl\:hocus\:translate-y-28:hover,.xl\:hocus\:translate-y-28:focus{
+    --transform-translate-y: 7rem;
+  }
+
   .xl\:hocus\:translate-y-32:hover,.xl\:hocus\:translate-y-32:focus{
     --transform-translate-y: 8rem;
   }
@@ -80251,6 +81699,10 @@ a:hover .home-link-bg {
 
   .xl\:hocus\:-translate-y-24:hover,.xl\:hocus\:-translate-y-24:focus{
     --transform-translate-y: -6rem;
+  }
+
+  .xl\:hocus\:-translate-y-28:hover,.xl\:hocus\:-translate-y-28:focus{
+    --transform-translate-y: -7rem;
   }
 
   .xl\:hocus\:-translate-y-32:hover,.xl\:hocus\:-translate-y-32:focus{
@@ -80357,6 +81809,10 @@ a:hover .home-link-bg {
     --transform-translate-x: 6rem;
   }
 
+  .group:focus .xl\:group-focus\:translate-x-28{
+    --transform-translate-x: 7rem;
+  }
+
   .group:focus .xl\:group-focus\:translate-x-32{
     --transform-translate-x: 8rem;
   }
@@ -80447,6 +81903,10 @@ a:hover .home-link-bg {
 
   .group:focus .xl\:group-focus\:-translate-x-24{
     --transform-translate-x: -6rem;
+  }
+
+  .group:focus .xl\:group-focus\:-translate-x-28{
+    --transform-translate-x: -7rem;
   }
 
   .group:focus .xl\:group-focus\:-translate-x-32{
@@ -80553,6 +82013,10 @@ a:hover .home-link-bg {
     --transform-translate-y: 6rem;
   }
 
+  .group:focus .xl\:group-focus\:translate-y-28{
+    --transform-translate-y: 7rem;
+  }
+
   .group:focus .xl\:group-focus\:translate-y-32{
     --transform-translate-y: 8rem;
   }
@@ -80643,6 +82107,10 @@ a:hover .home-link-bg {
 
   .group:focus .xl\:group-focus\:-translate-y-24{
     --transform-translate-y: -6rem;
+  }
+
+  .group:focus .xl\:group-focus\:-translate-y-28{
+    --transform-translate-y: -7rem;
   }
 
   .group:focus .xl\:group-focus\:-translate-y-32{
@@ -80955,42 +82423,6 @@ a:hover .home-link-bg {
 
   .xl\:ease-inherit{
     transition-timing-function: inherit;
-  }
-
-  .xl\:duration-75{
-    transition-duration: 75ms;
-  }
-
-  .xl\:duration-100{
-    transition-duration: 100ms;
-  }
-
-  .xl\:duration-150{
-    transition-duration: 150ms;
-  }
-
-  .xl\:duration-200{
-    transition-duration: 200ms;
-  }
-
-  .xl\:duration-300{
-    transition-duration: 300ms;
-  }
-
-  .xl\:duration-500{
-    transition-duration: 500ms;
-  }
-
-  .xl\:duration-700{
-    transition-duration: 700ms;
-  }
-
-  .xl\:duration-1000{
-    transition-duration: 1000ms;
-  }
-
-  .xl\:duration-inherit{
-    transition-duration: inherit;
   }
 
   .xl\:delay-75{

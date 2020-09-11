@@ -1,71 +1,56 @@
 .ig-heart-btn {
+  svg {
+    stroke: theme("colors.grey.800");
+    fill: theme("colors.transparent");
+  }
+
+  &.liked {
     svg {
-        stroke: theme('colors.grey.800');
-        fill: theme('colors.transparent');
+      stroke: theme("colors.red.500");
+      fill: theme("colors.red.500");
     }
+  }
 
-    &.liked {
-        svg {
-            stroke: theme('colors.red.500');
-            fill: theme('colors.red.500');
-        }
+  &.animating svg {
+    animation: ig-heart-animation 0.45s ease-in-out;
+
+    @keyframes ig-heart-animation {
+      0%,
+      100% {
+        transform: scale(1);
+      }
+
+      25% {
+        transform: scale(1.2);
+      }
+
+      50% {
+        transform: scale(0.95);
+      }
     }
-
-
-    &.animating svg {
-        animation: ig-heart-animation .45s ease-in-out;
-
-        @keyframes ig-heart-animation {
-
-            0%,
-            100% {
-                transform: scale(1);
-            }
-
-            25% {
-                transform: scale(1.2);
-            }
-
-            50% {
-                transform: scale(.95);
-            }
-        }
-    }
-
+  }
 }
 
 .ig-dot {
-    &.current {
-        @apply bg-red-500;
-    }
+  &.current {
+    @apply bg-red-500;
+  }
 }
 
 .ig-caption,
 .ig-date {
-    display: none;
+  display: none;
 
-    &.current {
-        display: inline;
-    }
+  &.current {
+    display: inline;
+  }
 }
 
 .ig-left,
 .ig-right {
-    filter: drop-shadow(2px 0 10px rgba(0, 0, 0, .24));
+  filter: drop-shadow(2px 0 10px rgba(0, 0, 0, 0.24));
 
-    &:hover {
-        @apply scale-110;
-    }
-}
-
-.ig-caption-container {
-    display: -webkit-box;
-    -webkit-line-clamp: 1;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    overflow: hidden;
-
-    &.reveal {
-        -webkit-line-clamp: unset;
-    }
+  &:hover {
+    @apply scale-110;
+  }
 }

@@ -2,112 +2,112 @@
 
 {% block content %}
 
-<div class="flex-1 overflow-y-auto">
-  <div id="chat-window" class="flex flex-col flex-1 h-full">
-    <div id="chat-messages"
-         class="relative flex flex-col items-start flex-grow p-3 pb-0 overflow-y-auto border-b border-grey-200">
-
-    </div>
-    <div id="chat-controls" class="py-3 pl-3 pr-2 bg-white">
-      <form name="contact-form" id="contact-form" class="flex items-end" netlify method="post">
-        <p id="form-input-name" class="flex-grow">
-          <label
-                 class="grid w-full transition rounded-lg input-sizer hover:shadow-inset bg-black-100 smooth-transition"><span
+  <div class="flex-1 overflow-y-auto">
+    <div id="chat-window" class="flex flex-col flex-1 h-full">
+      <div id="chat-messages"
+         class="relative flex flex-col items-start flex-grow p-3 pb-0 overflow-y-auto border-b border-grey-200"></div>
+      <div id="chat-controls" class="py-3 pl-3 pr-2 bg-white">
+        <form name="contact-form" id="contact-form" class="flex items-end" netlify method="post">
+          <p id="form-input-name" class="flex-grow">
+            <label
+                 class="grid w-full transition rounded-lg input-sizer hover:bg-black-200 bg-black-100 smooth-transition">
+              <span
                   class="sr-only">Your Name</span>
-            <textarea class="w-full h-10 px-3 py-1 leading-loose transition bg-transparent border border-transparent resize-none text-grey-800 "
+              <textarea class="w-full h-10 px-3 py-1 leading-loose transition bg-transparent border border-transparent resize-none text-grey-800 "
                       name="yourName"
                       id="yourName"
                       placeholder="Your name"
                       oninput="this.parentNode.dataset.value = this.value"
                       rows="1"></textarea>
-          </label>
-        </p>
-        <p id="form-input-message" class="flex-grow">
-          <label
-                 class="grid w-full transition rounded-lg input-sizer hover:shadow-inset bg-black-100 smooth-transition"><span
+            </label>
+          </p>
+          <p id="form-input-message" class="flex-grow">
+            <label
+                 class="grid w-full transition rounded-lg input-sizer hover:bg-black-200 bg-black-100 smooth-transition">
+              <span
                   class="sr-only">Your
               Message</span>
-            <textarea class="w-full h-10 px-3 py-1 leading-loose transition bg-transparent border border-transparent resize-none text-grey-800 "
+              <textarea class="w-full h-10 px-3 py-1 leading-loose transition bg-transparent border border-transparent resize-none text-grey-800 "
                       name="yourMessage"
                       id="yourMessage"
                       placeholder="Your Text"
                       oninput="this.parentNode.dataset.value = this.value"
                       rows="1"></textarea>
-          </label>
-        </p>
-        <p id="form-input-email" class="flex-grow">
-          <label
-                 class="grid w-full transition rounded-lg input-sizer hover:shadow-inset bg-black-100 smooth-transition"><span
+            </label>
+          </p>
+          <p id="form-input-email" class="flex-grow">
+            <label
+                 class="grid w-full transition rounded-lg input-sizer hover:bg-black-200 bg-black-100 smooth-transition">
+              <span
                   class="sr-only">Your
               Email</span>
-            <textarea class="w-full h-10 px-3 py-1 leading-loose bg-transparent border border-transparent resize-none text-grey-800"
+              <textarea class="w-full h-10 px-3 py-1 leading-loose bg-transparent border border-transparent resize-none text-grey-800"
                       name="yourEmail"
                       id="yourEmail"
                       placeholder="Your e-mail"
                       oninput="this.parentNode.dataset.value = this.value"
                       rows="1"></textarea>
-          </label>
-        </p>
-        <p id="form-input-empty" class="flex-grow">
-          <label
-                 class="grid w-full transition rounded-lg input-sizer hover:shadow-inset bg-black-100 smooth-transition">
-            <textarea class="w-full h-10 px-3 py-1 leading-loose bg-transparent border border-transparent resize-none text-grey-800"
+            </label>
+          </p>
+          <p id="form-input-empty" class="flex-grow">
+            <label
+                 class="grid w-full transition rounded-lg input-sizer hover:bg-black-200 bg-black-100 smooth-transition">
+              <textarea class="w-full h-10 px-3 py-1 leading-loose bg-transparent border border-transparent resize-none text-grey-800"
                       disabled="true"
                       name="empty"
                       id="empty"
                       oninput="this.parentNode.dataset.value = this.value"
                       rows="1"></textarea>
-          </label>
-        </p>
-        <p class="flex-shrink-0 ml-2 disabled" id="next-button-wrapper">
-          <label class="flex"><span class="sr-only">Send Text</span>
-            <button
+            </label>
+          </p>
+          <p class="flex-shrink-0 ml-2 disabled" id="next-button-wrapper">
+            <label class="flex">
+              <span class="sr-only">Send Text</span>
+              <button
                     class="flex items-center justify-center w-10 h-10 transition rounded-lg smooth-transition group hocus:bg-blue-100"
                     type="button"
                     name="nextButton"
                     id="nextButton">
-              <svg class="block w-6 h-6 transition duration-300 ease-smooth text-grey-300"
+                <svg class="block w-6 h-6 transition duration-300 ease-smooth text-grey-300"
                    fill="currentColor"
                    aria-hidden="true">
-                <use xmlns:xlink="http://www.w3.org/1999/xlink"
-                     xlink:href="/images/icons/icon-library.svg#contact-send-icon">
-                </use>
-              </svg>
-            </button>
-          </label>
-        </p>
-      </form>
+                  <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                     xlink:href="/images/icons/icon-library.svg#contact-send-icon"></use>
+                </svg>
+              </button>
+            </label>
+          </p>
+        </form>
+      </div>
     </div>
   </div>
-</div>
 
-<template id="confirmModal">
-  <div>
-    <div class="relative px-6 pt-12 pb-6 mx-6 overflow-hidden text-center transition-opacity duration-700 bg-blue-100 rounded-lg ease-smooth"
+  <template id="confirmModal">
+    <div>
+      <div class="relative px-6 pt-12 pb-6 mx-6 overflow-hidden text-center transition-opacity duration-700 bg-blue-100 rounded-lg ease-smooth"
          id="confirmBox">
 
-
-      <div class="mb-8">
-        <div class="w-12 h-12 mx-auto text-blue-500">
-          {% include "icons/contact-send.svg" %}
+        <div class="mb-8">
+          <div class="w-12 h-12 mx-auto text-blue-500">
+            {% include "icons/contact-send.svg" %}
+          </div>
         </div>
-      </div>
 
-      <div class="mb-6">
-        <h2 class="mb-3 font-serif text-xl leading-tight tracking-snug">Ready to send?</h2>
-        <p class="text-sm leading-loose text-black-600">If needed, you can modify your messages by hovering on
+        <div class="mb-6">
+          <h2 class="mb-3 font-serif text-2xl leading-none tracking-snug">Ready to send?</h2>
+          <p class="text-sm leading-loose text-black-600">If needed, you can modify your messages by hovering on
           each bubble and
           clicking the edit button.</p>
-      </div>
+        </div>
 
-      <div class="flex justify-center px-4">
-        <button id="formSubmit"
+        <div class="flex justify-center px-4">
+          <button id="formSubmit"
                 class="relative block px-4 py-2 text-xs transition-colors bg-white rounded-sm shadow-sm hocus:bg-grey-100 smooth-transition focus:shadow-outline">
           Send my message!
           <div class="shadow-border"></div>
-        </button>
+          </button>
+        </div>
       </div>
     </div>
-  </div>
-</template>
+  </template>
 {% endblock %}
