@@ -1,36 +1,32 @@
 {% macro windowFrame(title, color, inverted, data) %}
 
-<div class="relative overflow-hidden flex flex-col rounded shadow-lg pointer-events-auto bg-white window-wrapper sm:absolute draggable
+  <div class="relative overflow-hidden flex flex-col rounded shadow-lg pointer-events-auto bg-white window-wrapper sm:absolute draggable
 {% if title != "sd" %}
 closed
 {% endif %}
 " id="{{title}}Window">
     <div class="draggable-handle">
-        <div class="h-2 bg-{{color}}-500">
-        </div>
-        <div class="relative flex justify-center px-4 py-5 xs:py-3 bg-{{color}}-100">
-            <div class="absolute inset-y-0 left-0 flex items-center mx-4">
-                <button
+      <div class="h-2 bg-{{color}}-500"></div>
+      <div class="relative flex justify-center px-4 py-5 xs:py-3 bg-{{color}}-100 sm:h-12 h-10 items-center">
+        <div class="absolute inset-y-0 left-0 flex items-center mx-4">
+          <button
                         class="relative flex p-1 -m-1 transition-colors duration-300 rounded-sm window-close ease-smooth">
-                    <span class="sr-only">Close Window</span>
-                    <div class="bg-red-500 rounded-full traffic-light">
-                    </div>
-                    <div class="bg-yellow-500 rounded-full traffic-light">
-                    </div>
-                    <div class="bg-green-500 rounded-full traffic-light">
-                    </div>
-                </button>
-            </div>
-            <h2 class="hidden text-xl leading-none serif xs:block text-black-900 ">{{ title | capitalize }}</h2>
+            <span class="sr-only">Close Window</span>
+            <div class="bg-red-500 rounded-full traffic-light"></div>
+            <div class="bg-yellow-500 rounded-full traffic-light"></div>
+            <div class="bg-green-500 rounded-full traffic-light"></div>
+          </button>
         </div>
+        <h2 class="hidden font-mono text-xs leading-none tracking-wide uppercase text-black-800 xs:block">{{ title | capitalize }}</h2>
+      </div>
     </div>
     <div class="flex flex-col flex-1 overflow-hidden">
-        {% block content %}
+      {% block content %}
         {# window content goes here #}
-        {% endblock %}
+      {% endblock %}
     </div>
     <div class="shadow-border"></div>
 
-</div>
+  </div>
 
 {% endmacro %}

@@ -2,65 +2,63 @@
 
 {% block content %}
 
-<div class="relative flex flex-1 overflow-x-hidden overflow-y-auto">
-    <div id="journal-sidebar"
+    <div class="relative flex flex-1 overflow-x-hidden overflow-y-auto">
+        <div id="journal-sidebar"
          class="absolute inset-y-0 left-0 z-20 flex-shrink-0 w-64 transition-transform duration-300 transform -translate-x-full border-r ease-smooth sm:w-44 w bg-grey-100 border-grey-300 sm:relative">
-        <ul class="h-full overflow-y-auto">
-            {% for note in data %}
-            <li class="border-b border-grey-300">
-                <a href="{{note.outputPath | replace("dist/journal/", "?journal=") | replace("/index.html", "")}}"
+            <ul class="h-full overflow-y-auto">
+                {% for note in data %}
+                    <li class="border-b border-grey-300">
+                        <a href="{{note.outputPath | replace("dist/journal/", "?journal=") | replace("/index.html", "")}}"
                    title="{{note.data.title}}"
                    class="block py-4 pl-4 pr-2 transition-colors smooth-transition hocus:bg-white ease-smooth journal-link">
-                    <h4 class="truncate">
-                        {{ note.data.title }}
-                    </h4>
+                            <h4 class="truncate">
+                                {{ note.data.title }}
+                            </h4>
 
-                    <date class="block mt-1 font-mono leading-none tracking-wide uppercase text-xxs text-grey-700">
-                        {{ note.data.date | dateDisplay }}
-                        {% if note.data.enddate %}
+                            <date class="block mt-1 font-mono leading-none tracking-wide uppercase text-xxs text-grey-700">
+                                {{ note.data.date | dateDisplay }}
+                                {% if note.data.enddate %}
                         - {{ note.data.enddate | dateDisplay }}
-                        {% endif %}
-                    </date>
-                </a>
-            </li>
-            {% endfor %}
-        </ul>
-    </div>
-    <div class="flex flex-col flex-grow">
-        <div class="sticky top-0 z-10 px-4 pt-3 pb-3 bg-white border-b sm:hidden border-grey-300">
-            <button id="journal-open"
+                                {% endif %}
+                            </date>
+                        </a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="flex flex-col flex-grow">
+            <div class="sticky top-0 z-10 px-4 pt-3 pb-3 bg-white border-b sm:hidden border-grey-300">
+                <button id="journal-open"
                     class="flex items-center p-1 -m-1 text-yellow-100 transition-colors rounded btn smooth-transition">
 
-                <svg class="flex-shrink-0 block w-4 h-4 text-grey-800" role="button"
+                    <svg class="flex-shrink-0 block w-4 h-4 text-grey-800" role="button"
                      aria-hidden="true">
-                    <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink"
                          xlink:href="/images/icons/icon-library.svg#icon-notes-right"></use>
-                </svg>
-                <span
+                    </svg>
+                    <span
                       class="ml-2 font-mono leading-none tracking-wide uppercase text-xxs text-grey-900 ig-heart-text">Journal
                     Entries</span>
-            </button>
-        </div>
-        <div class="flex-1 overflow-y-auto note-area">
-            <button id="journal-close" class="absolute inset-y-0 z-10 invisible w-full cursor-default"></button>
+                </button>
+            </div>
+            <div class="flex-1 overflow-y-auto note-area">
+                <button id="journal-close" class="absolute inset-y-0 z-10 invisible w-full cursor-default"></button>
 
-            <article class="relative max-w-xl min-h-full px-4 py-10 mx-auto xs:px-6 journal">
-                <div
+                <article class="relative max-w-xl min-h-full px-4 py-10 mx-auto xs:px-6 journal">
+                    <div
                      class="absolute flex flex-col items-center w-56 transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2">
-                    <div class="p-4 mb-6 bg-yellow-100 rounded-full">
-                        <svg class="block w-12 h-12 text-yellow-500" fill="currentColor" role="presentation"
+                        <div class="p-4 mb-6 bg-yellow-100 rounded-full">
+                            <svg class="block w-12 h-12 text-yellow-500" fill="currentColor" role="presentation"
                              aria-hidden="true">
-                            <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                                <use xmlns:xlink="http://www.w3.org/1999/xlink"
                                  xlink:href="/images/icons/icon-library.svg#journal-empty-state"></use>
-                        </svg>
+                            </svg>
+                        </div>
+                        <h3 class="font-serif text-2xl leading-none text-center text-black-600">Select an entry in the sidebar to read</h3>
                     </div>
-                    <h3 class="font-serif text-xl leading-tight text-center text-black-600">Select an entry in the
-                        sidebar
-                        to read</h3>
-                </div>
 
-            </article>
+                </article>
+            </div>
         </div>
     </div>
-</div>
 {% endblock %}

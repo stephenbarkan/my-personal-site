@@ -1,36 +1,35 @@
 html {
-
   --clr-neutral: #fffdf5;
 
   --clr-white: #ffffff;
-  --clr-black: #000000;
+  --clr-black: rgba(0, 0, 0, 0.8);
 
   --clr-grey-900: #16151e;
   --clr-grey-800: #333138;
-  --clr-grey-700: #514F56;
+  --clr-grey-700: #514f56;
   --clr-grey-600: #6f6d74;
   --clr-grey-500: #959398;
-  --clr-grey-400: #AEADAF;
+  --clr-grey-400: #aeadaf;
   --clr-grey-300: #cccccc;
   --clr-grey-200: #e8e8e8;
-  --clr-grey-100: #F7F7F7;
+  --clr-grey-100: #f7f7f7;
 
-  --clr-black-900: rgba(0, 0, 0, .91);
-  --clr-black-800: rgba(0, 0, 0, .81);
-  --clr-black-700: rgba(0, 0, 0, .69);
-  --clr-black-600: rgba(0, 0, 0, .57);
-  --clr-black-500: rgba(0, 0, 0, .42);
-  --clr-black-400: rgba(0, 0, 0, .32);
-  --clr-black-300: rgba(0, 0, 0, .20);
-  --clr-black-200: rgba(0, 0, 0, .09);
-  --clr-black-100: rgba(0, 0, 0, .05);
+  --clr-black-900: rgba(0, 0, 0, 0.91);
+  --clr-black-800: rgba(0, 0, 0, 0.81);
+  --clr-black-700: rgba(0, 0, 0, 0.69);
+  --clr-black-600: rgba(0, 0, 0, 0.57);
+  --clr-black-500: rgba(0, 0, 0, 0.42);
+  --clr-black-400: rgba(0, 0, 0, 0.32);
+  --clr-black-300: rgba(0, 0, 0, 0.2);
+  --clr-black-200: rgba(0, 0, 0, 0.09);
+  --clr-black-100: rgba(0, 0, 0, 0.05);
 
   --clr-me: #fc664f;
   --clr-me-light: #ffede4;
 
   --clr-portfolio: #5547ec;
   --clr-portfolio-light: #eeedfd;
-  --clr-portfolio-dark: #6258D5;
+  --clr-portfolio-dark: #6258d5;
   --clr-portfolio-darker: #373460;
 
   --clr-journal: #ffad0e;
@@ -41,39 +40,36 @@ html {
   --clr-music-dark: #219c8d;
 
   --clr-contact: #15a6f8;
-  --clr-contact-light: #ECF6FE;
+  --clr-contact-light: #ecf6fe;
 
   --shadow-inset: inset 0 0 0 1px var(--clr-black-200);
   --shadow-outline: 0 0 0 3px rgba(21, 166, 248, 0.5);
   --shadow-sm: 0px 0.5px 3px -2px rgba(0, 0, 0, 0.5);
-
 }
 
 html[data-theme="dark"] {
-
   --clr-neutral: #221e24;
 
   --clr-white: #2d2b31;
   --clr-black: #cccccc;
 
-  --clr-black-900: rgba(255, 255, 255, .75);
-  --clr-black-800: rgba(255, 255, 255, .66);
-  --clr-black-700: rgba(255, 255, 255, .58);
-  --clr-black-600: rgba(255, 255, 255, .52);
-  --clr-black-500: rgba(255, 255, 255, .47);
-  --clr-black-400: rgba(255, 255, 255, .37);
-  --clr-black-300: rgba(255, 255, 255, .20);
-  --clr-black-200: rgba(255, 255, 255, .16);
-  --clr-black-100: rgba(255, 255, 255, .06);
+  --clr-black-900: rgba(255, 255, 255, 0.75);
+  --clr-black-800: rgba(255, 255, 255, 0.66);
+  --clr-black-700: rgba(255, 255, 255, 0.58);
+  --clr-black-600: rgba(255, 255, 255, 0.52);
+  --clr-black-500: rgba(255, 255, 255, 0.47);
+  --clr-black-400: rgba(255, 255, 255, 0.37);
+  --clr-black-300: rgba(255, 255, 255, 0.2);
+  --clr-black-200: rgba(255, 255, 255, 0.16);
+  --clr-black-100: rgba(255, 255, 255, 0.06);
 
-
-  --clr-grey-900: #C8C7CD;
-  --clr-grey-800: #B2B1B6;
-  --clr-grey-700: #A2A1A5;
+  --clr-grey-900: #c8c7cd;
+  --clr-grey-800: #b2b1b6;
+  --clr-grey-700: #a2a1a5;
   --clr-grey-600: #949298;
-  --clr-grey-500: #89878B;
+  --clr-grey-500: #89878b;
   --clr-grey-400: #727272;
-  --clr-grey-300: #4D4C4F;
+  --clr-grey-300: #4d4c4f;
   --clr-grey-200: #444348;
   --clr-grey-100: #28262b;
 
@@ -99,7 +95,7 @@ html[data-theme="dark"] {
   --shadow-sm: 0px 1px 4px -2px rgba(0, 0, 0, 0.5);
 
   img {
-    opacity: .85;
+    opacity: 0.85;
   }
 }
 

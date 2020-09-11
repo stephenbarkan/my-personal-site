@@ -1,12 +1,12 @@
 {% extends "components/window.njk" %}
 {% block content %}
 
-<div class="overflow-y-auto">
-    <div class="p-6 overflow-y-auto project-grid-wrapper">
-        <ul class="grid items-start gap-8 project-grid sm:col-gap-8 sm:row-gap-0">
-            {% for post in data %}
-            <li>
-                <a
+    <div class="overflow-y-auto">
+        <div class="p-6 overflow-y-auto project-grid-wrapper">
+            <ul class="grid items-start gap-4 project-grid sm:col-gap-4 sm:row-gap-0">
+                {% for post in data %}
+                    <li>
+                        <a
                    {# data-project="{{post.outputPath | replace("dist/", "")}}" #}
 
                    {# remove these two lines if ever want to add the previews back #}
@@ -14,27 +14,27 @@
                    target="_blank"
 
                    title="{{post.data.subtitle}} for {{post.data.title}}"
-                   class="flex flex-col items-center py-6 text-center text-purple-100 rounded-lg group project-link smooth-transition portfolio-link btn">
-                    <div class="grid items-center justify-center grid-absolute">
-                        <svg class="block w-32 text-purple-800 grid-inset-0" role="presentation" aria-hidden="true"
+                   class="flex flex-col items-center py-6 text-center text-purple-100 rounded-lg wiggle wiggle-hover group project-link smooth-transition portfolio-link btn">
+                            <div class="grid items-center justify-center grid-absolute">
+                                <svg class="block w-24 text-purple-800 grid-inset-0" role="presentation" aria-hidden="true"
                              viewbox="0 0 128 100">
-                            <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                                    <use xmlns:xlink="http://www.w3.org/1999/xlink"
                                  xlink:href="/images/icons/icon-library.svg#icon-project-folder-back"></use>
-                        </svg>
-                        <svg class="z-0 block w-32 text-purple-700 transition-transform duration-700 transform grid-inset-0 portfolio-folder-front ease-smooth"
+                                </svg>
+                                <svg class="z-0 block w-24 text-purple-700 transition-transform duration-700 transform grid-inset-0 portfolio-folder-front ease-smooth"
                              role="presentation"
                              aria-hidden="true"
                              viewbox="0 0 128 100">
-                            <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                                    <use xmlns:xlink="http://www.w3.org/1999/xlink"
                                  xlink:href="/images/icons/icon-library.svg#icon-project-folder-front"></use>
-                        </svg>
-                    </div>
-                    <h3 class="mt-4 text-base leading-snug text-black-800">{{ post.data.title }}</h3>
-                    <span class="block mt-1 text-xs leading-snug text-black-600">{{ post.data.subtitle }}</span>
-                </a>
-            </li>
-            {% endfor %}
-        </ul>
+                                </svg>
+                            </div>
+                            <h3 class="mt-4 text-base leading-snug text-black-800">{{ post.data.title }}</h3>
+                            <span class="block mt-1 text-xs leading-snug text-black-600">{{ post.data.subtitle }}</span>
+                        </a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
     </div>
-</div>
 {% endblock %}

@@ -14,6 +14,24 @@ var $updateURL = function $updateURL(string) {
   var stateObj;
   history.replaceState(stateObj, '', string);
 };
+var allBtns = document.querySelectorAll(".wiggle-hover, .markdown a");
+var mouseX;
+var mouseY;
+window.addEventListener("mousemove", function (e) {
+  mouseX = e.clientX;
+  mouseY = e.clientY;
+  $body.style.setProperty("--pointer-x", mouseX);
+  $body.style.setProperty("--pointer-y", mouseY);
+});
+allBtns.forEach(function (btn) {
+  btn.addEventListener("mouseenter", function () {
+    var rect = btn.getBoundingClientRect();
+    btn.style.setProperty("--x", rect.left);
+    btn.style.setProperty("--y", rect.top);
+    btn.style.setProperty("--w", rect.width);
+    btn.style.setProperty("--h", rect.height);
+  });
+});
 var contactLink = document.getElementById("contact");
 var chatWindow = document.getElementById("chat-window");
 var messagesList = document.getElementById("chat-messages");

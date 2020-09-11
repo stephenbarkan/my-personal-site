@@ -1,7 +1,7 @@
 #preview-container {
   display: grid;
 
-  &>* {
+  & > * {
     grid-column: -1/1;
     grid-row: -1/1;
   }
@@ -21,38 +21,33 @@
 }
 
 .project-grid {
-  grid-template-columns: repeat(auto-fill, minmax(9rem, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(6rem, 1fr));
 
   @screen xs {
-    grid-template-columns: repeat(2, minmax(10rem, 11rem));
+    grid-template-columns: repeat(3, minmax(6rem, 9rem));
   }
 
   @screen sm {
-    grid-template-columns: repeat(3, minmax(10rem, 11rem));
+    grid-template-columns: repeat(4, minmax(6rem, 9rem));
   }
 }
-
 
 .project-preview {
   @apply duration-500;
   transition-delay: 150ms;
 
-
-  &+.preview-overlay {
+  & + .preview-overlay {
     @apply duration-500;
     transition-delay: 0ms;
-
   }
 
   &.closed {
     @apply invisible opacity-0 scale-50 duration-300;
     transition-delay: 0ms;
 
-
-    &+.preview-overlay {
+    & + .preview-overlay {
       @apply opacity-0 duration-300 pointer-events-none;
       transition-delay: 0ms;
-
     }
   }
 }
