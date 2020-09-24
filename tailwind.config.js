@@ -180,7 +180,7 @@ module.exports = {
       },
 
       maxWidth: {
-        headline: "39ch",
+        headline: "40ch",
         "2xl": "45rem",
       },
 
