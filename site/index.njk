@@ -17,24 +17,24 @@ title: Home
 {% import "windows/window-contact.njk" as contact %}
 
 <main id="main" class="relative flex flex-col items-center justify-between w-full min-h-full sm:justify-center">
-    <div class="flex flex-col px-5 py-16 my-auto font-serif leading-none text-center max-w-headline sm:px-12 text-headline sm:m-0">
+    <div class="flex flex-col px-5 py-16 my-auto font-serif leading-none max-w-headline sm:px-12 text-headline sm:m-0">
         <h1>
             This is the personal site of
             <span class="whitespace-no-wrap">
-                <a id="me" href="#"
+                <a id="me" href="#" data-micromodal-trigger="meWindow"
                    class="relative text-red-500 rounded-lg group hocus:underline focus:shadow-none">
                    Stephen Barkan</a>.</span>
         </span>
     </h1>
 
     <nav class="mt-12">
-            See <a id="portfolio" href="#"
+            See <a id="portfolio" href="#" data-micromodal-trigger="porftolioWindow"
                class="relative text-purple-500 rounded-lg group hocus:underline focus:shadow-none">his design portfolio</a>, read
-            <a id="journal" href="#"
+            <a id="journal" href="#" data-micromodal-trigger="journalWindow"
                class="relative text-yellow-500 rounded-lg group hocus:underline focus:shadow-none">his journal</a>, listen to
-            <a id="music" href="#"
+            <a id="music" href="#" data-micromodal-trigger="musicWindow"
                class="relative text-green-500 rounded-lg group hocus:underline focus:shadow-none">music he wrote</a>, or send him
-            <a id="contact" href="#"
+            <a id="contact" href="#" data-micromodal-trigger="contactWindow"
                class="relative text-blue-500 rounded-lg group hocus:underline focus:shadow-none">a text</a>.
         </nav>
 </div>

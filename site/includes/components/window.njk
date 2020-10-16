@@ -9,8 +9,7 @@ closed
       <div class="h-2 bg-{{color}}-500"></div>
       <div class="relative flex justify-center px-4 py-5 xs:py-3 bg-{{color}}-100 sm:h-12 h-10 items-center">
         <div class="absolute inset-y-0 left-0 flex items-center mx-4">
-          <button
-                        class="relative flex p-1 -m-1 transition-colors duration-300 rounded-sm window-close ease-smooth">
+          <button class="relative flex p-1 -m-1 transition-colors duration-300 rounded-sm window-close ease-smooth">
             <span class="sr-only">Close Window</span>
             <div class="bg-red-500 rounded-full traffic-light"></div>
             <div class="bg-yellow-500 rounded-full traffic-light"></div>
@@ -20,7 +19,7 @@ closed
         <h2 class="hidden font-mono text-xs leading-none tracking-wide uppercase text-black-800 xs:block">{{ title | capitalize }}</h2>
       </div>
     </div>
-    <div class="flex flex-col flex-1 overflow-hidden">
+    <div class="flex flex-col flex-1 overflow-hidden window-body">
       {% block content %}
         {# window content goes here #}
       {% endblock %}

@@ -91,8 +91,17 @@
   touch-action: none;
   max-width: calc(100vw - 0.5rem);
   max-height: calc(var(--windowHeight) - 0.5rem);
+  background-color: rgb(255, 255, 255);
   @apply transition duration-150 ease-smooth;
 
+  &.window-inner {
+    opacity: 1;
+
+    &:not(.closed):not(:focus-within) {
+      opacity: 0.999;
+      transition: opacity 0.01s !important;
+    }
+  }
   &.closed {
     pointer-events: none;
     opacity: 0;
