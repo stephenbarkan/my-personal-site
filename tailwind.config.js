@@ -180,7 +180,7 @@ module.exports = {
       },
 
       maxWidth: {
-        headline: "24ch",
+        headline: "43rem",
         "2xl": "45rem",
       },
 
@@ -201,7 +201,7 @@ module.exports = {
         "3xl": "2.25rem",
         "4xl": "2.5rem",
         "5xl": "3.5rem",
-        headline: "max(3rem, min(calc(6.5vw), 4rem))",
+        headline: "max(3rem,min(calc(6.5vw),4rem))",
       },
 
       transitionDuration: {
