@@ -1,40 +1,24 @@
 {% extends "components/window.njk" %}
+{% import "components/portfolio-folder.njk" as link %}
+
 {% block content %}
 
-    <div class="overflow-y-auto">
-        <div class="p-6 overflow-y-auto project-grid-wrapper">
-            <ul class="grid items-start gap-4 project-grid sm:col-gap-4 sm:row-gap-4">
-                {% for post in data %}
-                    <li>
-                        <a
-                   {# data-project="{{post.outputPath | replace("dist/", "")}}" #}
-
-                   {# remove these two lines if ever want to add the previews back #}
-                   href="{{post.data.link}}"
-                   target="_blank"
-
-                   title="{{post.data.subtitle}} for {{post.data.title}}"
-                   class="flex flex-col items-center px-2 py-4 text-center text-purple-100 rounded-lg wiggle wiggle-hover group project-link smooth-transition portfolio-link btn">
-                            <div class="grid items-center justify-center grid-absolute">
-                                <svg class="block text-purple-800 w-28 grid-inset-0" role="presentation" aria-hidden="true"
-                             viewbox="0 0 128 100">
-                                    <use xmlns:xlink="http://www.w3.org/1999/xlink"
-                                 xlink:href="/images/icons/icon-library.svg#icon-project-folder-back"></use>
-                                </svg>
-                                <svg class="z-0 block text-purple-700 transition-transform duration-700 transform w-28 grid-inset-0 portfolio-folder-front ease-smooth"
-                             role="presentation"
-                             aria-hidden="true"
-                             viewbox="0 0 128 100">
-                                    <use xmlns:xlink="http://www.w3.org/1999/xlink"
-                                 xlink:href="/images/icons/icon-library.svg#icon-project-folder-front"></use>
-                                </svg>
-                            </div>
-                            <h3 class="mt-3 text-base leading-none text-black-800">{{ post.data.title }}</h3>
-                            <span class="block mt-1 text-xs leading-snug text-black-600">{{ post.data.subtitle }}</span>
-                        </a>
-                    </li>
+    <div class="h-full overflow-y-auto">
+        <div class="flex h-full pr-8" x-data="{open: false, activeCategory: ''}">
+            <ul class="flex flex-col flex-grow-0 flex-shrink-0 h-full overflow-y-auto border-r border-grey-200 bg-grey-100 focus-within:z-10 min-w-64">
+                    {{link.portfolioFolder(key="doist", title="Doist", date="2020 – current", folder=true)}}
+                    {{link.portfolioFolder(key="ink", title="INK Communications", date="2018 – 2019", folder=true)}}
+                    {{link.portfolioFolder(key="fun", title="for fun", folder=true)}}
+                    {{link.portfolioFolder(key="freelance", title="freelance projects", folder=true)}}
+                    <div @click="open=false" class="flex-1"></div>
+            </ul>
+            <ul x-show="open === true" class="flex-grow-0 flex-shrink-0 h-full overflow-y-auto border-r border-grey-200 bg-grey-100 focus-within:z-10 min-w-64">
+                {% for post in collections.portfolio %}
+                    {{link.portfolioFolder(title=post.data.title, link=post.data.link, category=post.data.tags[1])}}
                 {% endfor %}
             </ul>
+            {# <div class="flex-grow-0 flex-shrink-0 h-full w-72"> #}
+            </div>
         </div>
     </div>
 {% endblock %}

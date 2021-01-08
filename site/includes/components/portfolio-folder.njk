@@ -1,0 +1,45 @@
+{% macro portfolioFolder(key, title, date, link, folder=false, category) %}
+
+<li class="flex px-2" {% if folder === false %} x-show="'{{category}}' === activeCategory" {% endif %}>
+    {% if folder %}
+        <button @click="open = true; activeCategory = '{{key}}'" title="{{ title }} projects"
+    {% else %}
+        <a href="{{ link }}" target="_blank" title="{{ title }}"
+    {% endif %}
+        class="flex flex-1 py-1 border-b group border-grey-200 focus-visible:z-10 focus-visible:ring">
+        <div :class="{'bg-purple-100' : activeCategory === '{{key}}'}"
+            class="relative flex items-center flex-grow px-2 py-2 -mx-1 transition-colors rounded group-hover:bg-purple-100 smooth-transition hocus:text-grey-900 group-hover:text-grey-900 text-grey-800">
+            <div class="flex items-center mr-2 space-x-2 truncate">
+                <div class="group-hocus:text-grey-800 text-grey-600 smooth-transition">
+                    {% if folder %}
+                        <svg class="flex-shrink-0 block w-4 h-4 text-current">
+                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/images/icons/icon-library.svg#portfolio-folder"></use>
+                        </svg>
+                    {% else %}
+                        <svg class="flex-shrink-0 block w-4 h-4 text-current">
+                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/images/icons/icon-library.svg#portfolio-project"></use>
+                        </svg>
+                    {% endif %}
+                </div>
+                <h3 class="text-xs leading-snug">
+                    <span>{{ title }}</span>
+                    {% if date %}
+                        <span class="text-xs text-black-400">|</span>
+                        <span class="mt-1 text-xs text-grey-600">{{ date }}</span>
+                    {% endif %}
+                </h3>
+            </div>
+        {% if folder %}
+            <svg class="flex-shrink-0 block w-4 h-4 ml-auto -mx-2 text-grey-600" role="presentation" aria-hidden="true">
+                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/images/icons/icon-library.svg#portfolio-folder-arrow"></use>
+            </svg>
+        {% endif %}
+        </div>
+    {% if folder %}
+        </button>
+    {% else %}
+        </a>
+    {% endif %}
+</li>
+
+{% endmacro %}

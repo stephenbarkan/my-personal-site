@@ -8,12 +8,13 @@ title: Home
 {% set ig_images = ig_images %}
 {% set projects = collections.portfolio %}
 {% set journals = collections.journal %}
+{% set fun = collections.fun %}
 {% set songs = playlist %}
 
 {% import "windows/window-me.njk" as me %}
 {% import "windows/window-music.njk" as music %}
 {% import "windows/window-journal.njk" as journal %}
-{% import "windows/window-portfolio.njk" as portfolio %}
+{% import "windows/window-portfolio.njk" as portfolio with context %}
 {% import "windows/window-contact.njk" as contact %}
 
 <main id="main" class="relative flex flex-col items-center justify-between w-full min-h-full sm:justify-center">
@@ -46,7 +47,7 @@ title: Home
     {{ music.windowFrame( 'music', 'green', false, songs) }}
     {{ journal.windowFrame( 'journal', 'yellow', false, journals) }}
     {{ contact.windowFrame( 'contact', 'blue', false) }}
-    {{ portfolio.windowFrame( 'portfolio', 'purple', false, projects) }}
+    {{ portfolio.windowFrame( 'portfolio', 'purple', false, fun) }}
 
 </div>
 

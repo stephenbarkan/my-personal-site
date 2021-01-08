@@ -12,7 +12,7 @@
 @import "utilities/colors";
 
 // Import Tailwind components
-@tailwind components;
+// @tailwind components;
 
 @import "base/global";
 @import "base/windows";
@@ -25,8 +25,6 @@
 @import "base/contact";
 @import "base/home";
 @import "base/theme-switcher";
-
-
 
 /* purgecss end ignore */
 

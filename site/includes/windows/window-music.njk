@@ -10,7 +10,7 @@
       <div class="flex flex-col flex-shrink-0 w-full max-w-xs mt-4 xs:flex-shrink xs:max-w-full xs:mt-0 xs:ml-4">
         <div class="flex flex-col items-center xs:flex-row">
           <h3 id="music-title"
-                    class="font-mono text-xs leading-loose tracking-wide text-center uppercase transition xs:ml-4 xs:text-left text-grey-700">
+                    class="font-mono leading-loose tracking-wide text-center uppercase transition text-xxs xs:ml-4 xs:text-left text-grey-700">
                     Select a track below to listen
                 </h3>
           <button id="music-play-button" disabled
@@ -41,40 +41,42 @@
         </div>
       </div>
     </div>
-    <div class="flex-shrink overflow-y-auto border-t border-grey-300">
-      <ul class="border-b border-grey-300">
+    <div class="flex-shrink overflow-y-auto bg-grey-100">
+      <ul class="border-t border-grey-200">
         {% for obj in data %}
-          <li class="border-t border-grey-300 bg-grey-100 first:border-t-0">
+          <li class="flex px-2">
             <button data-src="/songs/{{ obj.src }}"
                         data-thumbnail="/images/songs/{{ obj.thumbnail }}"
                         data-title="{{ obj.title }}"
                         title="Play &ldquo;{{obj.title}}&rdquo;"
-                        class="relative flex items-center w-full px-4 py-3 transition-colors focus:z-10 hocus:bg-white smooth-transition group hocus:text-grey-800 text-grey-600 focus:z-1 playlist-item">
+                        class="relative flex flex-1 py-1 transition-colors border-b border-grey-200 focus:z-10 smooth-transition group hocus:text-grey-800 text-grey-600 playlist-item">
 
-              <div class="flex-shrink-0">
-                <svg class="flex-shrink-0 block w-4 h-4 stroke-current icon-music-song" role="presentation"
-                             aria-hidden="true">
-                  <use xmlns:xlink="http://www.w3.org/1999/xlink"
-                                 xlink:href="/images/icons/icon-library.svg#icon-music-song"></use>
-                </svg>
-                <svg class="flex-shrink-0 hidden w-4 h-4 stroke-current icon-music-queue"
-                             role="presentation"
-                             aria-hidden="true">
-                  <use xmlns:xlink="http://www.w3.org/1999/xlink"
-                                 xlink:href="/images/icons/icon-library.svg#icon-music-queue"></use>
-                </svg>
+              <div class="flex items-center flex-1 px-2 py-2 -mx-1 transition-colors rounded focus:bg-green-100 group-hover:bg-green-100 bg-grey-100 smooth-transition">
+                  <div class="flex-shrink-0">
+                    <svg class="flex-shrink-0 block w-4 h-4 stroke-current icon-music-song" role="presentation"
+                                 aria-hidden="true">
+                      <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                                     xlink:href="/images/icons/icon-library.svg#icon-music-song"></use>
+                    </svg>
+                    <svg class="flex-shrink-0 hidden w-4 h-4 stroke-current icon-music-queue"
+                                 role="presentation"
+                                 aria-hidden="true">
+                      <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                                     xlink:href="/images/icons/icon-library.svg#icon-music-queue"></use>
+                    </svg>
+                  </div>
+
+                  <h4 class="ml-2 text-xs leading-tight text-left text-grey-800 group-hocus:text-grey-900">
+                    {{obj.title}}
+                  </h4>
               </div>
-
-              <h4 class="ml-4 text-xs leading-tight text-left text-grey-700 group-hocus:text-grey-900">
-                {{obj.title}}
-              </h4>
             </button>
           </li>
         {% endfor %}
       </ul>
       <div class="flex justify-center bg-grey-100">
         <a href="https://soundcloud.com/stephenbarkan"
-               class="flex items-center w-full px-4 py-3 text-xs leading-tight focus:z-1 group hocus:text-grey-800 text-grey-600 hocus:bg-white"
+               class="flex items-center w-full px-4 py-3 text-xs leading-tight focus:z-1 group hocus:text-grey-800 text-grey-600 hocus:bg-green-100"
                target="_blank"
                ref="noopener">
           <svg class="w-4 h-4"
@@ -84,7 +86,7 @@
             <use xmlns:xlink="http://www.w3.org/1999/xlink"
                          xlink:href="/images/icons/icon-library.svg#icon-soundcloud"></use>
           </svg>
-          <span class="ml-4 group-hocus:text-grey-900 text-grey-700">Listen to more on SoundCloud!</span>
+          <span class="ml-2 group-hocus:text-grey-900 text-grey-700">Listen to more on SoundCloud!</span>
         </a>
       </div>
     </div>

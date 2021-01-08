@@ -19,7 +19,7 @@ module.exports = {
     borderRadius: {
       none: "0",
       sm: "0.25rem",
-      default: ".375rem",
+      DEFAULT: ".375rem",
       lg: "1rem",
       xl: "1.25rem",
       full: "9999px",
@@ -70,11 +70,11 @@ module.exports = {
         300: "var(--clr-black-300)",
         200: "var(--clr-black-200)",
         100: "var(--clr-black-100)",
-        default: "var(--clr-black)",
+        DEFAULT: "var(--clr-black)",
       },
 
       neutral: {
-        default: "var(--clr-neutral)",
+        DEFAULT: "var(--clr-neutral)",
       },
 
       always: {
@@ -163,6 +163,7 @@ module.exports = {
         14: "3.5rem",
         28: "7rem",
         44: "11rem",
+        72: "18rem",
         96: "24rem",
         full: "100%",
       },
@@ -178,7 +179,7 @@ module.exports = {
       zIndex: {
         "-1": "-1",
       },
-
+      minWidth: (theme) => theme("spacing"),
       maxWidth: {
         headline: "43rem",
         "2xl": "45rem",
@@ -187,7 +188,6 @@ module.exports = {
       maxHeight: {
         64: "16rem",
       },
-
       cursor: {
         "zoom-out": "zoom-out",
       },
@@ -215,7 +215,7 @@ module.exports = {
       },
 
       transitionProperty: {
-        default:
+        DEFAULT:
           "background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, visibility",
         inherit: "inherit",
       },
@@ -237,7 +237,14 @@ module.exports = {
     ],
     margin: ["responsive", "first"],
     borderWidth: ["hover", "focus", "first"],
-    backgroundColor: ["hover", "focus", "hocus", "responsive", "focus-within"],
+    backgroundColor: [
+      "hover",
+      "focus",
+      "hocus",
+      "responsive",
+      "focus-within",
+      "group-hover",
+    ],
     opacity: [
       "hover",
       "focus",
@@ -245,6 +252,7 @@ module.exports = {
       "responsive",
       "focus-within",
       "group-hover",
+      "focus-visible",
     ],
     textColor: [
       "hover",
@@ -253,13 +261,31 @@ module.exports = {
       "group-hocus",
       "group-hover",
       "group-focus",
+      "focus-visible",
     ],
-    borderColor: ["hover", "focus", "hocus", "group-hocus"],
+    borderColor: [
+      "hover",
+      "focus",
+      "hocus",
+      "group-hocus",
+      "group-hover",
+      "focus-visible",
+    ],
     order: ["responsive"],
-    boxShadow: ["responsive", "hover", "focus", "hocus"],
+    boxShadow: ["responsive", "hover", "focus", "hocus", "focus-visible"],
+    ringWidth: ["focus", "hocus", "focus-visible"],
     skew: ["responsive", "hover", "hocus", "group-focus"],
     translate: ["responsive", "hover", "hocus", "group-focus"],
     transitionDuration: ["hover"],
+    zIndex: [
+      "hover",
+      "focus",
+      "hocus",
+      "responsive",
+      "focus-within",
+      "group-hover",
+      "focus-visible",
+    ],
   },
 
   plugins: [require("tailwindcss-interaction-variants")()],

@@ -861,21 +861,12 @@ window.onload = function () {
     }
   }
 };
-function _readOnlyError(name) { throw new Error("\"" + name + "\" is read-only"); }
-
-MicroModal.init();
 var closedWindows = document.querySelectorAll(".closed");
 var closeAllButton = $closeAll.querySelector("button");
 var windowWrappers = document.querySelectorAll(".window-wrapper");
 var projectPreviews = document.querySelectorAll(".project-preview");
 var closeButtons = document.querySelectorAll(".window-close");
-var windowZ = 50; // windowWrappers.forEach((window) => {
-//   const windowInner = window.querySelector(".window-inner");
-//   const closeButton = window.querySelector(".window-close");
-//   windowInner.addEventListener("transitionend", (e) => {
-//     closeButton.focus();
-//   });
-// });
+var windowZ = 50;
 
 var windowFunctions = function windowFunctions() {
   closeButtons.forEach(function (button) {
@@ -948,7 +939,7 @@ var windowFunctions = function windowFunctions() {
 };
 
 var checkClosedList = function checkClosedList() {
-  closedWindows = (_readOnlyError("closedWindows"), document.querySelectorAll(".window-wrapper.closed"));
+  closedWindows = document.querySelectorAll(".window-wrapper.closed");
 
   if (closedWindows.length < windowWrappers.length - 1) {
     $closeAll.classList.add("visible");

@@ -37,6 +37,9 @@
 
         {# canonical #}
         <link rel="canonical" href="{{ site.url }}{{ page.url }}">
+
+        <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+
     </head>
 
     <body {% if body_class %} id="{{ body_class }}" {% endif %}
@@ -49,7 +52,6 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.1.2/howler.min.js"></script>
         <script src="https://unpkg.com/flipping@latest/dist/flipping.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/interactjs/dist/interact.min.js"></script>
-        <script src="https://unpkg.com/micromodal/dist/micromodal.min.js"></script>
 
         {# include scripts #}
         {% if helpers.environment == "development" %}

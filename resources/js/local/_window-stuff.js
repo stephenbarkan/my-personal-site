@@ -1,19 +1,9 @@
-MicroModal.init();
-
-const closedWindows = document.querySelectorAll(".closed");
+let closedWindows = document.querySelectorAll(".closed");
 const closeAllButton = $closeAll.querySelector("button");
 const windowWrappers = document.querySelectorAll(".window-wrapper");
 const projectPreviews = document.querySelectorAll(".project-preview");
 const closeButtons = document.querySelectorAll(".window-close");
 let windowZ = 50;
-
-// windowWrappers.forEach((window) => {
-//   const windowInner = window.querySelector(".window-inner");
-//   const closeButton = window.querySelector(".window-close");
-//   windowInner.addEventListener("transitionend", (e) => {
-//     closeButton.focus();
-//   });
-// });
 
 const windowFunctions = function () {
   closeButtons.forEach(function (button) {

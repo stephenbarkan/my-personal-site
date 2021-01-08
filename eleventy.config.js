@@ -38,6 +38,9 @@ module.exports = (eleventyConfig) => {
   eleventyConfig.addCollection("portfolio", (collection) => {
     return collection.getFilteredByTag("portfolio").reverse();
   });
+  eleventyConfig.addCollection("fun", (collection) => {
+    return collection.getFilteredByTag("fun").reverse();
+  });
 
   eleventyConfig.addCollection("journal", (collection) => {
     return collection.getFilteredByTag("journal").reverse();
