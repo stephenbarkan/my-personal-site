@@ -8,7 +8,6 @@ title: Home
 {% set ig_images = ig_images %}
 {% set projects = collections.portfolio %}
 {% set journals = collections.journal %}
-{% set fun = collections.fun %}
 {% set songs = playlist %}
 
 {% import "windows/window-me.njk" as me %}
@@ -20,11 +19,11 @@ title: Home
 <main id="main" class="relative flex flex-col items-center justify-between w-full min-h-full sm:justify-center">
     <div class="flex flex-col px-5 py-16 my-auto font-serif leading-none max-w-headline sm:px-12 text-headline sm:m-0">
         <h1>
-            This is the personal site of
+            Welcome to
             <span class="whitespace-no-wrap">
                 <a id="me" href="#" data-micromodal-trigger="meWindow"
                    class="relative text-red-500 rounded-lg group hocus:underline focus:shadow-none">
-                   Stephen Barkan</a>.</span>
+                   Stephen's</a> website!</span>
         </span>
     </h1>
 
@@ -32,7 +31,7 @@ title: Home
             See <a id="portfolio" href="#" data-micromodal-trigger="porftolioWindow"
                class="relative text-purple-500 rounded-lg group hocus:underline focus:shadow-none">his design portfolio</a>, read
             <a id="journal" href="#" data-micromodal-trigger="journalWindow"
-               class="relative text-yellow-500 rounded-lg group hocus:underline focus:shadow-none">about him</a>, listen to
+               class="relative inline-block text-yellow-500 rounded-lg group hocus:underline focus:shadow-none">about him</a>, listen to
             <a id="music" href="#" data-micromodal-trigger="musicWindow"
                class="relative text-green-500 rounded-lg group hocus:underline focus:shadow-none">music he wrote</a>, or send him
             <a id="contact" href="#" data-micromodal-trigger="contactWindow"
@@ -47,8 +46,7 @@ title: Home
     {{ music.windowFrame( 'music', 'green', false, songs) }}
     {{ journal.windowFrame( 'journal', 'yellow', false, journals) }}
     {{ contact.windowFrame( 'contact', 'blue', false) }}
-    {{ portfolio.windowFrame( 'portfolio', 'purple', false, fun) }}
-
+    {{ portfolio.windowFrame( 'portfolio', 'purple', false) }}
 </div>
 
 {% include "components/lightbox.njk" %}

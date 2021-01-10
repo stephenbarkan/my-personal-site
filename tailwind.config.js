@@ -181,7 +181,7 @@ module.exports = {
       },
       minWidth: (theme) => theme("spacing"),
       maxWidth: {
-        headline: "43rem",
+        headline: "44rem",
         "2xl": "45rem",
       },
 
