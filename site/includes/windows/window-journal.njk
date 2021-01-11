@@ -4,23 +4,24 @@
 
     <div class="relative flex flex-1 overflow-x-hidden overflow-y-auto">
         <div id="journal-sidebar"
-         class="absolute inset-y-0 left-0 z-20 flex-shrink-0 w-64 transition-transform duration-300 transform -translate-x-full border-r ease-smooth sm:w-44 w bg-grey-100 border-grey-200 sm:relative">
+            class="absolute inset-y-0 left-0 z-20 flex-shrink-0 w-64 transition-transform duration-300 transform -translate-x-full border-r ease-smooth sm:w-44 w bg-grey-100 border-grey-200 sm:relative">
             <ul class="h-full overflow-y-auto">
                 {% for note in data %}
-                    <li class="border-b border-grey-200">
+                    <li class="px-2">
                         <a href="{{note.outputPath | replace("dist/journal/", "?journal=") | replace("/index.html", "")}}"
                    title="{{note.data.title}}"
-                   class="block py-4 pl-4 pr-2 transition-colors smooth-transition hocus:bg-white ease-smooth journal-link">
-                            <h4 class="text-sm truncate">
-                                {{ note.data.title }}
-                            </h4>
-
-                            <date class="block mt-1 font-mono leading-none tracking-wide uppercase text-xxs text-grey-700">
-                                {{ note.data.date | dateDisplay }}
-                                {% if note.data.enddate %}
-                        - {{ note.data.enddate | dateDisplay }}
-                                {% endif %}
-                            </date>
+                   class="flex flex-1 py-1 transition-colors border-b border-grey-200 focus:z-10 smooth-transition group journal-link">
+                            <div class="flex flex-col flex-1 px-2 py-2 -mx-1 transition-colors rounded focus:bg-yellow-100 group-hover:bg-yellow-100 smooth-transition">
+                                <h4 class="text-sm truncate group-hocus:text-grey-800 text-grey-600 smooth-transition">
+                                    {{ note.data.title }}
+                                </h4>
+                                <date class="block mt-1 font-mono leading-none tracking-wide uppercase text-xxs text-grey-600">
+                                    {{ note.data.date | dateDisplay }}
+                                    {% if note.data.enddate %}
+                            - {{ note.data.enddate | dateDisplay }}
+                                    {% endif %}
+                                </date>
+                            </div>
                         </a>
                     </li>
                 {% endfor %}

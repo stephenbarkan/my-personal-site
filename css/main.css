@@ -1408,12 +1408,12 @@ input[type="range"]#music-slider::-ms-fill-upper {
   display: block;
 }
 
-.journal-link.active {
-  background-color: var(--clr-white);
+.journal-link.active > div {
+  background-color: var(--clr-journal-light);
 }
 
-.journal-link.active h4 {
-  font-weight: 500;
+.journal-link.active > div h4 {
+  color: var(--clr-grey-900);
 }
 
 #journal-sidebar.open {

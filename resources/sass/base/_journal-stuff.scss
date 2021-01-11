@@ -5,11 +5,10 @@
 }
 
 .journal-link {
-  &.active {
-    @apply bg-white;
-
+  &.active > div {
+    @apply bg-yellow-100;
     h4 {
-      @apply font-medium;
+      @apply text-grey-900;
     }
   }
 }
@@ -18,7 +17,7 @@
   &.open {
     transform: none;
 
-    &+* .note-area {
+    & + * .note-area {
       overflow: hidden;
       flex-grow: 1;
     }
@@ -30,7 +29,6 @@
 }
 
 #journal-close {
-
   &.open {
     visibility: visible;
   }
