@@ -1,6 +1,7 @@
 ---
 title: My feelings about social media and how they shaped the design choices I made on this website
 date: 2021-01-16
+draft: true
 ---
 
 My relationship with social media is unhealthy: I let myself be distracted by it when I shouldn't, and that happening bothers me a lot. I believe that I shouldn't use it so when I do I feel guilt. I recognize that I have the opinion that social media is having an overall bad impact on the world and as such I shouldn't participate in it.

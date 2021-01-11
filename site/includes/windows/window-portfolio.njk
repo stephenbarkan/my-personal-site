@@ -10,7 +10,7 @@
                     {{link.portfolioFolder(key="ink", title="INK Communications", date="2018 – 2019", folder=true)}}
                     {{link.portfolioFolder(key="fun", title="for fun", folder=true)}}
                     {{link.portfolioFolder(key="freelance", title="freelance projects", folder=true)}}
-                    <div @click="open=false" class="flex-1"></div>
+                    <div @click="open=false; activeCategory=''" class="flex-1"></div>
             </ul>
             <ul x-show="open === true" class="flex-grow-0 flex-shrink-0 h-full overflow-y-auto border-r border-grey-200 bg-grey-100 focus-within:z-10 min-w-64">
                 {% for post in collections.portfolio %}

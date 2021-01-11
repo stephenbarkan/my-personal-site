@@ -38,12 +38,13 @@ module.exports = (eleventyConfig) => {
   eleventyConfig.addCollection("portfolio", (collection) => {
     return collection.getFilteredByTag("portfolio").reverse();
   });
-  eleventyConfig.addCollection("fun", (collection) => {
-    return collection.getFilteredByTag("fun").reverse();
-  });
 
+  const publishedJournals = (post) => !post.data.draft;
   eleventyConfig.addCollection("journal", (collection) => {
-    return collection.getFilteredByTag("journal").reverse();
+    return collection
+      .getFilteredByTag("journal")
+      .reverse()
+      .filter(publishedJournals);
   });
 
   // Layout aliases
