@@ -5,6 +5,14 @@ date: 2020-09-20
 
 > A collection of videos I've appeared in for Doist!
 
+### Todoist Boards Walkthrough
+
+I recorded a video demonstrating the new Boards feature in Todoist.
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/G3WOIQDEfL4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+---
+
 ### Inside Marketing Design Interview
 
 I starred in an interview with [Charli Marie TV](https://www.youtube.com/user/charlimarieTV) about how we do marketing design at Doist.
