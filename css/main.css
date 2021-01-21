@@ -1811,7 +1811,7 @@ input[type="range"]#music-slider::-ms-fill-upper {
 .message {
   word-wrap: break-word;
   border-radius: 1.25rem;
-  font-size: 0.9375rem;
+  font-size: 0.875rem;
   line-height: 1.5;
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
@@ -9843,7 +9843,7 @@ a:hover .home-link-bg {
 }
 
 .text-sm{
-  font-size: 0.9375rem;
+  font-size: 0.875rem;
 }
 
 .text-base{
@@ -36000,7 +36000,7 @@ a:hover .home-link-bg {
   }
 
   .xs\:text-sm{
-    font-size: 0.9375rem;
+    font-size: 0.875rem;
   }
 
   .xs\:text-base{
@@ -60359,7 +60359,7 @@ a:hover .home-link-bg {
   }
 
   .sm\:text-sm{
-    font-size: 0.9375rem;
+    font-size: 0.875rem;
   }
 
   .sm\:text-base{
@@ -84718,7 +84718,7 @@ a:hover .home-link-bg {
   }
 
   .md\:text-sm{
-    font-size: 0.9375rem;
+    font-size: 0.875rem;
   }
 
   .md\:text-base{
@@ -109077,7 +109077,7 @@ a:hover .home-link-bg {
   }
 
   .lg\:text-sm{
-    font-size: 0.9375rem;
+    font-size: 0.875rem;
   }
 
   .lg\:text-base{
@@ -133436,7 +133436,7 @@ a:hover .home-link-bg {
   }
 
   .xl\:text-sm{
-    font-size: 0.9375rem;
+    font-size: 0.875rem;
   }
 
   .xl\:text-base{

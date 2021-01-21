@@ -14,7 +14,7 @@
             </ul>
             <ul x-show="open === true" class="flex-grow-0 flex-shrink-0 h-full overflow-y-auto border-r border-grey-200 focus-within:z-10 min-w-64">
                 {% for post in collections.portfolio %}
-                    {{link.portfolioFolder(title=post.data.title, link=post.data.link, category=post.data.tags[1])}}
+                    {{link.portfolioFolder(title=post.data.title, link=post.data.link, category=post.data.tags[1], type=post.data.type)}}
                 {% endfor %}
             </ul>
             {# <div class="flex-grow-0 flex-shrink-0 h-full w-72"></div> #}
