@@ -2108,7 +2108,8 @@ input[type="range"]#music-slider::-ms-fill-upper {
   .input-sizer textarea,
   .input-sizer input {
   width: 100%;
-  min-height: 40px;
+  min-height: 36px;
+  font-size: 14px;
   height: auto;
   grid-area: 2 / 1;
   resize: none;
