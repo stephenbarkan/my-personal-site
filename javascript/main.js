@@ -106,7 +106,7 @@ var editMessage = function editMessage(el, message, editable) {
       el.innerText = "Edit";
       inputFields.forEach(function (field) {
         if (field.id == editable.getAttribute("data-field")) {
-          field.innerHTML = newContent;
+          field.value = newContent;
         }
       });
     }
