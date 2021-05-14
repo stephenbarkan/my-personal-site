@@ -10,7 +10,7 @@ let editButtons = [];
 let formSubmit = null;
 let formClear = null;
 let state = 0;
-const states = ["yourName", "yourMessage", "yourEmail", "confirm"];
+const states = ["yourName", "yourMessage", "yourEmail", "confirm", "submitted"];
 
 let userName = "";
 
@@ -39,14 +39,15 @@ function chatPush(origin, message) {
   }
 
   const newBubble = document.createElement("div");
-  newBubble.classList.add(originClass);
+  newBubble.classList.add(originClass, "group");
 
   if (originClass == "fromMe") {
     newBubble.innerHTML =
-      `<div class='message'><div><button class='message-edit'>Edit</button></div><p data-field="${states[state]}"` +
+      `<div tabindex="0" class='focus-visible:ring message'>
+        <p data-field="${states[state]}"` +
       ">" +
       message +
-      "</p></div>";
+      "</p><div class='button-wrapper'><button class='message-edit focus-visible:ring'>Edit</button></div></div>";
   } else {
     newBubble.innerHTML = `<div class='message'><p>` + message + `</div>`;
   }
@@ -58,11 +59,15 @@ function updateEditButtons() {
   editButtons = document.querySelectorAll(".message-edit");
   editButtons.forEach((button) => {
     button.addEventListener("click", (e) => {
-      const el = e.target;
-      const message = el.closest(".message");
-      const editable = message.querySelector("p");
+      if (states[state] !== "submitted") {
+        const el = e.target;
+        const message = el.closest(".message");
+        const editable = message.querySelector("p");
 
-      editMessage(el, message, editable);
+        editMessage(el, message, editable);
+      } else {
+        el.style.display = "none";
+      }
     });
   });
 }
@@ -108,12 +113,14 @@ inputFields.forEach((inputField) => {
 });
 
 function inputValueCheck() {
-  if (inputFields[state].value) {
-    nextButtonWrapper.classList.remove("disabled");
-    nextButton.setAttribute("tabindex", "0");
-  } else {
-    nextButtonWrapper.classList.add("disabled");
-    nextButton.setAttribute("tabindex", "-1");
+  if (states[state] !== "submitted") {
+    if (inputFields[state].value) {
+      nextButtonWrapper.classList.remove("disabled");
+      nextButton.setAttribute("tabindex", "0");
+    } else {
+      nextButtonWrapper.classList.add("disabled");
+      nextButton.setAttribute("tabindex", "-1");
+    }
   }
 }
 
@@ -133,11 +140,11 @@ nextButton.addEventListener("click", function (e) {
     saveName();
     updateState();
 
-    if (state < states.length - 1) {
+    if (state < states.length - 2 || state === states.length - 1) {
       addTypingBubble();
       setTimeout(function () {
         removeTypingBubble();
-        chatPush("you", responses[(state % 4) - 1]);
+        chatPush("you", responses[(state % 5) - 1]);
       }, 2500);
     } else {
       addTypingBubble();
@@ -167,7 +174,9 @@ const addTypingBubble = function () {
 const removeTypingBubble = function () {
   chatControls.classList.remove("pointer-events-none");
   messagesList.removeChild(typingBubble);
-  inputFields[state].focus();
+  if (inputFields[state]) {
+    inputFields[state].focus();
+  }
 };
 
 const addConfirmBox = function () {
@@ -180,7 +189,8 @@ const addConfirmBox = function () {
   formSubmit.addEventListener("click", (e) => {
     formSubmit.setAttribute("disabled", "true");
     e.preventDefault();
-
+    updateState();
+    updateEditButtons();
     const formData = new FormData(form);
     console.log(formData.toString());
     fetch(form.getAttribute("action"), {
@@ -220,8 +230,8 @@ function saveName() {
 }
 
 function updateState() {
-  state = (state + 1) % 4;
-  currentState = states[state % 4];
+  state = (state + 1) % 5;
+  currentState = states[state % 5];
   chatWindow.setAttribute("data-state", currentState);
   inputValueCheck();
 }

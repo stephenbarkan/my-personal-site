@@ -205,7 +205,8 @@
     }
   }
 
-  &[data-state="confirm"] {
+  &[data-state="confirm"],
+  &[data-state="submitted"] {
     #form-input-empty {
       display: block;
     }
@@ -243,7 +244,7 @@
     appearance: none;
     border: none;
     word-wrap: break-word;
-    padding-top: 8px;
+    padding-top: 9px;
     @apply leading-loose;
     overflow-y: hidden;
   }
@@ -253,5 +254,11 @@
     visibility: hidden;
     white-space: pre-wrap;
     padding: 0.25rem 0.75rem 0.5rem;
+  }
+}
+
+.group:focus-within {
+  .button-wrapper {
+    @apply visible opacity-100;
   }
 }

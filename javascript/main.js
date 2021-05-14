@@ -44,7 +44,7 @@ var editButtons = [];
 var formSubmit = null;
 var formClear = null;
 var state = 0;
-var states = ["yourName", "yourMessage", "yourEmail", "confirm"];
+var states = ["yourName", "yourMessage", "yourEmail", "confirm", "submitted"];
 var userName = "";
 var typingBubble = document.createElement("div");
 typingBubble.classList.add("typingDots", "fromThem");
@@ -64,10 +64,10 @@ function chatPush(origin, message) {
   }
 
   var newBubble = document.createElement("div");
-  newBubble.classList.add(originClass);
+  newBubble.classList.add(originClass, "group");
 
   if (originClass == "fromMe") {
-    newBubble.innerHTML = "<div class='message'><div><button class='message-edit'>Edit</button></div><p data-field=\"".concat(states[state], "\"") + ">" + message + "</p></div>";
+    newBubble.innerHTML = "<div tabindex=\"0\" class='focus-visible:ring message'>\n        <p data-field=\"".concat(states[state], "\"") + ">" + message + "</p><div class='button-wrapper'><button class='message-edit focus-visible:ring'>Edit</button></div></div>";
   } else {
     newBubble.innerHTML = "<div class='message'><p>" + message + "</div>";
   }
@@ -80,10 +80,17 @@ function updateEditButtons() {
   editButtons = document.querySelectorAll(".message-edit");
   editButtons.forEach(function (button) {
     button.addEventListener("click", function (e) {
-      var el = e.target;
-      var message = el.closest(".message");
-      var editable = message.querySelector("p");
-      editMessage(el, message, editable);
+      if (states[state] !== "submitted") {
+        var _el = e.target;
+
+        var _message = _el.closest(".message");
+
+        var editable = _message.querySelector("p");
+
+        editMessage(_el, _message, editable);
+      } else {
+        el.style.display = "none";
+      }
     });
   });
 }
@@ -131,12 +138,14 @@ inputFields.forEach(function (inputField) {
 });
 
 function inputValueCheck() {
-  if (inputFields[state].value) {
-    nextButtonWrapper.classList.remove("disabled");
-    nextButton.setAttribute("tabindex", "0");
-  } else {
-    nextButtonWrapper.classList.add("disabled");
-    nextButton.setAttribute("tabindex", "-1");
+  if (states[state] !== "submitted") {
+    if (inputFields[state].value) {
+      nextButtonWrapper.classList.remove("disabled");
+      nextButton.setAttribute("tabindex", "0");
+    } else {
+      nextButtonWrapper.classList.add("disabled");
+      nextButton.setAttribute("tabindex", "-1");
+    }
   }
 }
 
@@ -156,11 +165,11 @@ nextButton.addEventListener("click", function (e) {
     saveName();
     updateState();
 
-    if (state < states.length - 1) {
+    if (state < states.length - 2 || state === states.length - 1) {
       addTypingBubble();
       setTimeout(function () {
         removeTypingBubble();
-        chatPush("you", responses[state % 4 - 1]);
+        chatPush("you", responses[state % 5 - 1]);
       }, 2500);
     } else {
       addTypingBubble();
@@ -190,7 +199,10 @@ var addTypingBubble = function addTypingBubble() {
 var removeTypingBubble = function removeTypingBubble() {
   chatControls.classList.remove("pointer-events-none");
   messagesList.removeChild(typingBubble);
-  inputFields[state].focus();
+
+  if (inputFields[state]) {
+    inputFields[state].focus();
+  }
 };
 
 var addConfirmBox = function addConfirmBox() {
@@ -202,6 +214,8 @@ var addConfirmBox = function addConfirmBox() {
   formSubmit.addEventListener("click", function (e) {
     formSubmit.setAttribute("disabled", "true");
     e.preventDefault();
+    updateState();
+    updateEditButtons();
     var formData = new FormData(form);
     console.log(formData.toString());
     fetch(form.getAttribute("action"), {
@@ -238,8 +252,8 @@ function saveName() {
 }
 
 function updateState() {
-  state = (state + 1) % 4;
-  currentState = states[state % 4];
+  state = (state + 1) % 5;
+  currentState = states[state % 5];
   chatWindow.setAttribute("data-state", currentState);
   inputValueCheck();
 }
