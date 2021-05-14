@@ -234,7 +234,7 @@
   textarea,
   input {
     width: 100%;
-    min-height: 36px;
+    min-height: 38px;
     font-size: 14px;
     height: auto;
     grid-area: 2 / 1;
@@ -243,7 +243,7 @@
     appearance: none;
     border: none;
     word-wrap: break-word;
-    padding-top: 7px;
+    padding-top: 8px;
     @apply leading-loose;
     overflow-y: hidden;
   }

@@ -39,7 +39,7 @@ var chatControls = document.getElementById("chat-controls");
 var nextButton = document.getElementById("nextButton");
 var nextButtonWrapper = document.getElementById("next-button-wrapper");
 var inputFields = document.querySelectorAll("#chat-controls textarea");
-var form = document.getElementById('contact-form');
+var form = document.getElementById("contact-form");
 var editButtons = [];
 var formSubmit = null;
 var formClear = null;
@@ -77,7 +77,7 @@ function chatPush(origin, message) {
 }
 
 function updateEditButtons() {
-  editButtons = document.querySelectorAll('.message-edit');
+  editButtons = document.querySelectorAll(".message-edit");
   editButtons.forEach(function (button) {
     button.addEventListener("click", function (e) {
       var el = e.target;
@@ -119,7 +119,7 @@ inputFields.forEach(function (inputField) {
       e.preventDefault();
 
       if (inputField.value) {
-        event.stopPropagation();
+        e.stopPropagation();
         nextButton.click();
         nextButton.classList.add("animating");
       }
@@ -132,22 +132,23 @@ inputFields.forEach(function (inputField) {
 
 function inputValueCheck() {
   if (inputFields[state].value) {
-    nextButtonWrapper.classList.remove('disabled');
+    nextButtonWrapper.classList.remove("disabled");
     nextButton.setAttribute("tabindex", "0");
   } else {
-    nextButtonWrapper.classList.add('disabled');
+    nextButtonWrapper.classList.add("disabled");
     nextButton.setAttribute("tabindex", "-1");
   }
 }
 
 nextButton.addEventListener("click", function (e) {
   e.preventDefault();
-  nextButton.classList.add('animating');
-  nextButton.addEventListener('animationend', function () {
-    nextButton.classList.remove('animating');
+  nextButton.classList.add("animating");
+  nextButton.addEventListener("animationend", function () {
+    nextButton.classList.remove("animating");
     nextButton.blur();
   });
   message = document.querySelector("#".concat(states[state])).value;
+  updateEditButtons();
 
   if (message) {
     chatPush("user", message);
@@ -173,8 +174,8 @@ nextButton.addEventListener("click", function (e) {
 
 function showLatestMessage() {
   messagesList.lastChild.scrollIntoView({
-    behavior: 'smooth',
-    block: 'end'
+    behavior: "smooth",
+    block: "end"
   });
 }
 
@@ -199,15 +200,16 @@ var addConfirmBox = function addConfirmBox() {
   confirmBox = document.querySelector("#confirmBox");
   formClear = document.querySelector("#formClear");
   formSubmit.addEventListener("click", function (e) {
-    formSubmit.setAttribute('disabled', 'true');
+    formSubmit.setAttribute("disabled", "true");
     e.preventDefault();
     var formData = new FormData(form);
-    fetch(form.getAttribute('action'), {
-      method: 'POST',
+    console.log(formData.toString());
+    fetch(form.getAttribute("action"), {
+      method: "POST",
       headers: {
-        'Accept': 'application/x-www-form-urlencoded;charset=UTF-8',
-        'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8',
-        'enctype': 'application/x-www-form-urlencoded'
+        Accept: "application/x-www-form-urlencoded;charset=UTF-8",
+        "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8",
+        enctype: "application/x-www-form-urlencoded"
       },
       body: new URLSearchParams(formData).toString()
     }).then(function (res) {
