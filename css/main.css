@@ -9922,11 +9922,15 @@ a:hover .home-link-bg {
 }
 
 .text-headline{
-  font-size: max(3rem,min(calc(6.5vw),4rem));
+  font-size: max(3rem,min(calc(6.5vw),4.35rem));
 }
 
 .leading-none{
   line-height: 1;
+}
+
+.leading-tighter{
+  line-height: 1.1;
 }
 
 .leading-tight{
@@ -24663,6 +24667,10 @@ a:hover .home-link-bg {
   --tw-numeric-fraction: stacked-fractions;
 }
 
+.tracking-tighter{
+  letter-spacing: -.025em;
+}
+
 .tracking-tight{
   letter-spacing: -.01em;
 }
@@ -36079,11 +36087,15 @@ a:hover .home-link-bg {
   }
 
   .xs\:text-headline{
-    font-size: max(3rem,min(calc(6.5vw),4rem));
+    font-size: max(3rem,min(calc(6.5vw),4.35rem));
   }
 
   .xs\:leading-none{
     line-height: 1;
+  }
+
+  .xs\:leading-tighter{
+    line-height: 1.1;
   }
 
   .xs\:leading-tight{
@@ -49167,6 +49179,10 @@ a:hover .home-link-bg {
     --tw-numeric-fraction: stacked-fractions;
   }
 
+  .xs\:tracking-tighter{
+    letter-spacing: -.025em;
+  }
+
   .xs\:tracking-tight{
     letter-spacing: -.01em;
   }
@@ -60438,11 +60454,15 @@ a:hover .home-link-bg {
   }
 
   .sm\:text-headline{
-    font-size: max(3rem,min(calc(6.5vw),4rem));
+    font-size: max(3rem,min(calc(6.5vw),4.35rem));
   }
 
   .sm\:leading-none{
     line-height: 1;
+  }
+
+  .sm\:leading-tighter{
+    line-height: 1.1;
   }
 
   .sm\:leading-tight{
@@ -73526,6 +73546,10 @@ a:hover .home-link-bg {
     --tw-numeric-fraction: stacked-fractions;
   }
 
+  .sm\:tracking-tighter{
+    letter-spacing: -.025em;
+  }
+
   .sm\:tracking-tight{
     letter-spacing: -.01em;
   }
@@ -84797,11 +84821,15 @@ a:hover .home-link-bg {
   }
 
   .md\:text-headline{
-    font-size: max(3rem,min(calc(6.5vw),4rem));
+    font-size: max(3rem,min(calc(6.5vw),4.35rem));
   }
 
   .md\:leading-none{
     line-height: 1;
+  }
+
+  .md\:leading-tighter{
+    line-height: 1.1;
   }
 
   .md\:leading-tight{
@@ -97885,6 +97913,10 @@ a:hover .home-link-bg {
     --tw-numeric-fraction: stacked-fractions;
   }
 
+  .md\:tracking-tighter{
+    letter-spacing: -.025em;
+  }
+
   .md\:tracking-tight{
     letter-spacing: -.01em;
   }
@@ -109156,11 +109188,15 @@ a:hover .home-link-bg {
   }
 
   .lg\:text-headline{
-    font-size: max(3rem,min(calc(6.5vw),4rem));
+    font-size: max(3rem,min(calc(6.5vw),4.35rem));
   }
 
   .lg\:leading-none{
     line-height: 1;
+  }
+
+  .lg\:leading-tighter{
+    line-height: 1.1;
   }
 
   .lg\:leading-tight{
@@ -122244,6 +122280,10 @@ a:hover .home-link-bg {
     --tw-numeric-fraction: stacked-fractions;
   }
 
+  .lg\:tracking-tighter{
+    letter-spacing: -.025em;
+  }
+
   .lg\:tracking-tight{
     letter-spacing: -.01em;
   }
@@ -133515,11 +133555,15 @@ a:hover .home-link-bg {
   }
 
   .xl\:text-headline{
-    font-size: max(3rem,min(calc(6.5vw),4rem));
+    font-size: max(3rem,min(calc(6.5vw),4.35rem));
   }
 
   .xl\:leading-none{
     line-height: 1;
+  }
+
+  .xl\:leading-tighter{
+    line-height: 1.1;
   }
 
   .xl\:leading-tight{
@@ -146601,6 +146645,10 @@ a:hover .home-link-bg {
 
   .xl\:stacked-fractions{
     --tw-numeric-fraction: stacked-fractions;
+  }
+
+  .xl\:tracking-tighter{
+    letter-spacing: -.025em;
   }
 
   .xl\:tracking-tight{

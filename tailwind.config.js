@@ -10,6 +10,7 @@ module.exports = {
 
     lineHeight: {
       none: "1",
+      tighter: "1.1",
       tight: "1.2",
       snug: "1.3",
       loose: "1.5",
@@ -26,6 +27,7 @@ module.exports = {
     },
 
     letterSpacing: {
+        tighter: "-.025em",
       tight: "-.01em",
       snug: "-.01em",
       wide: ".02em",
@@ -201,7 +203,7 @@ module.exports = {
         "3xl": "2.25rem",
         "4xl": "2.5rem",
         "5xl": "3.5rem",
-        headline: "max(3rem,min(calc(6.5vw),4rem))",
+        headline: "max(3rem,min(calc(6.5vw),4.35rem))",
       },
 
       transitionDuration: {
