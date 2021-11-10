@@ -1,11 +1,10 @@
-{% macro applet(title, data) %}
-    <div id="{{title}}Applet" data-applet="{{title}}" data-js="applet" class="flex flex-col px-2 pt-2 pb-3 rounded-lg bg-ui-applet-bg shadow-applet-idle">
+{% macro applet(title, maxWidth, minHeight, data) %}
+    <div id="{{title}}Applet" data-applet="{{title}}" data-js="applet" class="{{maxWidth}} {{minHeight}} w-full flex flex-col px-2 pt-2 pb-3 space-y-3 rounded-lg bg-ui-applet-bg backdrop-blur-lg backdrop-saturate-150 shadow-applet-active">
         <header class="flex justify-center w-full px-2 py-1.5 rounded bg-clr-tint">
             <h2 class="text-sm font-medium text-display-secondary">{{title | capitalize}}</h2>
         </header>
-        <main class="flex-1 px-1 overflow-hidden">
-            {% block content %}
-            {% endblock %}
-        </main>
+        <section class="flex flex-col flex-1 px-1 overflow-hidden">
+            {% block content %}{% endblock %}
+        </section>
     </div>
 {% endmacro %}

@@ -10,6 +10,7 @@ module.exports = {
     fontFamily: {
       sans: ["var(--font-family)", "sans-serif"],
     },
+    fontSize: {},
     borderRadius: {
       sm: "5px",
       DEFAULT: "8px",
@@ -22,7 +23,7 @@ module.exports = {
         "0px 1px 1px rgba(0, 0, 0, 0.07), 0px 0px 0px 0.6px rgba(0, 0, 0, 0.17)",
       "btn-highlight":
         "0px 0px 0px 0.6px #005CAF, 0px 1px 1px rgba(0, 0, 0, 0.07)",
-      "top-bar": "0px 0px 0px 0.6px rgba(0, 0, 0, 0.17)",
+      topbar: "0px 0px 0px 0.6px rgba(0, 0, 0, 0.17)",
       focus: "0px 0px 0px 2px #5A98F6, 0px 0px 0px 4px #DCEAFF",
       "applet-active":
         "0px 0px 0px 0.6px rgba(64, 64, 76, 0.1), 0px 2px 24px -4px rgba(0, 0, 0, 0.06), 0px 5px 40px -8px rgba(0, 0, 0, 0.14)",
@@ -46,6 +47,7 @@ module.exports = {
         "applet-bg": "var(--applet-bg)",
         divider: "var(--divider)",
         shade: "var(--shade)",
+        "topbar-bg": "var(--topbar-bg)",
       },
       btn: {
         bg: "var(--btn-bg)",

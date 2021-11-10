@@ -1,11 +1,13 @@
-{% extends "_includes/default.njk" %}
-{% import "applets/posts.njk" as "postApplet" %}
-{% block title %}It does work{% endblock %}
+{% extends "layouts/default.njk" %}
+{% import "applets/postApplet.njk" as "postApplet" %}
+{% block title %}Stephen Barkan{% endblock %}
+
 
 {% block content %}
-  <main class="flex items-center justify-center w-full h-full">
-      <div class="flex items-center justify-center space-x-3">
-        {{postApplet.applet('posts')}}
+  <main class="flex flex-col w-full h-full">
+    {% include "components/topbar.njk" %}
+      <div class="flex items-center justify-center flex-1 w-full p-2 space-x-3">
+        {{postApplet.applet(title='posts', maxWidth='max-w-[740px]', minHeight='min-h-[460px]', data=collections.posts)}}
       </div>
   </main>
 {% endblock %}

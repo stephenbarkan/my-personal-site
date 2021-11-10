@@ -11,6 +11,9 @@ module.exports = function (eleventyConfig) {
     return now;
   });
 
+  // Add a readable date formatter filter to Nunjucks
+  eleventyConfig.addFilter("dateDisplay", require("./filters/dates.js"));
+
   eleventyConfig.addTransform("htmlmin", function (content, outputPath) {
     if (
       process.env.ELEVENTY_PRODUCTION &&
@@ -32,4 +35,17 @@ module.exports = function (eleventyConfig) {
     "./node_modules/alpinejs/dist/cdn.js": "./js/alpine.js",
   });
   eleventyConfig.addPassthroughCopy("scripts");
+
+  // Layout aliases
+  eleventyConfig.addLayoutAlias("default", "layouts/default.njk");
+  eleventyConfig.addLayoutAlias("post", "layouts/post.njk");
+
+  //merge data files
+  eleventyConfig.setDataDeepMerge(true);
+
+  //collections
+  const publishedPosts = (post) => !post.data.draft;
+  eleventyConfig.addCollection("posts", (collection) => {
+    return collection.getFilteredByTag("post").reverse().filter(publishedPosts);
+  });
 };

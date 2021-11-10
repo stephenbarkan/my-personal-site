@@ -18,6 +18,7 @@
     --applet-bg: rgba(255, 255, 255, 0.93);
     --divider: rgba(0, 0, 0, 0.07);
     --shade: rgba(22, 21, 30, 0.5);
+    --topbar-bg: rgba(255, 255, 255, 0.5);
 
     /* buttons */
     --btn-bg: rgba(252, 252, 252, 1);
@@ -57,7 +58,7 @@
   }
 }
 
-@layer utilities {
+@layer components {
   .text-xl {
     font-size: 24px;
     line-height: 1.5;
