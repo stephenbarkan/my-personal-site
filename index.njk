@@ -1,0 +1,11 @@
+{% extends "_includes/default.njk" %}
+{% import "applets/posts.njk" as "postApplet" %}
+{% block title %}It does work{% endblock %}
+
+{% block content %}
+  <main class="flex items-center justify-center w-full h-full">
+      <div class="flex items-center justify-center space-x-3">
+        {{postApplet.applet('posts')}}
+      </div>
+  </main>
+{% endblock %}

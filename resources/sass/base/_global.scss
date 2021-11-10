@@ -1,9 +1,0 @@
-body.window-open {
-  height: var(--windowHeight);
-  overflow: hidden;
-
-  @screen sm {
-    height: auto;
-    overflow: auto;
-  }
-}

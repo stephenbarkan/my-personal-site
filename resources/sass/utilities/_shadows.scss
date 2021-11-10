@@ -1,9 +1,0 @@
-*:focus,
-button:focus {
-  @apply outline-none;
-}
-
-.shadow-border {
-  @apply absolute inset-0 pointer-events-none shadow-inset z-50;
-  border-radius: inherit;
-}
