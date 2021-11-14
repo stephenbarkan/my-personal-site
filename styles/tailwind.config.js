@@ -35,6 +35,7 @@ module.exports = {
       lg: "60px",
     },
     colors: {
+      transparent: "transparent",
       display: {
         primary: "var(--display-primary)",
         secondary: "var(--display-secondary)",

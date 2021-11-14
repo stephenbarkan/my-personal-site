@@ -1,9 +1,7 @@
 ---
-title: Welcome!
+title: Welcome to the site!
 date: 2021-11-10
 featured: true
 ---
-
-# Welcome!
 
 I'm glad you're here.

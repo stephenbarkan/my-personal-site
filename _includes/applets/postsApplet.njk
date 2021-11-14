@@ -1,0 +1,55 @@
+{% extends "components/appletShell.njk" %}
+{% import "components/button.njk" as "btn"%}
+{% set closeIcon %}
+     {% include "icons/close.svg" %}
+{% endset %}
+{% set chevronLeftIcon %}
+     {% include "icons/chevron-left.svg" %}
+{% endset %}
+{% block content %}
+    <div x-data="{ openPost: 'welcome', open: false }" class="flex flex-1 max-h-full">
+        <div @click="open = false" :class="open || 'hidden'" class="absolute inset-0 bg-ui-shade backdrop-blur md:hidden"></div>
+        <aside
+            :class="open ? '' : '-translate-x-full'"
+            class="transform absolute top-0 flex flex-col bottom-0 gap-6 border-r border-ui-divider left-0 w-48 pl-3 pt-6 pr-3 overflow-auto md:pt-0 md:pl-0 md:static bg-[#fff] md:bg-transparent md:translate-x-0">
+            <div @click="open = false" class="md:hidden">{{btn.button(label="Close list", icon=closeIcon, as="button", class="w-full")}}</div>
+            <div class="flex flex-col gap-1 divide-y md:mt-0 divide-ui-divider">
+                {% for post in data %}
+                    {% if post.data.featured == true %}
+                        {{ postLink(post.data.title, post.data.date, true, fileSlug=post.fileSlug) }}
+                    {% endif %}
+                {% endfor %}
+                <ul class="pt-1">
+                {% for post in data %}
+                    {% if post.data.featured !== true %}
+                        {{ postLink(post.data.title, post.data.date, false, fileSlug=post.fileSlug) }}
+                    {% endif %}
+                {% endfor %}
+                </ul>
+            </div>
+        </aside>
+        <main class="flex flex-col flex-1 max-h-full gap-6 px-12 pt-3 pb-6 overflow-x-hidden overflow-y-auto md:py-6">
+            <div @click="open=true" class="md:hidden">{{btn.button(label="All entries", icon=chevronLeftIcon, as="button")}}</div>
+            {% for post in data %}
+                <article x-show="openPost === '{{post.fileSlug}}'" class="space-y-3">
+                    <time class="text-sm text-display-tertiary">{{post.data.date | dateDisplay}}</time>
+                    <h3 class="text-xl">{{post.data.title}}</h3>
+                    <div class="prose text-display-secondary text-prose">{{post.templateContent | safe}}</div>
+                </article>
+            {% endfor %}
+        </main>
+    </div>
+{% endblock %}
+
+
+{% macro postLink(title, date, isPinned, class, fileSlug) %}
+    <a href="#" :class="{ 'bg-clr-highlight': openPost === '{{fileSlug}}' }" @click.prevent="openPost = '{{fileSlug}}'; open=false" class="{{class}} block flex rounded pb-2.5 pt-2 space-x-3 pr-2 pl-2.5 hover:bg-clr-highlight">
+        <div class="space-y-1.5 overflow-hidden flex-1">
+            <p class="truncate"  :class="{'text-display-primary': openPost === '{{fileSlug}}', 'text-display-secondary': openPost !=='{{fileSlug}}'}">{{title}}</p>
+            <time class="block text-sm text-display-tertiary">{{date | dateDisplay}}</time>
+        </div>
+        {% if (isPinned) %}
+            <div class="flex-shrink-0 pt-0.5" :class="{'text-clr-solid': openPost === '{{fileSlug}}', 'text-display-tertiary': openPost !=='{{fileSlug}}'}">{% include "icons/pin-fill.svg" %}</div>
+        {% endif %}
+    </a>
+{% endmacro %}
