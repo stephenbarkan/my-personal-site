@@ -6,6 +6,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addWatchTarget("./styles/tailwind.config.js");
   eleventyConfig.addWatchTarget("./styles/tailwind.css");
   eleventyConfig.addWatchTarget("./scripts/*.js");
+  eleventyConfig.addWatchTarget("./images/*");
 
   eleventyConfig.addShortcode("version", function () {
     return now;
@@ -35,6 +36,7 @@ module.exports = function (eleventyConfig) {
     "./node_modules/alpinejs/dist/cdn.js": "./js/alpine.js",
   });
   eleventyConfig.addPassthroughCopy("scripts");
+  eleventyConfig.addPassthroughCopy("images");
 
   // Layout aliases
   eleventyConfig.addLayoutAlias("default", "layouts/default.njk");

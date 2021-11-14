@@ -13,9 +13,10 @@
     --display-inverse-primary: rgba(255, 255, 255, 1);
     --display-inverse-secondary: rgba(255, 255, 255, 0.83);
     --display-inverse-tertiary: rgba(255, 255, 255, 0.75);
+    --display-link: rgb(0, 115, 183, 1);
 
     /* ui */
-    --applet-bg: rgba(255, 255, 255, 0.93);
+    --applet-bg: rgba(255, 255, 255, 1);
     --divider: rgba(0, 0, 0, 0.07);
     --shade: rgba(22, 21, 30, 0.5);
     --topbar-bg: rgba(255, 255, 255, 0.5);
@@ -91,5 +92,201 @@
     font-family: var(--font-family-inverse);
     font-size: 13px;
     line-height: 1.15;
+  }
+
+  /*  */
+
+  .prose {
+    --base-font-size: 1em;
+    --em-multiplier: 1.25;
+    --space-1: calc(var(--em-multiplier) * var(--base-font-size) / 3);
+    --space-2: calc(var(--em-multiplier) * var(--base-font-size) * 2 / 3);
+    --space-3: calc(var(--em-multiplier) * var(--base-font-size) * 1);
+    --space-4: calc(var(--em-multiplier) * var(--base-font-size) * 4 / 3);
+    --space-6: calc(var(--em-multiplier) * var(--base-font-size) * 5 / 3);
+  }
+
+  .prose > :first-child {
+    margin-top: 0;
+  }
+
+  /* paragraphs */
+  .prose p {
+    margin-top: var(--space-2);
+  }
+
+  /* headings */
+  .prose h2,
+  .prose h3 {
+    font-weight: 500;
+    color: theme("colors.display.primary");
+  }
+
+  .prose h2 {
+    font-size: 1.35em;
+    margin-top: var(--space-4);
+    line-height: 1.35;
+  }
+
+  .prose h3 {
+    font-size: 1.095em;
+    margin-top: var(--space-3);
+    line-height: 1.45;
+  }
+
+  /* lists */
+  .prose ul,
+  .prose ol {
+    margin-top: var(--space-1);
+    padding-left: var(--space-6);
+  }
+
+  .prose ul {
+    list-style: disc;
+  }
+
+  .prose ul ul {
+    list-style: circle;
+  }
+
+  .prose ul ul ul {
+    list-style: square;
+  }
+
+  .prose ol {
+    list-style: decimal;
+  }
+
+  .prose ::marker {
+    color: theme("colors.display.tertiary");
+  }
+
+  .prose ol > li {
+    padding-left: 4px;
+  }
+
+  .prose ol,
+  .prose ul {
+    padding-left: var(--space-4);
+  }
+
+  .prose ul li::marker {
+    font-size: 0.8em;
+  }
+
+  /* small space between items to make it easier to distinguish from items that have two lines. */
+  .prose li + li {
+    margin-top: calc(0.5 * var(--space-1));
+  }
+  .prose ul ul,
+  .prose ul ol,
+  .prose ol ol,
+  .prose ol ul {
+    margin-top: calc(0.5 * var(--space-1));
+  }
+
+  /* horizontal ruler */
+  .prose hr {
+    margin-block: var(--space-4);
+    border-top-width: 1px;
+    border-top-color: theme("colors.ui.divider");
+  }
+
+  /* blockquote */
+  .prose blockquote {
+    padding-left: var(--space-3);
+    padding-right: var(--space-3);
+    margin-top: var(--space-3);
+    position: relative;
+  }
+  .prose blockquote::before {
+    content: "";
+    border-left-width: 2px;
+    border-left-style: solid;
+    border-left-color: theme("colors.ui.divider");
+    position: absolute;
+    top: 0.25em;
+    bottom: 0.25em;
+    left: 0em;
+  }
+  .prose blockquote *:first-child {
+    margin-top: 0;
+  }
+
+  /* code */
+  .prose code {
+    font-family: "Source Code Pro", Inconsolata, Monaco, Consolas, "Courier New",
+      Courier, monospace;
+    border-radius: 5px;
+    font-size: 0.875em;
+    padding: 2px 4px;
+    margin: 0;
+    background-color: theme("colors.clr.highlight");
+    border-width: 1px;
+    border-style: solid;
+    border-color: theme("colors.ui.divider");
+  }
+
+  .prose pre {
+    margin-top: var(--space-3);
+  }
+
+  .prose pre code {
+    display: block;
+    padding: var(--space-1) var(--space-2);
+  }
+
+  /* images */
+  .prose img,
+  iframe {
+    max-width: 100%;
+    max-height: 346px;
+    aspect-ratio: 16 / 9;
+    width: 100%;
+    border-radius: theme("borderRadius.sm");
+    border-width: 1px;
+    border-style: solid;
+    border-color: theme("colors.ui.divider");
+    margin-block: var(--space-3);
+  }
+
+  .prose li .p-with-img {
+    margin-block: var(--space-2);
+  }
+
+  /* headings in relation to other tags */
+  .prose h2 + * {
+    margin-top: var(--space-1) !important;
+  }
+
+  .prose h2 + h3 {
+    margin-top: var(--space-3) !important;
+  }
+
+  .prose h3 + * {
+    margin-top: var(--space-1) !important;
+  }
+
+  /* bold and italics */
+  .prose b,
+  .prose b *:not(a),
+  .prose strong,
+  .prose strong *:not(a) {
+    font-weight: 600;
+  }
+
+  .prose em {
+    font-style: italic;
+  }
+
+  /* links */
+  .prose a,
+  .prose a * {
+    color: theme("colors.display.link");
+    text-decoration: underline;
+  }
+  .prose a:hover,
+  .prose a:hover * {
+    text-decoration: none;
   }
 }

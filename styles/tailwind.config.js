@@ -26,7 +26,7 @@ module.exports = {
       topbar: "0px 0px 0px 0.6px rgba(0, 0, 0, 0.17)",
       focus: "0px 0px 0px 2px #5A98F6, 0px 0px 0px 4px #DCEAFF",
       "applet-active":
-        "0px 0px 0px 0.6px rgba(64, 64, 76, 0.1), 0px 2px 24px -4px rgba(0, 0, 0, 0.06), 0px 5px 40px -8px rgba(0, 0, 0, 0.14)",
+        "0px 0px 0px 0.6px rgba(64, 64, 76, 0.1), 0px 2px 16px -4px rgba(0, 0, 0, 0.06), 0px 3px 20px -8px rgba(0, 0, 0, 0.14)",
       "applet-idle":
         "0px 0px 0px 0.6px rgba(64, 64, 76, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.11), 0px 1px 3px rgba(0, 0, 0, 0.05)",
     },
@@ -43,6 +43,7 @@ module.exports = {
         "inverse-primary": "var(--display-inverse-primary)",
         "inverse-secondary": "var(--display-inverse-secondary)",
         "inverse-tertiary": "var(--display-inverse-tertiary)",
+        link: "var(--display-link)",
       },
       ui: {
         "applet-bg": "var(--applet-bg)",

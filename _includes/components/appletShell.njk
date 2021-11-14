@@ -1,5 +1,11 @@
 {% macro applet(title, maxWidth, height, data) %}
-    <div id="{{title}}Applet" data-applet="{{title}}" data-js="applet" class="{{maxWidth}} {{height}} w-full flex flex-col px-2 pt-2 pb-3 space-y-3 rounded-lg bg-ui-applet-bg backdrop-blur-lg overflow-hidden backdrop-saturate-150 shadow-applet-active">
+    <div
+        id="{{title}}Applet"
+        data-applet="{{title}}"
+        data-js="applet"
+        @click="activeApplet = '{{title}}'"
+        class="{{maxWidth}} {{height}} w-full flex flex-col px-2 pt-2 pb-3 space-y-3 rounded-lg bg-ui-applet-bg overflow-hidden relative"
+        :class="activeApplet === '{{title}}' ? 'shadow-applet-active' :'shadow-applet-idle'">
         <header class="flex justify-center w-full px-2 py-1.5 rounded bg-clr-tint">
             <h2 class="text-sm font-medium text-display-secondary">{{title | capitalize}}</h2>
         </header>

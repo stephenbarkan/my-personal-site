@@ -8,18 +8,22 @@
 {% endset %}
 {% block content %}
     <div x-data="{ openPost: 'welcome', open: false }" class="flex flex-1 max-h-full">
-        <div @click="open = false" :class="open || 'hidden'" class="absolute inset-0 bg-ui-shade backdrop-blur md:hidden"></div>
+        <div
+            @click="open = false"
+            x-show="open"
+            x-transition.opacity.duration.300ms
+            class="absolute inset-0 bg-ui-shade backdrop-blur md:hidden">
+        </div>
+        {# desktop sidebar #}
         <aside
-            :class="open ? '' : '-translate-x-full'"
-            class="transform absolute top-0 flex flex-col bottom-0 gap-6 border-r border-ui-divider left-0 w-48 pl-3 pt-6 pr-3 overflow-auto md:pt-0 md:pl-0 md:static bg-[#fff] md:bg-transparent md:translate-x-0">
-            <div @click="open = false" class="md:hidden">{{btn.button(label="Close list", icon=closeIcon, as="button", class="w-full")}}</div>
+            class="flex flex-col hidden w-48 gap-6 pr-3 overflow-auto border-r border-ui-divider md:block">
             <div class="flex flex-col gap-1 divide-y md:mt-0 divide-ui-divider">
                 {% for post in data %}
                     {% if post.data.featured == true %}
                         {{ postLink(post.data.title, post.data.date, true, fileSlug=post.fileSlug) }}
                     {% endif %}
                 {% endfor %}
-                <ul class="pt-1">
+                <ul class="flex flex-col gap-1 pt-1">
                 {% for post in data %}
                     {% if post.data.featured !== true %}
                         {{ postLink(post.data.title, post.data.date, false, fileSlug=post.fileSlug) }}
@@ -28,15 +32,44 @@
                 </ul>
             </div>
         </aside>
-        <main class="flex flex-col flex-1 max-h-full gap-6 px-12 pt-3 pb-6 overflow-x-hidden overflow-y-auto md:py-6">
-            <div @click="open=true" class="md:hidden">{{btn.button(label="All entries", icon=chevronLeftIcon, as="button")}}</div>
-            {% for post in data %}
-                <article x-show="openPost === '{{post.fileSlug}}'" class="space-y-3">
-                    <time class="text-sm text-display-tertiary">{{post.data.date | dateDisplay}}</time>
-                    <h3 class="text-xl">{{post.data.title}}</h3>
-                    <div class="prose text-display-secondary text-prose">{{post.templateContent | safe}}</div>
-                </article>
-            {% endfor %}
+        {# Mobile sidebar #}
+        <aside
+            x-show="open"
+            x-transition:enter="transition ease-out duration-150 delay-150"
+            x-transition:enter-start="-translate-x-full"
+            x-transition:enter-end="opacity-100"
+            x-transition:leave="transition ease-in duration-150 transform"
+            x-transition:leave-start="opacity-100"
+            x-transition:leave-end="-translate-x-full"
+            class="transform absolute top-0 flex flex-col bottom-0 gap-6 left-0 w-48 px-3 pt-6 overflow-auto bg-[#fff] md:hidden">
+            <div @click="open = false" class="md:hidden">{{btn.button(label="Close list", icon=closeIcon, as="button", class="w-full")}}</div>
+            <div class="flex flex-col gap-1 divide-y md:mt-0 divide-ui-divider">
+                {% for post in data %}
+                    {% if post.data.featured == true %}
+                        {{ postLink(post.data.title, post.data.date, true, fileSlug=post.fileSlug) }}
+                    {% endif %}
+                {% endfor %}
+                <ul class="flex flex-col gap-1 pt-1">
+                {% for post in data %}
+                    {% if post.data.featured !== true %}
+                        {{ postLink(post.data.title, post.data.date, false, fileSlug=post.fileSlug) }}
+                    {% endif %}
+                {% endfor %}
+                </ul>
+            </div>
+        </aside>
+
+        <main class="flex justify-center flex-1 max-h-full px-3 overflow-x-hidden overflow-y-auto">
+            <div class="max-w-[450px] w-full p-px flex flex-col flex-1 gap-6 pt-3 pb-6">
+                <div @click="open=true" class="self-start md:hidden">{{btn.button(label="All entries", icon=chevronLeftIcon, as="button")}}</div>
+                {% for post in data %}
+                    <article x-show="openPost === '{{post.fileSlug}}'" class="space-y-3">
+                        <time class="text-sm text-display-tertiary">{{post.data.date | dateDisplay}}</time>
+                        <h3 class="text-xl">{{post.data.title}}</h3>
+                        <div class="prose text-display-secondary text-prose">{{post.templateContent | safe}}</div>
+                    </article>
+                {% endfor %}
+            </div>
         </main>
     </div>
 {% endblock %}

@@ -22,5 +22,9 @@
     "@11ty/eleventy": "^0.12.1",
     "alpinejs": "^3.5.0",
     "html-minifier": "^4.0.0"
+  },
+  "dependencies": {
+    "postcss": "^8.3.11",
+    "postcss-nesting": "^9.0.0"
   }
 }

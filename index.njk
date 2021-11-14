@@ -1,13 +1,15 @@
 {% extends "layouts/default.njk" %}
 {% import "applets/postsApplet.njk" as "postsApplet" %}
+{% import "applets/photosApplet.njk" as "photosApplet" %}
 {% block title %}Stephen Barkan{% endblock %}
 
 
 {% block content %}
   <main class="flex flex-col w-full h-full">
-    {% include "components/topbar.njk" %}
+    <div class="hidden sm:block">{% include "components/topbar.njk" %}</div>
       <div class="flex items-center justify-center flex-1 w-full p-2 space-x-3">
         {{postsApplet.applet(title='posts', maxWidth='max-w-[740px]', height='h-[460px]', data=collections.posts)}}
+        {{photosApplet.applet(title='photos', maxWidth='max-w-[351px]', height='h-[484px]', data=collections.posts)}}
       </div>
   </main>
 {% endblock %}

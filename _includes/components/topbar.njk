@@ -1,19 +1,27 @@
-{% macro topbarButton(title, featured, onClick) %}
-    <button class="{% if featured %}font-medium text-display-primary{% else %}text-display-secondary{% endif %} text-sm leading-none px-2 pt-[5px] pb-1.5 rounded-sm hover:bg-ui-divider">{{title}}</button>
+{% macro topbarButton(title, featured, onClick, tab=true) %}
+    <button
+    {% if tab %}
+        :class="activeApplet === '{{title}}' && 'bg-ui-divider'"
+        @click="activeApplet = '{{title}}'"
+    {% endif %}
+        class="{% if featured %}font-medium text-display-primary{% else %}text-display-secondary{% endif %}
+            text-sm leading-none px-2 capitalize pt-[6px] pb-[7px] rounded-sm hover:bg-ui-divider">
+        {{title}}
+    </button>
 {% endmacro %}
 
-<header class="flex justify-between w-full px-5 py-px bg-ui-topbar-bg shadow-topbar">
+<header class="flex items-center justify-between w-full px-5 py-px bg-ui-topbar-bg shadow-topbar">
     <div class="flex space-x-1">
-        {{topbarButton(title="Stephen Barkan", featured=true)}}
+        {{topbarButton(title="Stephen Barkan", featured=true, tab=false)}}
         <nav class="flex space-x-1">
-            {{topbarButton(title="Photos")}}
-            {{topbarButton(title="Design")}}
-            {{topbarButton(title="Posts")}}
-            {{topbarButton(title="Music")}}
-            {{topbarButton(title="Chat")}}
+            {{topbarButton(title="photos")}}
+            {{topbarButton(title="design")}}
+            {{topbarButton(title="posts")}}
+            {{topbarButton(title="music")}}
+            {{topbarButton(title="chat")}}
         </nav>
     </div>
-    <div>
-        <time class="text-sm leading-none text-display-secondary">Current Date and time goes here</time>
+    <div class="hidden md:flex pt-[6px] pb-[7px]">
+        <time data-clock class="text-sm leading-none text-display-secondary">Current Date and time goes here</time>
     </div>
 </header>
