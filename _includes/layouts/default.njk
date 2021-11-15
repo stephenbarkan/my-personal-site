@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <title>
-      {% block title %}Does it work?{% endblock %}
+      {% block title %}Stephen Barkan{% endblock %}
     </title>
     <meta charset="UTF-8"/>
     {% if description %}
@@ -15,7 +15,14 @@
     {% block head %}{% endblock %}
   </head>
   <body
-    x-data="{activeApplet: 'posts'}"
+    x-data="{
+        activeApplet: 'posts',
+        setActiveApplet(applet) {
+            activeApplet = applet;
+            let stateObj
+            history.replaceState(stateObj, '', applet);
+        }
+    }"
     :data-applet="activeApplet"
     class="w-full h-screen text-base antialiased transition-colors duration-500 text-display-primary bg-clr-highlight" style="background-image: url(/images/dot-pattern.svg)">
     {% block content %}

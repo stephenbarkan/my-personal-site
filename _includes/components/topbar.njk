@@ -4,7 +4,7 @@
     <button
     {% if tab %}
         :class="activeApplet === '{{title}}' && 'bg-ui-divider'"
-        @click="activeApplet = '{{title}}'"
+        @click="setActiveApplet('{{title}}')"
     {% else %}
         @click="{{onClick}}"
         :class="open && 'bg-ui-divider'"
