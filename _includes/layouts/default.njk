@@ -17,8 +17,7 @@
   <body
     x-data="{activeApplet: 'posts'}"
     :data-applet="activeApplet"
-    class="w-full h-screen text-base antialiased transition-colors duration-500 text-display-primary bg-clr-highlight">
-    <div class="absolute inset-0 transition-colors duration-500 opacity-25 -z-1 bg-clr-tint" style="background-image: url(/images/dot-pattern.svg)"></div>
+    class="w-full h-screen text-base antialiased transition-colors duration-500 text-display-primary bg-clr-highlight" style="background-image: url(/images/dot-pattern.svg)">
     {% block content %}
       {{ content | safe }}
     {% endblock %}

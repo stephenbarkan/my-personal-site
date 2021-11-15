@@ -11,6 +11,9 @@ module.exports = {
       screens: {
         xs: "501px",
       },
+      spacing: {
+        15: ".9375rem",
+      },
       gridTemplateRows: {
         site: "min-content 1fr min-content",
       },

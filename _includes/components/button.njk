@@ -4,7 +4,7 @@
         class="pt-1.5 px-2 pb-[7px] flex gap-1.5 justify-center items-center rounded-sm {{class}}
         {% if highlighted %} bg-clr-solid shadow-btn-highlight text-button-inverse {% else %}bg-btn-bg text-display-secondary hover:text-display-primary hover:bg-btn-bg-hover shadow-btn-basic text-button{% endif %}"
     >
-        <span class="text-display-tertiary block h-[15px] w-[15px]">{{icon | safe}}</span>
+        <span class="text-display-tertiary block h-15 w-15">{{icon | safe}}</span>
         <span>{{label}}</span>
     </{{as}}>
 {% endmacro %}
