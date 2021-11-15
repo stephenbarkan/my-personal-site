@@ -7,6 +7,17 @@ module.exports = {
     },
   },
   theme: {
+    extend: {
+      screens: {
+        xs: "501px",
+      },
+      gridTemplateRows: {
+        site: "min-content 1fr min-content",
+      },
+      zIndex: {
+        "-1": "-1",
+      },
+    },
     fontFamily: {
       sans: ["var(--font-family)", "sans-serif"],
     },

@@ -1,8 +1,6 @@
 {% extends "components/appletShell.njk" %}
 {% import "components/button.njk" as "btn"%}
-{% set closeIcon %}
-     {% include "icons/close.svg" %}
-{% endset %}
+{% set closeIcon %}{% include "icons/close.svg" %}{% endset %}
 {% set chevronLeftIcon %}
      {% include "icons/chevron-left.svg" %}
 {% endset %}
@@ -41,7 +39,7 @@
             x-transition:leave="transition ease-in duration-150 transform"
             x-transition:leave-start="opacity-100"
             x-transition:leave-end="-translate-x-full"
-            class="transform absolute top-0 flex flex-col bottom-0 gap-6 left-0 w-48 px-3 pt-6 overflow-auto bg-[#fff] md:hidden">
+            class="z-10 transform absolute top-0 flex flex-col bottom-0 gap-6 left-0 w-48 px-3 pt-6 overflow-auto bg-[#fff] md:hidden">
             <div @click="open = false" class="md:hidden">{{btn.button(label="Close list", icon=closeIcon, as="button", class="w-full")}}</div>
             <div class="flex flex-col gap-1 divide-y md:mt-0 divide-ui-divider">
                 {% for post in data %}

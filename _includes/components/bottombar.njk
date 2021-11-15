@@ -1,0 +1,27 @@
+{% set heartIcon %}{% include "icons/heart-outline.svg" %}{% endset %}
+{% set groupIcon %}{% include "icons/group.svg" %}{% endset %}
+{% set editIcon %}{% include "icons/edit.svg" %}{% endset %}
+{% set musicIcon %}{% include "icons/music.svg" %}{% endset %}
+{% set chatIcon %}{% include "icons/chat.svg" %}{% endset %}
+
+
+{% macro bottombarButton(title, icon, class) %}
+    <button
+        @click="activeApplet = '{{title}}'"
+        :class="activeApplet === '{{title}}' && 'bg-clr-highlight'"
+        data-applet="{{title}}"
+        class="{{class}} items-center rounded flex flex-col gap-1.5 py-1.5 px-2 hover:bg-clr-highlight">
+        <span
+            :class="activeApplet === '{{title}}' ? 'text-clr-solid' : 'text-display-tertiary'"
+            class="block w-5 h-5">{{icon | safe}}</span>
+        <span class="capitalize text-display-secondary">{{title}}</span>
+    </button>
+{% endmacro %}
+
+<footer class="relative flex flex-1 w-full gap-1 px-3 py-2 overflow-hidden rounded-lg bg-ui-applet-bg shadow-applet-idle">
+    {{bottombarButton(title="photos", icon=heartIcon, class="flex-1")}}
+    {{bottombarButton(title="design", icon=groupIcon, class="flex-1")}}
+    {{bottombarButton(title="posts", icon=editIcon, class="flex-1")}}
+    {{bottombarButton(title="music", icon=musicIcon, class="flex-1")}}
+    {{bottombarButton(title="chat", icon=chatIcon, class="flex-1")}}
+</footer>
