@@ -8,8 +8,8 @@
   <main class="grid w-full h-screen grid-rows-site">
     <div class="hidden sm:block">{% include "components/topbar.njk" %}</div>
       <div class="flex items-center justify-center flex-1 w-full row-start-2 gap-3 p-2 overflow-auto">
-        {# {{postsApplet.applet(title='posts', maxWidth='max-w-[740px]', height='xs:h-[460px]', data=collections.posts)}} #}
-        {# {{photosApplet.applet(title='photos', maxWidth='max-w-[351px]', height='xs:h-[484px]', data=collections.posts)}} #}
+        {{postsApplet.applet(title='posts', maxWidth='max-w-[740px]', height='xs:h-[460px]', data=collections.posts)}}
+        {{photosApplet.applet(title='photos', maxWidth='max-w-[351px]', height='xs:h-[484px]', data=collections.posts)}}
       </div>
     <div class="row-start-3 p-2 pt-0 xs:hidden">{% include "components/bottombar.njk" %}</div>
   </main>
