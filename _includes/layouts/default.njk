@@ -18,9 +18,9 @@
     x-data="{
         activeApplet: 'posts',
         setActiveApplet(applet) {
-            activeApplet = applet;
+            this.activeApplet = applet;
             let stateObj
-            history.replaceState(stateObj, '', applet);
+            history.replaceState(stateObj, '', `?activeApplet=${applet}`);
         }
     }"
     :data-applet="activeApplet"
