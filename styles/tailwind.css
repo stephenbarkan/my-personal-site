@@ -19,7 +19,7 @@
     --applet-bg: rgba(255, 255, 255, 1);
     --divider: rgba(0, 0, 0, 0.07);
     --shade: rgba(22, 21, 30, 0.5);
-    --topbar-bg: rgba(255, 255, 255, 0.5);
+    --topbar-bg: rgba(255, 255, 255, 0.4);
 
     /* buttons */
     --btn-bg: rgba(252, 252, 252, 1);
@@ -32,30 +32,35 @@
     --clr-tint: rgba(255, 237, 228, 1);
     --clr-highlight: rgba(245, 243, 243, 1);
     --btn-bg-hover: rgba(249, 247, 246, 1);
+    --wallpaper: rgba(247, 241, 238, 1);
   }
   [data-applet="design"] {
     --clr-solid: rgba(85, 71, 236, 1);
     --clr-tint: rgba(237, 235, 255, 1);
     --clr-highlight: rgba(244, 244, 246, 1);
     --btn-bg-hover: rgba(247, 247, 248, 1);
+    --wallpaper: rgba(242, 240, 244, 1);
   }
   [data-applet="posts"] {
     --clr-solid: rgba(233, 155, 65, 1);
     --clr-tint: rgba(255, 245, 221, 1);
     --clr-highlight: rgba(246, 245, 244, 1);
     --btn-bg-hover: rgba(248, 248, 246, 1);
+    --wallpaper: rgba(248, 245, 236, 1);
   }
   [data-applet="music"] {
     --clr-solid: rgba(50, 184, 168, 1);
     --clr-tint: rgba(221, 248, 232, 1);
     --clr-highlight: rgba(244, 246, 245, 1);
     --btn-bg-hover: rgba(246, 248, 247, 1);
+    --wallpaper: rgba(240, 245, 240, 1);
   }
   [data-applet="chat"] {
     --clr-solid: rgba(10, 152, 235, 1);
     --clr-tint: rgba(225, 241, 255, 1);
     --clr-highlight: rgba(241, 243, 244, 1);
     --btn-bg-hover: rgba(246, 248, 249, 1);
+    --wallpaper: rgba(239, 243, 246, 1);
   }
 }
 
@@ -189,14 +194,13 @@
 
   /* blockquote */
   .prose blockquote {
-    padding: var(--space-2) var(--space-3);
-    margin-left: calc(-1 * var(--space-2));
-    margin-right: calc(-1 * var(--space-2));
-    background: theme("colors.clr.tint");
-    border-radius: theme("borderRadius.DEFAULT");
     /* padding-right: var(--space-3); */
+    /* text-indent: 2em; */
+    color: theme("colors.display.tertiary");
+    /* font-size: 0.95em; */
     margin-top: var(--space-3);
     position: relative;
+    font-style: italic;
   }
 
   /* code */
@@ -234,9 +238,10 @@
     border-width: 1px;
     border-style: solid;
     border-color: theme("colors.ui.divider");
+    margin-block: var(--space-3);
   }
 
-  .prose li .p-with-img {
+  .prose li img {
     margin-block: var(--space-2);
   }
 

@@ -15,7 +15,7 @@
     </button>
 {% endmacro %}
 
-<header class="flex items-center justify-between w-full px-5 py-px bg-ui-topbar-bg shadow-topbar">
+<header class="flex items-center justify-between w-full px-5 py-px bg-ui-topbar-bg shadow-topbar backdrop-blur">
     <div class="flex space-x-1">
         <div x-data="{open: false}" class="relative">
             {{topbarButton(title="Stephen Barkan", featured=true, tab=false, onClick="open = !open")}}

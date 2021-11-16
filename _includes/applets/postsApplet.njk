@@ -1,9 +1,7 @@
 {% extends "components/appletShell.njk" %}
 {% import "components/button.njk" as "btn"%}
 {% set closeIcon %}{% include "icons/close.svg" %}{% endset %}
-{% set chevronLeftIcon %}
-     {% include "icons/chevron-left.svg" %}
-{% endset %}
+{% set chevronLeftIcon %}{% include "icons/chevron-left.svg" %}{% endset %}
 {% block content %}
     <div x-data="{ openPost: 'welcome', open: false }" class="flex flex-1 max-h-full">
         <div

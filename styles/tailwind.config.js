@@ -35,6 +35,8 @@ module.exports = {
     boxShadow: {
       "btn-basic":
         "0px 1px 1px rgba(0, 0, 0, 0.07), 0px 0px 0px 0.6px rgba(0, 0, 0, 0.17)",
+      "btn-inset-basic":
+        "0px 1px 1px inset rgba(0, 0, 0, 0.05), 0px 0px 0px 0.6px rgba(0, 0, 0, 0.17)",
       "btn-highlight":
         "0px 0px 0px 0.6px #005CAF, 0px 1px 1px rgba(0, 0, 0, 0.07)",
       topbar: "0px 0px 0px 0.6px rgba(0, 0, 0, 0.17)",
@@ -64,6 +66,7 @@ module.exports = {
         divider: "var(--divider)",
         shade: "var(--shade)",
         "topbar-bg": "var(--topbar-bg)",
+        wallpaper: "var(--wallpaper)",
       },
       btn: {
         bg: "var(--btn-bg)",
