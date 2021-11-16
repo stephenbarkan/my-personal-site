@@ -16,14 +16,33 @@
   </head>
   <body
     x-data="{
-        activeApplet: 'posts',
+        activeApplet: null,
+        getUrlParam(param) {
+            let value;
+            const queries = window.location.search.substring(1).split('&');
+            queries.forEach(function(query) {
+                const pair = query.split('=');
+                if(pair[0] == param) {
+                    value = pair[1];
+                }
+            })
+            return value;
+        },
+        getInitActiveApplet() {
+            if (this.getUrlParam('activeApplet')) {
+                this.activeApplet = this.getUrlParam('activeApplet');
+            } else {
+                this.activeApplet = 'posts'
+            }
+        },
         setActiveApplet(applet) {
             this.activeApplet = applet;
             let stateObj
             history.replaceState(stateObj, '', `?activeApplet=${applet}`);
         }
     }"
-    :data-applet="activeApplet"
+    x-init="getInitActiveApplet(), setActiveApplet(activeApplet)"
+    :data-active-applet="activeApplet"
     class="w-full h-screen text-base antialiased text-display-primary bg-ui-wallpaper" style="background-image: url(/images/dot-pattern.svg)">
     {% block content %}
       {{ content | safe }}

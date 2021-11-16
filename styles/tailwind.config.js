@@ -41,10 +41,15 @@ module.exports = {
         "0px 0px 0px 0.6px #005CAF, 0px 1px 1px rgba(0, 0, 0, 0.07)",
       topbar: "0px 0px 0px 0.6px rgba(0, 0, 0, 0.17)",
       focus: "0px 0px 0px 2px #5A98F6, 0px 0px 0px 4px #DCEAFF",
-      "applet-active":
-        "0px 0px 0px 0.6px rgba(64, 64, 76, 0.1), 0px 2px 16px -4px rgba(0, 0, 0, 0.06), 0px 3px 20px -8px rgba(0, 0, 0, 0.14)",
+      //   shadows generated https://www.joshwcomeau.com/shadow-palette/
+      // oomph: .03
+      // crispy: 0
+      //light position: centered like 1/3 up
+      // resolution .75
       "applet-idle":
-        "0px 0px 0px 0.6px rgba(64, 64, 76, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.11), 0px 1px 3px rgba(0, 0, 0, 0.05)",
+        "0px 0.4px 0.6px hsl(var(--shadow-color) / 0), 0px 1.5px 2.3px hsl(var(--shadow-color) / 0.09), 0px 3px 4.5px hsl(var(--shadow-color) / 0.19), 0px 5.9px 8.9px hsl(var(--shadow-color) / 0.28), 0 0 0 0.6px rgba(64, 64, 76, 0.1)",
+      "applet-active":
+        "0px 0.4px 0.6px hsl(var(--shadow-color) / 0), 0px 2.3px 3.5px hsl(var(--shadow-color) / 0.04), 0px 4px 6px hsl(var(--shadow-color) / 0.09), 0px 5.7px 8.6px hsl(var(--shadow-color) / 0.13), 0px 7.9px 11.9px hsl(var(--shadow-color) / 0.17), 0px 10.9px 16.4px hsl(var(--shadow-color) / 0.22), 0px 15px 22.5px hsl(var(--shadow-color) / 0.26), -0.1px 20.6px 30.9px hsl(var(--shadow-color) / 0.3), 0 0 0 0.6px rgba(64, 64, 76, 0.1)",
     },
     backdropBlur: {
       DEFAULT: "20px",
