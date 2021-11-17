@@ -8,7 +8,7 @@
             @click="open = false"
             x-show="open"
             x-transition.opacity.duration.300ms
-            class="absolute inset-0 bg-ui-shade backdrop-blur md:hidden">
+            class="absolute inset-0 pb-3 bg-ui-shade backdrop-blur md:hidden">
         </div>
         {# desktop sidebar #}
         <aside
@@ -59,11 +59,13 @@
             <div class="max-w-[414px] w-full p-px flex flex-col flex-1 gap-6 pt-3 pb-6">
                 <div @click="open=true" class="self-start md:hidden">{{btn.button(label="All entries", icon=chevronLeftIcon, as="button")}}</div>
                 {% for post in data %}
-                    <article x-show="openPost === '{{post.fileSlug}}'" class="space-y-3">
+                <template x-if="openPost === '{{post.fileSlug}}'">
+                    <article class="flex flex-col gap-3">
                         <time class="text-sm text-display-tertiary">{{post.data.date | dateDisplay}}</time>
                         <h3 class="text-xl">{{post.data.title}}</h3>
-                        <div class="prose text-display-secondary text-prose">{{post.templateContent | safe}}</div>
+                        <div class="pb-6 prose text-display-secondary text-prose">{{post.templateContent | safe}}</div>
                     </article>
+                    </template>
                 {% endfor %}
             </div>
         </main>
@@ -72,9 +74,9 @@
 
 
 {% macro postLink(title, date, isPinned, class, fileSlug) %}
-    <a href="#" :class="{ 'bg-clr-highlight': openPost === '{{fileSlug}}' }" @click.prevent="openPost = '{{fileSlug}}'; open=false" class="{{class}} block flex rounded pb-2.5 pt-2 space-x-3 pr-2 pl-2.5 hover:bg-clr-highlight">
-        <div class="space-y-1.5 overflow-hidden flex-1">
-            <p class="truncate"  :class="{'text-display-primary': openPost === '{{fileSlug}}', 'text-display-secondary': openPost !=='{{fileSlug}}'}">{{title}}</p>
+    <a href="#" :class="{ 'bg-clr-highlight shadow-list-inset': openPost === '{{fileSlug}}' }" @click.prevent="openPost = '{{fileSlug}}'; open=false" class="{{class}} group block flex rounded pb-2.5 pt-2 space-x-3 pr-2 pl-2.5 hover:bg-clr-highlight active:shadow-list-inset">
+        <div class="space-y-1.5 overflow-hidden flex-1 transform group-active:translate-y-px transition" :class="openPost === '{{fileSlug}}' && 'translate-y-px'">
+            <p class="truncate"  :class="{'text-display-primary': openPost === '{{fileSlug}}', 'active:text-display-primary text-display-secondary': openPost !=='{{fileSlug}}'}">{{title}}</p>
             <time class="block text-sm text-display-tertiary">{{date | dateDisplay}}</time>
         </div>
         {% if (isPinned) %}

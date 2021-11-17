@@ -14,9 +14,10 @@
     <link rel="stylesheet" href="/style.css?v={% version %}"/>
     {% block head %}{% endblock %}
   </head>
-  <body
+  <body data-active-applet="posts" class="bg-ui-wallpaper">
+  <div id="app"
     x-data="{
-        activeApplet: null,
+        activeApplet: 'photos',
         getUrlParam(param) {
             let value;
             const queries = window.location.search.substring(1).split('&');
@@ -43,10 +44,12 @@
     }"
     x-init="getInitActiveApplet(), setActiveApplet(activeApplet)"
     :data-active-applet="activeApplet"
-    class="w-full h-screen text-base antialiased text-display-primary bg-ui-wallpaper" style="background-image: url(/images/dot-pattern.svg)">
+    :data-applet="activeApplet"
+    class="w-full h-screen text-base antialiased transition-all duration-1000 shadow-body easing-linear text-display-primary bg-ui-wallpaper" style="background-image: url(/images/dot-pattern.svg)">
     {% block content %}
       {{ content | safe }}
     {% endblock %}
+</div>
     <script defer src="https://unpkg.com/alpinejs@3.5.0/dist/cdn.min.js"></script>
     <script src="/../scripts/activeApplet.js"></script>
   </body>

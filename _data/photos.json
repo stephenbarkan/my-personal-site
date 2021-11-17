@@ -1,0 +1,34 @@
+[
+  {
+    "id": "spilt-milk",
+    "images": ["/images/spilt-milk-1.jpg", "/images/spilt-milk-2.jpg"],
+    "caption": "Love and cucumber cocktails",
+    "date": "Nov, 2021"
+  },
+  {
+    "id": "chicago friends",
+    "images": ["/images/soph.jpg", "/images/paul.jpg", "/images/ls-crew.jpg"],
+    "caption": "Chicago friends!",
+    "date": "2021"
+  },
+  {
+    "id": "doister friends",
+    "images": [
+      "/images/heather.jpg",
+      "/images/aer-becky.jpg",
+      "/images/jackie-elaine.jpg"
+    ],
+    "caption": "Work friends!",
+    "date": "2021"
+  },
+  {
+    "id": "me and eug",
+    "images": [
+      "/images/california.jpg",
+      "/images/bending-circle.jpg",
+      "/images/dunes.jpg"
+    ],
+    "caption": "Me and Eug outside",
+    "date": "2021"
+  }
+]

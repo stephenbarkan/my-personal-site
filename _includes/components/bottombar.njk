@@ -8,10 +8,9 @@
 {% macro bottombarButton(title, icon, class) %}
     <button
         @click="activeApplet = '{{title}}'"
-        :class="activeApplet === '{{title}}' && 'bg-clr-highlight'"
-        data-applet="{{title}}"
-        class="{{class}} items-center rounded flex flex-col gap-1.5 py-1.5 px-2 hover:bg-clr-highlight">
-        <span
+        :class="activeApplet === '{{title}}' && 'bg-clr-highlight shadow-list-inset'"
+        class="{{class}} active:shadow-list-inset items-center rounded flex flex-col gap-1.5 py-1.5 hover:bg-clr-highlight">
+        <span data-applet="{{title}}"
             :class="activeApplet === '{{title}}' ? 'text-clr-solid' : 'text-display-tertiary'"
             class="block w-5 h-5">{{icon | safe}}</span>
         <span class="capitalize text-display-secondary">{{title}}</span>

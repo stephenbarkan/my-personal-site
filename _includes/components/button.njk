@@ -1,11 +1,12 @@
-{% macro button(label, icon, highlighted, as, href, class, onClick) %}
+{% macro button(label, icon, highlighted, as, href, class, onClick, newTab) %}
     <{{as}}
-        {% if href %}{{href}}{% endif %}
+        {% if href %}href="{{href}}"{% endif %}
+        {% if newTab %}target="_blank"{% endif %}
         {% if onClick %}@click="{{onClick}}"{% endif %}
-        class="pt-1.5 px-2 pb-[7px] flex gap-1 justify-center items-center rounded-sm {{class}}
-        {% if highlighted %} bg-clr-solid shadow-btn-highlight text-button-inverse {% else %}bg-btn-bg text-display-secondary hover:text-display-primary hover:bg-btn-bg-hover shadow-btn-basic text-button active:shadow-btn-inset-basic{% endif %}"
+        class="pt-1.5 px-2 pb-[7px] flex gap-2 justify-center items-center rounded-sm group {{class}}
+        {% if highlighted %} bg-clr-solid shadow-btn-highlight text-button-inverse {% else %}bg-btn-bg text-display-secondary hover:text-display-primary hover:bg-btn-bg-hover shadow-btn-basic text-button active:shadow-btn-basic-inset{% endif %}"
     >
-        <span class="block mb-px -mt-px text-display-tertiary h-15 w-15">{{icon | safe}}</span>
-        <span>{{label | safe}}</span>
+        <span class="transition group-active:transform group-active:translate-y-px text-display-tertiary group-active:text-display-secondary h-15 w-15">{{icon | safe}}</span>
+        <span class="transition group-active:transform group-active:translate-y-px">{{label | safe}}</span>
     </{{as}}>
 {% endmacro %}

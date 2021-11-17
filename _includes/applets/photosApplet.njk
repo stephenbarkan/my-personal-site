@@ -1,26 +1,29 @@
 {% extends "components/appletShell.njk" %}
 {% import "components/button.njk" as "btn"%}
+{% set prevPhoto %}{% include "icons/prev-photo.svg" %}{% endset %}
+{% set nextPhoto %}{% include "icons/next-photo.svg" %}{% endset %}
+{% set twitterIcon %}{% include "icons/twitter.svg" %}{% endset %}
+{% set instagramIcon %}{% include "icons/instagram.svg" %}{% endset %}
 {% set heartIcon %}
     <div class="grid grid-cols-1 grid-rows-1">
         <span
-            x-transition:enter="transition transform ease-in duration-200 delay-150"
-            x-transition:enter-start="opacity-0 scale-75"
+            x-transition:enter="transform ease-out delay-75 duration-200"
+            x-transition:enter-start="opacity-50 scale-[.65]"
             x-transition:enter-end="opacity-100 scale-100"
             x-transition:leave="transition ease-out duration-300 transform"
             x-transition:leave-start="opacity-100"
             x-transition:leave-end="scale-125 opacity-0"
-            class="block col-span-1 col-start-1 row-start-1" x-show="!liked">{% include "icons/heart-outline.svg" %}</span>
+            class="block col-span-1 col-start-1 row-start-1 transition text-display-tertiary group-active:scale-95" x-show="!liked">{% include "icons/heart-outline.svg" %}</span>
         <span
-            x-transition:enter="transition transform ease-in duration-200 delay-150"
+            x-transition:enter="ease-in duration-200 delay-150"
             x-transition:enter-start="opacity-0 scale-125"
             x-transition:enter-end="opacity-100 scale-100"
-            x-transition:leave="transition ease-out duration-300 transform"
+            x-transition:leave="ease-out duration-500"
             x-transition:leave-start="opacity-100"
-            x-transition:leave-end="scale-75 opacity-0"
-            class="block col-span-1 col-start-1 row-start-1" x-show="liked">{% include "icons/heart-fill.svg" %}</span>
+            x-transition:leave-end="scale-150 opacity-0"
+            class="block col-span-1 col-start-1 row-start-1 transition transform text-clr-solid group-active:scale-125" x-show="liked">{% include "icons/heart-fill.svg" %}</span>
     </div>
 {% endset %}
-
 {% set label %}
     <div class="grid grid-cols-1 grid-rows-1">
         <span class="col-start-1 row-start-1" :class="liked && 'invisible'">0 Likes</span>
@@ -28,8 +31,85 @@
     </div>
 {% endset %}
 
-
-
 {% block content %}
-    <div x-data="{liked: false}">{{btn.button(label=label, icon=heartIcon, as="button", onClick="liked = !liked")}}</div>
+    <div class="flex flex-col gap-3 px-px pb-6 overflow-auto">
+        {# top section #}
+        <section class="flex gap-4 pb-3 border-b border-ui-divider">
+            <div class="relative flex-shrink-0 w-20 h-20 overflow-hidden rounded-full">
+                <img src="/images/profile-pic.jpg" alt="Profile picture of Stephen lookin' cute at the park.">
+                <div class="absolute inset-0 rounded-full shadow-inset-stroke"></div>
+            </div>
+            <div class="flex flex-col flex-1 gap-4">
+                <div class="flex flex-col gap-1">
+                    <h3 class="text-lg text-display-primary">stephen_barkan</h3>
+                    <p class="text-sm text-display-secondary">📍Chicago, IL</p>
+                </div>
+                <div class="flex gap-2">
+                    {{btn.button(label="Instagram", icon=instagramIcon, class="flex-1", as="a", href="https://www.instagram.com/stephen_barkan/", newTab=true)}}
+                    {{btn.button(label="Twitter", icon=twitterIcon, class="flex-1", as="a", href="https://twitter.com/barkan_steve", newTab=true)}}
+                </div>
+            </div>
+        </section>
+        <section class="flex flex-col flex-1 gap-8">
+            {% for post in data %}
+            <div
+                x-data="{
+                    count: {{post.images.length}},
+                    currentIndex: 1,
+                    currentPos: $refs.slider.scrollLeft,
+                    offset: $refs.slider.firstElementChild.getBoundingClientRect().width,
+                    next() {
+                        let currentPos = $refs.slider.scrollLeft
+                        $refs.slider.scrollTo({ left: currentPos + this.offset, behavior: 'smooth' })
+                        this.currentIndex = Math.min((this.currentIndex + 1), this.count);
+                    },
+                    prev() {
+                        let currentPos = $refs.slider.scrollLeft
+                        $refs.slider.scrollTo({ left: currentPos - this.offset, behavior: 'smooth' })
+                        this.currentIndex = Math.max((this.currentIndex - 1), 1);
+                    }
+                }"
+                class="flex flex-col gap-3">
+                {# carousel #}
+                <div class="relative overflow-hidden">
+
+                    {% if post.images.length > 1 %}
+                    <div class="absolute flex justify-between w-full transform -translate-y-1/2 top-1/2">
+                        <button @click="prev" x-show="currentIndex > 1" class="z-10 p-3 transition transform hover:scale-110"><span class="block w-6 h-6 rounded-full text-btn-bg shadow-btn-basic ">{{prevPhoto | safe}}</span></button>
+                        <button @click="next" x-show="currentIndex < {{post.images.length}}" class="z-10 p-3 ml-auto transition transform hover:scale-110"><span class="block w-6 h-6 rounded-full text-btn-bg shadow-btn-basic ">{{nextPhoto | safe}}</span></button>
+                    </div>
+                    {% endif %}
+
+                    <div x-ref="slider"
+                        class="flex overflow-hidden rounded"
+                        style="scroll-snap-type: x mandatory;">
+                        {% for image in post.images %}
+                            <img class="object-fill" style="scroll-snap-align: start;" src="{{image}}" alt="">
+                        {% endfor %}
+                    </div>
+                </div>
+
+                {# like button and indicator dots #}
+                <div class="flex items-center">
+                    <div x-data="{liked: false}" class="flex-1">{{btn.button(label=label, icon=heartIcon, as="button", onClick="liked = !liked")}}</div>
+                    {% if post.images.length > 1 %}
+                    <div class="flex gap-1.5">
+                        {% for images in post.images %}
+                        <span
+                            :class="currentIndex === {{loop.index}} ? 'opacity-100' : 'opacity-25'"
+                            class="block w-1.5 h-1.5 transition rounded-full bg-clr-solid">
+                        </span>
+                        {% endfor %}
+                    </div>
+                    <div class="flex-1"></div>
+                    {% endif %}
+                </div>
+                <div class="flex flex-col gap-1">
+                    <p class="text-display-secondary"><span class="font-medium text-display-primary">stephen_barkan</span> {{post.caption}}</p>
+                    <time class="text-sm text-display-tertiary">{{post.date}}</time>
+                </div>
+            </div>
+            {% endfor %}
+        </section>
+    </div>
 {% endblock %}
