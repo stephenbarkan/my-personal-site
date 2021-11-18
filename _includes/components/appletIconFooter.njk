@@ -5,9 +5,9 @@
 {% set groupIcon %}{% include "icons/group-fill.svg" %}{% endset %}
 
 {% macro appletIcon(icon, applet) %}
-    <div class="flex flex-col items-center gap-1.5">
-        <button @click="activeApplet = '{{applet}}'" data-applet="{{applet}}" class="grid w-10 h-10 rounded-lg shadow-app-icon place-content-center text-clr-solid bg-clr-tint">
-            <div class="w-5 h-5">{{icon | safe}}</div>
+    <div class="flex flex-col items-center gap-1">
+        <button @click="activeApplet = '{{applet}}'" data-applet="{{applet}}" class="grid w-12 h-12 rounded-lg shadow-app-icon place-content-center text-clr-solid bg-clr-tint">
+            <div class="w-6 h-6">{{icon | safe}}</div>
         </button>
         <span
             x-show="activeApplet === '{{applet}}'"
@@ -17,7 +17,7 @@
     </div>
 {% endmacro %}
         <footer class="flex justify-center w-full pb-2">
-            <nav class="flex px-3 pb-1.5 pt-3 rounded-[15px] gap-3 bg-ui-topbar-bg backdrop-blur shadow-applet-idle min-w-[200px]">
+            <nav class="flex px-3 pb-1 pt-3 rounded-[15px] gap-3 bg-ui-topbar-bg backdrop-blur shadow-applet-idle min-w-[200px]">
                 {{ appletIcon(applet="photos", icon=heartIcon) }}
                 {{ appletIcon(applet="design", icon=groupIcon) }}
                 {{ appletIcon(applet="posts", icon=editIcon) }}
