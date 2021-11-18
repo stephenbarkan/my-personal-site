@@ -43,7 +43,7 @@ module.exports = {
       "applet-header":
         "0px 1px 1px 0px hsla(var(--global-shadow-color) / 0.04), 0px 1px 1px 0px rgba(var(--clr-solid), 0.20), 0px 0px 0px 0.6px hsla(var(--scoped-shadow-color) / 0.3)",
       "app-icon":
-        "0px 1px 1px 0px hsla(var(--global-shadow-color) / 0.15), 0px 1px 3px 0px rgba(var(--clr-solid), 0.20), 0 1px 1px 0px inset rgba(255,255,255, .5), 0 -1px 1px 0px inset hsla(var(--global-shadow-color)/ .15), 0px 0px 0px 0.6px hsla(var(--scoped-shadow-color) / 0.3)",
+        "0px 1px 1px 0px hsla(var(--scoped-shadow-color) / 0.15), 0px 1px 3px 0px rgba(var(--clr-solid), 0.20), 0 1px 1px 0px inset rgba(255,255,255, .5), 0 -1px 1px 0px inset hsla(var(--scoped-shadow-color)/ .15), 0px 0px 0px 0.6px hsla(var(--scoped-shadow-color) / 0.3)",
       "btn-basic":
         "0px 1px 1px hsla(var(--scoped-shadow-color) / 0.40), 0px 0px 0px 0.6px hsla(var(--scoped-shadow-color) /  0.40)",
       "btn-basic-inset":
@@ -59,6 +59,9 @@ module.exports = {
         "0px 0.4px 0.6px hsl(var(--global-shadow-color) / 0), 0px 1.5px 2.3px hsl(var(--global-shadow-color) / 0.09), 0px 3px 4.5px hsl(var(--global-shadow-color) / 0.19), 0px 5.9px 8.9px hsl(var(--global-shadow-color) / 0.28), 0 0 0 0.6px hsla(var(--global-shadow-color) / .5)",
       "applet-active":
         "0px 0px 0.6px hsl(var(--global-shadow-color) / 0), 0px 0px 3.5px hsl(var(--global-shadow-color) / 0.04), 0px 0px 6px hsl(var(--global-shadow-color) / 0.09), 0px 6px 10px hsl(var(--global-shadow-color) / 0.17), 0px 8px 12px hsl(var(--global-shadow-color) / 0.22), 0px 10px 16px -2px hsl(var(--global-shadow-color) / 0.26), -0.1px 15px 25px -3px hsl(var(--global-shadow-color) / 0.3), 0 0 0 0.6px hsla(var(--global-shadow-color) / .5)",
+    },
+    dropShadow: {
+      "app-icon": "0px 0px 3px rgba(var(--clr-solid), 0.3)",
     },
     backdropBlur: {
       DEFAULT: "20px",

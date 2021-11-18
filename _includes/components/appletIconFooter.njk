@@ -6,13 +6,18 @@
 
 {% macro appletIcon(icon, applet) %}
     <div class="flex flex-col items-center gap-1">
-        <button @click="activeApplet = '{{applet}}'" data-applet="{{applet}}" class="grid w-12 h-12 rounded-lg shadow-app-icon place-content-center text-clr-solid bg-clr-tint">
-            <div class="w-6 h-6">{{icon | safe}}</div>
+        <button @click="setActiveApplet('{{applet}}')" style="transform-origin: center 80%;" data-applet="{{applet}}" class="grid w-12 h-12 transition duration-300 transform rounded-lg active:scale-90 shadow-app-icon place-content-center text-clr-solid bg-clr-tint">
+            <div class="w-6 h-6 filter drop-shadow-app-icon">{{icon | safe}}</div>
         </button>
         <span
             x-show="activeApplet === '{{applet}}'"
-            x-transition.duration.300
-            class="block w-1 h-1 rounded-full bg-clr-solid">
+            x-transition:enter="delay-75 duration-200"
+            x-transition:enter-start="scale-0 opacity-0"
+            x-transition:enter-end="scale-100 opacity-100"
+            x-transition:leave=""
+            x-transition:leave-start="scale-100 opacity-100"
+            x-transition:leave-end="scale-0 opacity-0"
+            class="block w-1 h-1 transition rounded-full bg-clr-solid">
         </span>
     </div>
 {% endmacro %}

@@ -6,9 +6,30 @@
 
 
 {% block content %}
-      <div class="flex items-center justify-center flex-1 w-full row-start-2 gap-3 py-2 overflow-auto page-container">
-        {{photosApplet.applet(title='photos', maxWidth='max-w-[335px]', height='xs:h-[495px]', data=photos)}}
-        {# {{designApplet.applet(title='design', maxWidth='max-w-[740px]', height='xs:h-[340px]')}} #}
-        {{postsApplet.applet(title='posts', maxWidth='max-w-[740px]', height='xs:h-[460px]', data=collections.posts)}}
+      <div class="flex justify-center flex-1 w-full row-start-2 gap-3 py-2 overflow-auto page-container">
+        <div x-show="activeApplet === 'photos'"
+            x-transition:enter="origin-top"
+            x-transition:enter-start="scale-95  opacity-0"
+            x-transition:enter-end="scale-100 opacity-100"
+            x-transition:leave="origin-bottom"
+            x-transition:leave-start="scale-100 opacity-100"
+            x-transition:leave-end="scale-95 opacity-0"
+            class="fixed inset-0 flex h-screen transition transform duration-300 pt-[13vh] justify-center w-full">{{photosApplet.applet(title='photos', maxWidth='max-w-[335px]', height='xs:h-[495px]', data=photos)}}</div>
+        <div x-show="activeApplet === 'design'"
+            x-transition:enter="origin-top"
+            x-transition:enter-start="scale-95  opacity-0"
+            x-transition:enter-end="scale-100 opacity-100"
+            x-transition:leave="origin-bottom"
+            x-transition:leave-start="scale-100 opacity-100"
+            x-transition:leave-end="scale-95 opacity-0"
+            class="fixed inset-0 flex h-screen transition transform duration-300 pt-[13vh] justify-center w-full">{{designApplet.applet(title='design', maxWidth='max-w-[740px]', height='xs:h-[340px]')}}</div>
+        <div x-show="activeApplet === 'posts'"
+            x-transition:enter="origin-top"
+            x-transition:enter-start="scale-95  opacity-0"
+            x-transition:enter-end="scale-100 opacity-100"
+            x-transition:leave="origin-bottom"
+            x-transition:leave-start="scale-100 opacity-100"
+            x-transition:leave-end="scale-95 opacity-0"
+            class="fixed inset-0 flex h-screen transition transform duration-300 pt-[13vh] justify-center w-full">{{postsApplet.applet(title='posts', maxWidth='max-w-[740px]', height='xs:h-[460px]', data=collections.posts)}}</div>
       </div>
 {% endblock %}

@@ -2,7 +2,6 @@
     <div
         id="{{title}}Applet"
         data-applet="{{title}}"
-        data-js="applet"
         @click="setActiveApplet('{{title}}')"
         class="xs:{{maxWidth}} {{height}} h-full flex-1 w-full flex flex-col px-2 pt-2 gap-3 rounded-lg bg-ui-applet-bg overflow-hidden transform xs:flex relative"
         :class="activeApplet === '{{title}}' ? 'xs:shadow-applet-active shadow-applet-idle' :'shadow-applet-idle hidden'">

@@ -245,9 +245,9 @@
     padding: 2px 4px;
     margin: 0;
     background-color: theme("colors.clr.highlight");
-    border-width: 1px;
-    border-style: solid;
-    border-color: theme("colors.ui.divider");
+    /* border-width: 1px; */
+    /* border-style: solid; */
+    /* border-color: theme("colors.ui.divider"); */
   }
 
   .prose pre {
