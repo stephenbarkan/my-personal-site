@@ -57,7 +57,6 @@
                 x-data="{
                     count: {{post.images.length}},
                     currentIndex: 1,
-                    offset: $refs.slider.firstElementChild.getBoundingClientRect().width,
                     next() {
                         $refs.slider.style.setProperty('--tw-translate-x', -1 * (this.currentIndex * 100) + '%')
                         this.currentIndex = Math.min((this.currentIndex + 1), this.count);
