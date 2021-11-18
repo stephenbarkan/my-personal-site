@@ -1,4 +1,19 @@
 {% set heartIcon %}{% include "icons/heart-fill.svg" %}{% endset %}
+{% macro topbarButton(title, featured, onClick, tab=true) %}
+    <button
+    {% if tab %}
+        :class="activeApplet === '{{title}}' ? 'bg-ui-divider text-display-primary' : 'text-display-secondary'"
+        @click="setActiveApplet('{{title}}')"
+    {% else %}
+        @click="{{onClick}}"
+        :class="open && ' bg-ui-divider'"
+    {% endif %}
+        class="{% if featured %}font-medium text-display-primary{% endif %}
+            text-sm leading-none px-2 capitalize pt-[6px] pb-[7px] rounded-sm hover:bg-ui-divider">
+        {{title}}
+    </button>
+{% endmacro %}
+
 
 <header :data-applet="activeApplet" class="flex items-center justify-between w-full px-5 py-px bg-ui-topbar-bg shadow-topbar backdrop-blur">
     <div class="flex space-x-1">
@@ -21,18 +36,3 @@
         <time data-clock class="text-sm leading-none text-display-secondary"></time>
     </div>
 </header>
-
-{% macro topbarButton(title, featured, onClick, tab=true) %}
-    <button
-    {% if tab %}
-        :class="activeApplet === '{{title}}' ? 'bg-ui-divider text-display-primary' : 'text-display-secondary'"
-        @click="setActiveApplet('{{title}}')"
-    {% else %}
-        @click="{{onClick}}"
-        :class="open && ' bg-ui-divider'"
-    {% endif %}
-        class="{% if featured %}font-medium text-display-primary{% endif %}
-            text-sm leading-none px-2 capitalize pt-[6px] pb-[7px] rounded-sm hover:bg-ui-divider">
-        {{title}}
-    </button>
-{% endmacro %}

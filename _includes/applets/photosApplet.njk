@@ -18,10 +18,10 @@
             x-transition:enter="ease-in duration-200 delay-150"
             x-transition:enter-start="opacity-0 scale-125"
             x-transition:enter-end="opacity-100 scale-100"
-            x-transition:leave="ease-out duration-500"
-            x-transition:leave-start="opacity-100"
+            x-transition:leave="ease-out duration-500 delay-75"
+            x-transition:leave-start="opacity-100 "
             x-transition:leave-end="scale-150 opacity-0"
-            class="block col-span-1 col-start-1 row-start-1 transition transform text-clr-solid group-active:scale-125" x-show="liked">{% include "icons/heart-fill.svg" %}</span>
+            class="block col-span-1 col-start-1 row-start-1 transition transform text-clr-solid group-active:scale-110" x-show="liked">{% include "icons/heart-fill.svg" %}</span>
     </div>
 {% endset %}
 {% set label %}
@@ -53,35 +53,51 @@
         <section class="flex flex-col flex-1 gap-8">
             {% for post in data %}
             <div
+                :key="{{loop.index}}"
                 x-data="{
                     count: {{post.images.length}},
                     currentIndex: 1,
-                    currentPos: $refs.slider.scrollLeft,
                     offset: $refs.slider.firstElementChild.getBoundingClientRect().width,
                     next() {
-                        let currentPos = $refs.slider.scrollLeft
-                        $refs.slider.scrollTo({ left: currentPos + this.offset, behavior: 'smooth' })
+                        $refs.slider.style.setProperty('--tw-translate-x', -1 * (this.currentIndex * 100) + '%')
                         this.currentIndex = Math.min((this.currentIndex + 1), this.count);
                     },
                     prev() {
-                        let currentPos = $refs.slider.scrollLeft
-                        $refs.slider.scrollTo({ left: currentPos - this.offset, behavior: 'smooth' })
                         this.currentIndex = Math.max((this.currentIndex - 1), 1);
+                        $refs.slider.style.setProperty('--tw-translate-x', -1 * ((this.currentIndex -1)  * 100) + '%')
                     }
                 }"
                 class="flex flex-col gap-3">
                 {# carousel #}
-                <div class="relative overflow-hidden">
+                <div class="relative overflow-hidden rounded">
 
                     {% if post.images.length > 1 %}
-                    <div class="absolute flex justify-between w-full transform -translate-y-1/2 top-1/2">
-                        <button @click="prev" x-show="currentIndex > 1" class="z-10 p-3 transition transform hover:scale-110"><span class="block w-6 h-6 rounded-full text-btn-bg shadow-btn-basic ">{{prevPhoto | safe}}</span></button>
-                        <button @click="next" x-show="currentIndex < {{post.images.length}}" class="z-10 p-3 ml-auto transition transform hover:scale-110"><span class="block w-6 h-6 rounded-full text-btn-bg shadow-btn-basic ">{{nextPhoto | safe}}</span></button>
+                    <div class="absolute z-10 flex justify-between w-full transform -translate-y-1/2 top-1/2">
+                        <button
+                            @click="prev"
+                            x-transition:enter="duration-250 delay-150"
+                            x-transition:enter-start="opacity-0 translate-x-8"
+                            x-transition:enter-end="opacity-100 scale-100"
+                            x-transition:leave="duration-300 delay-75"
+                            x-transition:leave-start="opacity-100 scale-100"
+                            x-transition:leave-end="opacity-0 translate-x-8"
+                            x-show="currentIndex > 1"
+                            class="z-10 p-3 transition transform active:scale-90 hover:scale-110"><span class="block w-6 h-6 rounded-full text-btn-bg shadow-btn-basic">{{prevPhoto | safe}}</span></button>
+                        <button
+                            @click="next"
+                            x-transition:enter="duration-250 delay-150"
+                            x-transition:enter-start="opacity-0 -translate-x-8"
+                            x-transition:enter-end="opacity-100 scale-100"
+                            x-transition:leave="duration-300 delay-75"
+                            x-transition:leave-start="opacity-100 scale-100"
+                            x-transition:leave-end="opacity-0 -translate-x-8"
+                            x-show="currentIndex < {{post.images.length}}"
+                            class="z-10 p-3 ml-auto transition transform active:scale-90 hover:scale-110"><span class="block w-6 h-6 rounded-full text-btn-bg shadow-btn-basic">{{nextPhoto | safe}}</span></button>
                     </div>
                     {% endif %}
 
                     <div x-ref="slider"
-                        class="flex overflow-hidden rounded"
+                        class="flex transition-transform duration-500 transform translate-x-0"
                         style="scroll-snap-type: x mandatory;">
                         {% for image in post.images %}
                             <img class="object-fill" style="scroll-snap-align: start;" src="{{image}}" alt="">

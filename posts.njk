@@ -1,8 +1,11 @@
 ---
 layout: default
 ---
+{% block topbar %}{% endblock %}
 {% import "applets/postsApplet.njk" as "postsApplet" %}
-
+{% block content %}
 <div class="flex items-center justify-center flex-1 w-full row-start-2 gap-3 py-2 overflow-auto page-container">
     {{postsApplet.applet(title='posts', maxWidth='max-w-[90vw]', height='xs:h-[90vh]', data=collections.posts)}}
 </div>
+
+{% endblock %}

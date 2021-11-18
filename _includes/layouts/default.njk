@@ -46,9 +46,13 @@
     :data-active-applet="activeApplet"
     :data-applet="activeApplet"
     class="w-full h-screen text-base antialiased transition-all duration-1000 shadow-body easing-linear text-display-primary bg-ui-wallpaper" style="background-image: url(/images/dot-pattern.svg)">
-    {% block content %}
-      {{ content | safe }}
-    {% endblock %}
+      <main class="grid w-full h-screen grid-rows-site">
+        <div class="hidden sm:block">{% include "components/topbar.njk" %}</div>
+            {% block content %}
+                {{ content | safe }}
+            {% endblock %}
+        <div class="row-start-3 p-2 pt-0 page-container xs:hidden">{% include "components/bottombar.njk" %}</div>
+    </main>
 </div>
     <script defer src="https://unpkg.com/alpinejs@3.5.0/dist/cdn.min.js"></script>
     <script src="/../scripts/activeApplet.js"></script>
