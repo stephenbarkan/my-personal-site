@@ -1,12 +1,14 @@
 {% extends "layouts/default.njk" %}
-{% import "applets/postsApplet.njk" as "postsApplet" %}
 {% import "applets/photosApplet.njk" as "photosApplet" %}
+{% import "applets/designApplet.njk" as "designApplet" %}
+{% import "applets/postsApplet.njk" as "postsApplet" %}
 {% block title %}Stephen Barkan{% endblock %}
 
 
 {% block content %}
       <div class="flex items-center justify-center flex-1 w-full row-start-2 gap-3 py-2 overflow-auto page-container">
-        {{postsApplet.applet(title='posts', maxWidth='max-w-[740px]', height='xs:h-[460px]', data=collections.posts)}}
-        {{photosApplet.applet(title='photos', maxWidth='max-w-[335px]', height='xs:h-[495px]', data=photos)}}
+        {# {{photosApplet.applet(title='photos', maxWidth='max-w-[335px]', height='xs:h-[495px]', data=photos)}} #}
+        {{designApplet.applet(title='design', maxWidth='max-w-[740px]', height='xs:h-[340px]')}}
+        {# {{postsApplet.applet(title='posts', maxWidth='max-w-[740px]', height='xs:h-[460px]', data=collections.posts)}} #}
       </div>
 {% endblock %}

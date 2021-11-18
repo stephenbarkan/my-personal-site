@@ -1,0 +1,28 @@
+{% set heartIcon %}{% include "icons/heart-fill.svg" %}{% endset %}
+{% set editIcon %}{% include "icons/edit-fill.svg" %}{% endset %}
+{% set chatIcon %}{% include "icons/chat-fill.svg" %}{% endset %}
+{% set musicIcon %}{% include "icons/music-fill.svg" %}{% endset %}
+{% set groupIcon %}{% include "icons/group-fill.svg" %}{% endset %}
+
+{% macro appletIcon(icon, applet) %}
+    <div class="flex flex-col items-center gap-1.5">
+        <button @click="activeApplet = '{{applet}}'" data-applet="{{applet}}" class="grid w-10 h-10 rounded-lg shadow-app-icon place-content-center text-clr-solid bg-clr-tint">
+            <div class="w-5 h-5">{{icon | safe}}</div>
+        </button>
+        <span
+            x-show="activeApplet === '{{applet}}'"
+            x-transition.duration.300
+            class="block w-1 h-1 rounded-full bg-clr-solid">
+        </span>
+    </div>
+{% endmacro %}
+        <footer class="flex justify-center w-full pb-2">
+            <nav class="flex px-3 pb-1.5 pt-3 rounded-[15px] gap-3 bg-ui-topbar-bg backdrop-blur shadow-applet-idle min-w-[200px]">
+                {{ appletIcon(applet="photos", icon=heartIcon) }}
+                {{ appletIcon(applet="design", icon=groupIcon) }}
+                {{ appletIcon(applet="posts", icon=editIcon) }}
+                {{ appletIcon(applet="music", icon=musicIcon) }}
+                {{ appletIcon(applet="chat", icon=chatIcon) }}
+            </nav>
+
+        </footer>

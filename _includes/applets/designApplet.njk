@@ -1,0 +1,24 @@
+{% extends "components/appletShell.njk" %}
+{% import "components/button.njk" as "btn"%}
+{% set closeIcon %}{% include "icons/close.svg" %}{% endset %}
+{% set chevronLeftIcon %}{% include "icons/chevron-left.svg" %}{% endset %}
+{% block content %}
+    test
+{% endblock %}
+
+
+{% macro postLink(title, date, isPinned, class, fileSlug) %}
+    <a href="#" :class="{ 'bg-clr-highlight shadow-list-inset': openPost === '{{fileSlug}}' }" @click.prevent="openPost = '{{fileSlug}}'; open=false" class="{{class}} group block flex rounded pb-2.5 pt-2 space-x-3 pr-2 pl-2.5 hover:bg-clr-highlight active:shadow-list-inset">
+        <div class="space-y-1.5 overflow-hidden flex-1 transform group-active:translate-y-px transition" :class="openPost === '{{fileSlug}}' && 'translate-y-px'">
+            <p class="truncate"  :class="{'text-display-primary': openPost === '{{fileSlug}}', 'active:text-display-primary text-display-secondary': openPost !=='{{fileSlug}}'}">{{title}}</p>
+            <time class="block text-sm text-display-tertiary">{{date | dateDisplay}}</time>
+        </div>
+        {% if (isPinned) %}
+            <div
+                class="flex-shrink-0 pt-0.5 h-15 w-15"
+                :class="{'text-clr-solid': openPost === '{{fileSlug}}', 'text-display-tertiary': openPost !=='{{fileSlug}}'}">
+                {% include "icons/pin-fill.svg" %}
+            </div>
+        {% endif %}
+    </a>
+{% endmacro %}

@@ -4,7 +4,7 @@
         data-applet="{{title}}"
         data-js="applet"
         @click="setActiveApplet('{{title}}')"
-        class="xs:{{maxWidth}} {{height}} h-full flex-1 w-full flex flex-col px-2 pt-2 gap-3 rounded-lg bg-ui-applet-bg overflow-hidden transform transition-all xs:flex relative"
+        class="xs:{{maxWidth}} {{height}} h-full flex-1 w-full flex flex-col px-2 pt-2 gap-3 rounded-lg bg-ui-applet-bg overflow-hidden transform transition-transform xs:flex relative"
         :class="activeApplet === '{{title}}' ? 'xs:shadow-applet-active shadow-applet-idle -translate-y-px duration-150' :'shadow-applet-idle hidden'">
         <header class="flex justify-center w-full px-2 py-1.5 rounded bg-clr-tint shadow-applet-header">
             <h2 class="text-sm font-medium text-display-secondary">{{title | capitalize}}</h2>

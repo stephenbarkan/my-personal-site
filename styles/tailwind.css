@@ -27,61 +27,73 @@
     --btn-bg: rgba(252, 252, 252, 1);
     --btn-border: rgba(0, 0, 0, 0.12);
     --btn-bg-hover: rgba(247, 247, 247, 1);
+
+    /* shadow colors */
+    --shadow-photos: 20deg 11% 66%;
+    --shadow-design: 270deg 5% 75%;
+    --shadow-posts: 41deg 15% 75%;
+    --shadow-music: 91deg 8% 66%;
+    --shadow-chat: 206deg 9% 76%;
   }
 
   [data-active-applet="photos"] {
     --wallpaper: rgba(247, 241, 238, 1);
-    --shadow-color: 20deg 11% 66%;
+    --shadow-color: var(--shadow-photos);
   }
   [data-applet="photos"] {
     --clr-solid: 252, 102, 79;
     --clr-tint: rgba(255, 237, 228, 1);
     --clr-highlight: rgba(245, 243, 243, 1);
     --btn-bg-hover: rgba(249, 247, 246, 1);
+    --border-color: var(--shadow-photos);
   }
 
   [data-active-applet="design"] {
     --wallpaper: rgba(242, 240, 244, 1);
-    --shadow-color: 270deg 5% 75%;
+    --shadow-color: var(--shadow-design);
   }
   [data-applet="design"] {
     --clr-solid: 85, 71, 236;
     --clr-tint: rgba(237, 235, 255, 1);
     --clr-highlight: rgba(244, 244, 246, 1);
     --btn-bg-hover: rgba(247, 247, 248, 1);
+    --border-color: var(--shadow-design);
   }
 
   [data-active-applet="posts"] {
     --wallpaper: rgba(248, 245, 236, 1);
-    --shadow-color: 41deg 15% 75%;
+    --shadow-color: var(--shadow-posts);
   }
   [data-applet="posts"] {
     --clr-solid: 233, 155, 65;
     --clr-tint: rgba(255, 245, 221, 1);
     --clr-highlight: rgba(246, 245, 244, 1);
     --btn-bg-hover: rgba(248, 248, 246, 1);
+    --border-color: var(--shadow-posts);
   }
 
   [data-active-applet="music"] {
     --wallpaper: #f2f5ef;
-    --shadow-color: 91deg 8% 66%;
+    --shadow-color: var(--shadow-music);
   }
   [data-applet="music"] {
     --clr-solid: 50, 184, 168;
     --clr-tint: rgba(221, 248, 232, 1);
     --clr-highlight: rgba(244, 246, 245, 1);
     --btn-bg-hover: rgba(246, 248, 247, 1);
+    --border-color: var(--shadow-music);
   }
 
   [data-active-applet="chat"] {
     --wallpaper: #edf3f7;
-    --shadow-color: 206deg 9% 76%;
+    --shadow-color: var(--shadow-chat);
   }
   [data-applet="chat"] {
     --clr-solid: 10, 152, 235;
     --clr-tint: rgba(225, 241, 255, 1);
     --clr-highlight: rgba(241, 243, 244, 1);
     --btn-bg-hover: rgba(246, 248, 249, 1);
+    --border-color: var(--shadow-chat);
   }
 }
 

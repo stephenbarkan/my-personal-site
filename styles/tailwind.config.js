@@ -41,7 +41,9 @@ module.exports = {
       "inset-stroke":
         "0px 0px 0px 0.6px inset hsla(var(--shadow-color) /  0.40)",
       "applet-header":
-        "0px 1px 1px 0px hsla(var(--shadow-color) / 0.04), 0px 1px 1px 0px rgba(var(--clr-solid), 0.20), 0px 0px 0px 0.6px hsla(var(--shadow-color) / 0.3)",
+        "0px 1px 1px 0px hsla(var(--shadow-color) / 0.04), 0px 1px 1px 0px rgba(var(--clr-solid), 0.20), 0px 0px 0px 0.6px hsla(var(--border-color) / 0.3)",
+      "app-icon":
+        "0px 1px 1px 0px hsla(var(--shadow-color) / 0.15), 0px 1px 3px 0px rgba(var(--clr-solid), 0.20), 0 1px 1px 0px inset rgba(255,255,255, .5), 0 -1px 1px 0px inset hsla(var(--shadow-color)/ .15), 0px 0px 0px 0.6px hsla(var(--border-color) / 0.3)",
       "btn-basic":
         "0px 1px 1px hsla(var(--shadow-color) / 0.40), 0px 0px 0px 0.6px hsla(var(--shadow-color) /  0.40)",
       "btn-basic-inset":
@@ -75,7 +77,7 @@ module.exports = {
       },
       ui: {
         "applet-bg": "var(--applet-bg)",
-        divider: "var(--divider)",
+        divider: "hsla(var(--border-color) / 0.3)",
         shade: "var(--shade)",
         "topbar-bg": "var(--topbar-bg)",
         wallpaper: "var(--wallpaper)",
