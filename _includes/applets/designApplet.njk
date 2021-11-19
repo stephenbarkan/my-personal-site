@@ -1,24 +1,61 @@
 {% extends "components/appletShell.njk" %}
 {% import "components/button.njk" as "btn"%}
-{% set closeIcon %}{% include "icons/close.svg" %}{% endset %}
-{% set chevronLeftIcon %}{% include "icons/chevron-left.svg" %}{% endset %}
+
+
+
+
 {% block content %}
-    test
+<div class="flex gap-3 overflow-hidden">
+    {# folders #}
+    <div
+        x-data="{openDesign: 1}"
+        class="flex flex-col gap-3 px-px pb-6 overflow-auto xs:min-w-[280px]">
+            {% for design in designFolders %}
+                {{designListItem(title=design.title, date=design.date, index=loop.index, type=design.type)}}
+            {% endfor %}
+    </div>
+    <div class="divider vertical"></div>
+    {# subfolders #}
+    <div
+        x-data="{openDesign: 0}"
+        class="flex flex-col gap-3 px-px pb-6 overflow-auto">
+            {% for design in collections.design %}
+                {{designListItem(title=design.data.title, date=design.data.publishDate, index=loop.index, type=design.data.type)}}
+            {% endfor %}
+    </div>
+    <div class="divider vertical"></div>
+</div>
 {% endblock %}
 
+{% macro designListItem(title, date, class, onClick, type, index) %}
+    {% set icon %}
+        {% if type === "website" %}{% include "icons/website.svg" %}{% endif %}
+        {% if type === "game" %}{% include "icons/dice.svg" %}{% endif %}
+        {% if type === "plugin" %}{% include "icons/plugin.svg" %}{% endif %}
+        {% if type === "fun" %}{% include "icons/mix.svg" %}{% endif %}
+        {% if type === "work" %}{% include "icons/briefcase.svg" %}{% endif %}
+        {% if type === "volunteer" %}{% include "icons/rocket.svg" %}{% endif %}
+    {% endset %}
 
-{% macro postLink(title, date, isPinned, class, fileSlug) %}
-    <a href="#" :class="{ 'bg-clr-highlight shadow-list-inset': openPost === '{{fileSlug}}' }" @click.prevent="openPost = '{{fileSlug}}'; open=false" class="{{class}} group block flex rounded pb-2.5 pt-2 space-x-3 pr-2 pl-2.5 hover:bg-clr-highlight active:shadow-list-inset">
-        <div class="space-y-1.5 overflow-hidden flex-1 transform group-active:translate-y-px transition" :class="openPost === '{{fileSlug}}' && 'translate-y-px'">
-            <p class="truncate"  :class="{'text-display-primary': openPost === '{{fileSlug}}', 'active:text-display-primary text-display-secondary': openPost !=='{{fileSlug}}'}">{{title}}</p>
-            <time class="block text-sm text-display-tertiary">{{date | dateDisplay}}</time>
-        </div>
-        {% if (isPinned) %}
+    <button
+        @click="openDesign = {{index}}"
+        :class="{ 'bg-clr-highlight shadow-list-inset': openDesign === {{index}} }"
+        class="{{class}} text-left group block rounded pb-2.5 pt-2 pr-2 pl-3 hover:bg-clr-highlight active:shadow-list-inset">
+        <div
+            :class="openDesign === {{index}} && 'translate-y-px'"
+            class="flex gap-3 transition transform group-active:translate-y-px">
             <div
-                class="flex-shrink-0 pt-0.5 h-15 w-15"
-                :class="{'text-clr-solid': openPost === '{{fileSlug}}', 'text-display-tertiary': openPost !=='{{fileSlug}}'}">
-                {% include "icons/pin-fill.svg" %}
+                :class="openDesign === {{index}} ? 'text-clr-solid' : 'text-display-tertiary'"
+                class="self-center w-5 h-5">{{icon | safe }}</div>
+            <div class="divider vertical"></div>
+            <div class="flex-1 space-y-1.5 overflow-hidden flex-1">
+                <p
+                    :class="openDesign === {{index}} ? 'text-display-primary' : 'group-active:text-display-primary text-display-secondary'"
+                    class="truncate">
+                    {{title}}
+                </p>
+                <time class="block text-sm text-display-tertiary">{{date}}</time>
             </div>
-        {% endif %}
-    </a>
+        </div>
+    </button>
 {% endmacro %}

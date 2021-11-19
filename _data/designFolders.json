@@ -1,0 +1,26 @@
+[
+  {
+    "id": "doist",
+    "title": "Doist",
+    "type": "work",
+    "date": "2020 – current"
+  },
+  {
+    "id": "ink",
+    "title": "INK Communications",
+    "type": "work",
+    "date": "2018 – 2019"
+  },
+  {
+    "id": "fun",
+    "title": "For fun",
+    "type": "fun",
+    "date": "2018 – current"
+  },
+  {
+    "id": "volunteer",
+    "title": "Volunteer & Freelance",
+    "type": "volunteer",
+    "date": "2018 – 2020"
+  }
+]

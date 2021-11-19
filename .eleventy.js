@@ -50,4 +50,8 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addCollection("posts", (collection) => {
     return collection.getFilteredByTag("post").reverse().filter(publishedPosts);
   });
+
+  eleventyConfig.addCollection("designs", (collection) => {
+    return collection.getFilteredByTag("design").reverse();
+  });
 };
