@@ -1,5 +1,5 @@
 ---
-title: INK Communications Website
+title: INK
 link: https://ink-co.com
 publishDate: May 2019
 type: website

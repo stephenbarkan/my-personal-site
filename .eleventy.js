@@ -52,6 +52,6 @@ module.exports = function (eleventyConfig) {
   });
 
   eleventyConfig.addCollection("designs", (collection) => {
-    return collection.getFilteredByTag("design").reverse();
+    return collection.getFilteredByTag("design");
   });
 };

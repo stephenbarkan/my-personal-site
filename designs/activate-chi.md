@@ -6,5 +6,5 @@ publishDate: Feb 2021
 type: website
 contribution: branding, design, coding
 tags:
-  - freelance
+  - volunteer
 ---

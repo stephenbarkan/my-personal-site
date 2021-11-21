@@ -1,5 +1,5 @@
 ---
-title: Figma Catan Board Game
+title: Figma Catan
 link: https://www.figma.com/community/file/829756731869897668/Figma-Catan
 publishDate: Mar 2020
 type: game

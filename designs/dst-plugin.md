@@ -1,5 +1,5 @@
 ---
-title: Doist Utilities Figma Plugin
+title: Doist Utilities
 link: https://www.figma.com/community/plugin/905632536371558180/Doist-Utilities
 publishDate: Jan 2021
 type: plugin

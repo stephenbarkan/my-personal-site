@@ -1,6 +1,5 @@
 ---
-title: Doist Website
-subtitle: Marketing Website
+title: Doist
 link: https://doist.com/
 publishDate: Sep 2020
 type: website

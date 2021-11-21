@@ -1,5 +1,5 @@
 ---
-title: Twist Marketing Website
+title: Twist
 link: https://twist.com/home
 publishDate: Oct 2021 – current
 type: website

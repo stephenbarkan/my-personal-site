@@ -1,6 +1,6 @@
 {% macro applet(title, maxWidth, height, data) %}
     <div
-        id="{{title}}Applet"
+        data-is-applet
         data-applet="{{title}}"
         @click="setActiveApplet('{{title}}')"
         class="xs:{{maxWidth}} {{height}} h-full flex-1 w-full flex flex-col px-2 pt-2 gap-3 rounded-lg bg-ui-applet-bg overflow-hidden transform xs:flex relative"

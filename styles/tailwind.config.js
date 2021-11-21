@@ -17,6 +17,9 @@ module.exports = {
       gridTemplateRows: {
         site: "min-content 1fr min-content",
       },
+      gridTemplateColumns: {
+        dl: "min-content 1fr",
+      },
       zIndex: {
         "-1": "-1",
       },
@@ -48,7 +51,8 @@ module.exports = {
         "0px 1px 1px hsla(var(--scoped-shadow-color) / 0.40), 0px 0px 0px 0.6px hsla(var(--scoped-shadow-color) /  0.40)",
       "btn-basic-inset":
         "0px 1px 1px inset hsla(var(--scoped-shadow-color) / 0.2), 0px 0px 0px 0.6px hsla(var(--scoped-shadow-color) / 0.40)",
-      "list-inset": "0px 1px 1px inset hsla(var(--scoped-shadow-color) / .3)",
+      "list-inset":
+        "0px 1px 2px inset hsla(var(--scoped-shadow-color) / .3), 0px 0px .6px inset hsla(var(--scoped-shadow-color) / .4)",
       "btn-highlight":
         "0px 0px 0px 0.6px #005CAF, 0px 1px 1px rgba(0, 0, 0, 0.07)",
       topbar:

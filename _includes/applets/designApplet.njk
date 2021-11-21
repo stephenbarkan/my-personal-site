@@ -1,33 +1,57 @@
 {% extends "components/appletShell.njk" %}
 {% import "components/button.njk" as "btn"%}
-
+{% set chevronRightIcon %}{% include "icons/chevron-right.svg" %}{% endset %}
+{% set externalLinkIcon %}{% include "icons/external-link.svg" %}{% endset %}
 
 
 
 {% block content %}
-<div class="flex gap-3 overflow-hidden">
+<div
+    x-data="{currentFolder: null, currentItem: null}"
+    x-ref="scroller"
+    class="flex h-full gap-3 overflow-auto">
     {# folders #}
-    <div
-        x-data="{openDesign: 1}"
-        class="flex flex-col gap-3 px-px pb-6 overflow-auto xs:min-w-[280px]">
-            {% for design in designFolders %}
-                {{designListItem(title=design.title, date=design.date, index=loop.index, type=design.type)}}
-            {% endfor %}
-    </div>
-    <div class="divider vertical"></div>
-    {# subfolders #}
-    <div
+    <ul
         x-data="{openDesign: 0}"
-        class="flex flex-col gap-3 px-px pb-6 overflow-auto">
-            {% for design in collections.design %}
-                {{designListItem(title=design.data.title, date=design.data.publishDate, index=loop.index, type=design.data.type)}}
+        class="flex flex-col gap-1 px-px overflow-auto flex-shrink-0 xs:min-w-[250px]">
+            {% for design in designFolders %}
+                <li>{{designListItem(title=design.title, date=design.date, index=loop.index, type=design.type, id=design.id, content="folder", class="w-full")}}</li>
             {% endfor %}
-    </div>
-    <div class="divider vertical"></div>
+        <div @click="openDesign = null; currentFolder = null; currentItem = null; $dispatch('reset-current-item')" class="flex-1 pb-6"></div>
+    </ul>
+    <div class="mb-3 divider vertical"></div>
+    {# subfolders #}
+    <ul
+        x-data="{openDesign: 0}"
+        @reset-current-item.window="openDesign = null; currentItem = null"
+        class="flex flex-col gap-1 px-px overflow-auto flex-shrink-0 xs:min-w-[250px]">
+        {% for design in collections.design %}
+            <li x-show="currentFolder === '{{design.data.tags[1]}}'">{{designListItem(title=design.data.title, date=design.data.publishDate, index=loop.index, type=design.data.type, id=design.data.title, content="item", class="w-full")}}</li>
+        {% endfor %}
+        <div @click="openDesign = null; currentItem = null; $dispatch('reset-current-item')" class="flex-1 pb-6"></div>
+    </ul>
+    <div x-show="currentFolder" class="mb-3 divider vertical"></div>
+    {% for design in collections.design %}
+    <template x-if="currentItem === '{{design.data.title}}'">
+        <div class="flex-shrink-0 px-px overflow-auto flex flex-col items-center gap-8 py-4 w-[300px]">
+            <h3 class="text-xl text-center">{{design.data.title}} <span class="capitalize">{{design.data.type}}</span></h3>
+            {{btn.button(label="View project", icon=externalLinkIcon, as="a", href=design.data.link, newTab=true)}}
+            <div class="w-full divider"></div>
+            <dl class="grid items-baseline max-w-full text-display-secondary grid-cols-dl gap-x-6 gap-y-4">
+                <dt class="text-sm text-display-tertiary">Details</dt>
+                <dl>{{design.data.excerpt}}</dl>
+                <dt class="text-sm text-display-tertiary">Contribution</dt>
+                <dl class="capitalize">{{design.data.contribution}}</dl>
+                <dt class="text-sm text-display-tertiary">Date</dt>
+                <dl>{{design.data.publishDate}}</dl>
+            </dl>
+        </div>
+    </template>
+    {% endfor %}
 </div>
 {% endblock %}
 
-{% macro designListItem(title, date, class, onClick, type, index) %}
+{% macro designListItem(title, date, class, onClick, type, index, id, content) %}
     {% set icon %}
         {% if type === "website" %}{% include "icons/website.svg" %}{% endif %}
         {% if type === "game" %}{% include "icons/dice.svg" %}{% endif %}
@@ -38,23 +62,34 @@
     {% endset %}
 
     <button
-        @click="openDesign = {{index}}"
+        @click="
+            openDesign = {{index}};
+            if ('{{content}}' === 'folder') {
+                currentFolder='{{id}}'
+                $dispatch('reset-current-item')
+            } else {
+                currentItem='{{id}}'
+            }
+            $nextTick(() => { $refs.scroller.scrollTo({ left: 1000 }) })"
         :class="{ 'bg-clr-highlight shadow-list-inset': openDesign === {{index}} }"
-        class="{{class}} text-left group block rounded pb-2.5 pt-2 pr-2 pl-3 hover:bg-clr-highlight active:shadow-list-inset">
+        class="{{class}} text-left group block rounded pb-2 pt-1.5 px-2 hover:bg-clr-highlight active:shadow-list-inset">
         <div
             :class="openDesign === {{index}} && 'translate-y-px'"
-            class="flex gap-3 transition transform group-active:translate-y-px">
+            class="flex items-center gap-3 transition transform group-active:translate-y-px">
             <div
                 :class="openDesign === {{index}} ? 'text-clr-solid' : 'text-display-tertiary'"
-                class="self-center w-5 h-5">{{icon | safe }}</div>
-            <div class="divider vertical"></div>
-            <div class="flex-1 space-y-1.5 overflow-hidden flex-1">
+                class="w-15 h-15">{{icon | safe }}
+            </div>
+            <div class="flex-1 flex gap-1.5 items-baseline overflow-hidden">
                 <p
                     :class="openDesign === {{index}} ? 'text-display-primary' : 'group-active:text-display-primary text-display-secondary'"
                     class="truncate">
                     {{title}}
                 </p>
                 <time class="block text-sm text-display-tertiary">{{date}}</time>
+            </div>
+            <div class="w-15 h-15 text-display-tertiary">
+                {{chevronRightIcon | safe }}
             </div>
         </div>
     </button>
