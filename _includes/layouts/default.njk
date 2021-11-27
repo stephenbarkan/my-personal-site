@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="/style.css?v={% version %}"/>
     {% block head %}{% endblock %}
   </head>
-  <body data-active-applet="posts" class="bg-ui-wallpaper">
+  <body data-active-applet="posts" class="bg-scroll bg-ui-wallpaper">
   <div id="app"
     x-data="{
         activeApplet: 'photos',
@@ -51,14 +51,14 @@
     x-init="getInitActiveApplet(), setActiveApplet(activeApplet)"
     :data-active-applet="activeApplet"
     :data-applet="activeApplet"
-    class="w-full h-screen text-base antialiased transition-all duration-1000 shadow-body easing-linear text-display-primary bg-ui-wallpaper" style="background-image: url(/images/dot-pattern.svg)">
-      <main class="grid w-full h-screen grid-rows-site">
-        <div class="z-[999] hidden sm:block">{% include "components/topbar.njk" %}</div>
+    class="w-full h-screen overflow-hidden text-base antialiased transition-all duration-1000 shadow-body easing-linear text-display-primary bg-ui-wallpaper" style="background-image: url(/images/dot-pattern.svg)">
+      <main class="flex flex-col w-full h-screen">
+        <div class="z-[999] flex-shrink-0 hidden sm:block">{% include "components/topbar.njk" %}</div>
             {% block content %}
                 {{ content | safe }}
             {% endblock %}
         {# <div class="row-start-3 p-2 pt-0 page-container xs:hidden">{% include "components/bottombar.njk" %}</div> #}
-        <div class="row-start-3 md:hidden page-container">{% include "components/appletIconFooter.njk" %}</div>
+        <div class="sm:absolute flex-shrink-0 z-[999] bottom-0 row-start-3 page-container">{% include "components/appletIconFooter.njk" %}</div>
     </main>
 </div>
     <script defer src="https://unpkg.com/alpinejs@3.5.0/dist/cdn.min.js"></script>

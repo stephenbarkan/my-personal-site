@@ -1,15 +1,20 @@
-{% macro applet(title, maxWidth, height, data) %}
+{% macro applet(title, maxWidth, height, data, posX, posY) %}
+<div
+    data-is-applet
+    data-applet="{{title}}"
+    :class="activeApplet !== '{{title}}' && 'hidden sm:block'"
+    @click="setActiveApplet('{{title}}')"class="h-full sm:h-auto max-w-full {{posX}} {{posY}} grid-inset-0 sm:absolute transform">
     <div
-        data-is-applet
-        data-applet="{{title}}"
-        @click="setActiveApplet('{{title}}')"
-        class="xs:{{maxWidth}} {{height}} h-full flex-1 w-full flex flex-col px-2 pt-2 gap-3 rounded-lg bg-ui-applet-bg overflow-hidden transform xs:flex relative"
-        :class="activeApplet === '{{title}}' ? 'xs:shadow-applet-active shadow-applet-idle' :'shadow-applet-idle hidden'">
-        <header class="flex justify-center w-full px-2 py-1.5 rounded bg-clr-tint shadow-applet-header">
-            <h2 class="text-sm font-medium text-display-secondary">{{title | capitalize}}</h2>
-        </header>
-        <section class="flex flex-col flex-1 px-1 pt-px overflow-hidden">
+        class="xs:{{maxWidth}} {{height}} h-full flex-1 max-w-full flex flex-col pt-2 gap-3 rounded-lg bg-ui-applet-bg overflow-hidden transform xs:flex relative"
+        :class="activeApplet === '{{title}}' ? 'xs:shadow-applet-active shadow-applet-idle' :'shadow-applet-idle'">
+        <div class="px-2">
+            <header class="flex justify-center w-full px-2 py-1.5 rounded bg-clr-tint shadow-applet-header">
+                <h2 class="text-sm font-medium text-display-secondary">{{title | capitalize}}</h2>
+            </header>
+        </div>
+        <section class="flex flex-col flex-1 pt-px overflow-hidden">
             {% block content %}{% endblock %}
         </section>
     </div>
+</div>
 {% endmacro %}

@@ -3,7 +3,7 @@
 {% set closeIcon %}{% include "icons/close.svg" %}{% endset %}
 {% set chevronLeftIcon %}{% include "icons/chevron-left.svg" %}{% endset %}
 {% block content %}
-    <div x-data="{ openPost: 'welcome', open: false }" class="flex flex-1 max-h-full gap-3">
+    <div x-data="{ openPost: 'welcome', open: false }" class="flex flex-1 max-h-full px-3">
         <div
             @click="open = false"
             x-show="open"
@@ -12,7 +12,7 @@
         </div>
         {# desktop sidebar #}
         <aside
-            class="flex flex-col hidden w-48 gap-6 overflow-auto md:block">
+            class="flex flex-col hidden w-48 gap-6 pr-3 overflow-auto md:block">
             <div class="flex flex-col gap-1 md:mt-0">
                 {% for post in data %}
                     {% if post.data.featured == true %}
@@ -56,14 +56,14 @@
                 </ul>
             </div>
         </aside>
-        <div class="hidden md:block divider vertical"></div>
-        <main class="flex justify-center flex-1 max-w-full max-h-full px-3">
+        <div class="hidden mb-3 mr-3 md:block divider vertical"></div>
+        <main class="flex justify-center flex-1 max-w-full max-h-full">
             <div class="flex flex-col flex-1 max-w-full gap-6 p-px">
                 <div @click="open=true" class="self-start md:hidden">{{btn.button(label="All entries", icon=chevronLeftIcon, as="button")}}</div>
                 {% for post in data %}
                 <template x-if="openPost === '{{post.fileSlug}}'">
-                    <article class="flex flex-col items-center flex-1 max-h-full">
-                        <div class="max-w-[550px] xs:w-[83%] w-full overflow-y-auto gap-4 flex flex-col pt-6">
+                    <article class="flex flex-col items-center flex-1 max-h-full overflow-y-auto">
+                        <div class="max-w-[550px] xs:w-[83%] w-full gap-4 flex flex-col pt-6">
                             <time class="text-sm text-display-tertiary">{{post.data.date | dateDisplay}}</time>
                             <h3 class="text-xl">{{post.data.title}}</h3>
                             <div class="pb-6 prose text-display-secondary text-prose">{{post.templateContent | safe}}</div>

@@ -6,11 +6,11 @@
 
 
 {% block content %}
-      <div class="relative flex justify-center flex-1 w-full row-start-2 gap-3 py-2 overflow-auto page-container">
-        <div class="absolute inset-0 grid p-2 grid-absolute">
-            <div class="pt-[3vh] pl-[4.4vw] grid-inset-0">{{designApplet.applet(title='design', maxWidth='max-w-[780px]', height='xs:h-[350px]', data=collections.designs)}}</div>
-            <div class="self-end pb-[2vh] pr-[3.3vw] grid-inset-0 justify-self-end">{{photosApplet.applet(title='photos', maxWidth='max-w-[335px]', height='xs:h-[495px]', data=photos)}}</div>
-            <div class="flex self-center justify-center w-full grid-inset-0 justify-self-center">{{postsApplet.applet(title='posts', maxWidth='max-w-[740px]', height='xs:h-[460px]', data=collections.posts)}}</div>
+      <div class="relative flex justify-center flex-1 row-start-2 gap-3 max-w-[100vw] overflow-hidden page-container">
+        <div class="relative sm:grid w-full grid-absolute max-w-[1640px] p-2">
+            {{designApplet.applet(title='design', maxWidth='w-[780px]', height='sm:h-[350px]', data=collections.designs, posX='left-0 lg:pl-[4.4vw]', posY='top-0 lg:pt-[3vh]')}}
+            {{postsApplet.applet(title='posts', maxWidth='w-[740px]', height='sm:h-[460px]', data=collections.posts, posX='left-1/2 sm:-translate-x-1/2', posY='top-1/2 sm:-translate-y-1/2')}}
+            {{photosApplet.applet(title='photos', maxWidth='w-[335px]', height='sm:h-[495px]', data=photos, posX='right-0 lg:pr-[3.3vw]', posY='bottom-0 lg:pb-[2vh]')}}
         </div>
       </div>
 {% endblock %}

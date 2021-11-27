@@ -7,9 +7,9 @@
 
 {% block content %}
 <div
-    x-data="{currentFolder: null, currentItem: null}"
+    x-data="{currentFolder: 'doist', currentItem: 'Doist Utilities'}"
     x-ref="scroller"
-    class="flex h-full gap-3 overflow-auto">
+    class="flex h-full gap-3 px-3 overflow-auto">
     {# folders #}
     <ul
         x-data="{openDesign: 0}"
@@ -32,14 +32,28 @@
     </ul>
     <div x-show="currentFolder" class="mb-3 divider vertical"></div>
     {% for design in collections.design %}
+    {% set typeIcon %}
+    {% if design.data.type === "website" %}{% include "icons/website.svg" %}{% endif %}
+    {% if design.data.type === "game" %}{% include "icons/dice.svg" %}{% endif %}
+    {% if design.data.type === "plugin" %}{% include "icons/plugin.svg" %}{% endif %}
+    {% if design.data.type === "fun" %}{% include "icons/mix.svg" %}{% endif %}
+    {% if design.data.type === "work" %}{% include "icons/briefcase.svg" %}{% endif %}
+    {% if design.data.type === "volunteer" %}{% include "icons/rocket.svg" %}{% endif %}
+{% endset %}
     <template x-if="currentItem === '{{design.data.title}}'">
-        <div class="flex-shrink-0 px-px overflow-auto flex flex-col items-center gap-8 py-4 w-[300px]">
-            <h3 class="text-xl text-center">{{design.data.title}} <span class="capitalize">{{design.data.type}}</span></h3>
-            {{btn.button(label="View project", icon=externalLinkIcon, as="a", href=design.data.link, newTab=true)}}
+        <div class="flex-shrink-0 px-4 overflow-auto flex flex-col items-start gap-6 py-4 w-[300px]">
+            <div class="flex flex-col gap-5">
+                <div class="grid flex-shrink-0 w-10 h-10 transition transform rounded shadow-applet-header place-content-center text-clr-solid bg-clr-tint">
+                    <div class="w-5 h-5">{{typeIcon | safe}}</div>
+                </div>
+                <div class="flex flex-col items-start gap-1">
+                    <h3 class="text-xl">{{design.data.title}} <span class="capitalize">{{design.data.type}}</span></h3>
+                    <p class="text-display-tertiary">{{design.data.excerpt}}</p>
+                </div>
+            </div>
+                {{btn.button(label="View project", icon=externalLinkIcon, as="a", href=design.data.link, newTab=true)}}
             <div class="w-full divider"></div>
             <dl class="grid items-baseline max-w-full text-display-secondary grid-cols-dl gap-x-6 gap-y-4">
-                <dt class="text-sm text-display-tertiary">Details</dt>
-                <dl>{{design.data.excerpt}}</dl>
                 <dt class="text-sm text-display-tertiary">Contribution</dt>
                 <dl class="capitalize">{{design.data.contribution}}</dl>
                 <dt class="text-sm text-display-tertiary">Date</dt>

@@ -12,8 +12,8 @@
             :disabled="activeApplet === '{{applet}}'"
             style="transform-origin: center 250%;"
             :class="activeApplet === '{{applet}}' ? 'delay-100 duration-300' : 'duration-200 active:scale-[.95] active:duration-300 easing-ease-out hover:-translate-y-1'"
-            class="grid w-12 h-12 transition transform rounded-lg shadow-app-icon place-content-center text-clr-solid bg-clr-tint">
-            <div class="w-6 h-6 filter drop-shadow-app-icon">{{icon | safe}}</div>
+            class="grid w-12 h-12 transition transform rounded-lg shadow-applet-header place-content-center text-clr-solid bg-clr-tint">
+            <div class="w-6 h-6">{{icon | safe}}</div>
         </button>
         <span
             x-show="activeApplet === '{{applet}}'"
