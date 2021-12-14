@@ -82,6 +82,8 @@
     --clr-highlight: rgba(244, 246, 245, 1);
     --btn-bg-hover: rgba(246, 248, 247, 1);
     --scoped-shadow-color: var(--shadow-music);
+    --btn-highlight-border: 173deg 77% 34%;
+    --btn-highlight-hover: 173deg 54% 43%;
   }
 
   [data-active-applet="chat"] {
@@ -313,6 +315,96 @@
   .prose a:hover,
   .prose a:hover * {
     text-decoration: none;
+  }
+
+  /* music progress bar */
+  input[type="range"] {
+    -webkit-appearance: none; /* Hides the slider so that custom slider can be made */
+    width: 100%; /* Specific width is required for Firefox. */
+    background: transparent; /* Otherwise white in Chrome */
+    cursor: pointer;
+  }
+  input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+  }
+  input[type="range"]:focus {
+    outline: none; /* Removes the blue border. You should probably do some kind of focus styling for accessibility reasons though. */
+  }
+  input[type="range"]::-ms-track {
+    width: 100%;
+    /* Hides the slider so custom styles can be added */
+    background: transparent;
+    border-color: transparent;
+    color: transparent;
+  }
+  /* Special styling for WebKit/Blink */
+  input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    box-shadow: theme("boxShadow.btn-basic");
+    height: 16px;
+    width: 16px;
+    border-radius: 999px;
+    background: theme("colors.btn.bg");
+    transform: scale(0);
+    transition-property: transform;
+    transition-timing-function: theme("transitionTimingFunction.DEFAULT");
+    transition-duration: 500ms;
+    transition-delay: 300ms;
+  }
+  input[type="range"]:hover::-webkit-slider-thumb {
+    transform: none;
+    transition-delay: 0ms;
+    transition-duration: 200ms;
+  }
+  input[type="range"]::-webkit-slider-thumb:active,
+  input[type="range"]::-webkit-slider-thumb:hover {
+    background: theme("colors.btn.bg-hover");
+  }
+
+  /* All the same stuff for Firefox */
+  input[type="range"]::-moz-range-thumb {
+    box-shadow: theme("boxShadow.btn-basic");
+    height: 16px;
+    width: 16px;
+    border-radius: 999px;
+    background: theme("colors.btn.bg");
+    transform: scale(0);
+    transition-property: transform;
+    transition-timing-function: theme("transitionTimingFunction.DEFAULT");
+    transition-duration: 500ms;
+    transition-delay: 300ms;
+  }
+  input[type="range"]:hover::-moz-range-thumb {
+    transform: none;
+    transition-delay: 0ms;
+    transition-duration: 200ms;
+  }
+  input[type="range"]::-moz-range-thumb:active,
+  input[type="range"]::-moz-range-thumb:hover {
+    background: theme("colors.btn.bg-hover");
+  }
+
+  /* All the same stuff for IE */
+  input[type="range"]::-ms-thumb {
+    box-shadow: theme("boxShadow.btn-basic");
+    height: 16px;
+    width: 16px;
+    border-radius: 999px;
+    background: theme("colors.btn.bg");
+    transform: scale(0);
+    transition-property: transform;
+    transition-timing-function: theme("transitionTimingFunction.DEFAULT");
+    transition-duration: 500ms;
+    transition-delay: 300ms;
+  }
+  input[type="range"]:hover::-ms-thumb {
+    transform: none;
+    transition-delay: 0;
+    transition-duration: 200ms;
+  }
+  input[type="range"]::-ms-thumb:active,
+  input[type="range"]::-ms-thumb:hover {
+    background: theme("colors.btn.bg-hover");
   }
 }
 

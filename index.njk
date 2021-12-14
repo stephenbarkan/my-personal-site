@@ -2,6 +2,7 @@
 {% import "applets/photosApplet.njk" as "photosApplet" with context %}
 {% import "applets/designApplet.njk" as "designApplet" with context %}
 {% import "applets/postsApplet.njk" as "postsApplet" with context %}
+{% import "applets/musicApplet.njk" as "musicApplet" with context %}
 {% block title %}Stephen Barkan{% endblock %}
 
 
@@ -11,6 +12,7 @@
             {{designApplet.applet(title='design', maxWidth='w-[780px]', height='sm:h-[350px]', data=collections.designs, posX='left-0 lg:pl-[4.4vw]', posY='top-0 lg:pt-[3vh]')}}
             {{postsApplet.applet(title='posts', maxWidth='w-[740px]', height='sm:h-[460px]', data=collections.posts, posX='left-1/2 sm:-translate-x-1/2', posY='top-1/2 sm:-translate-y-1/2')}}
             {{photosApplet.applet(title='photos', maxWidth='w-[335px]', height='sm:h-[495px]', data=photos, posX='right-0 lg:pr-[3.3vw]', posY='bottom-0 lg:pb-[2vh]')}}
+            {{musicApplet.applet(title='music', maxWidth='w-[520px]', height='sm:h-[328px]', data=music, posX='left-0 lg:pl-[2.4vw]', posY='bottom-0 lg:pb-[3vh]')}}
         </div>
       </div>
 {% endblock %}

@@ -1,11 +1,6 @@
 module.exports = {
   mode: "jit",
-  purge: {
-    content: ["_site/**/*.html"],
-    options: {
-      safelist: [],
-    },
-  },
+  content: ["_site/**/*.html"],
   theme: {
     extend: {
       screens: {
@@ -44,17 +39,19 @@ module.exports = {
       "inset-stroke":
         "0px 0px 0px 0.6px inset hsla(var(--global-shadow-color) /  0.40)",
       "applet-header":
-        "0px 1px 1px 0px hsla(var(--global-shadow-color) / 0.04), 0px 1px 1px 0px rgba(var(--clr-solid), 0.20), 0px 0px 0px 0.6px hsla(var(--scoped-shadow-color) / 0.3)",
+        "0px 1px 1px 0px hsla(var(--scoped-shadow-color) / 0.04), 0px 1px 1px 0px rgba(var(--clr-solid), 0.20), 0px 0px 0px 0.6px hsla(var(--scoped-shadow-color) / 0.3)",
       "app-icon":
         "0px 1px 1px 0px hsla(var(--scoped-shadow-color) / 0.15), 0px 1px 3px 0px rgba(var(--clr-solid), 0.20), 0 1px 1px 0px inset rgba(255,255,255, .5), 0 -1px 1px 0px inset hsla(var(--scoped-shadow-color)/ .15), 0px 0px 0px 0.6px hsla(var(--scoped-shadow-color) / 0.3)",
       "btn-basic":
         "0px 1px 1px hsla(var(--scoped-shadow-color) / 0.40), 0px 0px 0px 0.6px hsla(var(--scoped-shadow-color) /  0.40)",
       "btn-basic-inset":
         "0px 1px 1px inset hsla(var(--scoped-shadow-color) / 0.2), 0px 0px 0px 0.6px hsla(var(--scoped-shadow-color) / 0.40)",
+      "btn-highlight":
+        "0px 0px 1px 0px hsla(var(--btn-highlight-border) / .2), 0px 1px 1px 0px hsla(var(--scoped-shadow-color) / .4), 0px 0px 0px 0.6px hsla(var(--btn-highlight-border) / 1), 0px 1px 1px 0px rgba(var(--clr-solid), 0.80)",
+      "btn-highlight-inset":
+        "0px 1px 1px inset hsla(var(--btn-highlight-border) / 0.9), 0px 0px 0px 0.6px hsla(var(--btn-highlight-border) / 1)",
       "list-inset":
         "0px 1px 2px inset hsla(var(--scoped-shadow-color) / .3), 0px 0px .6px inset hsla(var(--scoped-shadow-color) / .4)",
-      "btn-highlight":
-        "0px 0px 0px 0.6px #005CAF, 0px 1px 1px rgba(0, 0, 0, 0.07)",
       topbar:
         "0px 1px 1px hsla(var(--global-shadow-color) / 0.40), 0px 1px 40px 0px rgba(var(--clr-solid), 0.10), 0px 0px 0px 0.6px hsla(var(--global-shadow-color) / 0.4)",
       body: "0px 0px 40px 0px inset rgba(var(--clr-solid), 0.2)",
@@ -93,6 +90,7 @@ module.exports = {
         bg: "var(--btn-bg)",
         border: "var(--btn-border)",
         "bg-hover": "var(--btn-bg-hover)",
+        "highlight-bg-hover": "hsla(var(--btn-highlight-hover) / 1)",
       },
       clr: {
         solid: "rgba(var(--clr-solid), 1)",
