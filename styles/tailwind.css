@@ -49,7 +49,7 @@
   }
 
   [data-active-applet="design"] {
-    --wallpaper: rgba(242, 240, 244, 1);
+    --wallpaper: rgba(242, 238, 247, 1);
     --global-shadow-color: var(--shadow-design);
   }
   [data-applet="design"] {
@@ -360,6 +360,9 @@
   input[type="range"]::-webkit-slider-thumb:hover {
     background: theme("colors.btn.bg-hover");
   }
+  input[type="range"]::-webkit-slider-thumb:active {
+    transform: scale(0.9);
+  }
 
   /* All the same stuff for Firefox */
   input[type="range"]::-moz-range-thumb {
@@ -383,6 +386,9 @@
   input[type="range"]::-moz-range-thumb:hover {
     background: theme("colors.btn.bg-hover");
   }
+  input[type="range"]::-moz-range-thumb:active {
+    transform: scale(0.9);
+  }
 
   /* All the same stuff for IE */
   input[type="range"]::-ms-thumb {
@@ -405,6 +411,9 @@
   input[type="range"]::-ms-thumb:active,
   input[type="range"]::-ms-thumb:hover {
     background: theme("colors.btn.bg-hover");
+  }
+  input[type="range"]::-ms-thumb:active {
+    transform: scale(0.9);
   }
 }
 

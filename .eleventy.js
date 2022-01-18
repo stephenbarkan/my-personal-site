@@ -37,6 +37,7 @@ module.exports = function (eleventyConfig) {
   });
   eleventyConfig.addPassthroughCopy("scripts");
   eleventyConfig.addPassthroughCopy("images");
+  eleventyConfig.addPassthroughCopy("songs");
 
   // Layout aliases
   eleventyConfig.addLayoutAlias("default", "layouts/default.njk");

@@ -79,7 +79,7 @@
 
 {% macro postLink(title, date, isPinned, class, fileSlug) %}
     <a href="#" :class="{ 'bg-clr-highlight shadow-list-inset': openPost === '{{fileSlug}}' }" @click.prevent="openPost = '{{fileSlug}}'; open=false" class="{{class}} group block flex rounded transition-colors pb-2.5 pt-2 space-x-3 pr-2 pl-2.5 hover:bg-clr-highlight active:shadow-list-inset">
-        <div class="space-y-1.5 overflow-hidden flex-1 transform group-active:translate-y-px transition" :class="openPost === '{{fileSlug}}' && 'translate-y-px'">
+        <div class="space-y-1.5 overflow-hidden flex-1 transform group-active:translate-y-px duration-75 transition" :class="openPost === '{{fileSlug}}' && 'translate-y-px'">
             <p class="truncate"  :class="{'text-display-primary': openPost === '{{fileSlug}}', 'group-active:text-display-primary text-display-secondary': openPost !=='{{fileSlug}}'}">{{title}}</p>
             <time class="block text-sm text-display-tertiary">{{date | dateDisplay}}</time>
         </div>

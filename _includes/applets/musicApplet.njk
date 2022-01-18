@@ -35,13 +35,14 @@
 <div
 x-data="{
     playing: false,
+    currentSong: '',
     playbackPercentage: 0,
     styles: { transform: -100% + this.playbackPercentage + '%' },
     updatePlaybackTransform () {
         $refs.playbackVisualizer.style.transform = `translateX(calc(-100% + ${this.playbackPercentage}%))`
     }
 }"
-class="flex flex-col gap-3">
+class="flex flex-col h-full gap-3">
     {# top section #}
     <div class="flex items-center gap-4 px-3">
         <figure class="w-[106px] h-[106px] relative overflow-hidden rounded">
@@ -49,10 +50,10 @@ class="flex flex-col gap-3">
             <div class="absolute inset-0 rounded shadow-inset-stroke"></div>
         </figure>
         <div class="flex flex-col gap-4 grow">
-            <h3 class="text-lg" x-text="playbackPercentage"></h3>
+            <h3 class="text-lg" x-text="currentSong"></h3>
             <div class="flex items-center gap-3">
                 <button @click="playing = !playing" class="flex items-center justify-center shadow-btn-highlight hover:bg-btn-highlight-bg-hover transition-colors active:shadow-btn-highlight-inset group rounded-full bg-clr-solid w-[39px] h-[39px]">
-                    <span class="grid items-center transition transform grid-absolute text-display-inverse-primary group-active:translate-y-px justify-items-center">
+                    <span class="grid items-center transition duration-75 transform grid-absolute text-display-inverse-primary group-active:translate-y-px justify-items-center">
                         {{ playButtonIcon | safe }}
                     </span>
                 </button>
@@ -75,5 +76,40 @@ class="flex flex-col gap-3">
     </div>
     <div class="mx-3 divider"></div>
     {# bottom section #}
+    <ul class="flex flex-col flex-1 gap-1 px-3 pb-3 overflow-y-auto">
+    {% for song in songs %}
+        <li>{{songListItem(title=song.title, index=loop.index, id=song.title, class="w-full")}}</li>
+    {% endfor %}
+    </ul>
 </div>
 {% endblock %}
+
+
+{% macro songListItem(title, class, onClick, index, id) %}
+
+{% set icon %}
+
+{% endset %}
+    <button
+        @click="currentSong = '{{title}}'"
+        :class="{ 'bg-clr-highlight shadow-list-inset': currentSong === '{{title}}' }"
+        class="{{class}} text-left group block rounded pb-2 pt-1.5 px-2 hover:bg-clr-highlight active:shadow-list-inset">
+        <div
+            :class="currentSong === '{{title}}' && 'translate-y-px'"
+            class="flex items-center gap-3 transition duration-75 transform group-active:translate-y-px">
+            <div
+                :class="currentSong === '{{title}}' ? 'text-clr-solid' : 'text-display-tertiary'"
+                class="w-15 h-15">
+                {# <span x-show="currentSong === '{{title}}'" class="text-clr-solid">{{playFillIcon | safe }}</span> #}
+                <span x-show="currentSong !== '{{title}}'">{{playOutlineIcon | safe }}</span>
+            </div>
+            <div class="flex-1 flex gap-1.5 items-baseline overflow-hidden">
+                <p
+                    :class="{'text-display-primary': currentSong === '{{title}}', 'group-active:text-display-primary text-display-secondary': currentSong !=='{{title}}'}"
+                    class="truncate">
+                    {{title}}
+                </p>
+            </div>
+        </div>
+    </button>
+{% endmacro %}

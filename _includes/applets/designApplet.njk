@@ -33,19 +33,19 @@
     <div x-show="currentFolder" class="mb-3 divider vertical"></div>
     {% for design in collections.design %}
     {% set typeIcon %}
-    {% if design.data.type === "website" %}{% include "icons/website.svg" %}{% endif %}
-    {% if design.data.type === "game" %}{% include "icons/dice.svg" %}{% endif %}
-    {% if design.data.type === "plugin" %}{% include "icons/plugin.svg" %}{% endif %}
-    {% if design.data.type === "fun" %}{% include "icons/mix.svg" %}{% endif %}
-    {% if design.data.type === "work" %}{% include "icons/briefcase.svg" %}{% endif %}
-    {% if design.data.type === "volunteer" %}{% include "icons/rocket.svg" %}{% endif %}
-{% endset %}
+        {% if design.data.type === "website" %}{% include "icons/website.svg" %}{% endif %}
+        {% if design.data.type === "game" %}{% include "icons/dice.svg" %}{% endif %}
+        {% if design.data.type === "plugin" %}{% include "icons/plugin.svg" %}{% endif %}
+        {% if design.data.type === "fun" %}{% include "icons/mix.svg" %}{% endif %}
+        {% if design.data.type === "work" %}{% include "icons/briefcase.svg" %}{% endif %}
+        {% if design.data.type === "volunteer" %}{% include "icons/rocket.svg" %}{% endif %}
+    {% endset %}
     <template x-if="currentItem === '{{design.data.title}}'">
         <div class="flex-shrink-0 px-4 overflow-auto flex flex-col items-start gap-6 py-4 w-[300px]">
             <div class="flex flex-col gap-5">
-                <div class="grid flex-shrink-0 w-10 h-10 transition transform rounded shadow-applet-header place-content-center text-clr-solid bg-clr-tint">
+                {# <div class="grid flex-shrink-0 w-10 h-10 transition transform rounded shadow-applet-header place-content-center text-clr-solid bg-clr-tint">
                     <div class="w-5 h-5">{{typeIcon | safe}}</div>
-                </div>
+                </div> #}
                 <div class="flex flex-col items-start gap-1">
                     <h3 class="text-xl">{{design.data.title}} <span class="capitalize">{{design.data.type}}</span></h3>
                     <p class="text-display-tertiary">{{design.data.excerpt}}</p>
@@ -89,7 +89,7 @@
         class="{{class}} text-left group block rounded pb-2 pt-1.5 px-2 hover:bg-clr-highlight active:shadow-list-inset">
         <div
             :class="openDesign === {{index}} && 'translate-y-px'"
-            class="flex items-center gap-3 transition transform group-active:translate-y-px">
+            class="flex items-center gap-3 transition duration-75 transform group-active:translate-y-px">
             <div
                 :class="openDesign === {{index}} ? 'text-clr-solid' : 'text-display-tertiary'"
                 class="w-15 h-15">{{icon | safe }}
