@@ -22,6 +22,7 @@
     <div class="mb-3 divider vertical"></div>
     {# subfolders #}
     <ul
+        x-cloak
         x-data="{openDesign: 0}"
         @reset-current-item.window="openDesign = null; currentItem = null"
         class="flex flex-col gap-1 px-px overflow-auto flex-shrink-0 xs:min-w-[250px]">

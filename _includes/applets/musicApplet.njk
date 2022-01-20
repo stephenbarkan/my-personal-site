@@ -4,71 +4,126 @@
 {% set playOutlineIcon %}{% include "icons/play-outline.svg" %}{% endset %}
 {% set playFillIcon %}{% include "icons/play-fill.svg" %}{% endset %}
 {% set musicIcon %}{% include "icons/music.svg" %}{% endset %}
+{% set musicLoadIcon %}{% include "icons/music-load.svg" %}{% endset %}
 {% set soundcloudIcon %}{% include "icons/soundcloud.svg" %}{% endset %}
 
 {% set playButtonIcon %}
     <span
-        class="grid-inset-0 w-15 h-15"
-        x-show="!playing"
+        class="grid-inset-0 w-15 h-15 animate-spin"
+        x-show="appletState === 'loading'"
         x-transition:enter="ease-out duration-150"
         x-transition:enter-start="opacity-0 delay-150"
         x-transition:enter-end="opacity-100 delay-150"
         x-transition:leave="transition ease-out duration-150"
         x-transition:leave-start="opacity-100"
         x-transition:leave-end="opacity-0">
-        {% include "icons/play-large.svg" %}
+        {{musicLoadIcon | safe}}
     </span>
     <span
         class="grid-inset-0 w-15 h-15"
-        x-show="playing"
+        x-show="appletState === 'paused'"
+        x-transition:enter="ease-out duration-150"
+        x-transition:enter-start="opacity-0 delay-150"
+        x-transition:enter-end="opacity-100 delay-150"
+        x-transition:leave="transition ease-out duration-150"
+        x-transition:leave-start="opacity-100"
+        x-transition:leave-end="opacity-0">
+        {{playLargeIcon | safe}}
+    </span>
+    <span
+        class="grid-inset-0 w-15 h-15"
+        x-show="appletState === 'playing'"
         x-transition:enter="ease-out duration-150"
         x-transition:enter-start="opacity-0"
         x-transition:enter-end="opacity-100"
         x-transition:leave="ease-out duration-150"
         x-transition:leave-start="opacity-100"
         x-transition:leave-end="opacity-0">
-        {% include "icons/pause-large.svg" %}
+        {{pauseLargeIcon | safe}}
     </span>
 {% endset %}
 
 {% block content %}
 <div
 x-data="{
-    playing: false,
-    currentSong: '',
+    appletState: 'notPlaying',
+    wasPlaying: false,
+    artwork: '',
+    currentSong: {
+        index: 0,
+        title: ''
+    },
     playbackPercentage: 0,
     styles: { transform: -100% + this.playbackPercentage + '%' },
     updatePlaybackTransform () {
         $refs.playbackVisualizer.style.transform = `translateX(calc(-100% + ${this.playbackPercentage}%))`
-    }
+    },
+    load () {
+        this.appletState = 'loading'
+        setTimeout(() => { this.play() }, 2000);
+    },
+    play () {
+        this.appletState = 'playing'
+    },
+    pause () {
+        this.appletState = 'paused'
+    },
+    handlePlayPauseButton () {
+        if (this.appletState === 'playing') {
+            this.pause()
+        } else if (this.appletState === 'paused' || this.appletState === 'notPlaying') {
+            this.play()
+        }
+    },
+    handleSongListClick (index, title, artwork) {
+        this.artwork = artwork
+        this.currentSong = {index, title}
+        // this.play()
+        this.load()
+    },
+
 }"
 class="flex flex-col h-full gap-3">
     {# top section #}
-    <div class="flex items-center gap-4 px-3">
-        <figure class="w-[106px] h-[106px] relative overflow-hidden rounded">
-            <img class="w-full h-full" src="/images/dunes.jpg" alt="">
-            <div class="absolute inset-0 rounded shadow-inset-stroke"></div>
-        </figure>
-        <div class="flex flex-col gap-4 grow">
-            <h3 class="text-lg" x-text="currentSong"></h3>
-            <div class="flex items-center gap-3">
-                <button @click="playing = !playing" class="flex items-center justify-center shadow-btn-highlight hover:bg-btn-highlight-bg-hover transition-colors active:shadow-btn-highlight-inset group rounded-full bg-clr-solid w-[39px] h-[39px]">
-                    <span class="grid items-center transition duration-75 transform grid-absolute text-display-inverse-primary group-active:translate-y-px justify-items-center">
-                        {{ playButtonIcon | safe }}
-                    </span>
-                </button>
-                <div class="relative flex-1 flex-shrink-0">
-                    <input
-                        type="range"
-                        id="music-slider"
-                        name="track-progress"
-                        x-model="playbackPercentage"
-                        x-on:input="updatePlaybackTransform"
-                        class="relative z-10 block w-full h-[5px] bg-transparent"
-                        min="0" max="100" value="0" step=".25">
-                    <label for="track-progress" class="sr-only">Scrub through song</label>
-                    <div class="absolute left-0 right-0 z-0 h-1 -mt-1 overflow-hidden rounded-full bg-clr-highlight shadow-list-inset">
-                        <div x-ref="playbackVisualizer" style="transform: translateX(-100%)" class="w-full h-full rounded-full bg-clr-solid"></div>
+    <div class="grid px-3 overflow-hidden grid-absolute">
+        <div x-show="!currentSong.index" class="grid grid-inset-0 place-content-center">
+            <h3 class="text-lg">Choose a song to listen to some of the music I've written!</h3>
+        </div>
+        <div
+            x-cloak
+            :class="{'pointer-events-none opacity-0': currentSong.index === 0, 'opacity-100': currentSong.index > 0}"
+            class="flex items-center gap-4 transition-opacity duration-500 delay-200 grid-inset-0">
+            <figure class="w-[106px] h-[106px] relative overflow-hidden rounded">
+                <img
+                :class="{'blur-sm duration-0': appletState === 'loading' || appletState === 'notPlaying', ' transition-all duration-500 delay-200': appletState === 'playing'}"
+                class="w-full h-full" :src="'../songs/' + artwork" alt="">
+                <div class="absolute inset-0 rounded shadow-inset-stroke"></div>
+            </figure>
+            <div class="flex flex-col gap-4 grow">
+                <h3 class="text-lg" x-text="currentSong.title"></h3>
+                <div class="flex items-center gap-3">
+                    <button
+                        @click="handlePlayPauseButton"
+                        :disabled="appletState === 'loading'"
+                        :class="{'pointer-events-none': appletState === 'loading'}"
+                        class="flex items-center justify-center shadow-btn-highlight hover:bg-btn-highlight-bg-hover transition-colors active:shadow-btn-highlight-inset group rounded-full bg-clr-solid w-[39px] h-[39px]">
+                        <span class="grid items-center transition duration-75 transform grid-absolute text-display-inverse-primary group-active:translate-y-px justify-items-center">
+                            {{ playButtonIcon | safe }}
+                        </span>
+                    </button>
+                    <div class="relative flex-1 flex-shrink-0">
+                        <input
+                            type="range"
+                            id="music-slider"
+                            name="track-progress"
+                            x-model="playbackPercentage"
+                            x-on:input="updatePlaybackTransform"
+                            class="relative z-10 block w-full h-[5px] bg-transparent"
+                            min="0" max="100" value="0" step=".25">
+                        <label for="track-progress" class="sr-only">Scrub through song</label>
+                        <div class="absolute left-0 right-0 z-0 h-1 -mt-1 overflow-hidden rounded-full bg-clr-highlight shadow-list-inset">
+                            <div x-ref="playbackVisualizer" style="transform: translateX(-100%)" class="w-full h-full rounded-full bg-clr-solid"></div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -78,34 +133,49 @@ class="flex flex-col h-full gap-3">
     {# bottom section #}
     <ul class="flex flex-col flex-1 gap-1 px-3 pb-3 overflow-y-auto">
     {% for song in songs %}
-        <li>{{songListItem(title=song.title, index=loop.index, id=song.title, class="w-full")}}</li>
+        <li>{{songListItem(title=song.title, index=loop.index, id=song.title, artwork=song.artwork, class="w-full")}}</li>
     {% endfor %}
+    <li>
+        <a href="https://soundcloud.com/stephenbarkan" target="_blank"
+            class="text-left group block rounded pb-2 pt-1.5 px-2 hover:bg-clr-highlight active:shadow-list-inset">
+            <div class="flex items-center gap-3 transition duration-75 transform group-active:translate-y-px">
+                <div class="w-15 h-15 text-display-tertiary">
+                    <span>{{soundcloudIcon | safe }}</span>
+                </div>
+                <div class="flex-1 flex gap-1.5 items-baseline overflow-hidden">
+                    <p class="truncate group-active:text-display-primary text-display-secondary">
+                        Listen to more on Soundcloud!
+                    </p>
+                </div>
+            </div>
+        </a>
+    </li>
     </ul>
 </div>
 {% endblock %}
 
 
-{% macro songListItem(title, class, onClick, index, id) %}
-
-{% set icon %}
-
-{% endset %}
+{% macro songListItem(title, class, onClick, index, id, artwork) %}
     <button
-        @click="currentSong = '{{title}}'"
-        :class="{ 'bg-clr-highlight shadow-list-inset': currentSong === '{{title}}' }"
+        @click="handleSongListClick({{index}}, `{{title}}`, `{{artwork}}`)"
+        :disabled="currentSong.index === {{index}}"
+        :class="{ 'bg-clr-highlight shadow-list-inset': currentSong.index === {{index}} }"
         class="{{class}} text-left group block rounded pb-2 pt-1.5 px-2 hover:bg-clr-highlight active:shadow-list-inset">
         <div
-            :class="currentSong === '{{title}}' && 'translate-y-px'"
+            :class="currentSong.index === {{index}} && 'translate-y-px'"
             class="flex items-center gap-3 transition duration-75 transform group-active:translate-y-px">
             <div
-                :class="currentSong === '{{title}}' ? 'text-clr-solid' : 'text-display-tertiary'"
+                :class="currentSong.index === {{index}} ? 'text-clr-solid' : 'text-display-tertiary'"
                 class="w-15 h-15">
-                {# <span x-show="currentSong === '{{title}}'" class="text-clr-solid">{{playFillIcon | safe }}</span> #}
-                <span x-show="currentSong !== '{{title}}'">{{playOutlineIcon | safe }}</span>
+                <span x-show="currentSong.index === {{index}}" class="text-clr-solid">{{playFillIcon | safe }}</span>
+                <span x-show="currentSong.index !== {{index}}">
+                    <span class="hidden group-hover:block">{{playOutlineIcon | safe }}</span>
+                    <span class="group-hover:hidden">{{musicIcon | safe }}</span>
+                </span>
             </div>
             <div class="flex-1 flex gap-1.5 items-baseline overflow-hidden">
                 <p
-                    :class="{'text-display-primary': currentSong === '{{title}}', 'group-active:text-display-primary text-display-secondary': currentSong !=='{{title}}'}"
+                    :class="{'text-display-primary': currentSong.index === {{index}}, 'group-active:text-display-primary text-display-secondary': currentSong.index !== {{index}}}"
                     class="truncate">
                     {{title}}
                 </p>
