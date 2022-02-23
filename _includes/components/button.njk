@@ -3,10 +3,10 @@
         {% if href %}href="{{href}}"{% endif %}
         {% if newTab %}target="_blank"{% endif %}
         {% if onClick %}@click="{{onClick}}"{% endif %}
-        class="pt-1.5 px-2 pb-[7px] flex gap-2 justify-center items-center transition-colors rounded-sm group {{class}}
-        {% if highlighted %} bg-clr-solid shadow-btn-highlight text-button-inverse {% else %}bg-btn-bg text-display-secondary hover:text-display-primary hover:bg-btn-bg-hover shadow-btn-basic text-button active:shadow-btn-basic-inset{% endif %}"
+        class="pt-1.5 px-2 pb-[7px] flex gap-2 justify-center items-center transition-colors rounded-sm group text-button {{class}}
+        {% if highlighted %} bg-clr-solid shadow-btn-highlight text-display-inverse-primary hover:bg-btn-highlight-bg-hover {% else %} bg-btn-bg text-display-secondary hover:text-display-primary hover:bg-btn-bg-hover shadow-btn-basic active:shadow-btn-basic-inset{% endif %}"
     >
-        <span class="transition duration-75 transform group-active:translate-y-px text-display-tertiary group-active:text-display-secondary h-15 w-15">{{icon | safe}}</span>
+        {% if icon %}<span class="transition duration-75 transform group-active:translate-y-px text-display-tertiary group-active:text-display-secondary h-15 w-15">{{icon | safe}}</span>{% endif %}
         <span class="transition duration-75 transform group-active:translate-y-px">{{label | safe}}</span>
     </{{as}}>
 {% endmacro %}
