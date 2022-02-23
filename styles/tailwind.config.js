@@ -131,9 +131,21 @@ module.exports = {
           transform: "translate(0)",
         },
       },
+      clearTypingBubble: {
+        "0%, 100%": {
+          opacity: 0,
+          transform: "translateY(.5rem)",
+        },
+        "15%, 85%": {
+          opacity: 1,
+          transform: "none",
+        },
+      },
     },
     animation: {
       "typing-dots": "typingDots 1s infinite linear",
+      "receive-message": "receiveMessage 0.6s cubic-bezier(0.2, 0.8, 0.2, 1)",
+      "clear-typing-bubble": "clearTypingBubble 1.75s linear forwards",
     },
   },
   variants: {},

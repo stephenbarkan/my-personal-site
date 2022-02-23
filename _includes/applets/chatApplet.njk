@@ -6,20 +6,23 @@
 {% block content %}
     <div class="flex flex-col gap-3 px-3 pb-6 overflow-auto">
         {# top section #}
-        {{chatBubble(type="message", content="test", sentByUser=false)}}
-        {{chatBubble(type="message", content="testing", sentByUser=true)}}
-        {{chatBubble(type="typing", content="", sentByUser=false)}}
+        {{chatBubble(typingDots=false, content="test", sentByUser=false)}}
+        {{chatBubble(typingDots=false, content="testing", sentByUser=true)}}
+        {{chatBubble(typingDots=true, content="", sentByUser=false)}}
     </div>
 
 {% endblock %}
 
 
 
-{% macro chatBubble(content, type, sentByUser, id) %}
+{% macro chatBubble(content, typingDots, sentByUser, id) %}
 
     <div class="flex {% if sentByUser === false %} pr-6 {% else %} justify-end pl-6 {% endif %}">
-        <div class="flex items-center px-3 py-2 min-h-[37px] {% if sentByUser === false %} bg-clr-highlight text-display-secondary {% else %} bg-clr-solid text-display-inverse-primary {% endif %} rounded-xl">
-            {% if type === "typing" %}
+        <div class="flex items-center px-3 py-2 min-h-[37px] rounded-xl
+            {% if sentByUser === false %} bg-clr-highlight text-display-secondary {% else %} bg-clr-solid text-display-inverse-primary {% endif %}
+            {% if typingDots === false %} animate-receive-message {% else %} animate-clear-typing-bubble {% endif %}
+            ">
+            {% if typingDots === true %}
                 <div class="flex gap-1.5">
                     {% for i in [1, 2, 3] %}<div class="block w-1.5 h-1.5 bg-display-tertiary rounded-full animate-typing-dots" style="animation-delay: calc(-.33s * {{i}})"></div>{% endfor %}
                 </div>
