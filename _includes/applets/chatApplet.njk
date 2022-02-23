@@ -4,12 +4,32 @@
 
 
 {% block content %}
-    <div class="flex flex-col flex-1 gap-3 px-3 pb-3 overflow-auto">
+    <div
+        x-data="{ colors: [
+            { id: 1, typingDots: false, content: 'testin', sentByUser: true },
+            { id: 2, typingDots: false, content: 'obsessin', sentByUser: false },
+            { id: 3, typingDots: true, content: 'testin', sentByUser: false }
+        ]}"
+        class="flex flex-col flex-1 gap-3 px-3 pb-3 overflow-auto">
         {# conversation section #}
-        <div class="flex-1">
-            {{chatBubble(typingDots=false, content="test", sentByUser=false)}}
-            {{chatBubble(typingDots=false, content="testing", sentByUser=true)}}
-            {{chatBubble(typingDots=true, content="", sentByUser=false)}}
+        <div class="flex flex-col flex-1 gap-3">
+            <template x-for="color in colors" :key="color.id">
+                    <div
+                    :class="color.sentByUser === false ? 'pr-6' : ' justify-end pl-6 '"
+                    class="flex">
+                        <div
+                            :class="{'bg-clr-solid text-display-inverse-primary': color.sentByUser,
+                                     'bg-clr-highlight text-display-secondary': !color.sentByUser,
+                                     'animate-clear-typing-bubble': color.typingDots,
+                                     'animate-receive-message': !color.typingDots}"
+                                class="flex items-center px-3 py-2 min-h-[37px] rounded-xl">
+                                <div x-show="color.typingDots" class="flex gap-1.5">
+                                    {% for i in [1, 2, 3] %}<div class="block w-1.5 h-1.5 bg-display-tertiary rounded-full animate-typing-dots" style="animation-delay: calc(-.33s * {{i}})"></div>{% endfor %}
+                                </div>
+                                <span x-show="!color.typingDots" x-text="color.content"></span>
+                        </div>
+                    </div>
+            </template>
         </div>
 
         {# form section #}
