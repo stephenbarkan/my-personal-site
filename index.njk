@@ -3,16 +3,18 @@
 {% import "applets/designApplet.njk" as "designApplet" with context %}
 {% import "applets/postsApplet.njk" as "postsApplet" with context %}
 {% import "applets/musicApplet.njk" as "musicApplet" with context %}
+{% import "applets/chatApplet.njk" as "chatApplet" with context %}
 {% block title %}Stephen Barkan{% endblock %}
 
 
 {% block content %}
       <div class="relative flex justify-center flex-1 row-start-2 gap-3 max-w-[100vw] items-center overflow-hidden page-container">
         <div class="relative sm:grid place-items-center w-full grid-absolute max-w-[1800px] p-2 max-h-[1100px] h-full">
-            {{designApplet.applet(title='design', maxWidth='w-[780px]', height='sm:h-[350px]', data=collections.designs, posX='absolute left-0 lg:pl-[4.4vw]', posY='top-0 lg:pt-[3vh]')}}
+            {{designApplet.applet(title='design', maxWidth='w-[780px]', height='sm:h-[350px]', data=collections.designs, posX='absolute lg:left-[4.4vw]', posY='lg:top-[3vh]')}}
+            {{chatApplet.applet(title='chat', maxWidth='w-[316px]', height='sm:h-[616px]', posX='absolute lg:right-[14vw]', posY='lg:top-[10vh]')}}
+            {{musicApplet.applet(title='music', maxWidth='w-[520px]', height='sm:h-[320px]', data=music, posX='absolute lg:left-[2.4vw]', posY='lg:bottom-[3vh]')}}
+            {{photosApplet.applet(title='photos', maxWidth='w-[335px]', height='sm:h-[495px]', data=photos, posX='absolute lg:right-[3.3vw]', posY='lg:bottom-[2vh]')}}
             {{postsApplet.applet(title='posts', maxWidth='w-[740px]', height='sm:h-[460px]', data=collections.posts)}}
-            {{photosApplet.applet(title='photos', maxWidth='w-[335px]', height='sm:h-[495px]', data=photos, posX='absolute right-0 lg:pr-[3.3vw]', posY='bottom-0 lg:pb-[2vh]')}}
-            {{musicApplet.applet(title='music', maxWidth='w-[520px]', height='sm:h-[320px]', data=music, posX='absolute left-0 lg:pl-[2.4vw]', posY='bottom-0 lg:pb-[3vh]')}}
         </div>
       </div>
 {% endblock %}

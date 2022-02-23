@@ -104,7 +104,7 @@ class="flex flex-col h-full gap-3">
         </div>
         <div
             x-cloak
-            :class="{'pointer-events-none opacity-0': currentSong.index === 0, 'opacity-100': currentSong.index > 0}"
+            :class="{'pointer-events-none invisible opacity-0': currentSong.index === 0, 'opacity-100': currentSong.index > 0}"
             class="flex items-center gap-4 transition-opacity duration-500 delay-200 grid-inset-0">
             <figure class="w-[106px] h-[106px] relative overflow-hidden rounded">
                 <img

@@ -17,7 +17,7 @@
   <body data-active-applet="posts" class="bg-scroll bg-ui-wallpaper">
   <div id="app"
     x-data="{
-        activeApplet: 'photos',
+        activeApplet: 'posts',
         z: 1,
         allApplets: document.querySelectorAll('[data-is-applet]'),
         getUrlParam(param) {
@@ -35,7 +35,7 @@
             if (this.getUrlParam('activeApplet')) {
                 this.activeApplet = this.getUrlParam('activeApplet');
             } else {
-                this.activeApplet = 'photos'
+                this.activeApplet = 'posts'
             }
         },
         setActiveApplet(applet) {
