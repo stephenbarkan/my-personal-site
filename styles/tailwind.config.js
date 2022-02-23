@@ -99,6 +99,14 @@ module.exports = {
       },
     },
     keyframes: {
+      spin: {
+        from: {
+          transform: "rotate(0deg)",
+        },
+        to: {
+          transform: "rotate(360deg)",
+        },
+      },
       typingDots: {
         "0%, 100%": {
           transform: "translateY(0)",
@@ -143,6 +151,7 @@ module.exports = {
       },
     },
     animation: {
+      spin: "spin 1s infinite linear",
       "typing-dots": "typingDots 1s infinite linear",
       "receive-message": "receiveMessage 0.6s cubic-bezier(0.2, 0.8, 0.2, 1)",
       "clear-typing-bubble": "clearTypingBubble 1.75s linear forwards",

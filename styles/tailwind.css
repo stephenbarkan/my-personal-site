@@ -96,6 +96,8 @@
     --clr-highlight: rgba(241, 243, 244, 1);
     --btn-bg-hover: rgba(246, 248, 249, 1);
     --scoped-shadow-color: var(--shadow-chat);
+    --btn-highlight-border: 202deg 62% 50%;
+    --btn-highlight-hover: 202deg 65% 45%;
   }
 }
 
