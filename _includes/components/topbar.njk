@@ -19,8 +19,8 @@
     <div class="flex space-x-1">
         <div x-data="{open: false}" class="relative">
             {{topbarButton(title="Stephen Barkan", featured=true, tab=false, onClick="open = !open")}}
-            <div x-show="open" @click.away="open = false" x-transition:enter.origin.top class="w-[268px] mt-[3px] divide-y divide-ui-divider bg-ui-applet-bg shadow-applet-idle rounded flex flex-col gap-3 py-3 px-4 absolute z-[20]">
-                <p class="text-display-secondary">Thanks for being here! I hope this site brings you some joy.<span :data-applet="activeApplet" class="inline-block relative left-0.5 top-0.5 h-15 w-15 text-clr-solid">{{heartIcon | safe}}</span></p>
+            <div x-cloak x-show="open" @click.away="open = false" x-transition:enter.origin.top class="w-[268px] mt-[3px] divide-y divide-ui-divider bg-ui-applet-bg shadow-applet-idle rounded flex flex-col gap-3 py-3 px-4 absolute z-[20]">
+                <p class="text-display-secondary">Thanks for being here! I hope this site brings you some joy.<span :data-applet="activeApplet" class="relative inline-block left-1 top-[3px] h-15 w-15 text-clr-solid">{{heartIcon | safe}}</span></p>
                 <span class="pt-3 text-display-tertiary">&copy; Stephen Barkan 2021</span>
             </div>
         </div>

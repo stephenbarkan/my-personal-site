@@ -98,6 +98,43 @@ module.exports = {
         highlight: "var(--clr-highlight)",
       },
     },
+    keyframes: {
+      typingDots: {
+        "0%, 100%": {
+          transform: "translateY(0)",
+          opacity: 1,
+        },
+
+        "25%": {
+          transform: "translateY(1px)",
+        },
+
+        "50%": {
+          transform: "translateY(0)",
+          opacity: 0.5,
+        },
+
+        "75%": {
+          transform: "translateY(-1px)",
+        },
+      },
+      receiveMessage: {
+        "0%": {
+          opacity: 0,
+          transform: "translateY(.75rem)",
+        },
+        "50%": {
+          opacity: 1,
+        },
+        "100%": {
+          opacity: 1,
+          transform: "translate(0)",
+        },
+      },
+    },
+    animation: {
+      "typing-dots": "typingDots 1s infinite linear",
+    },
   },
   variants: {},
   plugins: [],

@@ -49,24 +49,38 @@ x-data="{
     appletState: 'notPlaying',
     wasPlaying: false,
     artwork: '',
+    song: null,
+    playbackPercentage: 0,
     currentSong: {
         index: 0,
-        title: ''
+        title: '',
+        src: '',
     },
-    playbackPercentage: 0,
+
     styles: { transform: -100% + this.playbackPercentage + '%' },
     updatePlaybackTransform () {
         $refs.playbackVisualizer.style.transform = `translateX(calc(-100% + ${this.playbackPercentage}%))`
     },
+
     load () {
         this.appletState = 'loading'
-        setTimeout(() => { this.play() }, 2000);
+        Howler.unload()
+        //set progress bar progress to 0
+
+        this.song = new Howl({
+            src: [`../songs/${this.currentSong.src}.webm`, `../songs/${this.currentSong.src}.mp3`],
+            html5: true
+        });
     },
+
     play () {
         this.appletState = 'playing'
+                this.song.play()
+
     },
     pause () {
         this.appletState = 'paused'
+        this.song.pause()
     },
     handlePlayPauseButton () {
         if (this.appletState === 'playing') {
@@ -75,10 +89,9 @@ x-data="{
             this.play()
         }
     },
-    handleSongListClick (index, title, artwork) {
+    handleSongListClick (index, title, artwork, src) {
         this.artwork = artwork
-        this.currentSong = {index, title}
-        // this.play()
+        this.currentSong = {index, title, src}
         this.load()
     },
 
@@ -133,7 +146,7 @@ class="flex flex-col h-full gap-3">
     {# bottom section #}
     <ul class="flex flex-col flex-1 gap-1 px-3 pb-3 overflow-y-auto">
     {% for song in songs %}
-        <li>{{songListItem(title=song.title, index=loop.index, id=song.title, artwork=song.artwork, class="w-full")}}</li>
+        <li>{{songListItem(title=song.title, index=loop.index, id=song.title, artwork=song.artwork, src=song.src, class="w-full")}}</li>
     {% endfor %}
     <li>
         <a href="https://soundcloud.com/stephenbarkan" target="_blank"
@@ -155,9 +168,9 @@ class="flex flex-col h-full gap-3">
 {% endblock %}
 
 
-{% macro songListItem(title, class, onClick, index, id, artwork) %}
+{% macro songListItem(title, class, onClick, index, id, artwork, src) %}
     <button
-        @click="handleSongListClick({{index}}, `{{title}}`, `{{artwork}}`)"
+        @click="handleSongListClick({{index}}, `{{title}}`, `{{artwork}}`, `{{src}}`)"
         :disabled="currentSong.index === {{index}}"
         :class="{ 'bg-clr-highlight shadow-list-inset': currentSong.index === {{index}} }"
         class="{{class}} text-left group block rounded pb-2 pt-1.5 px-2 hover:bg-clr-highlight active:shadow-list-inset">

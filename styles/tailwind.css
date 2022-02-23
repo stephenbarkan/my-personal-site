@@ -311,10 +311,11 @@
   .prose a * {
     color: theme("colors.display.link");
     text-decoration: underline;
+    text-decoration-color: theme("colors.btn.border");
   }
   .prose a:hover,
   .prose a:hover * {
-    text-decoration: none;
+    text-decoration-color: currentColor;
   }
 
   /* music progress bar */
