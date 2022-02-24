@@ -126,7 +126,7 @@ module.exports = {
           transform: "translateY(-1px)",
         },
       },
-      receiveMessage: {
+      slideUp: {
         "0%": {
           opacity: 0,
           transform: "translateY(.75rem)",
@@ -153,8 +153,8 @@ module.exports = {
     animation: {
       spin: "spin 1s infinite linear",
       "typing-dots": "typingDots 1s infinite linear",
-      "receive-message": "receiveMessage 0.6s cubic-bezier(0.2, 0.8, 0.2, 1)",
-      "clear-typing-bubble": "clearTypingBubble 1.75s linear forwards",
+      "slide-up": "slideUp 0.6s cubic-bezier(0.2, 0.8, 0.2, 1) both",
+      "clear-typing-bubble": "clearTypingBubble 1.75s linear both",
     },
   },
   variants: {},

@@ -81,8 +81,8 @@ function displayClock() {
 //   target.setAttribute("data-y", y);
 // }
 
-window.addEventListener("resize", function () {
-  draggableWindowCheck();
-});
+// window.addEventListener("resize", function () {
+//   draggableWindowCheck();
+// });
 
-draggableWindowCheck();
+// draggableWindowCheck();

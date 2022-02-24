@@ -5,68 +5,161 @@
 
 {% block content %}
     <div
-        x-data="{ colors: [
-            { id: 1, typingDots: false, content: 'testin', sentByUser: true },
-            { id: 2, typingDots: false, content: 'obsessin', sentByUser: false },
-            { id: 3, typingDots: true, content: 'testin', sentByUser: false }
-        ]}"
+        x-data="{
+            activeField: 0,
+            appletState: 'idle',
+            formFields: [
+                {id: 1, title: 'Name', placeholder: 'Your name', value: '', botMessage: `Hello, Stephen here! 👋 Who are you?`},
+                {id: 2, title: 'Message', placeholder: 'Your message', value: '', botMessage: `Oh hey! What’s up?`},
+                {id: 3, title: 'Email', placeholder: 'Your email', value: '', botMessage: `Okay, that’s pretty cool. Will you give me your email so I can reply to you?`},
+                {id: 4, title: 'blank', placeholder: '', value: '', disabled: true, botMessage: ''},
+                {id: 5, title: 'blank', placeholder: '', value: '', disabled: true, botMessage: `Thanks! I’ll try to get back to you soon.`}
+            ],
+            userName: 'Stephen',
+            conversation: [],
+            setAppletState () {
+                this.appletState === `idle` ? this.appletState = `transitioning` : this.appletState = `idle`
+            },
+            addBubble (typingDots, content, sentByUser) {
+                const newMessage = { id: this.conversation.length + 1, typingDots: typingDots, content: content, sentByUser: sentByUser }
+                this.conversation.push(newMessage)
+            },
+            sendBotMessage () {
+                this.setAppletState()
+                this.activeField = this.activeField + 1
+                document.activeElement.blur()
+                this.addBubble(true, '', false)
+                setTimeout(() => {
+                    this.setAppletState()
+                    this.conversation.pop() //removes typing bubble
+                    this.addBubble(false, this.formFields[this.activeField - 1].botMessage ,false)
+                    setTimeout(() => {
+                        document.getElementById(`formField${this.activeField}`).focus()
+                    }, 25)
+                }, 2500);
+            },
+            incrementFormField () {
+                if (this.activeField < this.formFields.length - 2) {
+                    this.addBubble(false, this.formFields[this.activeField - 1].value, true )
+                    this.sendBotMessage()
+                } else {
+                    this.addBubble(false, this.formFields[this.activeField - 1].value, true )
+                    this.setAppletState()
+                    this.activeField = this.activeField + 1
+                }
+            },
+            submitForm () {
+                const formData = new FormData(this.$refs.form);
+                fetch(this.$refs.form.getAttribute('action'), {
+                method: 'POST',
+                headers: {
+                    Accept: 'application/x-www-form-urlencoded;charset=UTF-8',
+                    'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8',
+                    enctype: 'application/x-www-form-urlencoded',
+                },
+                body: new URLSearchParams(formData).toString(),
+                }).then((res) => {
+                if (res) {
+                        this.sendBotMessage()
+                    setTimeout(() => {
+                    }, 2500);
+                }
+                });
+            }
+        }"
+        x-init="sendBotMessage"
         class="flex flex-col flex-1 gap-3 px-3 pb-3 overflow-auto">
         {# conversation section #}
         <div class="flex flex-col flex-1 gap-3">
-            <template x-for="color in colors" :key="color.id">
+            <template x-for="message in conversation" :key="message.id">
                     <div
-                    :class="color.sentByUser === false ? 'pr-6' : ' justify-end pl-6 '"
+                    :class="{
+                        'pr-4': !message.sentByUser,
+                        'justify-end pl-4': message.sentByUser,
+                        'mt-auto': message.typingDots,
+                    }"
                     class="flex">
                         <div
-                            :class="{'bg-clr-solid text-display-inverse-primary': color.sentByUser,
-                                     'bg-clr-highlight text-display-secondary': !color.sentByUser,
-                                     'animate-clear-typing-bubble': color.typingDots,
-                                     'animate-receive-message': !color.typingDots}"
+                            :class="{'bg-clr-solid text-display-inverse-primary': message.sentByUser,
+                                     'bg-clr-highlight text-display-secondary': !message.sentByUser,
+                                     'animate-clear-typing-bubble [animation-delay:750ms]': message.typingDots,
+                                     'animate-slide-up': !message.typingDots}"
                                 class="flex items-center px-3 py-2 min-h-[37px] rounded-xl">
-                                <div x-show="color.typingDots" class="flex gap-1.5">
+                                <div x-show="message.typingDots" class="flex gap-1.5">
                                     {% for i in [1, 2, 3] %}<div class="block w-1.5 h-1.5 bg-display-tertiary rounded-full animate-typing-dots" style="animation-delay: calc(-.33s * {{i}})"></div>{% endfor %}
                                 </div>
-                                <span x-show="!color.typingDots" x-text="color.content"></span>
+                                <span x-show="!message.typingDots" x-text="message.content"></span>
                         </div>
                     </div>
             </template>
         </div>
 
         {# form section #}
-        <form class="flex flex-col gap-3">
+        <form x-ref="form" name="contact-form" id="contact-form" netlify method="post" class="flex flex-col gap-3">
             <div class="divider"></div>
-            <div class="flex rounded bg-clr-highlight focus-within:ring">
-                <input type="text" class="flex-1 py-2 pl-3 pr-1.5 bg-transparent outline-none placeholder:text-display-tertiary" placeholder="Your text">
-                <button type="button" class="pr-3 pl-1.5 py-2 group outline-none">
-                    <div class="flex items-center justify-center w-[22px] h-[22px] rounded-full group-hover:bg-btn-highlight-bg-hover group-focus:ring bg-clr-solid"><span class="block h-15 w-15 text-display-inverse-primary">{{ postChatArrow | safe }}</span></div>
-                </button>
-            </div>
+            <template x-for="formField in formFields" :key="formField.id">
+                <div
+                    x-show="activeField === formField.id"
+                    :class="{'disabled': appletState === 'transitioning' || formField.disabled}"
+                    class="flex rounded bg-clr-highlight focus-within:ring">
+                    <input
+                        x-model="formField.value"
+                        x-bind:id="'formField'+ formField.id"
+                        x-bind:disabled="appletState === 'transitioning'"
+                        x-bind:tabindex="appletState === 'transitioning' ? -1 : 0"
+                        @keyup.enter="incrementFormField"
+                        type="text"
+                        class="flex-1 py-2 pl-3 pr-1.5 bg-transparent outline-none placeholder:text-display-tertiary" x-bind:placeholder="formField.placeholder">
+                    <button
+                        type="button"
+                        x-bind:tabindex="appletState === 'transitioning' ? -1 : 0"
+                        :class="!value && 'disabled'"
+                        x-bind:disabled="!value"
+                        @click="incrementFormField"
+                        class="pr-3 pl-1.5 py-2 group outline-none">
+                        <div class="flex items-center justify-center w-[22px] h-[22px] rounded-full group-hover:bg-btn-highlight-bg-hover group-focus:ring bg-clr-solid"><span class="block h-15 w-15 text-display-inverse-primary">{{ postChatArrow | safe }}</span></div>
+                    </button>
+                </div>
+            </template>
         </form>
 
 
         {# confirm send dialog #}
-        <template>
-            <div class="absolute inset-0 flex items-center justify-center rounded-sm bg-ui-shade backdrop-blur">
-                <div class="p-4">
-                    <div class="flex flex-col gap-8 p-6 pt-8 rounded bg-ui-applet-bg shadow-applet-header">
-                        <header class="flex flex-col justify-center gap-4">
-                            <h3 class="text-lg text-center">Ready to send?</h3>
-                            <p class="text-center">You can modify any of your messages by hovering on them and clicking the edit button.</p>
-                        </header>
-                        <main class="flex flex-col items-stretch gap-2">
-                            {{btn.button(label="Submit", highlighted=true, as="button", onClick="")}}
-                            {{btn.button(label="Cancel", highlighted=false, as="button", onClick="")}}
-                        </main>
+            <div
+                x-show="activeField === formFields.length - 1"
+                x-transition:enter="transition duration-700 delay-1000"
+                x-transition:enter-start="opacity-0"
+                x-transition:enter-end="opacity-100"
+                x-transition:leave="transition duration-700"
+                x-transition:leave-start="opacity-100"
+                x-transition:leave-end="opacity-0"
+                class="absolute inset-0 flex items-center justify-center rounded-sm bg-ui-shade backdrop-blur">
+                <div class="w-full p-5">
+                    <div class="flex flex-col gap-8 p-6 rounded bg-ui-applet-bg shadow-applet-header animate-slide-up [animation-delay:1500ms]">
+                        <div class="flex flex-col gap-6">
+                            <header class="flex flex-col justify-center">
+                                <h3 class="text-lg text-center">Ready to send?</h3>
+                            </header>
+                            <main class="flex flex-col items-stretch gap-3">
+                                <template x-for="formField in formFields">
+                                    <template x-if="formField.value">
+                                        <div class="flex flex-col gap-1 pb-3 border-b border-ui-divider last-of-type:border-0">
+                                            <h4 x-text="formField.title" class="text-sm font-medium"></h4>
+                                            <p x-text="formField.value" class="text-sm"></p>
+                                        </div>
+                                    </template>
+                                </template>
+                            </main>
+                        </div>
+                        <footer>
+                            {{btn.button(label="Send messages", highlighted=true, as="button", class="w-full", onClick="submitForm")}}
+                        </footer>
                     </div>
                 </div>
             </div>
-        </template>
     </div>
 
-
 {% endblock %}
-
-
 
 {% macro chatBubble(content, typingDots, sentByUser, id) %}
 
@@ -86,7 +179,3 @@
     </div>
 
 {% endmacro %}
-
-<template>
-
-</template>

@@ -425,6 +425,12 @@
     display: none !important;
   }
 
+  .disabled {
+    pointer-events: none;
+    opacity: 0.4;
+    transition: opacity 250ms ease;
+  }
+
   .grid-absolute {
     grid-template-columns: 1fr;
     grid-template-rows: 1fr;
