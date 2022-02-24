@@ -1,5 +1,15 @@
 [
   {
+    "id": "photos-of-photos",
+    "images": [
+      "/images/photos-of-photos-1.jpg",
+      "/images/photos-of-photos-2.jpg",
+      "/images/photos-of-photos-3.jpg"
+    ],
+    "caption": "Photos of photos of fun",
+    "details": "Home, Feb 2022"
+  },
+  {
     "id": "spilt-milk",
     "images": ["/images/spilt-milk-1.jpg", "/images/spilt-milk-2.jpg"],
     "caption": "Love and cucumber cocktails",

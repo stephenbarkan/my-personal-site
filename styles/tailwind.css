@@ -29,11 +29,11 @@
     --btn-bg-hover: rgba(247, 247, 247, 1);
 
     /* shadow colors */
-    --shadow-photos: 20deg 11% 66%;
-    --shadow-design: 270deg 5% 75%;
-    --shadow-posts: 41deg 15% 75%;
-    --shadow-music: 91deg 8% 66%;
-    --shadow-chat: 206deg 9% 76%;
+    --shadow-photos: 20deg 100% 13%;
+    --shadow-design: 270deg 100% 13%;
+    --shadow-posts: 41deg 100% 13%;
+    --shadow-music: 91deg 100% 13%;
+    --shadow-chat: 206deg 100% 13%;
   }
 
   [data-active-applet="photos"] {

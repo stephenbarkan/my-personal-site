@@ -87,7 +87,7 @@
             }
             $nextTick(() => { $refs.scroller.scrollTo({ left: 1000 }) })"
         :class="{ 'bg-clr-highlight shadow-list-inset': openDesign === {{index}} }"
-        class="{{class}} text-left group block rounded pb-2 pt-1.5 px-2 hover:bg-clr-highlight active:shadow-list-inset">
+        class="{{class}} text-left group block rounded pb-2 pt-1.5 px-2 transition-shadow hover:bg-clr-highlight active:shadow-list-inset">
         <div
             :class="openDesign === {{index}} && 'translate-y-px'"
             class="flex items-center gap-3 transition duration-75 transform group-active:translate-y-px">
