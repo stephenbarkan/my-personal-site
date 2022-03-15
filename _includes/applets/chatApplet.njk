@@ -88,7 +88,7 @@
                                 <div x-show="message.typingDots" class="flex gap-1.5">
                                     {% for i in [1, 2, 3] %}<div class="block w-1.5 h-1.5 bg-display-tertiary rounded-full animate-typing-dots" style="animation-delay: calc(-.33s * {{i}})"></div>{% endfor %}
                                 </div>
-                                <span x-show="!message.typingDots" x-text="message.content"></span>
+                                <span x-show="!message.typingDots" class="break-words" x-text="message.content"></span>
                         </div>
                     </div>
             </template>
@@ -101,15 +101,30 @@
                 <div
                     x-show="activeField === formField.id"
                     :class="{'disabled': appletState === 'transitioning' || formField.disabled}"
-                    class="flex transition-shadow rounded bg-clr-highlight focus-within:shadow-list-inset">
-                    <input
+                    class="flex items-end transition-shadow rounded bg-clr-highlight focus-within:shadow-list-inset">
+                    <label class="relative inline-grid items-center flex-1 align-top input-wrapper">
+                        <span x-text="formField.placeholder" class="hidden"></span>
+                        <textarea
+                            @keydown.enter="formField.value && incrementFormField"
+                            x-on:input="this.parentNode.dataset.value = this.value"
+                            rows="1"
+                            x-model="formField.value"
+                            x-bind:id="'formField'+ formField.id"
+                            x-bind:disabled="appletState === 'transitioning'"
+                            x-bind:tabindex="appletState === 'transitioning' ? -1 : 0"
+                             x-bind:placeholder="formField.placeholder"
+                             resize=""
+                            class="flex-1 py-2 pl-3 pr-1.5 h-full focus:translate-y-px transition-transform bg-transparent outline-none placeholder:text-display-tertiary" x-bind:placeholder="formField.placeholder">
+                            </textarea>
+                    </label>
+                    {# <input
                         x-model="formField.value"
                         x-bind:id="'formField'+ formField.id"
                         x-bind:disabled="appletState === 'transitioning'"
                         x-bind:tabindex="appletState === 'transitioning' ? -1 : 0"
                         @keyup.enter="formField.value && incrementFormField"
                         type="text"
-                        class="flex-1 py-2 pl-3 pr-1.5 focus:translate-y-px transition-transform bg-transparent outline-none placeholder:text-display-tertiary" x-bind:placeholder="formField.placeholder">
+                        class="flex-1 py-2 pl-3 pr-1.5 focus:translate-y-px transition-transform bg-transparent outline-none placeholder:text-display-tertiary" x-bind:placeholder="formField.placeholder"> #}
                     <button
                         type="button"
                         x-bind:tabindex="appletState === 'transitioning' ? -1 : 0"
@@ -117,7 +132,7 @@
                         x-bind:disabled="!formField.value"
                         @click="incrementFormField"
                         class="pr-3 pl-1.5 py-2 group outline-none">
-                        <div class="hover:scale-105 transition group-focus:ring active:scale-90 flex items-center justify-center w-[22px] h-[22px] rounded-full group-hover:bg-btn-highlight-bg-hover bg-clr-solid"><span class="block h-15 w-15 text-display-inverse-primary">{{ postChatArrow | safe }}</span></div>
+                        <div class="shadow-btn-highlight hover:shadow-btn-highlight-hover hover:scale-105 transition group-focus:ring active:scale-90 flex items-center justify-center w-[22px] h-[22px] rounded-full group-hover:bg-btn-highlight-bg-hover bg-clr-solid"><span class="block h-15 w-15 text-display-inverse-primary">{{ postChatArrow | safe }}</span></div>
                     </button>
                 </div>
             </template>
@@ -145,7 +160,7 @@
                                     <template x-if="formField.value">
                                         <div class="flex flex-col gap-1 pb-3 border-b border-ui-divider last-of-type:border-0">
                                             <h4 x-text="formField.title" class="text-sm text-display-tertiary"></h4>
-                                            <p x-text="formField.value" class="text-display-secondary"></p>
+                                            <p x-text="formField.value" class="break-all text-display-secondary"></p>
                                         </div>
                                     </template>
                                 </template>
@@ -164,7 +179,7 @@
 {% macro chatBubble(content, typingDots, sentByUser, id) %}
 
     <div class="flex {% if sentByUser === false %} pr-6 {% else %} justify-end pl-6 {% endif %}">
-        <div class="flex items-center px-3 py-2 min-h-[37px] rounded-xl
+        <div class="flex items-center px-3 py-2 min-h-[37px] overflow-scroll rounded-xl
             {% if sentByUser === false %} bg-clr-highlight text-display-secondary {% else %} bg-clr-solid text-display-inverse-primary {% endif %}
             {% if typingDots === false %} animate-receive-message {% else %} animate-clear-typing-bubble {% endif %}
             ">

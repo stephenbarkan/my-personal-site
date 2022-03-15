@@ -4,13 +4,15 @@
     data-applet="{{title}}"
     :class="activeApplet !== '{{title}}' && 'hidden sm:block'"
     @click="setActiveApplet('{{title}}')"
-    class="h-full sm:h-auto max-w-full {{posX}} {{posY}} grid-inset-0 transform">
+    class="h-full sm:h-auto max-w-full w-full xs:w-auto {{posX}} {{posY}} grid-inset-0 transform">
     <div
         class="xs:{{maxWidth}} {{height}} h-full flex-1 max-w-full flex flex-col pt-2 gap-3 rounded-lg bg-ui-applet-bg overflow-hidden transform xs:flex relative"
         :class="activeApplet === '{{title}}' ? 'xs:shadow-applet-active shadow-applet-idle' :'shadow-applet-idle'">
         <div class="px-2" data-draggable-handle>
-            <header class="flex justify-center w-full px-2 py-1.5 rounded bg-clr-tint shadow-applet-header">
-                <h2 class="text-sm font-medium text-display-secondary">{{title | capitalize}}</h2>
+            <header
+                {# style="background-image: url(/images/line-pattern.svg); background-size: 22px" #}
+                class="flex justify-center w-full px-2 py-0.5 rounded bg-clr-tint shadow-applet-header">
+                <h2 class="px-3 py-1 text-sm font-medium rounded-sm bg-clr-tint text-display-secondary">{{title | capitalize}}</h2>
             </header>
         </div>
         <section class="flex flex-col flex-1 pt-px overflow-hidden">

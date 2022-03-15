@@ -51,7 +51,8 @@
     x-init="getInitActiveApplet(), setActiveApplet(activeApplet)"
     :data-active-applet="activeApplet"
     :data-applet="activeApplet"
-    class="w-full h-screen overflow-hidden text-base antialiased transition duration-1000 shadow-body easing-linear text-display-primary bg-ui-wallpaper" style="background-image: url(/images/dot-pattern.svg)">
+    class="w-full h-screen overflow-hidden text-base antialiased transition duration-[2000ms] shadow-body easing-linear text-display-primary bg-ui-wallpaper"
+    style="background-image: url(/images/dot-pattern.svg)">
       <main class="flex flex-col w-full h-screen">
         <div class="z-[999] flex-shrink-0 hidden sm:block">{% include "components/topbar.njk" %}</div>
             {% block content %}

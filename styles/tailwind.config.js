@@ -36,28 +36,18 @@ module.exports = {
     boxShadow: {
       // shadows generated https://www.joshwcomeau.com/shadow-palette/
       // oomph: .03, crispy: 0, light position: centered like 1/3 up, resolution .75
-      "inset-stroke":
-        "0px 0px 0px 0.6px inset hsla(var(--global-shadow-color) /  0.15)",
-      "applet-header":
-        "0px 1px 1px 0px hsla(var(--scoped-shadow-color) / 0.05), 0px 1px 1px 0px rgba(var(--clr-solid), 0.08), 0px 0px 0px 0.6px hsla(var(--scoped-shadow-color) / 0.06)",
-      "app-icon":
-        "0px 1px 1px 0px hsla(var(--scoped-shadow-color) / 0.05), 0px 1px 3px 0px rgba(var(--clr-solid), 0.08), 0 1px 1px 0px inset rgba(255,255,255, .15), 0 -1px 1px 0px inset hsla(var(--scoped-shadow-color)/ .15), 0px 0px 0px 0.6px hsla(var(--scoped-shadow-color) / 0.12)",
-      "btn-basic":
-        "0px 1px 1px hsla(var(--scoped-shadow-color) / 0.15), 0px 0px 0px 0.6px hsla(var(--scoped-shadow-color) /  0.15)",
-      "btn-basic-inset":
-        "0px 1px 1px inset hsla(var(--scoped-shadow-color) / 0.1), 0px 0px 0px 0.6px hsla(var(--scoped-shadow-color) / 0.2)",
-      "btn-highlight":
-        "0px 0px 1px 0px hsla(var(--btn-highlight-border) / .2), 0px 1px 1px 0px hsla(var(--scoped-shadow-color) / .2), 0px 0px 0px 0.6px hsla(var(--btn-highlight-border) / 1), 0px 1px 1px 0px rgba(var(--clr-solid), 0.80)",
-      "btn-highlight-inset":
-        "0px 1px 1px inset hsla(var(--btn-highlight-border) / 0.9), 0px 0px 0px 0.6px hsla(var(--btn-highlight-border) / 1)",
-      "list-inset":
-        "0px 1px 2px inset hsla(var(--scoped-shadow-color) / .15), 0px 0px .6px inset hsla(var(--scoped-shadow-color) / .2)",
-      topbar:
-        "0px 1px 1px hsla(var(--global-shadow-color) / 0.15), 0px 1px 40px 0px rgba(var(--clr-solid), 0.05), 0px 0px 0px 0.6px hsla(var(--global-shadow-color) / 0.15)",
+      "inset-stroke": "0px 0px 0px 0.6px inset hsla(var(--global-shadow-color) /  0.15)",
+      "applet-header": "0px 1px 1px 0px hsla(var(--scoped-shadow-color) / .03), 0px 1px 2px 0px rgba(var(--clr-solid), .2), 0px 0px 0px 0.6px hsla(var(--scoped-shadow-color) / .15), inset 0 1px 1px -1px rgba(var(--btn-highlight) / .5)",
+      "app-icon": "0px 1px 1px 0px hsla(var(--scoped-shadow-color) / 0.05), 0px 1px 3px 0px rgba(var(--clr-solid), 0.08), 0 1px 1px 0px inset rgba(255,255,255, .15), 0 -1px 1px 0px inset hsla(var(--scoped-shadow-color)/ .15), 0px 0px 0px 0.6px hsla(var(--scoped-shadow-color) / 0.12)",
+      "btn-basic": "0px 1px 1px hsla(var(--scoped-shadow-color) / 0.15), 0px 0px 0px 0.6px hsla(var(--scoped-shadow-color) /  0.15)",
+      "btn-basic-inset": "0px 1px 3px -1px inset hsla(var(--scoped-shadow-color) / 0.15), 0px 0px 0px 0.6px hsla(var(--scoped-shadow-color) / 0.2)",
+      "btn-highlight": "0px 0px 1px 0px hsla(var(--btn-highlight-border) / 1), 0px 1px 1px 0px hsla(var(--scoped-shadow-color) / .3), 0px 0px 0px 0.6px hsla(var(--btn-highlight-border) / .8), 0px 1px 1px 0px rgba(var(--clr-solid), .8), inset 0px 1px 1px -1px rgba(var(--btn-highlight) / .2)",
+      "btn-highlight-inset": "0px 1px 1px inset hsla(var(--btn-highlight-border) / 0.9), 0px 0px 0px 0.6px hsla(var(--btn-highlight-border) / 1)",
+      "list-inset": "0px 1px 3px -1px inset hsla(var(--scoped-shadow-color) / .15), 0px 0px .6px inset hsla(var(--scoped-shadow-color) / .2)",
+      topbar: "0px 1px 1px hsla(var(--global-shadow-color) / 0.15), 0px 1px 40px 0px rgba(var(--clr-solid), 0.05), 0px 0px 0px 0.6px hsla(var(--global-shadow-color) / 0.15)",
       body: "0px 0px 40px 0px inset rgba(var(--clr-solid), 0.2)",
       focus: "0px 0px 0px 2px #5A98F6, 0px 0px 0px 4px #DCEAFF",
-      "applet-idle":
-        "0px 1.5px 2.3px hsl(var(--global-shadow-color) / 0.03), 0px 3px 4.5px hsl(var(--global-shadow-color) / 0.08), 0px 5.9px 8.9px hsl(var(--global-shadow-color) / 0.12), 0 0 0 0.6px hsla(var(--global-shadow-color) / .16)",
+      "applet-idle": "0px 1.5px 2.3px hsl(var(--global-shadow-color) / 0.03), 0px 3px 4.5px hsl(var(--global-shadow-color) / 0.08), 0px 5.9px 8.9px hsl(var(--global-shadow-color) / 0.12), 0 0 0 0.6px hsla(var(--global-shadow-color) / .16)",
       "applet-active":
         " 0px 0px 3.5px hsl(var(--global-shadow-color) / 0.01), 0px 0px 6px hsl(var(--global-shadow-color) / 0.02), 0px 6px 10px hsl(var(--global-shadow-color) / 0.04), 0px 8px 12px hsl(var(--global-shadow-color) / 0.08), 0px 10px 16px -2px hsl(var(--global-shadow-color) / 0.12), -0.1px 15px 25px -3px hsl(var(--global-shadow-color) / 0.14), 0 0 0 0.6px hsla(var(--global-shadow-color) / .16)",
     },

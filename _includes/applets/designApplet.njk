@@ -1,6 +1,7 @@
 {% extends "components/appletShell.njk" %}
 {% import "components/button.njk" as "btn"%}
 {% set chevronRightIcon %}{% include "icons/chevron-right.svg" %}{% endset %}
+{% set chevronLeftIcon %}{% include "icons/chevron-left.svg" %}{% endset %}
 {% set externalLinkIcon %}{% include "icons/external-link.svg" %}{% endset %}
 
 
@@ -8,61 +9,103 @@
 {% block content %}
 <div
     x-data="{currentFolder: 0, currentItem: null}"
-    x-ref="scroller"
-    class="flex h-full gap-3 px-3 overflow-auto">
-    {# folders #}
-    <ul
-        x-data="{openDesign: 0}"
-        class="flex flex-col gap-1 px-px overflow-auto flex-shrink-0 xs:min-w-[250px]">
-            {% for design in designFolders %}
-                <li>{{designListItem(title=design.title, date=design.date, index=loop.index, type=design.type, id=design.id, content="folder", class="w-full")}}</li>
+    class="h-full">
+    {# desktop folders #}
+    <div x-ref="scroller"
+        class="hidden h-full gap-3 px-3 overflow-auto xs:flex">
+        {# design folders #}
+        <ul
+            x-data="{openDesign: 0}"
+            class="flex flex-col gap-1 px-px overflow-auto flex-shrink-0 xs:min-w-[250px]">
+                {% for design in designFolders %}
+                    <li>{{designListItem(title=design.title, date=design.date, index=loop.index, type=design.type, id=design.id, content="folder", class="w-full")}}</li>
+                {% endfor %}
+            <div @click="openDesign = null; currentFolder = null; currentItem = null; $dispatch('reset-current-item')" class="flex-1 pb-6"></div>
+        </ul>
+        <div class="hidden mb-3 xs:block divider vertical"></div>
+        {# collection items #}
+        <ul
+            x-cloak
+            x-data="{openDesign: 0}"
+            @reset-current-item.window="openDesign = 0; currentItem = null"
+            class="flex flex-col gap-1 px-px overflow-auto flex-shrink-0 xs:min-w-[250px]">
+            {% for design in collections.design %}
+                <li x-show="currentFolder === '{{design.data.tags[1]}}'">{{designListItem(title=design.data.title, date=design.data.publishDate, index=loop.index, type=design.data.type, id=design.data.title, content="item", class="w-full")}}</li>
             {% endfor %}
-        <div @click="openDesign = null; currentFolder = null; currentItem = null; $dispatch('reset-current-item')" class="flex-1 pb-6"></div>
-    </ul>
-    <div class="mb-3 divider vertical"></div>
-    {# subfolders #}
-    <ul
-        x-cloak
-        x-data="{openDesign: 0}"
-        @reset-current-item.window="openDesign = null; currentItem = null"
-        class="flex flex-col gap-1 px-px overflow-auto flex-shrink-0 xs:min-w-[250px]">
+            <div @click="openDesign = null; currentItem = null; $dispatch('reset-current-item')" class="flex-1 pb-6"></div>
+        </ul>
+        <div x-show="currentFolder" class="mb-3 divider vertical"></div>
         {% for design in collections.design %}
-            <li x-show="currentFolder === '{{design.data.tags[1]}}'">{{designListItem(title=design.data.title, date=design.data.publishDate, index=loop.index, type=design.data.type, id=design.data.title, content="item", class="w-full")}}</li>
-        {% endfor %}
-        <div @click="openDesign = null; currentItem = null; $dispatch('reset-current-item')" class="flex-1 pb-6"></div>
-    </ul>
-    <div x-show="currentFolder" class="mb-3 divider vertical"></div>
-    {% for design in collections.design %}
-    {% set typeIcon %}
-        {% if design.data.type === "website" %}{% include "icons/website.svg" %}{% endif %}
-        {% if design.data.type === "game" %}{% include "icons/dice.svg" %}{% endif %}
-        {% if design.data.type === "plugin" %}{% include "icons/plugin.svg" %}{% endif %}
-        {% if design.data.type === "fun" %}{% include "icons/mix.svg" %}{% endif %}
-        {% if design.data.type === "work" %}{% include "icons/briefcase.svg" %}{% endif %}
-        {% if design.data.type === "volunteer" %}{% include "icons/rocket.svg" %}{% endif %}
-    {% endset %}
-    <template x-if="currentItem === '{{design.data.title}}'">
-        <div class="flex-shrink-0 px-4 overflow-auto flex flex-col items-start gap-6 py-4 w-[300px]">
-            <div class="flex flex-col gap-5">
-                {# <div class="grid flex-shrink-0 w-10 h-10 transition transform rounded shadow-applet-header place-content-center text-clr-solid bg-clr-tint">
-                    <div class="w-5 h-5">{{typeIcon | safe}}</div>
-                </div> #}
-                <div class="flex flex-col items-start gap-1">
-                    <h3 class="text-xl">{{design.data.title}} <span class="capitalize">{{design.data.type}}</span></h3>
-                    <p class="text-display-tertiary">{{design.data.excerpt}}</p>
+            {% set typeIcon %}
+                {% if design.data.type === "website" %}{% include "icons/website.svg" %}{% endif %}
+                {% if design.data.type === "game" %}{% include "icons/dice.svg" %}{% endif %}
+                {% if design.data.type === "plugin" %}{% include "icons/plugin.svg" %}{% endif %}
+                {% if design.data.type === "fun" %}{% include "icons/mix.svg" %}{% endif %}
+                {% if design.data.type === "work" %}{% include "icons/briefcase.svg" %}{% endif %}
+                {% if design.data.type === "volunteer" %}{% include "icons/rocket.svg" %}{% endif %}
+            {% endset %}
+            <template x-if="currentItem === '{{design.data.title}}'">
+                <div class="flex-shrink-0 px-4 overflow-auto flex flex-col items-start gap-6 py-4 w-[300px]">
+                    <div class="flex flex-col gap-5">
+                        {# <div class="grid flex-shrink-0 w-10 h-10 transition transform rounded shadow-applet-header place-content-center text-clr-solid bg-clr-tint">
+                            <div class="w-5 h-5">{{typeIcon | safe}}</div>
+                        </div> #}
+                        <div class="flex flex-col items-start gap-1">
+                            <h3 class="text-xl">{{design.data.title}} <span class="capitalize">{{design.data.type}}</span></h3>
+                            <p class="text-display-tertiary">{{design.data.excerpt}}</p>
+                        </div>
+                    </div>
+                        {{btn.button(label="View project", icon=externalLinkIcon, as="a", href=design.data.link, newTab=true)}}
+                    <div class="w-full divider"></div>
+                    <dl class="grid items-baseline max-w-full text-display-secondary grid-cols-dl gap-x-6 gap-y-4">
+                        <dt class="text-sm text-display-tertiary">Contribution</dt>
+                        <dl class="capitalize">{{design.data.contribution}}</dl>
+                        <dt class="text-sm text-display-tertiary">Date</dt>
+                        <dl>{{design.data.publishDate}}</dl>
+                    </dl>
                 </div>
-            </div>
-                {{btn.button(label="View project", icon=externalLinkIcon, as="a", href=design.data.link, newTab=true)}}
-            <div class="w-full divider"></div>
-            <dl class="grid items-baseline max-w-full text-display-secondary grid-cols-dl gap-x-6 gap-y-4">
-                <dt class="text-sm text-display-tertiary">Contribution</dt>
-                <dl class="capitalize">{{design.data.contribution}}</dl>
-                <dt class="text-sm text-display-tertiary">Date</dt>
-                <dl>{{design.data.publishDate}}</dl>
-            </dl>
-        </div>
-    </template>
-    {% endfor %}
+            </template>
+        {% endfor %}
+    </div>
+    {# mobile folders #}
+    <div class="grid flex-col px-3 grid-absolute xs:hidden">
+        {# design folders #}
+        <ul
+            x-data="{openDesign: 0}"
+            x-show="!currentFolder"
+            x-transition:enter="transition duration-300"
+            x-transition:enter-start="opacity-0 -translate-x-16"
+            x-transition:enter-end="opacity-100 translate-x-0"
+            x-transition:leave="transition duration-300"
+            x-transition:leave-start="opacity-100 translate-x-0"
+            x-transition:leave-end="opacity-0 -translate-x-16"
+            @reset-mobile-folder.window="openDesign = 0"
+            class="flex flex-col gap-1 p-px overflow-auto bg-ui-applet-bg grid-inset-0">
+                {% for design in designFolders %}
+                    <li>{{designListItem(title=design.title, date=design.date, index=loop.index, type=design.type, id=design.id, content="folder", class="w-full")}}</li>
+                {% endfor %}
+            <div @click="openDesign = null; currentFolder = null; currentItem = null; $dispatch('reset-mobile-folder')" class="flex-1 pb-6"></div>
+        </ul>
+        {# collection items #}
+        <ul
+            x-cloak
+            x-data="{openDesign: 0}"
+            x-show="currentFolder"
+            x-transition:enter="transition duration-300"
+            x-transition:enter-start="opacity-0 translate-x-16"
+            x-transition:enter-end="opacity-100 translate-x-0"
+            x-transition:leave="transition duration-300"
+            x-transition:leave-start="opacity-100 translate-x-0"
+            x-transition:leave-end="opacity-0 translate-x-16"
+            @reset-current-item.window="openDesign = 0; currentItem = null"
+            class="flex flex-col grid-inset-0 gap-1 p-px bg-ui-applet-bg overflow-auto flex-shrink-0 xs:min-w-[250px]">
+            {{btn.button(label="Back to portfolio", icon=chevronLeftIcon, as="button", onClick="openDesign = 0; currentFolder = null; $dispatch('reset-mobile-folder')")}}
+            {% for design in collections.design %}
+                <li x-show="currentFolder === '{{design.data.tags[1]}}'">{{designListItem(title=design.data.title, date=design.data.publishDate, index=loop.index, type=design.data.type, id=design.data.title, content="item", class="w-full")}}</li>
+            {% endfor %}
+            <div @click="openDesign = null; currentItem = null; $dispatch('reset-current-item')" class="flex-1 pb-6"></div>
+        </ul>
+    </div>
 </div>
 {% endblock %}
 
@@ -93,9 +136,10 @@
             class="flex items-center gap-3 transition duration-75 transform group-active:translate-y-px">
             <div
                 :class="openDesign === {{index}} ? 'text-clr-solid' : 'text-display-tertiary'"
-                class="w-15 h-15">{{icon | safe }}
+                class="w-5 h-5 xs:w-15 xs:h-15">{{icon | safe }}
             </div>
-            <div class="flex-1 flex gap-1.5 items-baseline overflow-hidden">
+            <div class="self-stretch xs:hidden divider vertical"></div>
+            <div class="flex-1 flex flex-col xs:flex-row xs:gap-1.5 gap-1 items-baseline overflow-hidden">
                 <p
                     :class="openDesign === {{index}} ? 'text-display-primary' : 'group-active:text-display-primary text-display-secondary'"
                     class="truncate">
