@@ -8,6 +8,7 @@ module.exports = {
       },
       spacing: {
         15: ".9375rem",
+        "max-content": "max-content",
       },
       gridTemplateRows: {
         site: "min-content 1fr min-content",

@@ -87,7 +87,7 @@
             <div @click="openDesign = null; currentFolder = null; currentItem = null; $dispatch('reset-mobile-folder')" class="flex-1 pb-6"></div>
         </ul>
         {# collection items #}
-        <ul
+        <div
             x-cloak
             x-data="{openDesign: 0}"
             x-show="currentFolder"
@@ -98,13 +98,15 @@
             x-transition:leave-start="opacity-100 translate-x-0"
             x-transition:leave-end="opacity-0 translate-x-16"
             @reset-current-item.window="openDesign = 0; currentItem = null"
-            class="flex flex-col grid-inset-0 gap-1 p-px bg-ui-applet-bg overflow-auto flex-shrink-0 xs:min-w-[250px]">
-            {{btn.button(label="Back to portfolio", icon=chevronLeftIcon, as="button", onClick="openDesign = 0; currentFolder = null; $dispatch('reset-mobile-folder')")}}
-            {% for design in collections.design %}
-                <li x-show="currentFolder === '{{design.data.tags[1]}}'">{{designListItem(title=design.data.title, date=design.data.publishDate, index=loop.index, type=design.data.type, id=design.data.title, content="item", class="w-full")}}</li>
-            {% endfor %}
+            class="flex flex-col gap-6 p-px overflow-auto grid-inset-0 bg-ui-applet-bg">
+            {{btn.button(label="Back to portfolio", icon=chevronLeftIcon, as="button", class="w-max-content", onClick="openDesign = 0; currentFolder = null; $dispatch('reset-mobile-folder')")}}
+            <ul class="flex flex-col gap-1">
+                {% for design in collections.design %}
+                    <li x-show="currentFolder === '{{design.data.tags[1]}}'">{{designListItem(title=design.data.title, date=design.data.publishDate, index=loop.index, type=design.data.type, id=design.data.title, content="item", class="w-full")}}</li>
+                {% endfor %}
+            </ul>
             <div @click="openDesign = null; currentItem = null; $dispatch('reset-current-item')" class="flex-1 pb-6"></div>
-        </ul>
+        </div>
     </div>
 </div>
 {% endblock %}
