@@ -38,9 +38,9 @@ module.exports = {
       // shadows generated https://www.joshwcomeau.com/shadow-palette/
       // oomph: .03, crispy: 0, light position: centered like 1/3 up, resolution .75
       "inset-stroke": "0px 0px 0px 0.6px inset hsla(var(--global-shadow-color) /  0.15)",
-      "applet-header": "0px 1px 1px 0px hsla(var(--scoped-shadow-color) / .03), 0px 1px 2px 0px rgba(var(--clr-solid), .2), 0px 0px 0px 0.6px hsla(var(--scoped-shadow-color) / .15), inset 0 1px 1px -1px rgba(var(--btn-highlight) / .5)",
+      "applet-header": "0px 1px 1px 0px hsla(var(--scoped-shadow-color) / .03), 0px 1px 3px 0px rgba(var(--clr-solid), .2), 0px 0px 0px 0.6px hsla(var(--scoped-shadow-color) / .1), inset 0 1px 1px -1px rgba(var(--btn-highlight) / .5)",
       "app-icon": "0px 1px 1px 0px hsla(var(--scoped-shadow-color) / 0.05), 0px 1px 3px 0px rgba(var(--clr-solid), 0.08), 0 1px 1px 0px inset rgba(255,255,255, .15), 0 -1px 1px 0px inset hsla(var(--scoped-shadow-color)/ .15), 0px 0px 0px 0.6px hsla(var(--scoped-shadow-color) / 0.12)",
-      "btn-basic": "0px 1px 1px hsla(var(--scoped-shadow-color) / 0.15), 0px 0px 0px 0.6px hsla(var(--scoped-shadow-color) /  0.15)",
+      "btn-basic": "0px 1px 2px hsla(var(--scoped-shadow-color) / 0.1), 0px 0px 0px 0.6px hsla(var(--scoped-shadow-color) /  0.15)",
       "btn-basic-inset": "0px 1px 3px -1px inset hsla(var(--scoped-shadow-color) / 0.15), 0px 0px 0px 0.6px hsla(var(--scoped-shadow-color) / 0.2)",
       "btn-highlight": "0px 0px 1px 0px hsla(var(--btn-highlight-border) / 1), 0px 1px 1px 0px hsla(var(--scoped-shadow-color) / .3), 0px 0px 0px 0.6px hsla(var(--btn-highlight-border) / .8), 0px 1px 1px 0px rgba(var(--clr-solid), .8), inset 0px 1px 1px -1px rgba(var(--btn-highlight) / .2)",
       "btn-highlight-inset": "0px 1px 1px inset hsla(var(--btn-highlight-border) / 0.9), 0px 0px 0px 0.6px hsla(var(--btn-highlight-border) / 1)",
@@ -61,6 +61,8 @@ module.exports = {
     },
     colors: {
       transparent: "transparent",
+      currentColor: "currentColor",
+      inherit: "inherit",
       display: {
         primary: "var(--display-primary)",
         secondary: "var(--display-secondary)",
