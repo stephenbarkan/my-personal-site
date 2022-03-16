@@ -5,38 +5,39 @@
 {% set externalLinkIcon %}{% include "icons/external-link.svg" %}{% endset %}
 
 {% macro designItemDisplay() %}
-    {% for design in collections.design %}
-        {% set typeIcon %}
-            {% if design.data.type === "website" %}{% include "icons/website.svg" %}{% endif %}
-            {% if design.data.type === "game" %}{% include "icons/dice.svg" %}{% endif %}
-            {% if design.data.type === "plugin" %}{% include "icons/plugin.svg" %}{% endif %}
-            {% if design.data.type === "fun" %}{% include "icons/mix.svg" %}{% endif %}
-            {% if design.data.type === "work" %}{% include "icons/briefcase.svg" %}{% endif %}
-            {% if design.data.type === "volunteer" %}{% include "icons/rocket.svg" %}{% endif %}
-        {% endset %}
-        <template x-if="currentItem === '{{design.data.title}}'">
-            <div class="flex-shrink-0 px-4 overflow-auto flex flex-col items-start gap-6 py-4 w-[300px]">
-                <div class="flex flex-col gap-5">
-                    {# <div class="grid flex-shrink-0 w-10 h-10 transition transform rounded shadow-applet-header place-content-center text-clr-solid bg-clr-tint">
-                        <div class="w-5 h-5">{{typeIcon | safe}}</div>
-                    </div> #}
-                    <div class="flex flex-col items-start gap-1">
-                        <h3 class="text-xl">{{design.data.title}} <span class="capitalize">{{design.data.type}}</span></h3>
-                        <p class="text-display-tertiary">{{design.data.excerpt}}</p>
+    <div class="h-full overflow-auto">
+        {% for design in collections.design %}
+            {% set typeIcon %}
+                {% if design.data.type === "website" %}{% include "icons/website.svg" %}{% endif %}
+                {% if design.data.type === "game" %}{% include "icons/dice.svg" %}{% endif %}
+                {% if design.data.type === "plugin" %}{% include "icons/plugin.svg" %}{% endif %}
+                {% if design.data.type === "fun" %}{% include "icons/mix.svg" %}{% endif %}
+                {% if design.data.type === "work" %}{% include "icons/briefcase.svg" %}{% endif %}
+                {% if design.data.type === "volunteer" %}{% include "icons/rocket.svg" %}{% endif %}
+            {% endset %}
+            <template x-if="currentItem === '{{design.data.title}}'">
+                <div class="flex-shrink-0 overflow-auto flex flex-col items-start gap-8 xs:gap-6 px-2 py-4 xs:px-4 xs:w-[300px]">
+                    <div class="flex flex-col gap-5">
+                        <div class="grid flex-shrink-0 w-12 h-12 transition transform rounded-lg xs:hidden shadow-applet-header place-content-center text-clr-solid bg-clr-tint">
+                            <div class="w-6 h-6">{{typeIcon | safe}}</div>
+                        </div>
+                        <div class="flex flex-col items-start gap-1">
+                            <h3 class="text-xl">{{design.data.title}} <span class="capitalize">{{design.data.type}}</span></h3>
+                            <p class="text-display-tertiary">{{design.data.excerpt}}</p>
+                        </div>
                     </div>
+                        {{btn.button(label="View project", icon=externalLinkIcon, as="a", href=design.data.link, newTab=true)}}
+                    <div class="hidden w-full xs:block divider"></div>
+                    <dl class="grid items-baseline max-w-full text-display-secondary grid-cols-dl gap-x-6 gap-y-4">
+                        <dt class="text-sm text-display-tertiary">Contribution</dt>
+                        <dl class="capitalize">{{design.data.contribution}}</dl>
+                        <dt class="text-sm text-display-tertiary">Date</dt>
+                        <dl>{{design.data.publishDate}}</dl>
+                    </dl>
                 </div>
-                    {{btn.button(label="View project", icon=externalLinkIcon, as="a", href=design.data.link, newTab=true)}}
-                <div class="w-full divider"></div>
-                <dl class="grid items-baseline max-w-full text-display-secondary grid-cols-dl gap-x-6 gap-y-4">
-                    <dt class="text-sm text-display-tertiary">Contribution</dt>
-                    <dl class="capitalize">{{design.data.contribution}}</dl>
-                    <dt class="text-sm text-display-tertiary">Date</dt>
-                    <dl>{{design.data.publishDate}}</dl>
-                </dl>
-            </div>
-        </template>
-    {% endfor %}
-
+            </template>
+        {% endfor %}
+    </div>
 {% endmacro %}
 
 {% block content %}
@@ -69,7 +70,10 @@
             {% endfor %}
             <div @click="openDesign = null; currentItem = null; $dispatch('reset-current-item')" class="flex-1 pb-6"></div>
         </ul>
-        <div x-show="currentFolder" class="mb-3 divider vertical"></div>
+        <div
+            x-show="currentFolder"
+            x-transition.opacity
+            class="mb-3 divider vertical"></div>
         <div
             x-show="currentItem"
             x-transition.opacity>
@@ -106,8 +110,11 @@
             x-transition:leave-start="opacity-100 translate-x-0"
             x-transition:leave-end="opacity-0"
             @reset-mobile-collection.window="openDesign = 0"
-            class="flex flex-col gap-6 p-px overflow-auto grid-inset-0 bg-ui-applet-bg">
-            {{btn.button(label="Back to portfolio", icon=chevronLeftIcon, as="button", class="w-max-content", onClick="openDesign = 0; currentFolder = null; $dispatch('reset-mobile-folder')")}}
+            class="flex flex-col gap-3 p-px overflow-auto grid-inset-0 bg-ui-applet-bg">
+            <div class="flex flex-col gap-3">
+                {{btn.button(label="Back to portfolio", icon=chevronLeftIcon, as="button", class="w-max-content", onClick="openDesign = 0; currentFolder = null; $dispatch('reset-mobile-folder')")}}
+                <div class="w-full divider"></div>
+            </div>
             <ul class="flex flex-col gap-1">
                 {% for design in collections.design %}
                     <li x-show="currentFolder === '{{design.data.tags[1]}}'">{{designListItem(title=design.data.title, date=design.data.publishDate, index=loop.index, type=design.data.type, id=design.data.title, content="item", class="w-full")}}</li>
@@ -122,8 +129,11 @@
             x-transition:leave="transition duration-300"
             x-transition:leave-start="opacity-100 translate-x-0"
             x-transition:leave-end="opacity-0"
-            class="flex flex-col gap-6 p-px grid-inset-0 bg-ui-applet-bg">
-            {{btn.button(label="Back to folder", icon=chevronLeftIcon, as="button", class="w-max-content", onClick="openDesign = 0; currentItem=0; $dispatch('reset-mobile-collection')")}}
+            class="flex flex-col gap-3 p-px grid-inset-0 bg-ui-applet-bg">
+            <div class="flex flex-col gap-3">
+                {{btn.button(label="Back to folder", icon=chevronLeftIcon, as="button", class="w-max-content", onClick="openDesign = 0; currentItem=0; $dispatch('reset-mobile-collection')")}}
+                <div class="w-full divider"></div>
+            </div>
             {{designItemDisplay()}}
         </div>
     </div>

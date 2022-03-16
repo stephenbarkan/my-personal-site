@@ -11,7 +11,7 @@ module.exports = {
         "max-content": "max-content",
       },
       gridTemplateRows: {
-        site: "min-content 1fr min-content",
+        site: "auto minmax(0,1fr) auto",
       },
       gridTemplateColumns: {
         dl: "min-content 1fr",
@@ -38,7 +38,7 @@ module.exports = {
       // shadows generated https://www.joshwcomeau.com/shadow-palette/
       // oomph: .03, crispy: 0, light position: centered like 1/3 up, resolution .75
       "inset-stroke": "0px 0px 0px 0.6px inset hsla(var(--global-shadow-color) /  0.15)",
-      "applet-header": "0px 1px 1px 0px hsla(var(--scoped-shadow-color) / .03), 0px 1px 3px 0px rgba(var(--clr-solid), .2), 0px 0px 0px 0.6px hsla(var(--scoped-shadow-color) / .1), inset 0 1px 1px -1px rgba(var(--btn-highlight) / .5)",
+      "applet-header": "0px 1px 1px 0px hsla(var(--scoped-shadow-color) / .03), 0px 1px 3px 0px rgba(var(--clr-solid), .2), 0px 0px 0px 0.6px hsla(var(--scoped-shadow-color) / .1), inset 0 1px 2px -1px rgba(var(--btn-highlight) / 1)",
       "app-icon": "0px 1px 1px 0px hsla(var(--scoped-shadow-color) / 0.05), 0px 1px 3px 0px rgba(var(--clr-solid), 0.08), 0 1px 1px 0px inset rgba(255,255,255, .15), 0 -1px 1px 0px inset hsla(var(--scoped-shadow-color)/ .15), 0px 0px 0px 0.6px hsla(var(--scoped-shadow-color) / 0.12)",
       "btn-basic": "0px 1px 2px hsla(var(--scoped-shadow-color) / 0.1), 0px 0px 0px 0.6px hsla(var(--scoped-shadow-color) /  0.15)",
       "btn-basic-inset": "0px 1px 3px -1px inset hsla(var(--scoped-shadow-color) / 0.15), 0px 0px 0px 0.6px hsla(var(--scoped-shadow-color) / 0.2)",

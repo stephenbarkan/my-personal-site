@@ -62,7 +62,7 @@
                 <div @click="open=true" class="self-start md:hidden">{{btn.button(label="All entries", icon=chevronLeftIcon, as="button")}}</div>
                 {% for post in data %}
                 <template x-if="openPost === '{{post.fileSlug}}'">
-                    <article class="flex flex-col items-center flex-1 max-h-full overflow-y-auto">
+                    <article class="flex flex-col items-center flex-1 max-h-full px-2 overflow-y-auto xs:px-0">
                         <div class="max-w-[550px] xs:w-[83%] w-full gap-4 flex flex-col pt-6">
                             <time class="text-sm text-display-tertiary">{{post.data.date | dateDisplay}}</time>
                             <h3 class="text-xl">{{post.data.title}}</h3>

@@ -53,7 +53,7 @@
     :data-applet="activeApplet"
     class="w-full h-screen overflow-hidden text-base antialiased transition duration-[2000ms] shadow-body easing-linear text-display-primary bg-ui-wallpaper"
     style="background-image: url(/images/dot-pattern.svg)">
-      <main class="flex flex-col w-full h-screen">
+      <main class="grid w-full h-screen grid-rows-site">
         <div class="z-[999] flex-shrink-0 hidden sm:block">{% include "components/topbar.njk" %}</div>
             {% block content %}
                 {{ content | safe }}
@@ -65,6 +65,6 @@
     <script defer src="https://unpkg.com/alpinejs@3.5.0/dist/cdn.min.js"></script>
     <script defer src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.1.2/howler.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/interactjs/dist/interact.min.js"></script>
-    <script src="/../scripts/activeApplet.js"></script>
+    <script src="/../scripts/clock.js"></script>
   </body>
 </html>
