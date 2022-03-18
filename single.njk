@@ -6,9 +6,8 @@
 {% import "applets/chatApplet.njk" as "chatApplet" with context %}
 {% block title %}Stephen Barkan{% endblock %}
 
-
 {% block content %}
-      <div class="flex justify-center flex-1 w-full row-start-2 gap-3 py-2 overflow-auto page-container">
+    <div class="flex justify-center flex-1 w-full row-start-2 gap-3 py-2 overflow-auto page-container">
         <div x-show="activeApplet === 'photos'"
             x-transition:enter="origin-top"
             x-transition:enter-start="scale-95 opacity-0"
@@ -16,7 +15,7 @@
             x-transition:leave="origin-bottom"
             x-transition:leave-start="scale-100 opacity-100"
             x-transition:leave-end="scale-95 opacity-0"
-            class="sm:fixed inset-0 flex h-full transition transform duration-300 xs:pt-[13vh] justify-center w-full">{{photosApplet.applet(title='photos', maxWidth='max-w-[335px]', height='xs:h-[495px]', data=photos)}}</div>
+            class="sm:fixed inset-0 flex h-full transition transform duration-300 ease-bounce-small xs:pt-[13vh] justify-center w-full">{{photosApplet.applet(title='photos', maxWidth='max-w-[335px]', height='xs:h-[495px]', data=photos)}}</div>
         <div x-show="activeApplet === 'design'"
             x-transition:enter="origin-top"
             x-transition:enter-start="scale-95 opacity-0"
@@ -24,7 +23,7 @@
             x-transition:leave="origin-bottom"
             x-transition:leave-start="scale-100 opacity-100"
             x-transition:leave-end="scale-95 opacity-0"
-            class="sm:fixed inset-0 flex h-full transition transform duration-300 xs:pt-[13vh] justify-center w-full">{{designApplet.applet(title='design', maxWidth='max-w-[780px]', height='xs:h-[350px]', data=collections.designs)}}</div>
+            class="sm:fixed inset-0 flex h-full transition transform duration-300 ease-bounce-small xs:pt-[13vh] justify-center w-full">{{designApplet.applet(title='design', maxWidth='max-w-[780px]', height='xs:h-[350px]', data=collections.designs)}}</div>
         <div x-show="activeApplet === 'posts'"
             x-transition:enter="origin-top"
             x-transition:enter-start="scale-95 opacity-0"
@@ -32,7 +31,7 @@
             x-transition:leave="origin-bottom"
             x-transition:leave-start="scale-100 opacity-100"
             x-transition:leave-end="scale-95 opacity-0"
-            class="sm:fixed inset-0 flex h-full transition transform duration-300 xs:pt-[13vh] justify-center w-full">{{postsApplet.applet(title='posts', maxWidth='max-w-[740px]', height='xs:h-[460px]', data=collections.posts)}}</div>
+            class="sm:fixed inset-0 flex h-full transition transform duration-300 ease-bounce-small xs:pt-[13vh] justify-center w-full">{{postsApplet.applet(title='posts', maxWidth='max-w-[740px]', height='xs:h-[460px]', data=collections.posts)}}</div>
         <div x-show="activeApplet === 'music'"
             x-transition:enter="origin-top"
             x-transition:enter-start="scale-95 opacity-0"
@@ -40,7 +39,7 @@
             x-transition:leave="origin-bottom"
             x-transition:leave-start="scale-100 opacity-100"
             x-transition:leave-end="scale-95 opacity-0"
-            class="sm:fixed inset-0 flex h-full transition transform duration-300 xs:pt-[13vh] justify-center w-full">{{musicApplet.applet(title='music', maxWidth='w-[520px]', height='sm:h-[328px]', data=music)}}</div>
+            class="sm:fixed inset-0 flex h-full transition transform duration-300 ease-bounce-small xs:pt-[13vh] justify-center w-full">{{musicApplet.applet(title='music', maxWidth='w-[520px]', height='sm:h-[328px]', data=music)}}</div>
         <div x-show="activeApplet === 'chat'"
             x-transition:enter="origin-top"
             x-transition:enter-start="scale-95 opacity-0"
@@ -48,6 +47,6 @@
             x-transition:leave="origin-bottom"
             x-transition:leave-start="scale-100 opacity-100"
             x-transition:leave-end="scale-95 opacity-0"
-            class="sm:fixed inset-0 flex h-full transition transform duration-300 xs:pt-[13vh] justify-center w-full">{{chatApplet.applet(title='chat', maxWidth='w-[316px]', height='sm:h-[616px]', data=chat)}}</div>
-         </div>
+            class="sm:fixed inset-0 flex h-full transition transform duration-300 ease-bounce-small xs:pt-[13vh] justify-center w-full">{{chatApplet.applet(title='chat', maxWidth='w-[316px]', height='sm:h-[616px]', data=chat)}}</div>
+    </div>
 {% endblock %}

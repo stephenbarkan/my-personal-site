@@ -1,4 +1,6 @@
 {% extends "components/appletShell.njk" %}
+{% import "components/button.njk" as "btn"%}
+
 {% set playLargeIcon %}{% include "icons/play-large.svg" %}{% endset %}
 {% set pauseLargeIcon %}{% include "icons/pause-large.svg" %}{% endset %}
 {% set playOutlineIcon %}{% include "icons/play-outline.svg" %}{% endset %}
@@ -8,7 +10,7 @@
 {% set soundcloudIcon %}{% include "icons/soundcloud.svg" %}{% endset %}
 
 {% set playButtonIcon %}
-    <span
+<span
         class="grid-inset-0 w-15 h-15 animate-spin"
         x-show="appletState === 'loading'"
         x-transition:enter="ease-out duration-150"
@@ -17,9 +19,9 @@
         x-transition:leave="transition ease-out duration-150"
         x-transition:leave-start="opacity-100"
         x-transition:leave-end="opacity-0">
-        {{musicLoadIcon | safe}}
-    </span>
-    <span
+    {{musicLoadIcon | safe}}
+</span>
+<span
         class="grid-inset-0 w-15 h-15"
         x-show="appletState === 'paused'"
         x-transition:enter="ease-out duration-150"
@@ -28,9 +30,9 @@
         x-transition:leave="transition ease-out duration-150"
         x-transition:leave-start="opacity-100"
         x-transition:leave-end="opacity-0">
-        {{playLargeIcon | safe}}
-    </span>
-    <span
+    {{playLargeIcon | safe}}
+</span>
+<span
         class="grid-inset-0 w-15 h-15"
         x-show="appletState === 'playing'"
         x-transition:enter="ease-out duration-150"
@@ -39,12 +41,12 @@
         x-transition:leave="ease-out duration-150"
         x-transition:leave-start="opacity-100"
         x-transition:leave-end="opacity-0">
-        {{pauseLargeIcon | safe}}
-    </span>
+    {{pauseLargeIcon | safe}}
+</span>
 {% endset %}
 
 {% block content %}
-<div
+    <div
 x-data="{
     appletState: 'notPlaying',
     wasPlaying: false,
@@ -97,35 +99,35 @@ x-data="{
 
 }"
 class="flex flex-col h-full gap-3">
-    {# top section #}
-    <div class="grid px-3 overflow-hidden grid-absolute">
-        <div x-show="!currentSong.index" class="grid grid-inset-0 place-content-center">
-            <h3 class="text-lg">Choose a song to listen to some of the music I've written!</h3>
-        </div>
-        <div
+        {# top section #}
+        <div class="grid px-3 overflow-hidden grid-absolute">
+            <div x-show="!currentSong.index" class="grid grid-inset-0 place-content-center">
+                <h3 class="text-lg">Choose a song to listen to some of the music I've written!</h3>
+            </div>
+            <div
             x-cloak
             :class="{'pointer-events-none invisible opacity-0': currentSong.index === 0, 'opacity-100': currentSong.index > 0}"
             class="flex items-center gap-4 transition-opacity duration-500 delay-200 grid-inset-0">
-            <figure class="w-[106px] h-[106px] relative overflow-hidden rounded">
-                <img
+                <figure class="w-[106px] h-[106px] relative overflow-hidden rounded">
+                    <img
                 :class="{'blur-sm duration-0': appletState === 'loading' || appletState === 'notPlaying', ' transition-all duration-500 delay-200': appletState === 'playing'}"
                 class="w-full h-full" :src="'../songs/' + artwork" alt="">
-                <div class="absolute inset-0 rounded shadow-inset-stroke"></div>
-            </figure>
-            <div class="flex flex-col gap-4 grow">
-                <h3 class="text-lg" x-text="currentSong.title"></h3>
-                <div class="flex items-center gap-3">
-                    <button
+                    <div class="absolute inset-0 rounded shadow-inset-stroke"></div>
+                </figure>
+                <div class="flex flex-col gap-4 grow">
+                    <h3 class="text-lg" x-text="currentSong.title"></h3>
+                    <div class="flex items-center gap-3">
+                        <button
                         @click="handlePlayPauseButton"
                         :disabled="appletState === 'loading'"
                         :class="{'pointer-events-none': appletState === 'loading'}"
                         class="flex items-center justify-center shadow-btn-highlight hover:bg-btn-highlight-bg-hover transition-colors active:shadow-btn-highlight-inset group rounded-full bg-clr-solid w-[39px] h-[39px]">
-                        <span class="grid items-center transition duration-75 transform grid-absolute text-display-inverse-primary group-active:translate-y-px justify-items-center">
-                            {{ playButtonIcon | safe }}
-                        </span>
-                    </button>
-                    <div class="relative flex-1 flex-shrink-0">
-                        <input
+                            <span class="grid items-center transition duration-75 transform grid-absolute text-display-inverse-primary group-active:translate-y-px justify-items-center">
+                                {{ playButtonIcon | safe }}
+                            </span>
+                        </button>
+                        <div class="relative flex-1 flex-shrink-0">
+                            <input
                             type="range"
                             id="music-slider"
                             name="track-progress"
@@ -133,50 +135,49 @@ class="flex flex-col h-full gap-3">
                             x-on:input="updatePlaybackTransform"
                             class="relative z-10 block w-full h-[5px] bg-transparent"
                             min="0" max="100" value="0" step=".25">
-                        <label for="track-progress" class="sr-only">Scrub through song</label>
-                        <div class="absolute left-0 right-0 z-0 h-1 -mt-1 overflow-hidden rounded-full bg-clr-highlight shadow-list-inset">
-                            <div x-ref="playbackVisualizer" style="transform: translateX(-100%)" class="w-full h-full rounded-full bg-clr-solid"></div>
+                            <label for="track-progress" class="sr-only">Scrub through song</label>
+                            <div class="absolute left-0 right-0 z-0 h-1 -mt-1 overflow-hidden rounded-full bg-clr-highlight shadow-list-inset">
+                                <div x-ref="playbackVisualizer" style="transform: translateX(-100%)" class="w-full h-full rounded-full bg-clr-solid"></div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="mx-3 divider"></div>
-    {# bottom section #}
-    <ul class="flex flex-col flex-1 gap-1 px-3 pb-3 overflow-y-auto">
-    {% for song in songs %}
-        <li>{{songListItem(title=song.title, index=loop.index, id=song.title, artwork=song.artwork, src=song.src, class="w-full")}}</li>
-    {% endfor %}
-    <li>
-        <a href="https://soundcloud.com/stephenbarkan" target="_blank"
+        <div class="mx-3 divider"></div>
+        {# bottom section #}
+        <ul class="flex flex-col flex-1 gap-1 px-3 pb-3 overflow-y-auto">
+            {% for song in songs %}
+                <li>{{songListItem(title=song.title, index=loop.index, id=song.title, artwork=song.artwork, src=song.src, class="w-full")}}</li>
+            {% endfor %}
+            <li>
+                <a href="https://soundcloud.com/stephenbarkan" target="_blank"
             class="text-left group block rounded pb-2 pt-1.5 px-2 hover:bg-clr-highlight transition-shadow active:shadow-list-inset">
-            <div class="flex items-center gap-3 transition duration-75 transform group-active:translate-y-px">
-                <div class="w-15 h-15 text-display-tertiary">
-                    <span>{{soundcloudIcon | safe }}</span>
-                </div>
-                <div class="flex-1 flex gap-1.5 items-baseline overflow-hidden">
-                    <p class="truncate group-active:text-display-primary text-display-secondary">
+                    <div class="flex items-center gap-3 transition duration-75 transform group-active:translate-y-px">
+                        <div class="w-15 h-15 text-display-tertiary">
+                            <span>{{soundcloudIcon | safe }}</span>
+                        </div>
+                        <div class="flex-1 flex gap-1.5 items-baseline overflow-hidden">
+                            <p class="truncate group-active:text-display-primary text-display-secondary">
                         Listen to more on Soundcloud!
                     </p>
-                </div>
-            </div>
-        </a>
-    </li>
-    </ul>
-</div>
+                        </div>
+                    </div>
+                </a>
+            </li>
+        </ul>
+    </div>
 {% endblock %}
-
 
 {% macro songListItem(title, class, onClick, index, id, artwork, src) %}
     <button
         @click="handleSongListClick({{index}}, `{{title}}`, `{{artwork}}`, `{{src}}`)"
         :disabled="currentSong.index === {{index}}"
-        :class="{ 'bg-clr-highlight shadow-list-inset': currentSong.index === {{index}} }"
-        class="{{class}} text-left group block rounded pb-2 pt-1.5 px-2 hover:bg-clr-highlight active:shadow-list-inset">
+        :class="{ 'appletListItemActive': currentSong.index === {{index}} }"
+        class="{{class}} text-left group block pb-2 pt-1.5 px-2 appletListItem">
         <div
             :class="currentSong.index === {{index}} && 'translate-y-px'"
-            class="flex items-center gap-3 transition duration-75 transform group-active:translate-y-px">
+            class="flex items-center gap-3 appletListItemContents">
             <div
                 :class="currentSong.index === {{index}} ? 'text-clr-solid' : 'text-display-tertiary'"
                 class="w-15 h-15">

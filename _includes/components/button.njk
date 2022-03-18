@@ -4,9 +4,11 @@
         {% if newTab %}target="_blank"{% endif %}
         {% if onClick %}@click="{{onClick}}"{% endif %}
         class="pt-1.5 px-2 pb-[7px] flex gap-2 justify-center items-center transition-colors rounded-sm group text-button {{class}}
-        {% if highlighted %} bg-clr-solid shadow-btn-highlight text-display-inverse-primary hover:bg-btn-highlight-bg-hover {% else %} bg-btn-bg text-display-secondary hover:text-display-primary hover:bg-btn-bg-hover shadow-btn-basic active:shadow-btn-basic-inset{% endif %}"
+        {% if highlighted %} bg-clr-solid shadow-btn-highlight text-display-inverse-primary hover:bg-btn-highlight-bg-hover active:shadow-btn-highlight-inset {% else %} bg-btn-bg text-display-secondary hover:text-display-primary hover:bg-btn-bg-hover shadow-btn-basic active:shadow-btn-basic-inset{% endif %}"
     >
-        {% if icon %}<span class="transition duration-75 transform group-active:translate-y-px text-display-tertiary group-active:text-display-secondary h-15 w-15">{{icon | safe}}</span>{% endif %}
-        <span class="transition duration-75 transform group-active:translate-y-px">{{label | safe}}</span>
+        {% if icon %}
+            <span class="appletListItemContents text-display-tertiary group-active:text-display-secondary h-15 w-15">{{icon | safe}}</span>
+        {% endif %}
+        <span class="appletListItemContents">{{label | safe}}</span>
     </{{as}}>
 {% endmacro %}

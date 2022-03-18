@@ -45,6 +45,7 @@
     --clr-solid: 252, 102, 79;
     --clr-tint: rgba(255, 237, 228, 1);
     --clr-highlight: rgba(245, 243, 243, 1);
+    --btn-bg: hsla(0deg 20% 99% / 1);
     --btn-bg-hover: rgba(249, 247, 246, 1);
     --scoped-shadow-color: var(--shadow-photos);
   }
@@ -56,7 +57,8 @@
   [data-applet="design"] {
     --clr-solid: 85, 71, 236;
     --clr-tint: rgba(237, 235, 255, 1);
-    --clr-highlight: rgba(244, 244, 246, 1);
+    --clr-highlight: hsl(240deg 10% 96%);
+    --btn-bg: hsl(240deg 20% 99%);
     --btn-bg-hover: rgba(247, 247, 248, 1);
     --scoped-shadow-color: var(--shadow-design);
   }
@@ -68,7 +70,8 @@
   [data-applet="posts"] {
     --clr-solid: 233, 155, 65;
     --clr-tint: rgba(255, 245, 221, 1);
-    --clr-highlight: rgba(246, 245, 244, 1);
+    --clr-highlight: hsl(30deg 4% 96%);
+    --btn-bg: hsla(60deg 20% 99% / 1);
     --btn-bg-hover: rgba(248, 248, 246, 1);
     --scoped-shadow-color: var(--shadow-posts);
   }
@@ -81,6 +84,7 @@
     --clr-solid: 50, 184, 168;
     --clr-tint: rgba(221, 248, 232, 1);
     --clr-highlight: rgba(244, 246, 245, 1);
+    --btn-bg: hsla(150deg 20% 99% / 1);
     --btn-bg-hover: rgba(246, 248, 247, 1);
     --scoped-shadow-color: var(--shadow-music);
     --btn-highlight-border: 173deg 77% 34%;
@@ -142,6 +146,7 @@
   .prose {
     --base-font-size: 1em;
     --em-multiplier: 1.35;
+    --space-half: calc(var(--em-multiplier) * var(--base-font-size) / 6);
     --space-1: calc(var(--em-multiplier) * var(--base-font-size) / 3);
     --space-2: calc(var(--em-multiplier) * var(--base-font-size) * 2 / 3);
     --space-3: calc(var(--em-multiplier) * var(--base-font-size) * 1);
@@ -182,7 +187,7 @@
   .prose ul,
   .prose ol {
     margin-top: var(--space-1);
-    padding-left: var(--space-4);
+    padding-left: var(--space-3);
   }
 
   .prose ul {
@@ -207,6 +212,10 @@
 
   .prose ol > li {
     padding-left: 4px;
+  }
+
+  .prose ul li {
+    padding-inline-start: var(--space-half);
   }
   .prose ul li::marker {
     font-size: 0.8em;
@@ -313,11 +322,12 @@
   .prose a * {
     color: theme("colors.display.link");
     text-decoration: underline;
-    text-decoration-color: theme("colors.btn.border");
+    text-decoration-thickness: 1px;
+    /* text-decoration-color: theme("colors.btn.border"); */
   }
   .prose a:hover,
   .prose a:hover * {
-    text-decoration-color: currentColor;
+    text-decoration: none;
   }
 
   /* music progress bar */
@@ -421,7 +431,7 @@
 
   /* chat applet */
 
-  .chat-bubble .tail {
+  /* .chat-bubble .tail {
     content: "";
     position: absolute;
     z-index: 1;
@@ -429,6 +439,7 @@
     left: 0;
     border-left: 10px solid theme("colors.clr.highlight");
     border-bottom-right-radius: 16px 14px;
+    border-bottom-left-radius: 3px;
     height: 50%;
     transform: translate(0, -2px);
   }
@@ -439,8 +450,8 @@
     right: 0;
     left: unset;
     border-left: unset;
-    border-bottom-right-radius: unset;
-  }
+    border-bottom-right-radius: 3px;
+  } */
 }
 
 @layer utilities {
@@ -506,5 +517,16 @@
     background: none;
     appearance: none;
     border: none;
+  }
+
+  .appletListItem {
+    @apply transition-shadow duration-200 rounded hover:bg-clr-highlight active:shadow-list-inset;
+  }
+  .appletListItemContents {
+    @apply transition duration-200 group-active:translate-y-px group-active:ease-bounce;
+  }
+
+  .appletListItemActive {
+    @apply bg-clr-highlight shadow-list-inset;
   }
 }

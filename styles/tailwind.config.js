@@ -33,6 +33,8 @@ module.exports = {
     },
     transitionTimingFunction: {
       DEFAULT: "cubic-bezier(.2,.8,.2,1)",
+      bounce: "cubic-bezier(0.34, 0.64, 0, 3.5)",
+      "bounce-small": "cubic-bezier(.34, .64, 0, 1.8)",
     },
     boxShadow: {
       // shadows generated https://www.joshwcomeau.com/shadow-palette/
@@ -42,7 +44,7 @@ module.exports = {
       "app-icon": "0px 1px 1px 0px hsla(var(--scoped-shadow-color) / 0.05), 0px 1px 3px 0px rgba(var(--clr-solid), 0.08), 0 1px 1px 0px inset rgba(255,255,255, .15), 0 -1px 1px 0px inset hsla(var(--scoped-shadow-color)/ .15), 0px 0px 0px 0.6px hsla(var(--scoped-shadow-color) / 0.12)",
       "btn-basic": "0px 1px 2px hsla(var(--scoped-shadow-color) / 0.1), 0px 0px 0px 0.6px hsla(var(--scoped-shadow-color) /  0.15)",
       "btn-basic-inset": "0px 1px 3px -1px inset hsla(var(--scoped-shadow-color) / 0.15), 0px 0px 0px 0.6px hsla(var(--scoped-shadow-color) / 0.2)",
-      "btn-highlight": "0px 0px 1px 0px hsla(var(--btn-highlight-border) / 1), 0px 1px 1px 0px hsla(var(--scoped-shadow-color) / .3), 0px 0px 0px 0.6px hsla(var(--btn-highlight-border) / .8), 0px 1px 1px 0px rgba(var(--clr-solid), .8), inset 0px 1px 1px -1px rgba(var(--btn-highlight) / .2)",
+      "btn-highlight": "0px 1px 2px hsla(var(--scoped-shadow-color) / 0.2), 0px 0px 0px 0.6px hsla(var(--btn-highlight-border) /  0.8), 0px 1px 1px 0px rgba(var(--clr-solid), .8)",
       "btn-highlight-inset": "0px 1px 1px inset hsla(var(--btn-highlight-border) / 0.9), 0px 0px 0px 0.6px hsla(var(--btn-highlight-border) / 1)",
       "list-inset": "0px 1px 3px -1px inset hsla(var(--scoped-shadow-color) / .15), 0px 0px .6px inset hsla(var(--scoped-shadow-color) / .2)",
       topbar: "0px 1px 1px hsla(var(--global-shadow-color) / 0.15), 0px 1px 40px 0px rgba(var(--clr-solid), 0.05), 0px 0px 0px 0.6px hsla(var(--global-shadow-color) / 0.15)",

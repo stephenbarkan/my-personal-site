@@ -44,8 +44,7 @@
             this.allApplets.forEach(el => {
                 el.dataset.applet === applet ? el.style.zIndex = this.z : null;
             });
-            let stateObj;
-            history.replaceState(stateObj, '', `?activeApplet=${applet}`);
+            history.replaceState({}, '', `?activeApplet=${applet}`);
         }
     }"
     x-init="getInitActiveApplet(), setActiveApplet(activeApplet)"
