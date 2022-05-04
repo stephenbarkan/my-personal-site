@@ -38,7 +38,7 @@ x-data="{
             html5: true
         });
         this.song = sound;
-        sound.once('load', function(){
+        sound.once('load',() => {
             this.play();
         });
     },
