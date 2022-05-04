@@ -9,42 +9,6 @@
 {% set musicLoadIcon %}{% include "icons/music-load.svg" %}{% endset %}
 {% set soundcloudIcon %}{% include "icons/soundcloud.svg" %}{% endset %}
 
-{% set playButtonIcon %}
-<span
-        class="grid-inset-0 w-15 h-15 animate-spin"
-        x-show="appletState === 'loading'"
-        x-transition:enter="ease-out duration-150"
-        x-transition:enter-start="opacity-0 delay-150"
-        x-transition:enter-end="opacity-100 delay-150"
-        x-transition:leave="transition ease-out duration-150"
-        x-transition:leave-start="opacity-100"
-        x-transition:leave-end="opacity-0">
-    {{musicLoadIcon | safe}}
-</span>
-<span
-        class="grid-inset-0 w-15 h-15"
-        x-show="appletState === 'paused'"
-        x-transition:enter="ease-out duration-150"
-        x-transition:enter-start="opacity-0 delay-150"
-        x-transition:enter-end="opacity-100 delay-150"
-        x-transition:leave="transition ease-out duration-150"
-        x-transition:leave-start="opacity-100"
-        x-transition:leave-end="opacity-0">
-    {{playLargeIcon | safe}}
-</span>
-<span
-        class="grid-inset-0 w-15 h-15"
-        x-show="appletState === 'playing'"
-        x-transition:enter="ease-out duration-150"
-        x-transition:enter-start="opacity-0"
-        x-transition:enter-end="opacity-100"
-        x-transition:leave="ease-out duration-150"
-        x-transition:leave-start="opacity-100"
-        x-transition:leave-end="opacity-0">
-    {{pauseLargeIcon | safe}}
-</span>
-{% endset %}
-
 {% block content %}
     <div
 x-data="{
@@ -65,20 +29,23 @@ x-data="{
     },
 
     load () {
-        this.appletState = 'loading'
+        this.appletState = 'isLoading'
         Howler.unload()
         //set progress bar progress to 0
 
-        this.song = new Howl({
+        const sound = new Howl({
             src: [`../songs/${this.currentSong.src}.webm`, `../songs/${this.currentSong.src}.mp3`],
             html5: true
+        });
+        this.song = sound;
+        sound.once('load', function(){
+            this.play();
         });
     },
 
     play () {
+        this.song.play()
         this.appletState = 'playing'
-                this.song.play()
-
     },
     pause () {
         this.appletState = 'paused'
@@ -110,8 +77,8 @@ class="flex flex-col h-full gap-3">
             class="flex items-center gap-4 transition-opacity duration-500 delay-200 grid-inset-0">
                 <figure class="w-[106px] h-[106px] relative overflow-hidden rounded">
                     <img
-                :class="{'blur-sm duration-0': appletState === 'loading' || appletState === 'notPlaying', ' transition-all duration-500 delay-200': appletState === 'playing'}"
-                class="w-full h-full" :src="'../songs/' + artwork" alt="">
+                :class="{'blur-sm duration-0': appletState === 'isLoading' || appletState === 'notPlaying', ' transition-all duration-500 delay-200': appletState === 'playing'}"
+                class="w-full h-full" :src="artwork && '../songs/' + artwork" alt="">
                     <div class="absolute inset-0 rounded shadow-inset-stroke"></div>
                 </figure>
                 <div class="flex flex-col gap-4 grow">
@@ -119,8 +86,8 @@ class="flex flex-col h-full gap-3">
                     <div class="flex items-center gap-3">
                         <button
                         @click="handlePlayPauseButton"
-                        :disabled="appletState === 'loading'"
-                        :class="{'pointer-events-none': appletState === 'loading'}"
+                        :disabled="appletState === 'isLoading'"
+                        :class="{'pointer-events-none': appletState === 'isLoading'}"
                         class="flex items-center justify-center shadow-btn-highlight hover:bg-btn-highlight-bg-hover transition-colors active:shadow-btn-highlight-inset group rounded-full bg-clr-solid w-[39px] h-[39px]">
                             <span class="grid items-center transition duration-75 transform grid-absolute text-display-inverse-primary group-active:translate-y-px justify-items-center">
                                 {{ playButtonIcon | safe }}
@@ -197,3 +164,39 @@ class="flex flex-col h-full gap-3">
         </div>
     </button>
 {% endmacro %}
+
+{% set playButtonIcon %}
+<span
+        class="grid-inset-0 w-15 h-15 animate-spin"
+        x-show="appletState === 'isLoading'"
+        x-transition:enter="ease-out duration-150"
+        x-transition:enter-start="opacity-0 delay-150"
+        x-transition:enter-end="opacity-100 delay-150"
+        x-transition:leave="transition ease-out duration-150"
+        x-transition:leave-start="opacity-100"
+        x-transition:leave-end="opacity-0">
+    {{musicLoadIcon | safe}}
+</span>
+<span
+        class="grid-inset-0 w-15 h-15"
+        x-show="appletState === 'paused'"
+        x-transition:enter="ease-out duration-150"
+        x-transition:enter-start="opacity-0 delay-150"
+        x-transition:enter-end="opacity-100 delay-150"
+        x-transition:leave="transition ease-out duration-150"
+        x-transition:leave-start="opacity-100"
+        x-transition:leave-end="opacity-0">
+    {{playLargeIcon | safe}}
+</span>
+<span
+        class="grid-inset-0 w-15 h-15"
+        x-show="appletState === 'playing'"
+        x-transition:enter="ease-out duration-150"
+        x-transition:enter-start="opacity-0"
+        x-transition:enter-end="opacity-100"
+        x-transition:leave="ease-out duration-150"
+        x-transition:leave-start="opacity-100"
+        x-transition:leave-end="opacity-0">
+    {{pauseLargeIcon | safe}}
+</span>
+{% endset %}

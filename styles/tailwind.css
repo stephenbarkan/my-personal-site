@@ -48,6 +48,9 @@
     --btn-bg: hsla(0deg 20% 99% / 1);
     --btn-bg-hover: rgba(249, 247, 246, 1);
     --scoped-shadow-color: var(--shadow-photos);
+    --display-primary: hsl(8deg 18% 10%);
+    --display-secondary: hsl(8deg 40% 8% / 78%);
+    --display-tertiary: hsl(8deg 18% 10% / 50%);
   }
 
   [data-active-applet="design"] {
@@ -61,6 +64,9 @@
     --btn-bg: hsl(240deg 20% 99%);
     --btn-bg-hover: rgba(247, 247, 248, 1);
     --scoped-shadow-color: var(--shadow-design);
+    --display-primary: hsl(246deg 18% 10%);
+    --display-secondary: hsl(246deg 50% 8% / 78%);
+    --display-tertiary: hsl(246deg 28% 10% / 50%);
   }
 
   [data-active-applet="posts"] {
@@ -74,6 +80,9 @@
     --btn-bg: hsla(60deg 20% 99% / 1);
     --btn-bg-hover: rgba(248, 248, 246, 1);
     --scoped-shadow-color: var(--shadow-posts);
+    --display-primary: hsl(22deg 18% 10%);
+    --display-secondary: hsl(22deg 30% 8% / 78%);
+    --display-tertiary: hsl(22deg 8% 10% / 50%);
   }
 
   [data-active-applet="music"] {
@@ -89,6 +98,9 @@
     --scoped-shadow-color: var(--shadow-music);
     --btn-highlight-border: 173deg 77% 34%;
     --btn-highlight-hover: 173deg 54% 43%;
+    --display-primary: hsl(144deg 18% 10%);
+    --display-secondary: hsl(144deg 60% 8% / 78%);
+    --display-tertiary: hsl(144deg 38% 10% / 50%);
   }
 
   [data-active-applet="chat"] {
@@ -103,6 +115,9 @@
     --scoped-shadow-color: var(--shadow-chat);
     --btn-highlight-border: 202deg 62% 40%;
     --btn-highlight-hover: 202deg 65% 45%;
+    --display-primary: hsl(208deg 18% 10%);
+    --display-secondary: hsl(208deg 60% 8% / 78%);
+    --display-tertiary: hsl(208deg 38% 10% / 50%);
   }
 }
 
