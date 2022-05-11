@@ -76,7 +76,7 @@
   [data-applet="posts"] {
     --clr-solid: 233, 155, 65;
     --clr-tint: rgba(255, 245, 221, 1);
-    --clr-highlight: hsl(30deg 4% 96%);
+    --clr-highlight: hsl(30deg 8% 96%);
     --btn-bg: hsla(60deg 20% 99% / 1);
     --btn-bg-hover: rgba(248, 248, 246, 1);
     --scoped-shadow-color: var(--shadow-posts);
@@ -114,7 +114,7 @@
     --btn-bg-hover: rgba(246, 248, 249, 1);
     --scoped-shadow-color: var(--shadow-chat);
     --btn-highlight-border: 202deg 62% 40%;
-    --btn-highlight-hover: 202deg 65% 45%;
+    --btn-highlight-hover: 202deg 90% 43%;
     --display-primary: hsl(208deg 18% 10%);
     --display-secondary: hsl(208deg 60% 8% / 78%);
     --display-tertiary: hsl(208deg 38% 10% / 50%);
@@ -379,7 +379,8 @@
     transition-duration: 500ms;
     transition-delay: 300ms;
   }
-  input[type="range"]:hover::-webkit-slider-thumb {
+  input[type="range"]:hover::-webkit-slider-thumb,
+  input[type="range"]:focus-visible::-webkit-slider-thumb {
     transform: none;
     transition-delay: 0ms;
     transition-duration: 200ms;
@@ -405,7 +406,8 @@
     transition-duration: 500ms;
     transition-delay: 300ms;
   }
-  input[type="range"]:hover::-moz-range-thumb {
+  input[type="range"]:hover::-moz-range-thumb,
+  input[type="range"]:focus-visible::-moz-range-thumb {
     transform: none;
     transition-delay: 0ms;
     transition-duration: 200ms;
@@ -431,7 +433,8 @@
     transition-duration: 500ms;
     transition-delay: 300ms;
   }
-  input[type="range"]:hover::-ms-thumb {
+  input[type="range"]:hover::-ms-thumb,
+  input[type="range"]:focus-visible::-ms-thumb {
     transform: none;
     transition-delay: 0;
     transition-duration: 200ms;
@@ -467,6 +470,17 @@
     border-left: unset;
     border-bottom-right-radius: 3px;
   } */
+
+  .appletListItem {
+    @apply transition-shadow duration-200 rounded hover:bg-clr-highlight active:shadow-list-inset;
+  }
+  .appletListItemContents {
+    @apply transition duration-200 group-active:translate-y-px group-active:ease-bounce;
+  }
+
+  .appletListItemActive {
+    @apply bg-clr-highlight shadow-list-inset;
+  }
 }
 
 @layer utilities {
@@ -518,6 +532,7 @@
     visibility: hidden;
     white-space: pre-wrap;
     max-height: 100px;
+    padding: 0.5rem 0.75rem;
   }
 
   .input-wrapper::after,
@@ -532,16 +547,5 @@
     background: none;
     appearance: none;
     border: none;
-  }
-
-  .appletListItem {
-    @apply transition-shadow duration-200 rounded hover:bg-clr-highlight active:shadow-list-inset;
-  }
-  .appletListItemContents {
-    @apply transition duration-200 group-active:translate-y-px group-active:ease-bounce;
-  }
-
-  .appletListItemActive {
-    @apply bg-clr-highlight shadow-list-inset;
   }
 }
