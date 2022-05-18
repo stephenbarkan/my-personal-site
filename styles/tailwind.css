@@ -548,4 +548,17 @@
     appearance: none;
     border: none;
   }
+
+  .applet-animate {
+    animation: appletAnimate 400ms theme(transitionTimingFunction.DEFAULT);
+  }
+  @keyframes appletAnimate {
+    0%,
+    100% {
+      transform: scale(1);
+    }
+    25% {
+      transform: scale(1.01);
+    }
+  }
 }

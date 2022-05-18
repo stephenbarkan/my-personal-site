@@ -25,7 +25,7 @@
             },
             sendBotMessage () {
                 this.setAppletState()
-                this.activeField = this.activeField + 1
+                this.activeField += 1
                 document.activeElement.blur()
                 this.addBubble(true, '', false)
                 setTimeout(() => {
@@ -64,7 +64,8 @@
                     }, 500);
                 }
                 });
-            }
+            },
+
         }"
         x-init="sendBotMessage"
         class="flex flex-col flex-1 gap-3 px-3 pb-3 overflow-auto">

@@ -100,36 +100,36 @@ x-data="{
 @keydown.space="handlePlayPauseButton"
 class="flex flex-col h-full gap-3 focus:outline-none">
         {# top section #}
-        <div class="grid px-6 overflow-hidden xs:px-3 grid-absolute">
+        <div class="grid px-6 overflow-hidden sm:px-3 grid-absolute">
             <div x-show="appletState === 'idle'" class="grid grid-inset-0 place-content-center">
-                <h3 class="text-lg text-center xs:text-left">Choose a song to listen to some of the music I've written!</h3>
+                <h3 class="text-lg text-center sm:text-left">Choose a song to listen to some of the music I've written!</h3>
             </div>
             <div x-show="appletState === 'playlistEnd'" x-cloak class="grid grid-inset-0 place-content-center">
-                <h3 class="text-lg text-center xs:text-left">Thanks for listening! <span :data-applet="activeApplet" class="relative inline-block left-1 top-[3px] h-15 w-15 text-clr-solid">{{heartIcon | safe}}</span></h3>
+                <h3 class="text-lg text-center sm:text-left">Thanks for listening! <span :data-applet="activeApplet" class="relative inline-block left-1 top-[3px] h-15 w-15 text-clr-solid">{{heartIcon | safe}}</span></h3>
             </div>
             <div
             x-cloak
             :class="appletState === 'idle' || appletState === 'playlistEnd' ? 'pointer-events-none invisible opacity-0' : 'opacity-100'"
-            class="flex flex-col items-center gap-4 transition-opacity duration-500 delay-200 xs:flex-row grid-inset-0">
-                <figure class="w-[150px] h-[150px] xs:w-[106px] xs:h-[106px] relative overflow-hidden rounded">
+            class="flex flex-col items-center gap-4 transition-opacity duration-500 delay-200 sm:flex-row grid-inset-0">
+                <figure class="w-[150px] h-[150px] sm:w-[106px] sm:h-[106px] relative overflow-hidden rounded">
                     <img
                 :class="{'blur-sm duration-0': appletState === 'isLoading' || appletState === 'notPlaying', ' transition-all duration-500 delay-200': appletState === 'playing'}"
                 class="w-full h-full" :src="artwork && '../songs/' + artwork" alt="">
                     <div class="absolute inset-0 rounded shadow-inset-stroke"></div>
                 </figure>
                 <div class="flex flex-col gap-4 grow">
-                    <h3 class="text-lg text-center xs:text-left" x-text="currentSong.title"></h3>
-                    <div class="flex flex-col items-center gap-3 xs:flex-row">
+                    <h3 class="text-lg text-center sm:text-left" x-text="currentSong.title"></h3>
+                    <div class="flex flex-col items-center gap-3 sm:flex-row">
                         <button
                         @click="handlePlayPauseButton"
                         :disabled="appletState === 'isLoading'"
                         :class="{'pointer-events-none': appletState === 'isLoading'}"
-                        class="flex items-center justify-center shadow-btn-highlight hover:bg-btn-highlight-bg-hover transition active:shadow-btn-highlight-inset group rounded-full bg-clr-solid w-12 xs:w-[39px] h-12 xs:h-[39px]">
+                        class="flex items-center justify-center shadow-btn-highlight hover:bg-btn-highlight-bg-hover transition active:shadow-btn-highlight-inset group rounded-full bg-clr-solid w-12 sm:w-[39px] h-12 sm:h-[39px]">
                             <span class="grid items-center transition duration-200 transform grid-absolute text-display-inverse-primary group-active:translate-y-px group-active:ease-bounce justify-items-center">
                                 {{ playButtonIcon | safe }}
                             </span>
                         </button>
-                        <div class="relative flex-1 flex-shrink-0 w-full xs:w-auto">
+                        <div class="relative flex-1 flex-shrink-0 w-full sm:w-auto">
                             <input
                             type="range"
                             id="music-slider"
@@ -161,14 +161,14 @@ class="flex flex-col h-full gap-3 focus:outline-none">
             {% endfor %}
             <li>
                 <a href="https://soundcloud.com/stephenbarkan" target="_blank"
-            class="text-left group flex rounded pb-2 pt-1.5 px-2 h-14 xs:h-auto hover:bg-clr-highlight transition-shadow active:shadow-list-inset">
+            class="text-left group flex rounded pb-2 pt-1.5 px-2 h-14 sm:h-auto hover:bg-clr-highlight transition-shadow active:shadow-list-inset">
                     <div class="flex items-center gap-3 transition duration-75 transform group-active:translate-y-px">
-                        <div class="w-5 h-5 xs:w-15 xs:h-15 text-display-tertiary">
+                        <div class="w-5 h-5 sm:w-15 sm:h-15 text-display-tertiary">
                             <span>{{soundcloudIcon | safe }}</span>
                         </div>
-                        <div class="self-stretch xs:hidden divider vertical"></div>
+                        <div class="self-stretch sm:hidden divider vertical"></div>
                         <div class="flex-1 flex gap-1.5 items-baseline overflow-hidden">
-                            <p class="xs:truncate group-active:text-display-primary text-display-secondary">
+                            <p class="sm:truncate group-active:text-display-primary text-display-secondary">
                         Listen to more on Soundcloud!
                     </p>
                         </div>
@@ -184,24 +184,24 @@ class="flex flex-col h-full gap-3 focus:outline-none">
         @click="handleSongListClick({{index}}, `{{title}}`, `{{artwork}}`, `{{src}}`)"
         :disabled="currentSong.index === {{index}}"
         :class="{ 'appletListItemActive': currentSong.index === {{index}} }"
-        class="{{class}} text-left group block pb-2 pt-1.5 h-14 xs:h-auto px-2 appletListItem">
+        class="{{class}} text-left group block pb-2 pt-1.5 h-14 sm:h-auto px-2 appletListItem">
         <div
             :class="currentSong.index === {{index}} && 'translate-y-px'"
             class="flex items-center gap-3 appletListItemContents">
             <div
                 :class="currentSong.index === {{index}} ? 'text-clr-solid' : 'text-display-tertiary'"
-                class="w-5 h-5 xs:w-15 xs:h-15">
+                class="w-5 h-5 sm:w-15 sm:h-15">
                 <span x-show="currentSong.index === {{index}}" class="text-clr-solid">{{playFillIcon | safe }}</span>
                 <span x-show="currentSong.index !== {{index}}">
                     <span class="hidden group-hover:block">{{playOutlineIcon | safe }}</span>
                     <span class="group-hover:hidden">{{musicIcon | safe }}</span>
                 </span>
             </div>
-            <div class="self-stretch xs:hidden divider vertical"></div>
+            <div class="self-stretch sm:hidden divider vertical"></div>
             <div class="flex-1 flex gap-1.5 items-baseline overflow-hidden">
                 <p
                     :class="{'text-display-primary': currentSong.index === {{index}}, 'group-active:text-display-primary text-display-secondary': currentSong.index !== {{index}}}"
-                    class="xs:truncate">
+                    class="sm:truncate">
                     {{title}}
                 </p>
             </div>
@@ -211,7 +211,7 @@ class="flex flex-col h-full gap-3 focus:outline-none">
 
 {% set playButtonIcon %}
 <span
-    class="grid-inset-0 xs:w-15 w-[17px] xs:h-15 h-[17px] animate-spin"
+    class="grid-inset-0 sm:w-15 w-[17px] sm:h-15 h-[17px] animate-spin"
     x-show="appletState === 'isLoading'"
     x-transition:enter="transition delay-150ms"
     x-transition:enter-start="opacity-0"
@@ -220,12 +220,12 @@ class="flex flex-col h-full gap-3 focus:outline-none">
     {{musicLoadIcon | safe}}
 </span>
 <span
-    class="grid-inset-0 w-xs:15 w-[17px] h-xs:15 h-[17px]"
+    class="grid-inset-0 w-sm:15 w-[17px] h-sm:15 h-[17px]"
     x-show="appletState === 'paused'">
     {{playLargeIcon | safe}}
 </span>
 <span
-    class="grid-inset-0 w-xs:15 w-[17px] h-xs:15 h-[17px]"
+    class="grid-inset-0 w-sm:15 w-[17px] h-sm:15 h-[17px]"
     x-show="appletState === 'playing'">
     {{pauseLargeIcon | safe}}
 </span>

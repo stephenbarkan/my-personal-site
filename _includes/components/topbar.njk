@@ -1,5 +1,5 @@
 {% set heartIcon %}{% include "icons/heart-fill.svg" %}{% endset %}
-{% macro topbarButton(title, featured, onClick, tab=true) %}
+{% macro topbarButton(title, featured, onClick, tab = true) %}
     <button
     {% if tab %}
         :class="activeApplet === '{{title}}' ? 'bg-ui-divider text-display-primary' : 'text-display-secondary'"
@@ -14,12 +14,18 @@
     </button>
 {% endmacro %}
 
-
 <header :data-applet="activeApplet" class="flex items-center justify-between w-full px-5 py-px bg-ui-topbar-bg shadow-topbar backdrop-blur">
     <div class="flex space-x-1">
         <div x-data="{open: false}" class="relative">
             {{topbarButton(title="Stephen Barkan", featured=true, tab=false, onClick="open = !open")}}
-            <div x-cloak x-show="open" @click.away="open = false" x-transition:enter.origin.top class="w-[268px] mt-[3px] divide-y divide-ui-divider bg-ui-applet-bg shadow-applet-idle rounded flex flex-col gap-3 py-3 px-4 absolute z-[20]">
+            <div
+                x-cloak x-show="open"
+                @click.away="open = false"
+                x-transition:enter="origin-top-left transition ease-bounce-small duration-200"
+                x-transition:enter-start="opacity-0 scale-90"
+                x-transition:leave="origin-top-left transition"
+                x-transition:leave-end="opacity-0"
+                class="w-[268px] mt-[3px] divide-y divide-ui-divider bg-ui-applet-bg shadow-applet-idle rounded flex flex-col gap-3 py-3 px-4 absolute z-[20]">
                 <p class="text-display-secondary">Thanks for being here! I hope this site brings you some joy.<span :data-applet="activeApplet" class="relative inline-block left-1 top-[3px] h-15 w-15 text-clr-solid">{{heartIcon | safe}}</span></p>
                 <span class="pt-3 text-display-tertiary">&copy; Stephen Barkan 2022</span>
             </div>

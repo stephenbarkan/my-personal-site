@@ -1,23 +1,23 @@
 {% macro applet(title, maxWidth, height, data, posX, posY) %}
-<div
+    <div
     data-is-applet
     data-applet="{{title}}"
-    :class="activeApplet !== '{{title}}' && 'hidden sm:block'"
+    :class="activeApplet !== '{{title}}' && 'hidden lg:block'"
     @click="setActiveApplet('{{title}}')"
-    class="h-full sm:h-auto max-w-full w-full xs:w-auto {{posX}} {{posY}} grid-inset-0 transform">
-    <div
-        class="xs:{{maxWidth}} {{height}} h-full flex-1 max-w-full flex flex-col pt-2 gap-3 rounded-lg bg-ui-applet-bg overflow-hidden transform xs:flex relative"
+    class="h-full sm:h-auto sm:w-auto {{posX}} {{posY}} grid-inset-0 transform">
+        <div
+        class="sm:{{maxWidth}} max-w-full {{height}} h-full flex-1 max-w-full flex flex-col pt-2 gap-3 rounded-lg bg-ui-applet-bg overflow-hidden transform xs:flex relative"
         :class="activeApplet === '{{title}}' ? 'xs:shadow-applet-active shadow-applet-idle' :'shadow-applet-idle'">
-        <div class="px-2" data-draggable-handle>
-            <header
+            <div class="px-2">
+                <header
                 {# style="background-image: url(/images/line-pattern.svg); background-size: 22px" #}
                 class="flex justify-center w-full px-2 py-0.5 rounded bg-clr-tint shadow-applet-header">
-                <h2 class="px-3 py-1 text-sm font-medium rounded-sm bg-clr-tint text-display-secondary [text-shadow:0.6px_0.6px_0px_rgb(255_255_255_/_80%)]">{{title | capitalize}}</h2>
-            </header>
+                    <h2 class="px-3 py-1 text-sm font-medium rounded-sm bg-clr-tint text-display-secondary [text-shadow:0.6px_0.6px_0px_rgb(255_255_255_/_80%)]">{{title | capitalize}}</h2>
+                </header>
+            </div>
+            <section class="flex flex-col flex-1 pt-px overflow-hidden">
+                {% block content %}{% endblock %}
+            </section>
         </div>
-        <section class="flex flex-col flex-1 pt-px overflow-hidden">
-            {% block content %}{% endblock %}
-        </section>
     </div>
-</div>
 {% endmacro %}

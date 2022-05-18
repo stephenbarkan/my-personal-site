@@ -22,9 +22,9 @@
             {% endif %}
             {% endset %}
             <template x-if="currentItem === '{{design.data.title}}'">
-                <div class="flex-shrink-0 overflow-auto flex flex-col items-start gap-8 xs:gap-6 px-2 py-4 xs:px-4 xs:w-[300px]">
+                <div class="flex-shrink-0 overflow-auto flex flex-col items-start gap-8 sm:gap-6 px-2 py-4 sm:px-4 sm:w-[300px]">
                     <div class="flex flex-col gap-5">
-                        <div class="grid flex-shrink-0 w-12 h-12 transition transform rounded-lg xs:hidden shadow-applet-header place-content-center text-clr-solid bg-clr-tint">
+                        <div class="grid flex-shrink-0 w-12 h-12 transition transform rounded-lg sm:hidden shadow-applet-header place-content-center text-clr-solid bg-clr-tint">
                             <div class="w-6 h-6">{{typeIcon | safe}}</div>
                         </div>
                         <div class="flex flex-col items-start gap-1">
@@ -34,7 +34,7 @@
                         </div>
                     </div>
                     {{btn.button(label="View project", icon=externalLinkIcon, as="a", href=design.data.link, newTab=true)}}
-                    <div class="hidden w-full xs:block divider"></div>
+                    <div class="hidden w-full sm:block divider"></div>
                     <dl class="grid items-baseline max-w-full text-display-secondary grid-cols-dl gap-x-6 gap-y-4">
                         <dt class="text-sm text-display-tertiary">Contribution</dt>
                         <dl class="capitalize">{{design.data.contribution}}</dl>
@@ -53,17 +53,17 @@
     class="h-full">
         {# desktop folders #}
         <div x-ref="scroller"
-            class="hidden h-full gap-3 px-3 overflow-auto xs:flex">
+            class="hidden h-full gap-3 px-3 overflow-auto sm:flex">
             {# design folders #}
             <ul
             x-data="{openDesign: 0}"
-            class="flex flex-col gap-1 px-px overflow-auto flex-shrink-0 xs:min-w-[250px]">
+            class="flex flex-col gap-1 px-px overflow-auto flex-shrink-0 sm:min-w-[250px]">
                 {% for design in designFolders %}
                     <li>{{designListItem(title=design.title, date=design.date, index=loop.index, type=design.type, id=design.id, content="folder", class="w-full")}}</li>
                 {% endfor %}
                 <div @click="openDesign = null; currentFolder = null; currentItem = null; $dispatch('reset-current-item')" class="flex-1 pb-6"></div>
             </ul>
-            <div class="hidden mb-3 xs:block divider vertical"></div>
+            <div class="hidden mb-3 sm:block divider vertical"></div>
             {# collection items #}
             <ul
             x-cloak
@@ -71,7 +71,7 @@
             x-show="currentFolder"
             x-transition.opacity
             @reset-current-item.window="openDesign = 0; currentItem = null"
-            class="flex flex-col gap-1 px-px overflow-auto flex-shrink-0 xs:min-w-[250px]">
+            class="flex flex-col gap-1 px-px overflow-auto flex-shrink-0 sm:min-w-[250px]">
                 {% for design in collections.design %}
                     <li x-show="currentFolder === '{{design.data.tags[1]}}'">{{designListItem(title=design.data.title, date=design.data.publishDate, index=loop.index, type=design.data.type, id=design.data.title, content="item", class="w-full")}}</li>
                 {% endfor %}
@@ -88,7 +88,7 @@
             </div>
         </div>
         {# mobile folders #}
-        <div class="grid flex-col px-3 grid-absolute xs:hidden">
+        <div class="grid flex-col px-3 grid-absolute sm:hidden">
             {# design folders #}
             <ul
             x-data="{openDesign: 0}"
@@ -180,10 +180,10 @@
             class="flex items-center gap-3 appletListItemContents">
             <div
                 :class="openDesign === {{index}} ? 'text-clr-solid' : 'text-display-tertiary'"
-                class="w-5 h-5 xs:w-15 xs:h-15">{{icon | safe }}
+                class="w-5 h-5 sm:w-15 sm:h-15">{{icon | safe }}
             </div>
-            <div class="self-stretch xs:hidden divider vertical"></div>
-            <div class="flex-1 flex flex-col xs:flex-row xs:gap-1.5 gap-1 items-baseline overflow-hidden">
+            <div class="self-stretch sm:hidden divider vertical"></div>
+            <div class="flex-1 flex flex-col sm:flex-row sm:gap-1.5 gap-1 items-baseline overflow-hidden">
                 <p
                     :class="openDesign === {{index}} ? 'text-display-primary' : 'group-active:text-display-primary text-display-secondary'"
                     class="truncate">
