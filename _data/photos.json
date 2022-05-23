@@ -1,11 +1,13 @@
 [
   {
+    "id": "raveena",
+    "images": ["/images/raveena-01.jpg", "/images/raveena-02.jpg", "/images/raveena-03.jpg"],
+    "caption": "Our fits for the queen-a, Raveena",
+    "details": "Home, May 2022"
+  },
+  {
     "id": "photos-of-photos",
-    "images": [
-      "/images/photos-of-photos-1.jpg",
-      "/images/photos-of-photos-2.jpg",
-      "/images/photos-of-photos-3.jpg"
-    ],
+    "images": ["/images/photos-of-photos-1.jpg", "/images/photos-of-photos-2.jpg", "/images/photos-of-photos-3.jpg"],
     "caption": "Photos of photos of fun",
     "details": "Home, Feb 2022"
   },
@@ -23,21 +25,13 @@
   },
   {
     "id": "doister friends",
-    "images": [
-      "/images/heather.jpg",
-      "/images/aer-becky.jpg",
-      "/images/jackie-elaine.jpg"
-    ],
+    "images": ["/images/heather.jpg", "/images/aer-becky.jpg", "/images/jackie-elaine.jpg"],
     "caption": "Work friends!",
     "details": "Around the world, 2021"
   },
   {
     "id": "me and eug",
-    "images": [
-      "/images/california.jpg",
-      "/images/bending-circle.jpg",
-      "/images/dunes.jpg"
-    ],
+    "images": ["/images/california.jpg", "/images/bending-circle.jpg", "/images/dunes.jpg"],
     "caption": "Me and Eug outside",
     "details": "Outside, 2021"
   }

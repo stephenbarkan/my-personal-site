@@ -13,7 +13,7 @@
         <link rel="stylesheet" href="https://use.typekit.net/bpn0sjs.css">
         <link rel="stylesheet" href="/style.css?v={% version %}"/>
         {% block head %}{% endblock %}
-    </head>
+    </head >
     <body data-active-applet="posts" class="h-screen overflow-hidden bg-scroll bg-ui-wallpaper">
         <div id="app"
     x-data="{
@@ -47,7 +47,17 @@
                 }
             });
             history.replaceState({}, '', `?activeApplet=${applet}`);
-        }
+            this.setFavicons(applet)
+        },
+        setFavicons(favImg) {
+                let headTitle = document.querySelector('head');
+                const existingFavicons = headTitle.querySelectorAll(`link[rel='shortcut icon']`)
+                existingFavicons.forEach(el => el.remove())
+                let setFavicon = document.createElement('link');
+                setFavicon.setAttribute('rel', 'shortcut icon');
+                setFavicon.setAttribute('href', `./favicons/favicon-${favImg}.png`);
+                headTitle.appendChild(setFavicon);
+            }
     }"
     x-init="getInitActiveApplet(), setActiveApplet(activeApplet)"
     :data-active-applet="activeApplet"
@@ -59,7 +69,7 @@
                 {% block content %}
                     {{ content | safe }}
                 {% endblock %}
-                {# <div class="row-start-3 p-2 pt-0 page-container xs:hidden">{% include "components/bottombar.njk" %}</div> #}
+                {# < div class = "row-start-3 p-2 pt-0 page-container xs:hidden" > {% include "components/bottombar.njk" %}</div> #}
                 <div class="lg:hidden flex-shrink-0 z-[999] bottom-0 row-start-3 page-container">{% include "components/appletIconFooter.njk" %}</div>
             </main>
         </div>

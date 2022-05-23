@@ -7,6 +7,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addWatchTarget("./styles/tailwind.css");
   eleventyConfig.addWatchTarget("./scripts/*.js");
   eleventyConfig.addWatchTarget("./images/*");
+  eleventyConfig.addWatchTarget("./favicons/*");
 
   eleventyConfig.addShortcode("version", function () {
     return now;
@@ -16,11 +17,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addFilter("dateDisplay", require("./filters/dates.js"));
 
   eleventyConfig.addTransform("htmlmin", function (content, outputPath) {
-    if (
-      process.env.ELEVENTY_PRODUCTION &&
-      outputPath &&
-      outputPath.endsWith(".html")
-    ) {
+    if (process.env.ELEVENTY_PRODUCTION && outputPath && outputPath.endsWith(".html")) {
       let minified = htmlmin.minify(content, {
         useShortDoctype: true,
         removeComments: true,
@@ -37,6 +34,7 @@ module.exports = function (eleventyConfig) {
   });
   eleventyConfig.addPassthroughCopy("scripts");
   eleventyConfig.addPassthroughCopy("images");
+  eleventyConfig.addPassthroughCopy("favicons");
   eleventyConfig.addPassthroughCopy("songs");
 
   // Layout aliases
